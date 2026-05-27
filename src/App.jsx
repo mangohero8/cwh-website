@@ -154,17 +154,17 @@ function HomePage({nav:n}) {
   return (
     <div>
       {/* HERO — Full bleed photo with logo */}
-      <section style={{position:"relative",paddingTop:52}}>
-        <img src={IMG.hero} alt="Columbus Warriors" style={{width:"100%",display:"block"}} />
+      <section style={{position:"relative",paddingTop:52,height:400,overflow:"hidden"}}>
+        <img src={IMG.hero} alt="Columbus Warriors" style={{width:"100%",height:"100%",objectFit:"cover",display:"block"}} />
         <div style={{position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(transparent, rgba(0,0,0,0.7))",padding:"40px 20px 20px",textAlign:"center"}}>
-          <img src={IMG.logo} alt="CWH" style={{width:160,marginBottom:8}} />
-          <div style={{fontFamily:F.h,fontSize:18,fontWeight:600,color:C.w,textTransform:"uppercase",letterSpacing:4}}>"From the Rink to Resilience"</div>
+          <img src={IMG.logo} alt="CWH" style={{width:140,marginBottom:8}} />
+          <div style={{fontFamily:F.h,fontSize:16,fontWeight:600,color:C.w,textTransform:"uppercase",letterSpacing:4}}>"From the Rink to Resilience"</div>
         </div>
       </section>
 
       {/* CTA GRID — 2x2 cards with logo watermark like Crossbar */}
-      <section style={{padding:"32px 16px",background:C.g1}}>
-        <div style={{maxWidth:600,margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+      <section style={{padding:"24px 16px",background:C.g1}}>
+        <div style={{maxWidth:800,margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
           {[
             {label:"Become a\nPlayer", href:FORMS.reg, bg:C.navy},
             {label:"Become a\nSponsor", href:"#", bg:C.navy, action:function(){n("become-sponsor")}},
@@ -174,10 +174,10 @@ function HomePage({nav:n}) {
             return (
               <a key={i} href={cta.href} target={cta.action ? undefined : "_blank"} rel="noopener noreferrer"
                 onClick={cta.action ? function(e){e.preventDefault();cta.action()} : undefined}
-                style={{display:"block",position:"relative",borderRadius:12,overflow:"hidden",aspectRatio:"1",background:cta.bg,textDecoration:"none"}}>
-                <img src={IMG.logo} alt="" style={{position:"absolute",bottom:-10,right:-10,width:"70%",opacity:0.15}} />
-                <div style={{position:"relative",zIndex:1,padding:20,display:"flex",alignItems:"flex-start",height:"100%"}}>
-                  <div style={{fontFamily:F.h,fontSize:22,fontWeight:700,color:C.w,textTransform:"uppercase",letterSpacing:1,lineHeight:1.2,whiteSpace:"pre-line"}}>{cta.label}</div>
+                style={{display:"block",position:"relative",borderRadius:12,overflow:"hidden",aspectRatio:"1",background:cta.bg,textDecoration:"none",minHeight:180}}>
+                <img src={IMG.logo} alt="" style={{position:"absolute",bottom:-20,right:-20,width:"80%",opacity:0.2}} />
+                <div style={{position:"relative",zIndex:1,padding:24,display:"flex",alignItems:"flex-start",height:"100%"}}>
+                  <div style={{fontFamily:F.h,fontSize:26,fontWeight:700,color:C.w,textTransform:"uppercase",letterSpacing:1,lineHeight:1.2,whiteSpace:"pre-line"}}>{cta.label}</div>
                 </div>
               </a>
             );
@@ -196,7 +196,7 @@ function HomePage({nav:n}) {
 
       {/* NEWS — Full width image cards like Crossbar */}
       <section style={{padding:"32px 16px",background:C.g1}}>
-        <div style={{maxWidth:700,margin:"0 auto"}}>
+        <div style={{maxWidth:1000,margin:"0 auto"}}>
           <h2 style={{fontFamily:F.h,fontSize:22,fontWeight:700,color:C.g8,textTransform:"uppercase",letterSpacing:1,margin:"0 0 20px",display:"flex",alignItems:"center",gap:8}}>
             <span style={{fontSize:24}}>📰</span> Columbus Warrior Hockey News
           </h2>
