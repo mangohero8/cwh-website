@@ -237,22 +237,68 @@ def scrape_chillerstats():
         sched_html = fetch_page(sched_url)
         if sched_html:
             soup = BeautifulSoup(sched_html, "html.parser")
-            tables = soup.find_all("table")
-            for table in tables:
-                for row in table.find_all("tr")[1:]:
-                    cells = row.find_all("td")
-                    if len(cells) >= 4:
+            # Find the main schedule table (not footer tables)
+            container = soup.find("div", class_="table-responsive")
+            if container:
+                table = container.find("table")
+                if table:
+                    tbody = table.find("tbody")
+                    rows = tbody.find_all("tr") if tbody else table.find_all("tr")[1:]
+                    for row in rows:
+                        cells = row.find_all("td")
+                        if len(cells) < 6:
+                            continue
+                        
+                        # Columns: Date, Time, Facility, Rink, Home, Away, Score, W/L
+                        date_text = cells[0].get_text().strip()
+                        time_text = cells[1].get_text().strip()
+                        facility = cells[2].get_text().strip()
+                        rink = cells[3].get_text().strip()
+                        home_cell = cells[4]
+                        away_cell = cells[5]
+                        
+                        # Determine opponent - our team is bold, opponent is a link
+                        home_text = home_cell.get_text().strip()
+                        away_text = away_cell.get_text().strip()
+                        
+                        # Check if our team is home or away (our team has bold style)
+                        home_is_us = home_cell.find("td", style=True) is not None or (home_cell.get("style") and "bold" in home_cell.get("style", ""))
+                        if not home_is_us:
+                            home_is_us = not home_cell.find("a", href=True)
+                        
+                        if home_is_us:
+                            opponent = away_text
+                            home_away = "Home"
+                        else:
+                            opponent = home_text
+                            home_away = "Away"
+                        
+                        # Score and result
+                        score = cells[6].get_text().strip() if len(cells) > 6 else ""
+                        result_cell = cells[7] if len(cells) > 7 else None
+                        result = ""
+                        if result_cell:
+                            result_link = result_cell.find("a")
+                            if result_link:
+                                result = result_link.get_text().strip()
+                        
+                        location = facility + " - " + rink
+                        
                         game = {
                             "team": team_config["name"],
-                            "date": cells[0].get_text().strip(),
-                            "time": cells[1].get_text().strip() if len(cells) > 1 else "",
-                            "opponent": cells[2].get_text().strip() if len(cells) > 2 else "",
-                            "location": cells[3].get_text().strip() if len(cells) > 3 else "",
-                            "result": cells[4].get_text().strip() if len(cells) > 4 else "",
+                            "date": date_text,
+                            "time": time_text,
+                            "opponent": opponent,
+                            "location": location,
+                            "homeAway": home_away,
+                            "score": score,
+                            "result": result,
                         }
-                        if game["date"] and game["opponent"]:
+                        if date_text:
                             all_schedules.append(game)
-            print(f"  -> Found {len(all_schedules)} games")
+            
+            team_games = len([g for g in all_schedules if g["team"] == team_config["name"]])
+            print(f"  -> Found {team_games} games")
 
     # Save combined schedule
     combined = {

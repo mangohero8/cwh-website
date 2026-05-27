@@ -474,20 +474,22 @@ function SchedulePage() {
       <div>
         <p style={{fontFamily:F.b,fontSize:13,color:C.g4,marginBottom:16}}>Last updated: {new Date(schedule.updated).toLocaleString()}</p>
         <div style={{borderRadius:8,overflow:"hidden",overflowX:"auto"}}>
-          <table style={{width:"100%",borderCollapse:"collapse",minWidth:600,background:C.navy}}>
+          <table style={{width:"100%",borderCollapse:"collapse",minWidth:700,background:C.navy}}>
             <thead><tr style={{background:"rgba(183,35,44,0.25)"}}>
-              {["Date","Time","Team","Opponent","Location","Result"].map(function(h,i){return <th key={i} style={{padding:"10px 14px",fontFamily:F.h,fontSize:14,fontWeight:400,textTransform:"uppercase",letterSpacing:2,color:C.w,textAlign:"left",whiteSpace:"nowrap"}}>{h}</th>})}
+              {["Date","Time","H/A","Opponent","Location","Score","W/L"].map(function(h,i){return <th key={i} style={{padding:"10px 14px",fontFamily:F.h,fontSize:14,fontWeight:400,textTransform:"uppercase",letterSpacing:2,color:C.w,textAlign:"left",whiteSpace:"nowrap"}}>{h}</th>})}
             </tr></thead>
             <tbody>{schedule.games.map(function(g,i) {
-              var hasResult = g.result && g.result.trim() !== "";
+              var isWin = g.result === "W";
+              var isLoss = g.result === "L";
               return (
                 <tr key={i} style={{borderTop:"1px solid rgba(255,255,255,0.08)",background:i%2===0?"transparent":"rgba(255,255,255,0.03)"}}>
                   <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.w,fontWeight:600,whiteSpace:"nowrap"}}>{g.date}</td>
                   <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.g4,whiteSpace:"nowrap"}}>{g.time}</td>
-                  <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:13,color:C.g4}}>{g.team}</td>
+                  <td style={{padding:"10px 14px",fontFamily:F.h,fontSize:14,color:g.homeAway==="Home"?"#4ade80":C.g4,textAlign:"center"}}>{g.homeAway==="Home"?"H":"A"}</td>
                   <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.w}}>{g.opponent}</td>
                   <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:13,color:C.g4}}>{g.location}</td>
-                  <td style={{padding:"10px 14px",fontFamily:F.h,fontSize:16,color:hasResult?C.w:C.g4,textAlign:"center"}}>{hasResult ? g.result : "—"}</td>
+                  <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.w,textAlign:"center"}}>{g.score || "—"}</td>
+                  <td style={{padding:"10px 14px",fontFamily:F.h,fontSize:16,textAlign:"center",color:isWin?"#4ade80":isLoss?"#f87171":C.g4}}>{g.result || "—"}</td>
                 </tr>
               );
             })}</tbody>
