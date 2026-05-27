@@ -1,0 +1,181 @@
+{
+  "updated": "2026-05-27T19:43:24.382186Z",
+  "games": [
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "May 24",
+      "time": "5:30 PM",
+      "opponent": "Chiller Easton",
+      "location": "Rink 1",
+      "result": "Ice Dogs"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "May 31",
+      "time": "9:10 PM",
+      "opponent": "Chiller North",
+      "location": "Rink 2",
+      "result": "Columbus Warriors CSC"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "Jun 7",
+      "time": "4:30 PM",
+      "opponent": "Chiller Dublin",
+      "location": "Rink 2",
+      "result": "Spare Parts"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "Jun 14",
+      "time": "5:10 PM",
+      "opponent": "Chiller North",
+      "location": "Rink 1",
+      "result": "Columbus Warriors CSC"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "Jun 21",
+      "time": "5:20 PM",
+      "opponent": "OhioHealth Ice Haus",
+      "location": "Main Ice",
+      "result": "Two-Cans"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "Jun 28",
+      "time": "2:40 PM",
+      "opponent": "Chiller Dublin",
+      "location": "Rink 1",
+      "result": "Columbus Warriors CSC"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "Jul 5",
+      "time": "5:00 PM",
+      "opponent": "Chiller North",
+      "location": "Rink 1",
+      "result": "Tommy O'Bryan's Pub"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "Jul 12",
+      "time": "3:50 PM",
+      "opponent": "Chiller Dublin",
+      "location": "Rink 1",
+      "result": "Hive"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "Jul 19",
+      "time": "4:20 PM",
+      "opponent": "Chiller Easton",
+      "location": "Rink 1",
+      "result": "Columbus Warriors CSC"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "Jul 26",
+      "time": "6:10 PM",
+      "opponent": "Chiller North",
+      "location": "Rink 1",
+      "result": "Healthy Scratches"
+    },
+    {
+      "team": "CAHL C - Columbus Warriors CSC",
+      "date": "Aug 2",
+      "time": "9:50 PM",
+      "opponent": "Chiller North",
+      "location": "Rink 3",
+      "result": "Columbus Warriors CSC"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "May 18",
+      "time": "7:00 PM",
+      "opponent": "Chiller Ice Works",
+      "location": "Main Ice",
+      "result": "Columbus Warriors DWB"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Jun 1",
+      "time": "7:50 PM",
+      "opponent": "Chiller North",
+      "location": "Rink 2",
+      "result": "Spare Parts HC"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Jun 8",
+      "time": "8:20 PM",
+      "opponent": "Chiller Easton",
+      "location": "Rink 2",
+      "result": "Columbus Warriors DWB"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Jun 15",
+      "time": "7:10 PM",
+      "opponent": "OhioHealth Ice Haus",
+      "location": "Main Ice",
+      "result": "Columbus Thunder"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Jun 22",
+      "time": "8:00 PM",
+      "opponent": "Chiller North",
+      "location": "Rink 3",
+      "result": "Brew Jackets"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Jun 29",
+      "time": "8:30 PM",
+      "opponent": "Chiller Dublin",
+      "location": "Rink 1",
+      "result": "Columbus Warriors DWB"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Jul 6",
+      "time": "7:50 PM",
+      "opponent": "Chiller Dublin",
+      "location": "Rink 1",
+      "result": "The Neptunes"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Jul 13",
+      "time": "8:30 PM",
+      "opponent": "Chiller Dublin",
+      "location": "Rink 1",
+      "result": "Columbus Warriors DWB"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Jul 20",
+      "time": "9:30 PM",
+      "opponent": "Chiller Dublin",
+      "location": "Rink 1",
+      "result": "Boomer\u2019s Comeback"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Jul 27",
+      "time": "9:40 PM",
+      "opponent": "Chiller Dublin",
+      "location": "Rink 1",
+      "result": "Columbus Warriors DWB"
+    },
+    {
+      "team": "CAHL D - Columbus Warriors DWB",
+      "date": "Aug 3",
+      "time": "8:40 PM",
+      "opponent": "OhioHealth Ice Haus",
+      "location": "Main Ice",
+      "result": "Columbus Warriors DWB"
+    }
+  ]
+}
