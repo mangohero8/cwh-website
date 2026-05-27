@@ -361,28 +361,92 @@ function NewsPage() { return <PageWrap title="News">
 
 function TeamPage({team}) {
   var t = TEAMS.find(function(x){return x.id===team}) || TEAMS[0];
+  var st = useState(null); var stats = st[0]; var setStats = st[1];
+  var dataFile = team === "team-c" ? "/data/stats-cahl-c.json" : team === "team-d" ? "/data/stats-cahl-d.json" : null;
+  
+  useEffect(function() {
+    if (dataFile) {
+      fetch(dataFile).then(function(r){return r.json()}).then(function(d){setStats(d)}).catch(function(){setStats(null)});
+    }
+  }, [dataFile]);
+
+  function StatsTable({title, players, isGoalie}) {
+    if (!players || players.length === 0) return null;
+    var skaterCols = ["#","Name","Pos","GP","G","A","PTS","PIM"];
+    var goalieCols = ["#","Name","Pos","GP","W","L","OTL","GA","GAA"];
+    var cols = isGoalie ? goalieCols : skaterCols;
+    return (
+      <div style={{marginBottom:32}}>
+        <h2 style={{fontFamily:F.h,fontSize:22,color:C.navy,letterSpacing:2,margin:"0 0 12px"}}>{title}</h2>
+        <div style={{borderRadius:8,overflow:"hidden",overflowX:"auto"}}>
+          <table style={{width:"100%",borderCollapse:"collapse",minWidth:500,background:C.navy}}>
+            <thead><tr style={{background:"rgba(183,35,44,0.25)"}}>
+              {cols.map(function(h,i){return <th key={i} style={{padding:"10px 12px",fontFamily:F.h,fontSize:14,fontWeight:400,textTransform:"uppercase",letterSpacing:2,color:C.w,textAlign:i<3?"left":"center",whiteSpace:"nowrap"}}>{h}</th>})}
+            </tr></thead>
+            <tbody>{players.map(function(p,i) {
+              return (
+                <tr key={i} style={{borderTop:"1px solid rgba(255,255,255,0.08)",background:i%2===0?"transparent":"rgba(255,255,255,0.03)"}}>
+                  <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:13,color:C.g4,textAlign:"left"}}>{p.jersey}</td>
+                  <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.w,fontWeight:600}}>{p.name}</td>
+                  <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:12,color:C.g4}}>{p.pos}</td>
+                  <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{p.gp}</td>
+                  {isGoalie ? (
+                    <>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{p.w}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{p.l}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{p.otl}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{p.ga}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.h,fontSize:16,color:C.w,textAlign:"center"}}>{p.gaa}</td>
+                    </>
+                  ) : (
+                    <>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{p.g}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{p.a}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.h,fontSize:16,color:C.w,textAlign:"center"}}>{p.pts}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{p.pim}</td>
+                    </>
+                  )}
+                </tr>
+              );
+            })}</tbody>
+          </table>
+        </div>
+      </div>
+    );
+  }
+
   return <PageWrap title={t.name} sub={t.desc}>
-    <div style={{marginBottom:28}}><Btn href="https://chillerstats.com">View on ChillerStats</Btn></div>
-    <h2 style={{fontFamily:F.h,fontSize:22,color:C.navy,letterSpacing:2,margin:"0 0 12px"}}>Team Stats</h2>
-    <div style={{background:C.navy,borderRadius:8,overflow:"hidden",overflowX:"auto"}}>
-      <table style={{width:"100%",borderCollapse:"collapse",minWidth:360}}>
-        <thead><tr style={{background:"rgba(183,35,44,0.2)"}}>
-          {["Player","GP","G","A","PTS"].map(function(h,i){return <th key={i} style={{padding:"10px 12px",fontFamily:F.h,fontSize:14,fontWeight:400,textTransform:"uppercase",letterSpacing:2,color:C.w,textAlign:i===0?"left":"center"}}>{h}</th>})}
-        </tr></thead>
-        <tbody>{STATS.map(function(s,i) {
-          return (
-            <tr key={i} style={{borderTop:"1px solid rgba(255,255,255,0.05)"}}>
-              <td style={{padding:"10px 12px",fontFamily:F.b,fontSize:14,color:C.w,fontWeight:600}}>{s.p}</td>
-              <td style={{padding:"10px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{s.gp}</td>
-              <td style={{padding:"10px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{s.g}</td>
-              <td style={{padding:"10px 12px",fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center"}}>{s.a}</td>
-              <td style={{padding:"10px 12px",fontFamily:F.h,fontSize:16,color:C.w,textAlign:"center"}}>{s.pts}</td>
-            </tr>
-          );
-        })}</tbody>
-      </table>
+    <div style={{display:"flex",gap:12,marginBottom:28,flexWrap:"wrap"}}>
+      <Btn href={"https://chillerstats.com/team/stats.cfm?TeamID=" + (stats ? stats.teamId : "")}>View on ChillerStats</Btn>
+      <Btn href={"https://chillerstats.com/team/schedule.cfm?TeamID=" + (stats ? stats.teamId : "")} v="olive">Schedule</Btn>
+      <Btn href={"https://chillerstats.com/team/standings.cfm?TeamID=" + (stats ? stats.teamId : "")} v="olive">Standings</Btn>
     </div>
-    <p style={{fontFamily:F.b,fontSize:12,color:C.g4,marginTop:10,fontStyle:"italic"}}>Placeholder — live ChillerStats integration coming soon</p>
+    {stats && stats.season && <p style={{fontFamily:F.b,fontSize:14,color:C.g4,marginBottom:20}}>Season: {stats.season} | Last updated: {new Date(stats.updated).toLocaleDateString()}</p>}
+    {stats ? (
+      <div>
+        <StatsTable title="Forwards" players={stats.forwards} />
+        <StatsTable title="Defense" players={stats.defense} />
+        <StatsTable title="Goalies" players={stats.goalies} isGoalie={true} />
+        {stats.stickAndPuck && stats.stickAndPuck.length > 0 && (
+          <div style={{marginTop:40}}>
+            <h2 style={{fontFamily:F.h,fontSize:22,color:C.navy,letterSpacing:2,margin:"0 0 12px"}}>Stick & Puck Schedule</h2>
+            <div style={{background:C.g1,borderRadius:8,padding:16}}>
+              {stats.stickAndPuck.map(function(s,i){return <div key={i} style={{fontFamily:F.b,fontSize:14,color:C.g6,padding:"6px 0",borderBottom:i<stats.stickAndPuck.length-1?"1px solid "+C.g2:"none"}}>{s.rink} — {s.date} at {s.time}</div>})}
+            </div>
+          </div>
+        )}
+        {stats.dropIn && stats.dropIn.length > 0 && (
+          <div style={{marginTop:24}}>
+            <h2 style={{fontFamily:F.h,fontSize:22,color:C.navy,letterSpacing:2,margin:"0 0 12px"}}>Drop-In Schedule</h2>
+            <div style={{background:C.g1,borderRadius:8,padding:16}}>
+              {stats.dropIn.map(function(s,i){return <div key={i} style={{fontFamily:F.b,fontSize:14,color:C.g6,padding:"6px 0",borderBottom:i<stats.dropIn.length-1?"1px solid "+C.g2:"none"}}>{s.rink} — {s.date} at {s.time}</div>})}
+            </div>
+          </div>
+        )}
+      </div>
+    ) : (
+      <p style={{fontFamily:F.b,fontSize:14,color:C.g4,fontStyle:"italic"}}>Stats data loading... Run the ChillerStats scraper to populate.</p>
+    )}
   </PageWrap>;
 }
 
