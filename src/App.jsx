@@ -194,23 +194,39 @@ function HomePage({nav:n}) {
         </div>
       </section>
 
-      {/* NEWS — Full width image cards like Crossbar */}
+      {/* NEWS — Grid layout like Crossbar (3 top, 2 bottom) */}
       <section style={{padding:"32px 16px",background:C.g1}}>
-        <div style={{maxWidth:1000,margin:"0 auto"}}>
+        <div style={{maxWidth:1100,margin:"0 auto"}}>
           <h2 style={{fontFamily:F.h,fontSize:22,fontWeight:700,color:C.g8,textTransform:"uppercase",letterSpacing:1,margin:"0 0 20px",display:"flex",alignItems:"center",gap:8}}>
             <span style={{fontSize:24}}>📰</span> Columbus Warrior Hockey News
           </h2>
-          <div style={{display:"flex",flexDirection:"column",gap:20}}>
-            {NEWS.map(function(n, i) {
+          <div style={{display:"grid",gridTemplateColumns:"repeat(3, 1fr)",gap:16}}>
+            {NEWS.slice(0,3).map(function(n, i) {
               return (
-                <div key={i} style={{position:"relative",borderRadius:12,overflow:"hidden",minHeight:200}}>
+                <div key={i} style={{position:"relative",borderRadius:12,overflow:"hidden",minHeight:300,cursor:"pointer"}}>
                   <img src={n.img} alt="" style={{width:"100%",height:"100%",objectFit:"cover",position:"absolute",top:0,left:0}} />
-                  <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:"linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.3))"}} />
-                  <div style={{position:"relative",zIndex:1,padding:24,display:"flex",flexDirection:"column",justifyContent:"flex-end",minHeight:200}}>
-                    <div style={{fontFamily:F.b,fontSize:12,color:C.w,textTransform:"uppercase",letterSpacing:1.5,marginBottom:8,display:"flex",alignItems:"center",gap:6}}>
-                      <span style={{fontSize:14}}>📰</span> {n.date}
+                  <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:"linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%)"}} />
+                  <div style={{position:"relative",zIndex:1,padding:20,display:"flex",flexDirection:"column",justifyContent:"flex-start",minHeight:300}}>
+                    <div style={{fontFamily:F.b,fontSize:11,color:C.w,textTransform:"uppercase",letterSpacing:1.5,marginBottom:8,display:"flex",alignItems:"center",gap:6}}>
+                      <span style={{fontSize:13}}>📰</span> {n.date}
                     </div>
-                    <h3 style={{fontFamily:F.h,fontSize:24,fontWeight:700,color:C.w,textTransform:"uppercase",lineHeight:1.15,margin:0}}>{n.title}</h3>
+                    <h3 style={{fontFamily:F.h,fontSize:22,fontWeight:700,color:C.w,textTransform:"uppercase",lineHeight:1.15,margin:0}}>{n.title}</h3>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(2, 1fr)",gap:16,marginTop:16}}>
+            {NEWS.slice(3).map(function(n, i) {
+              return (
+                <div key={i} style={{position:"relative",borderRadius:12,overflow:"hidden",minHeight:300,cursor:"pointer"}}>
+                  <img src={n.img} alt="" style={{width:"100%",height:"100%",objectFit:"cover",position:"absolute",top:0,left:0}} />
+                  <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:"linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%)"}} />
+                  <div style={{position:"relative",zIndex:1,padding:20,display:"flex",flexDirection:"column",justifyContent:"flex-start",minHeight:300}}>
+                    <div style={{fontFamily:F.b,fontSize:11,color:C.w,textTransform:"uppercase",letterSpacing:1.5,marginBottom:8,display:"flex",alignItems:"center",gap:6}}>
+                      <span style={{fontSize:13}}>📰</span> {n.date}
+                    </div>
+                    <h3 style={{fontFamily:F.h,fontSize:22,fontWeight:700,color:C.w,textTransform:"uppercase",lineHeight:1.15,margin:0}}>{n.title}</h3>
                   </div>
                 </div>
               );
