@@ -1,0 +1,13 @@
+{
+  "team": "CAHL D - Warriors",
+  "season": "Summer 2026",
+  "updated": "2026-05-27T15:00:00Z",
+  "source": "chillerstats.com",
+  "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
+  "note": "Run chillerstats_scraper.py to populate with live data",
+  "forwards": [],
+  "defense": [],
+  "goalies": [],
+  "stickAndPuck": [],
+  "dropIn": []
+}

@@ -35,16 +35,16 @@ except ImportError:
 
 TEAMS = {
     "cahl-c": {
-        "name": "CAHL C - Warriors",
-        "guid": "REPLACE_WITH_CAHL_C_TEAM_GUID",
-        "stats_url": "https://chillerstats.com/team/stats.cfm?TeamID=REPLACE_WITH_CAHL_C_TEAM_GUID",
-        "schedule_url": "https://chillerstats.com/team/schedule.cfm?TeamID=REPLACE_WITH_CAHL_C_TEAM_GUID",
+        "name": "CAHL C - Columbus Warriors CSC",
+        "guid": "B1ECD637-9E6B-6275-659DF391B958D92F",
+        "stats_url": "https://chillerstats.com/team/stats.cfm?TeamID=B1ECD637-9E6B-6275-659DF391B958D92F",
+        "schedule_url": "https://chillerstats.com/team/schedule.cfm?TeamID=B1ECD637-9E6B-6275-659DF391B958D92F",
     },
     "cahl-d": {
         "name": "CAHL D - Warriors",
-        "guid": "REPLACE_WITH_CAHL_D_TEAM_GUID",
-        "stats_url": "https://chillerstats.com/team/stats.cfm?TeamID=REPLACE_WITH_CAHL_D_TEAM_GUID",
-        "schedule_url": "https://chillerstats.com/team/schedule.cfm?TeamID=REPLACE_WITH_CAHL_D_TEAM_GUID",
+        "guid": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
+        "stats_url": "https://chillerstats.com/team/stats.cfm?TeamID=B1F33283-0A80-D7BD-258CF29CE5E30FAA",
+        "schedule_url": "https://chillerstats.com/team/schedule.cfm?TeamID=B1F33283-0A80-D7BD-258CF29CE5E30FAA",
     },
 }
 
