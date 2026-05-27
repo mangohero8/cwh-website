@@ -41,11 +41,11 @@ const COACHING = [
 ];
 
 const NEWS = [
-  { date:"March 12, 2026", title:"Columbus Warriors Debut at the Guardian's Cup in Rochester", img:IMG.guardiansCup },
-  { date:"December 16, 2025", title:"Columbus Warriors Close Out Strong Fall Session in CAHL's C South League", img:IMG.hero },
-  { date:"November 24, 2025", title:"Grand Opening, Greater Commitment: Moo Moo Express Car Wash Elevates to Platinum Sponsor", img:IMG.hero },
-  { date:"July 29, 2025", title:"Columbus Warrior Hockey Announces Moo Moo Express Car Wash as Gold Sponsor", img:IMG.hero },
-  { date:"July 29, 2025", title:"Columbus Warrior Hockey Holds First Official Stick and Puck Session After Formation of 501(c)(3)", img:IMG.hero },
+  { date:"March 12, 2026", title:"Columbus Warriors Debut at the Guardian's Cup in Rochester", img:"/images/news-guardians-cup.jpg" },
+  { date:"December 16, 2025", title:"Columbus Warriors Close Out Strong Fall Session in CAHL's C South League", img:"/images/news-cahl-fall.jpg" },
+  { date:"November 24, 2025", title:"Grand Opening, Greater Commitment: Moo Moo Express Car Wash Elevates to Platinum Sponsor", img:"/images/news-moomoo-platinum.jpg" },
+  { date:"July 29, 2025", title:"Columbus Warrior Hockey Announces Moo Moo Express Car Wash as Gold Sponsor", img:"/images/news-moomoo-gold.jpg" },
+  { date:"July 29, 2025", title:"Columbus Warrior Hockey Holds First Official Stick and Puck Session After Formation of 501(c)(3)", img:"/images/news-first-session.jpg" },
 ];
 
 const TEAMS = [
@@ -164,7 +164,7 @@ function HomePage({nav:n}) {
 
       {/* CTA GRID — 2x2 cards with logo watermark like Crossbar */}
       <section style={{padding:"24px 16px",background:C.g1}}>
-        <div style={{maxWidth:800,margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
+        <div style={{maxWidth:1000,margin:"0 auto",display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:12}}>
           {[
             {label:"Become a\nPlayer", href:FORMS.reg, bg:C.navy},
             {label:"Become a\nSponsor", href:"#", bg:C.navy, action:function(){n("become-sponsor")}},
@@ -186,11 +186,11 @@ function HomePage({nav:n}) {
       </section>
 
       {/* SPONSOR LOGOS — Like Crossbar's row */}
-      <section style={{padding:"32px 16px",background:C.w,textAlign:"center"}}>
-        <div style={{display:"flex",gap:24,alignItems:"center",justifyContent:"center",flexWrap:"wrap"}}>
-          <a href="https://www.moomoocarwash.com/" target="_blank" rel="noopener noreferrer"><img src={IMG.moomoo} alt="Moo Moo" style={{height:60}} /></a>
-          <a href="https://www.thechiller.com/" target="_blank" rel="noopener noreferrer"><img src={IMG.chiller} alt="Chiller" style={{height:60}} /></a>
-          <a href="https://www.kroger.com/account/communityrewards" target="_blank" rel="noopener noreferrer"><img src={IMG.kroger} alt="Kroger" style={{height:60}} /></a>
+      <section style={{padding:"40px 16px",background:C.w,textAlign:"center"}}>
+        <div style={{display:"flex",gap:48,alignItems:"center",justifyContent:"center",flexWrap:"wrap"}}>
+          <a href="https://www.moomoocarwash.com/" target="_blank" rel="noopener noreferrer"><img src={IMG.moomoo} alt="Moo Moo" style={{height:80}} /></a>
+          <a href="https://www.thechiller.com/" target="_blank" rel="noopener noreferrer"><img src={IMG.chiller} alt="Chiller" style={{height:80}} /></a>
+          <a href="https://www.kroger.com/account/communityrewards" target="_blank" rel="noopener noreferrer"><img src={IMG.kroger} alt="Kroger" style={{height:80}} /></a>
         </div>
       </section>
 
