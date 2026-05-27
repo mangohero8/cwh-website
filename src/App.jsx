@@ -98,7 +98,7 @@ function Navbar({nav, curPage}) {
   return (
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000}}>
       {/* Tier 1: Top bar — Account links + Crossbar */}
-      <div className="top-bar" style={{background:C.olive,padding:"4px 0",borderBottom:"2px solid "+C.red}}>
+      <div className="top-bar" style={{background:C.navy,padding:"6px 0"}}>
         <div style={{maxWidth:1200,margin:"0 auto",padding:"0 16px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
           <div style={{display:"flex",gap:16,alignItems:"center"}}>
             <span style={{fontFamily:F.b,fontSize:12,color:C.w,textTransform:"uppercase",letterSpacing:1}}>Columbus Warrior Hockey</span>
@@ -116,11 +116,11 @@ function Navbar({nav, curPage}) {
         </div>
       </div>
 
-      {/* Tier 2: Main nav — Logo + Links + Registration */}
-      <div style={{background:C.navy}}>
+      {/* Tier 2: Main nav — Logo + Links + Registration (olive like Crossbar) */}
+      <div style={{background:C.olive,borderTop:"2px solid "+C.red}}>
         <div style={{maxWidth:1200,margin:"0 auto",padding:"0 16px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-          <div style={{cursor:"pointer",padding:"8px 0"}} onClick={function(){nav("home");setMenuOpen(false)}}>
-            <img src={IMG.logo} alt="CWH" style={{height:52}} />
+          <div style={{cursor:"pointer",padding:"12px 0",borderRight:"1px solid rgba(255,255,255,0.1)",paddingRight:20}} onClick={function(){nav("home");setMenuOpen(false)}}>
+            <img src={IMG.logo} alt="CWH" style={{height:60}} />
           </div>
 
           {/* Desktop nav */}
@@ -150,8 +150,8 @@ function Navbar({nav, curPage}) {
                 </div>
               );
             })}
-            <a href={FORMS.reg} target="_blank" rel="noopener noreferrer" style={{marginLeft:8,padding:"10px 22px",background:C.navy,color:C.w,fontFamily:F.h,fontSize:16,fontWeight:400,textTransform:"uppercase",letterSpacing:2,textDecoration:"none",border:"1px solid rgba(255,255,255,0.3)",borderRadius:0}}>
-              <span style={{marginRight:6}}>+</span>Registration
+            <a href={FORMS.reg} target="_blank" rel="noopener noreferrer" style={{marginLeft:12,padding:"12px 24px",background:C.navy,color:C.w,fontFamily:F.h,fontSize:16,fontWeight:400,textTransform:"uppercase",letterSpacing:2,textDecoration:"none",border:"2px solid rgba(255,255,255,0.4)",borderRadius:24}}>
+              Registration
             </a>
           </div>
 
@@ -212,7 +212,7 @@ function HomePage({nav:n}) {
   return (
     <div>
       {/* HERO */}
-      <section style={{position:"relative",marginTop:90,height:380,overflow:"hidden"}}>
+      <section style={{position:"relative",marginTop:110,height:380,overflow:"hidden"}}>
         <img src={IMG.hero} alt="Columbus Warriors" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center bottom",display:"block"}} />
         <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:"rgba(0,0,0,0.25)"}} />
         <div style={{position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(transparent, rgba(0,0,0,0.6))",padding:"40px 20px 24px",textAlign:"center"}}>
@@ -499,7 +499,7 @@ export default function CWHSite() {
       <GlobalStyles />
       <Navbar nav={nav} curPage={page} />
       {isAbout && (
-        <div style={{paddingTop:90,background:C.olive,borderBottom:"2px solid "+C.red,overflowX:"auto",WebkitOverflowScrolling:"touch"}}>
+        <div style={{paddingTop:110,background:C.olive,borderBottom:"2px solid "+C.red,overflowX:"auto",WebkitOverflowScrolling:"touch"}}>
           <div style={{display:"flex",gap:0,padding:"0 16px",minWidth:"max-content",maxWidth:1200,margin:"0 auto"}}>
             {aboutItems.map(function(it,i) {
               return <button key={i} onClick={function(){nav(it.p)}} style={{background:"none",border:"none",cursor:"pointer",padding:"12px 16px",fontFamily:F.h,fontSize:16,fontWeight:400,color:it.p===page?"#fff":"rgba(255,255,255,0.6)",borderBottom:it.p===page?"2px solid "+C.w:"2px solid transparent",textTransform:"uppercase",letterSpacing:2,whiteSpace:"nowrap"}}>{it.l}</button>;
