@@ -1,13 +1,47 @@
 {
-  "team": "CAHL D - Warriors",
+  "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
   "updated": "2026-05-27T15:00:00Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
-  "note": "Run chillerstats_scraper.py to populate with live data",
-  "forwards": [],
-  "defense": [],
-  "goalies": [],
-  "stickAndPuck": [],
-  "dropIn": []
+  "unassigned": [
+    {"jersey": "0", "name": "Alex Vakkur", "pos": "", "gp": 1, "g": 1, "a": 0, "pts": 1, "pim": 0},
+    {"jersey": "0", "name": "Garett Beltz", "pos": "", "gp": 1, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "1", "name": "Matt Chamblin", "pos": "", "gp": 0, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "0", "name": "Aaron Foster", "pos": "", "gp": 0, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "0", "name": "Brian Kennedy", "pos": "", "gp": 1, "g": 0, "a": 0, "pts": 0, "pim": 2},
+    {"jersey": "0", "name": "Keith Kriesberg", "pos": "", "gp": 1, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "0", "name": "Cai Lorenz", "pos": "", "gp": 1, "g": 0, "a": 0, "pts": 0, "pim": 2},
+    {"jersey": "0", "name": "Luke Marshall", "pos": "", "gp": 1, "g": 0, "a": 0, "pts": 0, "pim": 2},
+    {"jersey": "25", "name": "William Teater", "pos": "", "gp": 0, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "23", "name": "Charles Terch", "pos": "", "gp": 1, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "0", "name": "Leslie Walker", "pos": "", "gp": 0, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "0", "name": "Ethan Yeazel", "pos": "", "gp": 0, "g": 0, "a": 0, "pts": 0, "pim": 0}
+  ],
+  "forwards": [
+    {"jersey": "13", "name": "Wyatt Beltz", "pos": "Center", "gp": 2, "g": 3, "a": 0, "pts": 3, "pim": 0},
+    {"jersey": "97", "name": "Allen Gambrel", "pos": "Wing", "gp": 2, "g": 1, "a": 0, "pts": 1, "pim": 0},
+    {"jersey": "4", "name": "Nicholas Flores", "pos": "Wing", "gp": 2, "g": 0, "a": 1, "pts": 1, "pim": 2},
+    {"jersey": "92", "name": "James Brown", "pos": "Wing", "gp": 0, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "83", "name": "Veronica Haertling", "pos": "Wing", "gp": 1, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "30", "name": "Alex Lopez", "pos": "Wing", "gp": 1, "g": 0, "a": 0, "pts": 0, "pim": 0}
+  ],
+  "defense": [
+    {"jersey": "17", "name": "Taylor DeCicco", "pos": "Defense", "gp": 2, "g": 0, "a": 0, "pts": 0, "pim": 0},
+    {"jersey": "42", "name": "Lydia Stroul", "pos": "Defense", "gp": 1, "g": 0, "a": 0, "pts": 0, "pim": 0}
+  ],
+  "goalies": [
+    {"jersey": "33", "name": "TJ Nocar", "pos": "Goalie", "gp": 0, "w": 0, "l": 0, "otl": 0, "ga": 0, "gaa": "0.0"},
+    {"jersey": "0", "name": "Will Sullivan", "pos": "Goalie", "gp": 2, "w": 2, "l": 0, "otl": 0, "ga": 3, "gaa": "1.5"}
+  ],
+  "stickAndPuck": [
+    {"rink": "North 1", "date": "Thursday, May 28", "time": "11:30 AM"},
+    {"rink": "North 1", "date": "Thursday, May 28", "time": "6:40 PM"},
+    {"rink": "North 1", "date": "Friday, May 29", "time": "11:30 AM"}
+  ],
+  "dropIn": [
+    {"rink": "Easton 2", "date": "Wednesday, May 27", "time": "8:00 PM"},
+    {"rink": "North 1", "date": "Friday, May 29", "time": "7:45 PM"},
+    {"rink": "North 1", "date": "Saturday, May 30", "time": "1:30 PM"}
+  ]
 }
