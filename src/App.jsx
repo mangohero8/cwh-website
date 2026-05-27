@@ -463,11 +463,44 @@ function ProgramPage({page}) {
   </PageWrap>;
 }
 
-function SchedulePage() { return <PageWrap title="Schedule" sub="Upcoming games, practices, and events">
-  <div style={{padding:32,background:C.g1,borderRadius:8,textAlign:"center"}}>
-    <p style={{fontFamily:F.b,fontSize:15,color:C.g6}}>Schedule integration coming soon. Check <a href="https://chillerstats.com" target="_blank" rel="noopener noreferrer" style={{color:C.navy}}>ChillerStats</a> for current game times.</p>
-  </div>
-</PageWrap>; }
+function SchedulePage() {
+  var sc = useState(null); var schedule = sc[0]; var setSchedule = sc[1];
+  useEffect(function() {
+    fetch("/data/schedule.json").then(function(r){return r.json()}).then(function(d){setSchedule(d)}).catch(function(){setSchedule(null)});
+  }, []);
+
+  return <PageWrap title="Schedule" sub="Upcoming games, practices, and events">
+    {schedule && schedule.games && schedule.games.length > 0 ? (
+      <div>
+        <p style={{fontFamily:F.b,fontSize:13,color:C.g4,marginBottom:16}}>Last updated: {new Date(schedule.updated).toLocaleString()}</p>
+        <div style={{borderRadius:8,overflow:"hidden",overflowX:"auto"}}>
+          <table style={{width:"100%",borderCollapse:"collapse",minWidth:600,background:C.navy}}>
+            <thead><tr style={{background:"rgba(183,35,44,0.25)"}}>
+              {["Date","Time","Team","Opponent","Location","Result"].map(function(h,i){return <th key={i} style={{padding:"10px 14px",fontFamily:F.h,fontSize:14,fontWeight:400,textTransform:"uppercase",letterSpacing:2,color:C.w,textAlign:"left",whiteSpace:"nowrap"}}>{h}</th>})}
+            </tr></thead>
+            <tbody>{schedule.games.map(function(g,i) {
+              var hasResult = g.result && g.result.trim() !== "";
+              return (
+                <tr key={i} style={{borderTop:"1px solid rgba(255,255,255,0.08)",background:i%2===0?"transparent":"rgba(255,255,255,0.03)"}}>
+                  <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.w,fontWeight:600,whiteSpace:"nowrap"}}>{g.date}</td>
+                  <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.g4,whiteSpace:"nowrap"}}>{g.time}</td>
+                  <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:13,color:C.g4}}>{g.team}</td>
+                  <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.w}}>{g.opponent}</td>
+                  <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:13,color:C.g4}}>{g.location}</td>
+                  <td style={{padding:"10px 14px",fontFamily:F.h,fontSize:16,color:hasResult?C.w:C.g4,textAlign:"center"}}>{hasResult ? g.result : "—"}</td>
+                </tr>
+              );
+            })}</tbody>
+          </table>
+        </div>
+      </div>
+    ) : (
+      <div style={{padding:32,background:C.g1,borderRadius:8,textAlign:"center"}}>
+        <p style={{fontFamily:F.b,fontSize:15,color:C.g6}}>Loading schedule data...</p>
+      </div>
+    )}
+  </PageWrap>;
+}
 
 function ResourcePage({page}) {
   var pages = {
