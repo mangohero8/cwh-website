@@ -362,13 +362,83 @@ function NewsPage() { return <PageWrap title="News">
 function TeamPage({team}) {
   var t = TEAMS.find(function(x){return x.id===team}) || TEAMS[0];
   var st = useState(null); var stats = st[0]; var setStats = st[1];
+  var rs = useState(null); var roster = rs[0]; var setRoster = rs[1];
+  var rv = useState("photo"); var rosterView = rv[0]; var setRosterView = rv[1];
   var dataFile = team === "team-c" ? "/data/stats-cahl-c.json" : team === "team-d" ? "/data/stats-cahl-d.json" : null;
+  var rosterFile = team === "team-c" ? "/data/roster-cahl-c.json" : team === "team-d" ? "/data/roster-cahl-d.json" : null;
   
   useEffect(function() {
     if (dataFile) {
       fetch(dataFile).then(function(r){return r.json()}).then(function(d){setStats(d)}).catch(function(){setStats(null)});
     }
-  }, [dataFile]);
+    if (rosterFile) {
+      fetch(rosterFile).then(function(r){return r.json()}).then(function(d){setRoster(d)}).catch(function(){setRoster(null)});
+    }
+  }, [dataFile, rosterFile]);
+
+  /* Placeholder SVG for players without photos */
+  function PlayerPlaceholder() {
+    return (
+      <svg viewBox="0 0 200 200" style={{width:"100%",height:"100%",background:"#e5e7eb",borderRadius:"50%"}}>
+        <circle cx="100" cy="75" r="35" fill="#9ca3af" />
+        <ellipse cx="100" cy="170" rx="55" ry="45" fill="#9ca3af" />
+      </svg>
+    );
+  }
+
+  function RosterSection() {
+    if (!roster || !roster.players || roster.players.length === 0) return null;
+    return (
+      <div style={{marginBottom:40}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+          <h2 style={{fontFamily:F.h,fontSize:22,color:C.navy,letterSpacing:2,margin:0}}>Roster</h2>
+          <div style={{display:"flex",borderRadius:20,overflow:"hidden",border:"2px solid "+C.navy}}>
+            <button onClick={function(){setRosterView("photo")}} style={{padding:"6px 14px",background:rosterView==="photo"?C.navy:"transparent",color:rosterView==="photo"?C.w:C.navy,border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,fontWeight:600}}>Photos</button>
+            <button onClick={function(){setRosterView("table")}} style={{padding:"6px 14px",background:rosterView==="table"?C.navy:"transparent",color:rosterView==="table"?C.w:C.navy,border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,fontWeight:600}}>List</button>
+          </div>
+        </div>
+        {rosterView === "photo" ? (
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(140px, 1fr))",gap:20}}>
+            {roster.players.map(function(p, i) {
+              return (
+                <div key={i} style={{textAlign:"center"}}>
+                  <div style={{position:"relative",width:140,height:140,margin:"0 auto"}}>
+                    {p.photo ? (
+                      <img src={p.photo} alt={p.first+" "+p.last} style={{width:140,height:140,borderRadius:"50%",objectFit:"cover"}} />
+                    ) : (
+                      <PlayerPlaceholder />
+                    )}
+                    <div style={{position:"absolute",bottom:0,right:8,width:36,height:36,borderRadius:"50%",background:C.navy,color:C.w,fontFamily:F.h,fontSize:16,display:"flex",alignItems:"center",justifyContent:"center"}}>{p.jersey || "#"}</div>
+                  </div>
+                  <div style={{fontFamily:F.h,fontSize:14,color:C.g8,textTransform:"uppercase",letterSpacing:1,marginTop:8}}>{p.first}</div>
+                  <div style={{fontFamily:F.h,fontSize:20,color:C.navy,textTransform:"uppercase",letterSpacing:1,lineHeight:1}}>{p.last}</div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div style={{borderRadius:8,overflow:"hidden"}}>
+            <table style={{width:"100%",borderCollapse:"collapse",background:C.w}}>
+              <thead><tr style={{background:C.g1,borderBottom:"2px solid "+C.g2}}>
+                <th style={{padding:"10px 14px",fontFamily:F.h,fontSize:14,letterSpacing:2,color:C.navy,textAlign:"left",width:50}}>#</th>
+                <th style={{padding:"10px 14px",fontFamily:F.h,fontSize:14,letterSpacing:2,color:C.navy,textAlign:"left"}}>First</th>
+                <th style={{padding:"10px 14px",fontFamily:F.h,fontSize:14,letterSpacing:2,color:C.navy,textAlign:"left"}}>Last</th>
+              </tr></thead>
+              <tbody>{roster.players.map(function(p, i) {
+                return (
+                  <tr key={i} style={{borderBottom:"1px solid "+C.g2}}>
+                    <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.g8,fontWeight:600}}>{p.jersey}</td>
+                    <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.g8}}>{p.first}</td>
+                    <td style={{padding:"10px 14px",fontFamily:F.b,fontSize:14,color:C.g8,fontWeight:600}}>{p.last}</td>
+                  </tr>
+                );
+              })}</tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   function StatsTable({title, players, isGoalie}) {
     if (!players || players.length === 0) return null;
@@ -422,6 +492,7 @@ function TeamPage({team}) {
       <Btn href={"https://chillerstats.com/team/standings.cfm?TeamID=" + (stats ? stats.teamId : "")} v="olive">Standings</Btn>
     </div>
     {stats && stats.season && <p style={{fontFamily:F.b,fontSize:14,color:C.g4,marginBottom:20}}>Season: {stats.season} | Last updated: {new Date(stats.updated).toLocaleDateString()}</p>}
+    <RosterSection />
     {stats ? (
       <div>
         <StatsTable title="Forwards" players={stats.forwards} />

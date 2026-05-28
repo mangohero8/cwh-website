@@ -1,0 +1,28 @@
+{
+  "team": "CAHL C - Warriors",
+  "season": "CAHL C League - Summer Session",
+  "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
+  "updated": "2026-05-28T00:00:00Z",
+  "players": [
+    {"jersey": "55", "first": "Jaymes", "last": "Albright", "photo": "/images/players/albright-55.jpg"},
+    {"jersey": "50", "first": "Michael", "last": "Bennett", "photo": null},
+    {"jersey": "32", "first": "Benjamin", "last": "Bezaire", "photo": null},
+    {"jersey": "", "first": "Alexander", "last": "Burton", "photo": null},
+    {"jersey": "27", "first": "Robert", "last": "Carpenter", "photo": "/images/players/carpenter-27.jpg"},
+    {"jersey": "", "first": "Dennis", "last": "Cesarz", "photo": null},
+    {"jersey": "1", "first": "Matt", "last": "Chamblin", "photo": null},
+    {"jersey": "99", "first": "John", "last": "Crouse", "photo": null},
+    {"jersey": "", "first": "Annabelle", "last": "Demmon", "photo": null},
+    {"jersey": "21", "first": "Gerald", "last": "Fedorko", "photo": null},
+    {"jersey": "10", "first": "John", "last": "Hopkinson", "photo": "/images/players/hopkinson-10.jpg"},
+    {"jersey": "6", "first": "Douglas", "last": "Hoyt", "photo": "/images/players/hoyt-6.jpg"},
+    {"jersey": "", "first": "Kenzie", "last": "Kattich", "photo": "/images/players/kattich.png"},
+    {"jersey": "88", "first": "Michael", "last": "Lorenz", "photo": null},
+    {"jersey": "68", "first": "Brent", "last": "McCreedy", "photo": null},
+    {"jersey": "33", "first": "TJ", "last": "Nocar", "photo": "/images/players/nocar-33.jpg"},
+    {"jersey": "18", "first": "John", "last": "Poffenberger", "photo": null},
+    {"jersey": "37", "first": "Eric", "last": "Rohr", "photo": "/images/players/rohr-37.jpg"},
+    {"jersey": "44", "first": "Sam", "last": "Stanley", "photo": "/images/players/stanley-44.jpg"},
+    {"jersey": "12", "first": "William", "last": "Sullivan", "photo": "/images/players/sullivan-12.jpg"}
+  ]
+}
