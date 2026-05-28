@@ -1,20 +1,20 @@
 {
-  "updated": "2026-05-28T18:30:06.048509Z",
+  "updated": "2026-05-28T19:00:05.992771Z",
   "board_id": "18415137408",
   "events": [
     {
       "id": "12127104886",
-      "name": "CAHL C Game vs Boomer's Comeback",
-      "date": "2026-06-14",
+      "name": "CAHL C Game vs Tabby Daddies",
+      "date": "2026-05-31",
       "status": "CAHL C",
-      "description": "CAHL C Warriors take on Boomer's Comeback in a regular season matchup. Come out and support the team!"
+      "description": "CAHL C Warriors take on Tabby Daddies in a regular season matchup. Come out and support the team!"
     },
     {
       "id": "12127139458",
-      "name": "CWH Summer Fundraiser",
-      "date": "2026-06-21",
-      "status": "Fundraiser",
-      "description": "Annual summer fundraiser event. Food, drinks, and hockey. All proceeds support CWH veteran programs."
+      "name": "CAHL D Game vs Spare Parts HC",
+      "date": "2026-06-01",
+      "status": "CAHL D",
+      "description": "CAHL D Warriors take on Spare Parts HC in a regular season matchup. Come out and support the team!"
     }
   ]
 }
