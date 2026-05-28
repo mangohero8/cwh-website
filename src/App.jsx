@@ -209,6 +209,17 @@ function PageWrap({children, title, sub}) {
 
 /* ═══ HOMEPAGE ═══ */
 function HomePage({nav:n}) {
+  var mn = useState([]); var mondayNews = mn[0]; var setMondayNews = mn[1];
+  var me = useState([]); var mondayEvents = me[0]; var setMondayEvents = me[1];
+  useEffect(function() {
+    fetch("/data/news.json").then(function(r){return r.json()}).then(function(d){
+      if (d.articles) setMondayNews(d.articles);
+    }).catch(function(){});
+    fetch("/data/events.json").then(function(r){return r.json()}).then(function(d){
+      if (d.events) setMondayEvents(d.events);
+    }).catch(function(){});
+  }, []);
+
   return (
     <div>
       {/* HERO */}
@@ -296,6 +307,49 @@ function HomePage({nav:n}) {
         </div>
       </section>
 
+      {/* MONDAY.COM NEWS — Dynamic articles from Monday board */}
+      {mondayNews.length > 0 && (
+        <section style={{padding:"40px 0",background:C.w}}>
+          <div style={{maxWidth:1100,margin:"0 auto",padding:"0 16px"}}>
+            <h2 style={{fontFamily:F.h,fontSize:24,fontWeight:400,color:C.navy,textTransform:"uppercase",letterSpacing:2,margin:"0 0 20px"}}>Latest Updates</h2>
+            <div style={{display:"flex",flexDirection:"column",gap:16}}>
+              {mondayNews.map(function(article, i) {
+                return (
+                  <div key={i} style={{background:C.g1,borderRadius:8,padding:24,borderLeft:"4px solid "+C.red}}>
+                    <div style={{fontFamily:F.b,fontSize:12,color:C.g4,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>{article.date || ""}</div>
+                    <h3 style={{fontFamily:F.h,fontSize:22,color:C.navy,textTransform:"uppercase",letterSpacing:1,margin:"0 0 8px"}}>{article.title}</h3>
+                    {article.excerpt && <p style={{fontFamily:F.b,fontSize:14,color:C.g6,lineHeight:1.7,margin:0}}>{article.excerpt}</p>}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* MONDAY.COM EVENTS — Dynamic events from Monday board */}
+      {mondayEvents.length > 0 && (
+        <section style={{padding:"40px 0",background:C.g1}}>
+          <div style={{maxWidth:1100,margin:"0 auto",padding:"0 16px"}}>
+            <h2 style={{fontFamily:F.h,fontSize:24,fontWeight:400,color:C.navy,textTransform:"uppercase",letterSpacing:2,margin:"0 0 20px"}}>Upcoming Events</h2>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(300px, 1fr))",gap:16}}>
+              {mondayEvents.map(function(evt, i) {
+                var isNavy = i % 2 === 0;
+                return (
+                  <div key={i} style={{background:isNavy ? C.navy : C.olive,borderRadius:8,padding:24,color:C.w}}>
+                    <div style={{fontFamily:F.b,fontSize:12,color:"rgba(255,255,255,0.6)",textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>{evt.date || ""}</div>
+                    {evt.status && <div style={{display:"inline-block",padding:"2px 10px",borderRadius:12,background:evt.status==="Upcoming"?"#4ade80":C.g4,color:C.navy,fontFamily:F.b,fontSize:11,fontWeight:600,textTransform:"uppercase",marginBottom:8}}>{evt.status}</div>}
+                    <h3 style={{fontFamily:F.h,fontSize:20,color:C.w,textTransform:"uppercase",letterSpacing:1,margin:"8px 0"}}>{evt.name}</h3>
+                    {evt.location && <div style={{fontFamily:F.b,fontSize:13,color:"rgba(255,255,255,0.7)",marginBottom:4}}>📍 {evt.location}</div>}
+                    {evt.description && <p style={{fontFamily:F.b,fontSize:13,color:"rgba(255,255,255,0.6)",lineHeight:1.6,margin:"8px 0 0"}}>{evt.description}</p>}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* SOCIAL */}
       <section style={{padding:"50px 16px",background:C.navy,textAlign:"center"}}>
         <h2 style={{fontFamily:F.h,fontSize:24,fontWeight:400,color:C.w,textTransform:"uppercase",letterSpacing:4,margin:"0 0 24px"}}>Follow Columbus Warrior Hockey</h2>
@@ -343,7 +397,26 @@ function SponsorsPage() { return <PageWrap title="Sponsors" sub="Their generous 
   <div style={{marginTop:28}}><Btn href={FORMS.don}>Become a Sponsor</Btn></div>
 </PageWrap>; }
 
-function NewsPage() { return <PageWrap title="News">
+function NewsPage() {
+  var mn = useState([]); var mondayNews = mn[0]; var setMondayNews = mn[1];
+  useEffect(function() {
+    fetch("/data/news.json").then(function(r){return r.json()}).then(function(d){
+      if (d.articles) setMondayNews(d.articles);
+    }).catch(function(){});
+  }, []);
+
+  return <PageWrap title="News">
+  {/* Monday.com articles first */}
+  {mondayNews.length > 0 && mondayNews.map(function(article, i) {
+    return (
+      <div key={"m"+i} style={{background:C.g1,borderRadius:8,padding:24,marginBottom:16,borderLeft:"4px solid "+C.red}}>
+        <div style={{fontFamily:F.b,fontSize:12,color:C.g4,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>{article.date || ""}</div>
+        <h3 style={{fontFamily:F.h,fontSize:22,color:C.navy,textTransform:"uppercase",letterSpacing:1,margin:"0 0 8px"}}>{article.title}</h3>
+        {article.excerpt && <p style={{fontFamily:F.b,fontSize:14,color:C.g6,lineHeight:1.7,margin:0}}>{article.excerpt}</p>}
+      </div>
+    );
+  })}
+  {/* Crossbar articles */}
   {NEWS.map(function(n,i) {
     var ov = n.style===1 ? "rgba(0,41,77,.75)" : "rgba(82,84,65,.75)";
     return (
