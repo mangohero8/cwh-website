@@ -670,7 +670,7 @@ function ResourcePage({page}) {
 /* ─── ICE SCHEDULES PAGE ─── */
 function IceSchedulesPage() {
   var schedules = [
-    {name:"OhioHealth Ice Haus (OSU)", desc:"Full rink schedule for the OhioHealth Ice Haus at Nationwide Arena.", url:"https://www.thechiller.com/rink_schedule.cfm?LocationID=7", icon:"🏟️"},
+    {name:"OSU Ice Rink", desc:"Open skating sessions at The Ohio State University Ice Rink.", url:"https://ohiostatebuckeyes.com/sports/2023/5/24/the-ohio-state-university-ice-rink-open-skating-sessions", icon:"🏟️"},
     {name:"Adult Drop-In Hockey", desc:"Open drop-in sessions for adult players at Chiller locations.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=ADI", icon:"🏒"},
     {name:"40+ Hockey (TGIF)", desc:"Thursday/Friday drop-in hockey for players 40 and over.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=TGIF", icon:"🎯"},
     {name:"50+ Hockey", desc:"Drop-in hockey sessions for players 50 and over.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=50DI", icon:"⭐"},
