@@ -57,7 +57,7 @@ var NAV_ITEMS = [
   { label:"Programs", ch:[{l:"Chiller Adult Hockey League",p:"cahl"},{l:"Disabled Hockey",p:"disabled-hockey"},{l:"Stick & Puck / Drop-In",p:"stick-puck"}]},
   { label:"Schedule", p:"schedule" },
   { label:"Teams", ch:[{l:"DV - Columbus Warriors",p:"team-dv"},{l:"CAHL C - Warriors",p:"team-c"},{l:"CAHL D - Warriors",p:"team-d"}]},
-  { label:"Resources", ch:[{l:"Mental Health",p:"mental-health"},{l:"Registration Guides",p:"reg-guides"},{l:"Players Corner",p:"players-corner"},{l:"Coaching for CWH",p:"coaching"}]},
+  { label:"Resources", ch:[{l:"Ice Schedules",p:"ice-schedules"},{l:"Mental Health",p:"mental-health"},{l:"Registration Guides",p:"reg-guides"},{l:"Players Corner",p:"players-corner"},{l:"Coaching for CWH",p:"coaching"}]},
 ];
 
 function Btn({children, href, v, s:sx}) {
@@ -593,6 +593,34 @@ function ResourcePage({page}) {
   </PageWrap>;
 }
 
+/* ─── ICE SCHEDULES PAGE ─── */
+function IceSchedulesPage() {
+  var schedules = [
+    {name:"OhioHealth Ice Haus (OSU)", desc:"Full rink schedule for the OhioHealth Ice Haus at Nationwide Arena.", url:"https://www.thechiller.com/rink_schedule.cfm?LocationID=7", icon:"🏟️"},
+    {name:"Adult Drop-In Hockey", desc:"Open drop-in sessions for adult players at Chiller locations.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=ADI", icon:"🏒"},
+    {name:"40+ Hockey (TGIF)", desc:"Thursday/Friday drop-in hockey for players 40 and over.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=TGIF", icon:"🎯"},
+    {name:"50+ Hockey", desc:"Drop-in hockey sessions for players 50 and over.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=50DI", icon:"⭐"},
+    {name:"Adult Learn to Play", desc:"Beginner classes for adults learning to play hockey.", url:"https://www.thechiller.com/classes/", icon:"📚"},
+    {name:"Mastodon Ice Arena", desc:"Full schedule for Mastodon Ice Arena.", url:"https://mastodonicearena.com/schedule/", icon:"🦣"},
+    {name:"Saturday Night Hockey", desc:"Weekly Saturday night drop-in hockey sessions.", url:"https://www.thechiller.com/news.cfm?PostID=141", icon:"🌙"},
+  ];
+  return <PageWrap title="Ice Schedules" sub="Community ice schedules around Central Ohio — click any card to view the full schedule.">
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))",gap:16}}>
+      {schedules.map(function(s, i) {
+        var isNavy = i % 2 === 0;
+        return (
+          <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{display:"block",background:isNavy ? C.navy : C.olive,borderRadius:8,padding:24,textDecoration:"none",transition:"transform .2s",position:"relative",overflow:"hidden"}}>
+            <div style={{fontSize:32,marginBottom:12}}>{s.icon}</div>
+            <div style={{fontFamily:F.h,fontSize:20,color:C.w,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>{s.name}</div>
+            <div style={{fontFamily:F.b,fontSize:14,color:"rgba(255,255,255,0.7)",lineHeight:1.6}}>{s.desc}</div>
+            <div style={{fontFamily:F.b,fontSize:12,color:"rgba(255,255,255,0.5)",marginTop:12,textTransform:"uppercase",letterSpacing:1}}>View Schedule →</div>
+          </a>
+        );
+      })}
+    </div>
+  </PageWrap>;
+}
+
 /* ─── FOOTER — 4-column like Crossbar ─── */
 function Footer() {
   return (
@@ -653,6 +681,7 @@ export default function CWHSite() {
     case "disabled-hockey": content = <ProgramPage page="disabled-hockey" />; break;
     case "stick-puck": content = <ProgramPage page="stick-puck" />; break;
     case "schedule": content = <SchedulePage />; break;
+    case "ice-schedules": content = <IceSchedulesPage />; break;
     case "team-dv": content = <TeamPage team="team-dv" />; break;
     case "team-c": content = <TeamPage team="team-c" />; break;
     case "team-d": content = <TeamPage team="team-d" />; break;
