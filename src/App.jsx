@@ -228,7 +228,7 @@ function HomePage({nav:n}) {
         <img src={IMG.hero} alt="Columbus Warriors" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center bottom",display:"block"}} />
         <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:"rgba(0,0,0,0.25)"}} />
         <div style={{position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(transparent, rgba(0,0,0,0.6))",padding:"40px 20px 24px",textAlign:"center"}}>
-          <img src={IMG.logo} alt="CWH" style={{width:160,marginBottom:8}} />
+          <img src={IMG.logo} alt="CWH" style={{width:220,marginBottom:8}} />
           <div style={{fontFamily:F.h,fontSize:22,fontWeight:400,color:C.w,textTransform:"uppercase",letterSpacing:6}}>"From the Rink to Resilience"</div>
         </div>
       </section>
