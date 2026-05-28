@@ -32,9 +32,6 @@ npm run build
    - **Build output directory:** `dist`
    - **Node version:** 18
 5. Deploy
-6. Add custom domain: `cwh.carp-home.com`
-   - In Cloudflare Pages → Custom domains → Add `cwh.carp-home.com`
-   - Since you have wildcard DNS on carp-home.com, it should auto-verify
 
 ## Image Setup
 
@@ -52,11 +49,6 @@ Images must be downloaded from Crossbar and placed in `public/images/`. Run the 
 | moomoo.png | Moo Moo Express Car Wash logo |
 | chiller.png | OhioHealth Chiller logo |
 | guardians-cup.jpg | Guardian's Cup article photo |
-| taylor.webp | Taylor DeCicco headshot |
-| tj.webp | TJ Nocar headshot |
-| matt.webp | Matt Chamblin headshot |
-| steven.webp | Steven Bowman headshot |
-| brent.webp | Brent McCreedy headshot |
 
 ## Monday.com Form Links
 - Player Registration: https://wkf.ms/4fDnOqL
