@@ -150,7 +150,8 @@ function Navbar({nav, curPage}) {
                 </div>
               );
             })}
-            <a href={FORMS.reg} target="_blank" rel="noopener noreferrer" style={{marginLeft:12,padding:"12px 24px",background:C.navy,color:C.w,fontFamily:F.h,fontSize:16,fontWeight:400,textTransform:"uppercase",letterSpacing:2,textDecoration:"none",border:"2px solid rgba(255,255,255,0.4)",borderRadius:24}}>
+            <a href={FORMS.reg} target="_blank" rel="noopener noreferrer" style={{marginLeft:12,padding:"12px 24px",background:C.navy,color:C.w,fontFamily:F.h,fontSize:16,fontWeight:400,textTransform:"uppercase",letterSpacing:2,textDecoration:"none",border:"none",borderRadius:24,display:"flex",alignItems:"center",gap:8}}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
               Registration
             </a>
           </div>
@@ -223,7 +224,7 @@ function HomePage({nav:n}) {
   return (
     <div>
       {/* HERO */}
-      <section style={{position:"relative",marginTop:110,height:380,overflow:"hidden"}}>
+      <section style={{position:"relative",marginTop:110,height:450,overflow:"hidden"}}>
         <img src={IMG.hero} alt="Columbus Warriors" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center bottom",display:"block"}} />
         <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:"rgba(0,0,0,0.25)"}} />
         <div style={{position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(transparent, rgba(0,0,0,0.6))",padding:"40px 20px 24px",textAlign:"center"}}>
@@ -233,8 +234,8 @@ function HomePage({nav:n}) {
       </section>
 
       {/* CTA GRID — 4-column, alternating navy/olive like Crossbar */}
-      <section style={{padding:"40px 0",background:C.g1}}>
-        <div className="cta-grid" style={{maxWidth:1100,margin:"0 auto",padding:"0 16px",display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:16}}>
+      <section style={{padding:"50px 0",background:C.g1}}>
+        <div className="cta-grid" style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:24}}>
           {[
             {label:"Become a Player", href:FORMS.reg, style:1},
             {label:"Become a Sponsor", href:"#", style:2, action:function(){n("become-sponsor")}},
@@ -245,9 +246,9 @@ function HomePage({nav:n}) {
             return (
               <a key={i} href={cta.href} target={cta.action ? undefined : "_blank"} rel="noopener noreferrer"
                 onClick={cta.action ? function(e){e.preventDefault();cta.action()} : undefined}
-                style={{display:"block",position:"relative",borderRadius:8,overflow:"hidden",aspectRatio:"1",backgroundImage:"url("+IMG.logo+")",backgroundSize:"70%",backgroundPosition:"center 60%",backgroundRepeat:"no-repeat",backgroundColor:cta.style===1?C.navy:C.olive,textDecoration:"none"}}>
-                <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:overlay,display:"flex",alignItems:"flex-start",padding:20}}>
-                  <div style={{fontFamily:F.h,fontSize:28,fontWeight:400,color:C.w,textTransform:"uppercase",letterSpacing:2,lineHeight:1.1}}>{cta.label}</div>
+                style={{display:"block",position:"relative",borderRadius:8,overflow:"hidden",paddingBottom:"75%",backgroundImage:"url("+IMG.logo+")",backgroundSize:"65%",backgroundPosition:"center 55%",backgroundRepeat:"no-repeat",backgroundColor:cta.style===1?C.navy:C.olive,textDecoration:"none"}}>
+                <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:overlay,display:"flex",alignItems:"flex-start",padding:24}}>
+                  <div style={{fontFamily:F.h,fontSize:30,fontWeight:400,color:C.w,textTransform:"uppercase",letterSpacing:2,lineHeight:1.1}}>{cta.label}</div>
                 </div>
               </a>
             );
@@ -256,17 +257,17 @@ function HomePage({nav:n}) {
       </section>
 
       {/* SPONSORS */}
-      <section style={{padding:"50px 0",background:C.w}}>
-        <div style={{maxWidth:1000,margin:"0 auto",display:"flex",gap:0,alignItems:"center",justifyContent:"center"}}>
-          <div style={{flex:1,textAlign:"center"}}><a href="https://www.moomoocarwash.com/" target="_blank" rel="noopener noreferrer"><img src={IMG.moomoo} alt="Moo Moo" style={{maxWidth:"100%",maxHeight:100}} /></a></div>
-          <div style={{flex:1,textAlign:"center"}}><a href="https://www.thechiller.com/" target="_blank" rel="noopener noreferrer"><img src={IMG.chiller} alt="Chiller" style={{maxWidth:"100%",maxHeight:100}} /></a></div>
-          <div style={{flex:1,textAlign:"center"}}><a href="https://www.kroger.com/account/communityrewards" target="_blank" rel="noopener noreferrer"><img src={IMG.kroger} alt="Kroger" style={{maxWidth:"100%",maxHeight:100}} /></a></div>
+      <section style={{padding:"60px 0",background:C.w}}>
+        <div style={{maxWidth:1200,margin:"0 auto",display:"flex",gap:0,alignItems:"center",justifyContent:"center",padding:"0 24px"}}>
+          <div style={{flex:1,textAlign:"center"}}><a href="https://www.moomoocarwash.com/" target="_blank" rel="noopener noreferrer"><img src={IMG.moomoo} alt="Moo Moo" style={{maxWidth:"80%",maxHeight:140}} /></a></div>
+          <div style={{flex:1,textAlign:"center"}}><a href="https://www.thechiller.com/" target="_blank" rel="noopener noreferrer"><img src={IMG.chiller} alt="Chiller" style={{maxWidth:"80%",maxHeight:140}} /></a></div>
+          <div style={{flex:1,textAlign:"center"}}><a href="https://www.kroger.com/account/communityrewards" target="_blank" rel="noopener noreferrer"><img src={IMG.kroger} alt="Kroger" style={{maxWidth:"80%",maxHeight:140}} /></a></div>
         </div>
       </section>
 
       {/* NEWS — Grid 3+2 with alternating overlays */}
       <section style={{padding:"80px 0"}}>
-        <div style={{maxWidth:1100,margin:"0 auto",padding:"0 16px"}}>
+        <div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px"}}>
           <h2 style={{fontFamily:F.h,fontSize:28,fontWeight:400,color:C.g8,textTransform:"uppercase",letterSpacing:2,margin:"0 0 24px"}}>
             Columbus Warrior Hockey News
           </h2>
@@ -351,14 +352,14 @@ function HomePage({nav:n}) {
       )}
 
       {/* SOCIAL */}
-      <section style={{padding:"50px 16px",background:C.navy,textAlign:"center"}}>
-        <h2 style={{fontFamily:F.h,fontSize:24,fontWeight:400,color:C.w,textTransform:"uppercase",letterSpacing:4,margin:"0 0 24px"}}>Follow Columbus Warrior Hockey</h2>
-        <div style={{display:"flex",gap:40,justifyContent:"center",alignItems:"center"}}>
+      <section style={{padding:"40px 16px",background:C.navy,textAlign:"center"}}>
+        <h2 style={{fontFamily:F.h,fontSize:22,fontWeight:400,color:C.w,textTransform:"uppercase",letterSpacing:4,margin:"0 0 20px"}}>Follow Columbus Warrior Hockey</h2>
+        <div style={{display:"flex",gap:24,justifyContent:"center",alignItems:"center"}}>
           <a href="https://www.facebook.com/ColumbusWarriorHockey/" target="_blank" rel="noopener noreferrer">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
           <a href="https://www.instagram.com/columbuswarriorhockey" target="_blank" rel="noopener noreferrer">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </a>
         </div>
       </section>
@@ -698,33 +699,33 @@ function IceSchedulesPage() {
 function Footer() {
   return (
     <div>
-      <footer style={{background:"#1a1a1a",padding:"48px 16px 24px",color:C.g4}}>
-        <div className="footer-grid" style={{maxWidth:1100,margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 1.5fr 1fr 1fr",gap:32}}>
+      <footer style={{background:"#2a2a2a",padding:"48px 16px 24px",color:"#ccc"}}>
+        <div className="footer-grid" style={{maxWidth:1200,margin:"0 auto",display:"grid",gridTemplateColumns:"180px 1.5fr 1fr 1fr",gap:32,alignItems:"start"}}>
           <div style={{textAlign:"center"}}>
-            <img src={IMG.logo} alt="CWH" style={{width:120}} />
+            <img src={IMG.logo} alt="CWH" style={{width:140}} />
           </div>
           <div>
-            <h4 style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2,margin:"0 0 12px"}}>About Us</h4>
-            <p style={{fontFamily:F.b,fontSize:13,color:C.g4,lineHeight:1.7}}>Columbus Warrior Hockey is a 501(c)(3) non-profit organization that provides veterans with meaningful peer-based support networks, encourages a healthier lifestyle through physical activity, and offers a therapeutic experience that contributes to both mental and physical healing through the sport of hockey.</p>
+            <h4 style={{fontFamily:F.h,fontSize:16,color:C.w,textTransform:"uppercase",letterSpacing:2,margin:"0 0 12px"}}>About Us</h4>
+            <p style={{fontFamily:F.b,fontSize:13,color:"#ccc",lineHeight:1.7,margin:0}}>Columbus Warrior Hockey is a 501(c)(3) non-profit organization that provides veterans with meaningful peer-based support networks, encourages a healthier lifestyle through physical activity, and offers a therapeutic experience that contributes to both mental and physical healing through the sport of hockey.</p>
           </div>
           <div>
-            <h4 style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2,margin:"0 0 12px"}}>Contact</h4>
-            <p style={{fontFamily:F.b,fontSize:13,color:C.g4,lineHeight:1.8}}>info@columbuswarriorhockey.org<br/>Columbus Warrior Hockey<br/>Powell, OH 43065</p>
+            <h4 style={{fontFamily:F.h,fontSize:16,color:C.w,textTransform:"uppercase",letterSpacing:2,margin:"0 0 12px"}}>Contact</h4>
+            <p style={{fontFamily:F.b,fontSize:13,color:"#ccc",lineHeight:1.8,margin:0}}>info@columbuswarriorhockey.org<br/>Columbus Warrior Hockey<br/>Powell, OH 43065</p>
           </div>
           <div>
-            <h4 style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2,margin:"0 0 12px"}}>Links</h4>
+            <h4 style={{fontFamily:F.h,fontSize:16,color:C.w,textTransform:"uppercase",letterSpacing:2,margin:"0 0 12px"}}>Links</h4>
             <div style={{display:"flex",flexDirection:"column",gap:6}}>
               {[{l:"Facebook",u:"https://www.facebook.com/ColumbusWarriorHockey/"},{l:"Instagram",u:"https://www.instagram.com/columbuswarriorhockey"},{l:"USA Hockey",u:"https://www.usahockey.com"},{l:"The Chiller",u:"https://www.thechiller.com"}].map(function(lk,i) {
-                return <a key={i} href={lk.u} target="_blank" rel="noopener noreferrer" style={{fontFamily:F.b,fontSize:13,color:C.g4,textDecoration:"none"}}>{lk.l}</a>;
+                return <a key={i} href={lk.u} target="_blank" rel="noopener noreferrer" style={{fontFamily:F.b,fontSize:13,color:"#ccc",textDecoration:"none"}}>{lk.l}</a>;
               })}
             </div>
           </div>
         </div>
-        <div style={{maxWidth:1100,margin:"0 auto",borderTop:"1px solid rgba(255,255,255,0.1)",marginTop:32,paddingTop:16,display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}>
-          <div style={{fontFamily:F.b,fontSize:12,color:C.g4}}>{"(c) "+new Date().getFullYear()+" Columbus Warrior Hockey. All Rights Reserved."}</div>
+        <div style={{maxWidth:1200,margin:"0 auto",borderTop:"1px solid rgba(255,255,255,0.1)",marginTop:32,paddingTop:16,display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}>
+          <div style={{fontFamily:F.b,fontSize:12,color:"#999"}}>{"© "+new Date().getFullYear()+" Columbus Warrior Hockey. All Rights Reserved."}</div>
           <div style={{display:"flex",gap:20}}>
             {["Refund Policies","Privacy Policy","Terms & Conditions"].map(function(l,i) {
-              return <span key={i} style={{fontFamily:F.b,fontSize:12,color:C.g4,cursor:"pointer"}}>{l}</span>;
+              return <span key={i} style={{fontFamily:F.b,fontSize:12,color:"#999",cursor:"pointer"}}>{l}</span>;
             })}
           </div>
         </div>
