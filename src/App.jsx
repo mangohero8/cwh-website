@@ -37,11 +37,11 @@ var COACHING = [
 ];
 
 var NEWS = [
-  { date:"March 12, 2026", title:"Columbus Warriors Debut at the Guardian's Cup in Rochester", img:IMG.guardiansCup, style:2 },
-  { date:"December 16, 2025", title:"Columbus Warriors Close Out Strong Fall Session in CAHL's C South League", img:IMG.newsCahl, style:1 },
-  { date:"November 24, 2025", title:"Grand Opening, Greater Commitment: Moo Moo Express Car Wash Elevates to Platinum Sponsor", img:IMG.newsMooPlatinum, style:2 },
-  { date:"July 29, 2025", title:"Columbus Warrior Hockey Announces Moo Moo Express Car Wash as Gold Sponsor", img:IMG.newsMooGold, style:1 },
-  { date:"July 29, 2025", title:"Columbus Warrior Hockey Holds First Official Stick and Puck Session After Formation of 501(c)(3)", img:IMG.newsFirst, style:2 },
+  { date:"March 12, 2026", title:"Columbus Warriors Debut at the Guardian's Cup in Rochester", img:IMG.guardiansCup, style:2, url:"https://www.columbuswarriorhockey.org/news/columbus-warriors-debut-at-the-guardians-cup-in-rochester/26965" },
+  { date:"December 16, 2025", title:"Columbus Warriors Close Out Strong Fall Session in CAHL's C South League", img:IMG.newsCahl, style:1, url:"https://www.columbuswarriorhockey.org/news/columbus-warriors-close-out-strong-fall-session-in-cahl-s-c-south-c-league/25006" },
+  { date:"November 24, 2025", title:"Grand Opening, Greater Commitment: Moo Moo Express Car Wash Elevates to Platinum Sponsor", img:IMG.newsMooPlatinum, style:2, url:"https://www.columbuswarriorhockey.org/news/grand-opening-greater-commitment-moo-moo-express-car-wash-elevates-to-platinum-sponsor/24522" },
+  { date:"July 29, 2025", title:"Columbus Warrior Hockey Announces Moo Moo Express Car Wash as Gold Sponsor", img:IMG.newsMooGold, style:1, url:"https://www.columbuswarriorhockey.org/news/columbus-warrior-hockey-announces-moo-moo-express-car-wash-as-gold-sponsor/22044" },
+  { date:"July 29, 2025", title:"Columbus Warrior Hockey Holds First Official Stick and Puck Session After Formation of 501(c)(3)", img:IMG.newsFirst, style:2, url:"https://www.columbuswarriorhockey.org/news/columbus-warrior-hockey-holds-first-official-stick-and-puck-session-after-formation-of-501-c-3/22058" },
 ];
 
 var TEAMS = [
@@ -263,7 +263,7 @@ function HomePage({nav:n}) {
             {NEWS.slice(0,3).map(function(n, i) {
               var ov = n.style===1 ? "rgba(0,41,77,.75)" : "rgba(82,84,65,.75)";
               return (
-                <div key={i} style={{position:"relative",borderRadius:8,overflow:"hidden",aspectRatio:"1",cursor:"pointer"}}>
+                <a key={i} href={n.url} target="_blank" rel="noopener noreferrer" style={{position:"relative",borderRadius:8,overflow:"hidden",aspectRatio:"1",cursor:"pointer",display:"block",textDecoration:"none"}}>
                   <img src={n.img} alt="" style={{width:"100%",height:"100%",objectFit:"cover",position:"absolute",top:0,left:0}} />
                   <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:ov}} />
                   <div style={{position:"relative",zIndex:1,padding:20}}>
@@ -272,7 +272,7 @@ function HomePage({nav:n}) {
                     </div>
                     <h3 style={{fontFamily:F.h,fontSize:26,fontWeight:400,color:C.w,textTransform:"uppercase",lineHeight:1.1,margin:0,letterSpacing:1}}>{n.title}</h3>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>
@@ -280,7 +280,7 @@ function HomePage({nav:n}) {
             {NEWS.slice(3).map(function(n, i) {
               var ov = n.style===1 ? "rgba(0,41,77,.75)" : "rgba(82,84,65,.75)";
               return (
-                <div key={i} style={{position:"relative",borderRadius:8,overflow:"hidden",aspectRatio:"1",cursor:"pointer"}}>
+                <a key={i} href={n.url} target="_blank" rel="noopener noreferrer" style={{position:"relative",borderRadius:8,overflow:"hidden",aspectRatio:"1",cursor:"pointer",display:"block",textDecoration:"none"}}>
                   <img src={n.img} alt="" style={{width:"100%",height:"100%",objectFit:"cover",position:"absolute",top:0,left:0}} />
                   <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:ov}} />
                   <div style={{position:"relative",zIndex:1,padding:20}}>
@@ -289,7 +289,7 @@ function HomePage({nav:n}) {
                     </div>
                     <h3 style={{fontFamily:F.h,fontSize:26,fontWeight:400,color:C.w,textTransform:"uppercase",lineHeight:1.1,margin:0,letterSpacing:1}}>{n.title}</h3>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>
@@ -347,14 +347,14 @@ function NewsPage() { return <PageWrap title="News">
   {NEWS.map(function(n,i) {
     var ov = n.style===1 ? "rgba(0,41,77,.75)" : "rgba(82,84,65,.75)";
     return (
-      <div key={i} style={{position:"relative",borderRadius:8,overflow:"hidden",minHeight:200,marginBottom:16}}>
+      <a key={i} href={n.url} target="_blank" rel="noopener noreferrer" style={{position:"relative",borderRadius:8,overflow:"hidden",minHeight:200,marginBottom:16,display:"block",textDecoration:"none"}}>
         <img src={n.img} alt="" style={{width:"100%",height:"100%",objectFit:"cover",position:"absolute",top:0,left:0}} />
         <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:ov}} />
         <div style={{position:"relative",zIndex:1,padding:24,minHeight:200,display:"flex",flexDirection:"column",justifyContent:"flex-end"}}>
           <div style={{fontFamily:F.b,fontSize:12,color:C.w,textTransform:"uppercase",letterSpacing:1.5,marginBottom:6}}>{n.date}</div>
           <h3 style={{fontFamily:F.h,fontSize:24,fontWeight:400,color:C.w,textTransform:"uppercase",lineHeight:1.1,margin:0,letterSpacing:1}}>{n.title}</h3>
         </div>
-      </div>
+      </a>
     );
   })}
 </PageWrap>; }
