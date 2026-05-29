@@ -670,24 +670,26 @@ function ResourcePage({page}) {
 /* ─── ICE SCHEDULES PAGE ─── */
 function IceSchedulesPage() {
   var schedules = [
-    {name:"OSU Ice Rink", desc:"Open skating sessions at The Ohio State University Ice Rink.", url:"https://ohiostatebuckeyes.com/sports/2023/5/24/the-ohio-state-university-ice-rink-open-skating-sessions", icon:"🏟️"},
-    {name:"Adult Drop-In Hockey", desc:"Open drop-in sessions for adult players at Chiller locations.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=ADI", icon:"🏒"},
-    {name:"40+ Hockey (TGIF)", desc:"Thursday/Friday drop-in hockey for players 40 and over.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=TGIF", icon:"🎯"},
-    {name:"50+ Hockey", desc:"Drop-in hockey sessions for players 50 and over.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=50DI", icon:"⭐"},
-    {name:"Adult Learn to Play", desc:"Beginner classes for adults learning to play hockey.", url:"https://www.thechiller.com/classes/", icon:"📚"},
-    {name:"Mastodon Ice Arena", desc:"Full schedule for Mastodon Ice Arena.", url:"https://mastodonicearena.com/schedule/", icon:"🦣"},
-    {name:"Saturday Night Hockey", desc:"Weekly Saturday night drop-in hockey sessions.", url:"https://www.thechiller.com/news.cfm?PostID=141", icon:"🌙"},
+    {name:"OSU Ice Rink", desc:"Open skating sessions at The Ohio State University Ice Rink.", url:"https://ohiostatebuckeyes.com/sports/2023/5/24/the-ohio-state-university-ice-rink-open-skating-sessions"},
+    {name:"Adult Drop-In Hockey", desc:"Open drop-in sessions for adult players at Chiller locations.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=ADI"},
+    {name:"40+ Hockey (TGIF)", desc:"Thursday/Friday drop-in hockey for players 40 and over.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=TGIF"},
+    {name:"50+ Hockey", desc:"Drop-in hockey sessions for players 50 and over.", url:"https://www.thechiller.com/hockey/ice_time.cfm?EventTypeID=50DI"},
+    {name:"Adult Learn to Play", desc:"Beginner classes for adults learning to play hockey.", url:"https://www.thechiller.com/classes/"},
+    {name:"Mastodon Ice Arena", desc:"Full schedule for Mastodon Ice Arena.", url:"https://mastodonicearena.com/schedule/"},
+    {name:"Saturday Night Hockey", desc:"Weekly Saturday night drop-in hockey sessions.", url:"https://www.thechiller.com/news.cfm?PostID=141"},
   ];
   return <PageWrap title="Ice Schedules" sub="Community ice schedules around Central Ohio — click any card to view the full schedule.">
     <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))",gap:16}}>
       {schedules.map(function(s, i) {
         var isNavy = i % 2 === 0;
         return (
-          <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{display:"block",background:isNavy ? C.navy : C.olive,borderRadius:8,padding:24,textDecoration:"none",transition:"transform .2s",position:"relative",overflow:"hidden"}}>
-            <div style={{fontSize:32,marginBottom:12}}>{s.icon}</div>
-            <div style={{fontFamily:F.h,fontSize:20,color:C.w,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>{s.name}</div>
-            <div style={{fontFamily:F.b,fontSize:14,color:"rgba(255,255,255,0.7)",lineHeight:1.6}}>{s.desc}</div>
-            <div style={{fontFamily:F.b,fontSize:12,color:"rgba(255,255,255,0.5)",marginTop:12,textTransform:"uppercase",letterSpacing:1}}>View Schedule →</div>
+          <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{display:"block",position:"relative",background:isNavy ? C.navy : C.olive,borderRadius:8,padding:24,textDecoration:"none",overflow:"hidden",minHeight:160}}>
+            <img src={IMG.logo} alt="" style={{position:"absolute",bottom:-20,right:-20,width:120,opacity:0.1}} />
+            <div style={{position:"relative",zIndex:1}}>
+              <div style={{fontFamily:F.h,fontSize:20,color:C.w,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>{s.name}</div>
+              <div style={{fontFamily:F.b,fontSize:14,color:"rgba(255,255,255,0.7)",lineHeight:1.6}}>{s.desc}</div>
+              <div style={{fontFamily:F.h,fontSize:13,color:"rgba(255,255,255,0.5)",marginTop:16,textTransform:"uppercase",letterSpacing:2}}>View Schedule →</div>
+            </div>
           </a>
         );
       })}
