@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 
 var C = { navy:"#00294D", olive:"#525441", red:"#B7232C", w:"#fff", g1:"#F2F5F7", g2:"#e2e8f0", g4:"#94a3b8", g6:"#475569", g8:"#1e293b", bl:"#3b82f6", gr:"#22c55e" };
 var F = { h:"'Bebas Neue',sans-serif", b:"'Source Sans 3',sans-serif" };
+var NS_FH = "'Oswald',sans-serif";
 var FORMS = { reg:"https://wkf.ms/4fDnOqL", uni:"https://wkf.ms/43cPPyl", comp:"https://wkf.ms/4nMZ7KM", exp:"https://wkf.ms/4x2zl9E", don:"https://www.zeffy.com/donation-form/columbus-warrior-hockey", store:"https://teamlocker.squadlocker.com/#/lockers/2888135" };
 
 var IMG = {
@@ -19,7 +20,7 @@ var IMG = {
 
 var BOARD_MEMBERS = [
   { name:"Taylor DeCicco", role:"President", branch:"U.S. Marine Corps", years:"2010-2015", img:IMG.taylor },
-  { name:"TJ Nocar", role:"Vice President", branch:"U.S. Marine Corps", years:"2008-2012", img:IMG.tj },
+  { name:"Vacant", role:"Vice President" },
   { name:"Matt Chamblin", role:"Secretary", branch:"U.S. Air Force / Ohio ANG", years:"2002-2015", img:IMG.matt },
   { name:"Steven Bowman", role:"Treasurer", branch:"U.S. Army", years:"2012-2020", img:IMG.steven },
 ];
@@ -58,6 +59,7 @@ var NAV_ITEMS = [
   { label:"Schedule", p:"schedule" },
   { label:"Teams", ch:[{l:"DV - Columbus Warriors",p:"team-dv"},{l:"CAHL C - Warriors",p:"team-c"},{l:"CAHL D - Warriors",p:"team-d"}]},
   { label:"Resources", ch:[{l:"Ice Schedules",p:"ice-schedules"},{l:"Mental Health",p:"mental-health"},{l:"Registration Guides",p:"reg-guides"},{l:"Players Corner",p:"players-corner"},{l:"Coaching for CWH",p:"coaching"}]},
+  { label:"NEW SITE", p:"new-site" },
 ];
 
 function Btn({children, href, v, s:sx}) {
@@ -246,8 +248,8 @@ function HomePage({nav:n}) {
               <a key={i} href={cta.href} target={cta.action ? undefined : "_blank"} rel="noopener noreferrer"
                 onClick={cta.action ? function(e){e.preventDefault();cta.action()} : undefined}
                 style={{display:"block",position:"relative",borderRadius:8,overflow:"hidden",aspectRatio:"1",backgroundImage:"url("+IMG.logo+")",backgroundSize:"70%",backgroundPosition:"center 60%",backgroundRepeat:"no-repeat",backgroundColor:cta.style===1?C.navy:C.olive,textDecoration:"none"}}>
-                <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:overlay,display:"flex",alignItems:"flex-start",padding:20}}>
-                  <div style={{fontFamily:F.h,fontSize:28,fontWeight:400,color:C.w,textTransform:"uppercase",letterSpacing:2,lineHeight:1.1}}>{cta.label}</div>
+                <div style={{position:"absolute",top:0,left:0,right:0,bottom:0,background:overlay,display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>
+                  <div style={{fontFamily:F.h,fontSize:28,fontWeight:400,color:C.w,textTransform:"uppercase",letterSpacing:2,lineHeight:1.1,textAlign:"center"}}>{cta.label}</div>
                 </div>
               </a>
             );
@@ -733,6 +735,400 @@ function Footer() {
   );
 }
 
+/* ═══ NEW SITE ═══ */
+var NS_SCORES = [
+  { id:"c", label:"C League Warriors", standing:"C South Division", record:"8-4-1", color:C.bl,
+    games:[
+      {date:"Jun 5",  time:"7:30 PM", loc:"Chiller North",  opp:"Eagles",       away:false, upcoming:true},
+      {date:"Jun 12", time:"6:00 PM", loc:"Chiller Dublin", opp:"Predators",    away:true,  upcoming:true},
+      {date:"Jun 19", time:"8:00 PM", loc:"Chiller Easton", opp:"Blue Jackets", away:false, upcoming:true},
+      {date:"May 22", opp:"Predators",    gf:4, ga:2, r:"W"},
+      {date:"May 15", opp:"Blue Jackets", gf:3, ga:3, r:"T"},
+      {date:"May 8",  opp:"Rangers",      gf:2, ga:5, r:"L"},
+      {date:"May 1",  opp:"Knights",      gf:4, ga:1, r:"W"},
+      {date:"Apr 24", opp:"Storm",        gf:3, ga:2, r:"W"},
+      {date:"Apr 17", opp:"Wolves",       gf:1, ga:3, r:"L"},
+      {date:"Apr 10", opp:"Eagles",       gf:5, ga:0, r:"W"},
+      {date:"Apr 3",  opp:"Predators",    gf:2, ga:4, r:"L"},
+      {date:"Mar 27", opp:"Blue Jackets", gf:4, ga:3, r:"W"},
+      {date:"Mar 20", opp:"Rangers",      gf:3, ga:1, r:"W"},
+      {date:"Mar 13", opp:"Knights",      gf:2, ga:3, r:"L"},
+      {date:"Mar 6",  opp:"Storm",        gf:4, ga:2, r:"W"},
+      {date:"Feb 27", opp:"Wolves",       gf:3, ga:1, r:"W"},
+    ]
+  },
+  { id:"d", label:"D League Warriors", standing:"D Division", record:"6-5-2", color:C.gr,
+    games:[
+      {date:"Jun 4",  time:"6:30 PM", loc:"Chiller North",  opp:"Thunder", away:false, upcoming:true},
+      {date:"Jun 11", time:"7:00 PM", loc:"Chiller Easton", opp:"Knights", away:true,  upcoming:true},
+      {date:"Jun 18", time:"8:30 PM", loc:"Chiller Dublin", opp:"Wolves",  away:false, upcoming:true},
+      {date:"May 21", opp:"Knights",      gf:5, ga:1, r:"W"},
+      {date:"May 14", opp:"Storm",        gf:2, ga:4, r:"L"},
+      {date:"May 7",  opp:"Wolves",       gf:3, ga:3, r:"T"},
+      {date:"Apr 30", opp:"Thunder",      gf:4, ga:2, r:"W"},
+      {date:"Apr 23", opp:"Knights",      gf:1, ga:3, r:"L"},
+      {date:"Apr 16", opp:"Storm",        gf:3, ga:3, r:"T"},
+      {date:"Apr 9",  opp:"Wolves",       gf:2, ga:4, r:"L"},
+      {date:"Apr 2",  opp:"Thunder",      gf:4, ga:1, r:"W"},
+      {date:"Mar 26", opp:"Knights",      gf:1, ga:2, r:"L"},
+      {date:"Mar 19", opp:"Storm",        gf:3, ga:1, r:"W"},
+      {date:"Mar 12", opp:"Wolves",       gf:2, ga:3, r:"L"},
+      {date:"Mar 5",  opp:"Thunder",      gf:5, ga:2, r:"W"},
+      {date:"Feb 26", opp:"Knights",      gf:4, ga:2, r:"W"},
+    ]
+  },
+];
+var NS_SPONSORS = [
+  {name:"Moo Moo Car Wash",img:IMG.moomoo,url:"https://www.moomoocarwash.com/",tier:"platinum"},
+  {name:"The Chiller",img:IMG.chiller,url:"https://www.thechiller.com/",tier:"gold"},
+  {name:"Kroger Community Rewards",img:IMG.kroger,url:"https://www.kroger.com/account/communityrewards",tier:"silver"},
+];
+var NS_TIERS = [
+  {id:"platinum", label:"Platinum", color:"#6b7280", bg:"#f1f5f9", accent:"#94a3b8"},
+  {id:"gold",     label:"Gold",     color:"#b45309", bg:"#fffbeb", accent:"#f59e0b"},
+  {id:"silver",   label:"Silver",   color:"#475569", bg:"#f8fafc", accent:"#94a3b8"},
+  {id:"bronze",   label:"Bronze",   color:"#92400e", bg:"#fdf8f6", accent:"#b97c4a"},
+];
+var NS_RC = {W:"#16a34a",L:"#dc2626",T:"#d97706"};
+var NS_RBG = {W:"#dcfce7",L:"#fee2e2",T:"#fef3c7"};
+var NS_RL = {W:"Win",L:"Loss",T:"OTL"};
+function NS_DOW(s){var d=new Date(s+" 2025");return["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()];}
+
+function NSHeader({nav, curPage}) {
+  var linkStyle = {background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,color:"#64748b",padding:"8px 12px",fontWeight:500,textDecoration:"none",display:"inline-block"};
+  var activeStyle = Object.assign({},linkStyle,{color:C.navy,fontWeight:700});
+  return (
+    <header style={{background:"#fff",borderBottom:"1px solid #e2e8f0",position:"sticky",top:0,zIndex:100,boxShadow:"0 1px 6px rgba(0,0,0,0.06)"}}>
+      <div style={{maxWidth:1100,margin:"0 auto",padding:"0 24px",height:64,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+        <button onClick={function(){nav("new-site");}} style={{display:"flex",alignItems:"center",gap:12,background:"none",border:"none",cursor:"pointer",padding:0}}>
+          <img src={IMG.logo} alt="CWH" style={{height:46}} />
+          <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:C.navy,letterSpacing:2}}>COLUMBUS WARRIOR HOCKEY</div>
+        </button>
+        <nav style={{display:"flex",alignItems:"center",gap:4}}>
+          <button onClick={function(){nav("ns-about");}} style={curPage==="ns-about"?activeStyle:linkStyle} onMouseEnter={function(e){e.currentTarget.style.color=C.navy;}} onMouseLeave={function(e){e.currentTarget.style.color=curPage==="ns-about"?C.navy:"#64748b";}}>About</button>
+          <a href={FORMS.don} target="_blank" rel="noopener noreferrer" style={linkStyle} onMouseEnter={function(e){e.currentTarget.style.color=C.navy;}} onMouseLeave={function(e){e.currentTarget.style.color="#64748b";}}>Donate</a>
+          <a href={FORMS.store} target="_blank" rel="noopener noreferrer" style={linkStyle} onMouseEnter={function(e){e.currentTarget.style.color=C.navy;}} onMouseLeave={function(e){e.currentTarget.style.color="#64748b";}}>Store</a>
+          <div style={{width:1,height:20,background:"#e2e8f0",margin:"0 6px"}} />
+          <a href={FORMS.reg} target="_blank" rel="noopener noreferrer" style={{padding:"8px 18px",background:C.red,borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",letterSpacing:1,fontWeight:600,textDecoration:"none",display:"inline-block"}}>Join</a>
+          <button style={{padding:"8px 18px",background:C.navy,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",cursor:"pointer",letterSpacing:1,fontWeight:600}}>Sign In</button>
+        </nav>
+      </div>
+      <div style={{height:3,background:C.red}} />
+    </header>
+  );
+}
+
+function NewSitePage({nav}) {
+  return (
+    <div style={{background:"#fff",minHeight:"100vh",fontFamily:F.b}}>
+
+      <NSHeader nav={nav} curPage="home" />
+
+      {/* MAIN */}
+      <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 48px"}}>
+
+        {/* SCHEDULE */}
+        <div style={{marginBottom:40}}>
+          <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",marginBottom:16,borderLeft:"3px solid "+C.red,paddingLeft:12}}>Season Schedule</div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(300px,1fr))",gap:16}}>
+            {NS_SCORES.map(function(team,i) {
+              return (
+                <div key={i} style={{background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+                  <div style={{background:C.navy,padding:"14px 20px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                    <div style={{fontFamily:NS_FH,fontSize:19,fontWeight:700,color:"#fff",letterSpacing:2}}>{team.label}</div>
+                    <div style={{fontFamily:NS_FH,fontSize:26,fontWeight:700,color:"#fff",letterSpacing:1}}>{(function(){var p=team.games.filter(function(g){return !g.upcoming;});return p.filter(function(g){return g.r==="W";}).length+"-"+p.filter(function(g){return g.r==="L";}).length+"-"+p.filter(function(g){return g.r==="T";}).length;})()}</div>
+                  </div>
+                  <div style={{maxHeight:165,overflowY:"auto"}}>
+                    <div style={{display:"grid",gridTemplateColumns:"80px 1fr 130px 44px",padding:"6px 16px",borderBottom:"1px solid #e2e8f0",background:"#fff",position:"sticky",top:0,zIndex:1}}>
+                      <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>Date</div>
+                      <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>Opponent</div>
+                      <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",textTransform:"uppercase"}}>Result</div>
+                      <div />
+                    </div>
+                    {team.games.map(function(g,j){
+                      return (
+                        <div key={j} style={{display:"grid",gridTemplateColumns:"80px 1fr 130px 44px",padding:"6px 16px",borderBottom:j<team.games.length-1?"1px solid #f1f5f9":"none",alignItems:"center",background:g.upcoming?"#f0f9ff":"transparent"}}>
+                          <div><div style={{fontFamily:F.b,fontSize:10,color:g.upcoming?"#2563eb":"#94a3b8",fontWeight:600,textTransform:"uppercase",letterSpacing:0.5}}>{NS_DOW(g.date)}</div><div style={{fontFamily:F.b,fontSize:12,color:g.upcoming?"#2563eb":"#94a3b8",fontWeight:g.upcoming?600:400}}>{g.date}</div></div>
+                          <div style={{fontFamily:F.b,fontSize:13,color:"#334155"}}>{g.upcoming && g.away ? "@ " : ""}{g.opp}</div>
+                          <div>
+                            {g.upcoming
+                              ? <div><div style={{fontFamily:F.b,fontSize:12,color:"#2563eb",fontWeight:600}}>{g.time}</div><div style={{fontFamily:F.b,fontSize:11,color:"#64748b",marginTop:1}}>{g.loc}</div></div>
+                              : <div style={{fontFamily:F.b,fontSize:13,color:"#334155",fontWeight:600}}>{g.gf+"–"+g.ga}</div>
+                            }
+                          </div>
+                          <div>
+                            {!g.upcoming && <div style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:NS_RC[g.r],background:NS_RBG[g.r],padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{NS_RL[g.r]}</div>}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* NEWS */}
+        <div style={{marginBottom:40}}>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:16}}>
+            <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",borderLeft:"3px solid "+C.red,paddingLeft:12}}>Latest News</div>
+            <button onClick={function(){nav("news")}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,color:C.navy,fontWeight:600,padding:0}}>All News →</button>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:16}}>
+            {NEWS.slice(0,3).map(function(item,i){
+              return (
+                <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" style={{textDecoration:"none",background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",display:"flex",flexDirection:"column"}}>
+                  <div style={{height:150,overflow:"hidden",flexShrink:0}}>
+                    <img src={item.img} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}} />
+                  </div>
+                  <div style={{padding:"14px 16px",display:"flex",flexDirection:"column",flex:1}}>
+                    <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",marginBottom:6}}>{item.date}</div>
+                    <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:600,color:"#1e293b",letterSpacing:1,lineHeight:1.25,flex:1}}>{item.title}</div>
+                    <div style={{fontFamily:F.b,fontSize:11,color:C.navy,fontWeight:700,marginTop:12,letterSpacing:1}}>READ MORE →</div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* SPONSORS */}
+        <div>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:16}}>
+            <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",borderLeft:"3px solid "+C.red,paddingLeft:12}}>Our Sponsors</div>
+            <button onClick={function(){nav("ns-sponsors");setTimeout(function(){var el=document.getElementById("ns-become-sponsor");if(el)el.scrollIntoView({behavior:"smooth"});},100);}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,color:C.navy,fontWeight:600,padding:0}}>Become a Sponsor →</button>
+          </div>
+          <div style={{background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,padding:"28px 32px",display:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"center",gap:48}}>
+            {NS_SPONSORS.map(function(s,i){
+              return (
+                <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{display:"flex",alignItems:"center",justifyContent:"center",opacity:0.75,transition:"opacity 0.2s"}}
+                  onMouseEnter={function(e){e.currentTarget.style.opacity="1"}}
+                  onMouseLeave={function(e){e.currentTarget.style.opacity="0.75"}}>
+                  <img src={s.img} alt={s.name} style={{maxHeight:65,maxWidth:150,objectFit:"contain"}} />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </main>
+
+      {NS_FOOTER(nav)}
+    </div>
+  );
+}
+
+var NS_ABOUT_TABS = [{l:"About",p:"ns-about"},{l:"Leadership",p:"ns-leadership"},{l:"Sponsors",p:"ns-sponsors"}];
+var NS_FOOTER = function(nav) {
+  return (
+    <div style={{borderTop:"1px solid #e2e8f0",padding:"18px 24px",textAlign:"center"}}>
+      <button onClick={function(){nav("home");}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:12,color:"#94a3b8",letterSpacing:1}}>
+        ← Return to classic site
+      </button>
+    </div>
+  );
+};
+var NS_CARD = {background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,padding:"28px"};
+
+function NSAboutLayout({nav, curPage, eyebrow, title, subtitle, children}) {
+  return (
+    <div style={{background:"#fff",minHeight:"100vh",fontFamily:F.b}}>
+      <NSHeader nav={nav} curPage="ns-about" />
+      <div style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 64px",display:"flex",gap:28,alignItems:"flex-start"}}>
+
+        {/* SIDEBAR */}
+        <div style={{width:190,flexShrink:0,position:"sticky",top:80}}>
+          <div style={{background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+            <div style={{background:C.navy,padding:"12px 16px"}}>
+              <div style={{fontFamily:NS_FH,fontSize:14,fontWeight:700,color:"#fff",letterSpacing:2,textTransform:"uppercase"}}>About</div>
+            </div>
+            {NS_ABOUT_TABS.map(function(t,i){
+              var active = curPage===t.p;
+              return (
+                <button key={i} onClick={function(){nav(t.p);}} style={{display:"block",width:"100%",textAlign:"left",background:active?"#eef2ff":"none",border:"none",borderLeft:active?"3px solid "+C.red:"3px solid transparent",cursor:"pointer",padding:"11px 14px",fontFamily:F.b,fontSize:13,color:active?C.navy:"#475569",fontWeight:active?700:400,borderBottom:i<NS_ABOUT_TABS.length-1?"1px solid #e2e8f0":"none"}}
+                  onMouseEnter={function(e){if(!active){e.currentTarget.style.background="#f1f5f9";}}}
+                  onMouseLeave={function(e){if(!active){e.currentTarget.style.background="none";}}}>
+                  {t.l}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* CONTENT */}
+        <div style={{flex:1,minWidth:0}}>
+          <div style={{marginBottom:28,paddingBottom:20,borderBottom:"1px solid #e2e8f0"}}>
+            {eyebrow && <div style={{fontFamily:F.b,fontSize:11,color:C.red,letterSpacing:3,textTransform:"uppercase",marginBottom:8}}>{eyebrow}</div>}
+            <h1 style={{fontFamily:NS_FH,fontSize:36,fontWeight:700,color:C.navy,letterSpacing:2,margin:"0 0 10px",textTransform:"uppercase"}}>{title}</h1>
+            {subtitle && <p style={{fontFamily:F.b,fontSize:14,color:"#475569",lineHeight:1.7,margin:0}}>{subtitle}</p>}
+          </div>
+          {children}
+        </div>
+      </div>
+      {NS_FOOTER(nav)}
+    </div>
+  );
+}
+
+function NSAboutPage({nav}) {
+  return (
+    <NSAboutLayout nav={nav} curPage="ns-about" title="About Columbus Warrior Hockey" subtitle="A veteran-led hockey organization dedicated to healing, camaraderie, and purpose through sport.">
+
+      {/* MISSION / VISION */}
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:20,marginBottom:28}}>
+        <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
+          <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:C.red,letterSpacing:2,textTransform:"uppercase",marginBottom:12}}>Mission</div>
+          <p style={{fontFamily:F.b,fontSize:14,color:"#475569",lineHeight:1.8,margin:0}}>Our mission is to provide honorably discharged service members with service-connected disabilities a therapeutic experience grounded in peer-based support, the cultivation of mental and physical healing, and promotion of physical activity through the sport of hockey.</p>
+        </div>
+        <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
+          <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:C.red,letterSpacing:2,textTransform:"uppercase",marginBottom:12}}>Vision</div>
+          <p style={{fontFamily:F.b,fontSize:14,color:"#475569",lineHeight:1.8,margin:0}}>Columbus Warrior Hockey envisions a community where veterans rediscover resilience, camaraderie, and purpose through the sport of hockey. By fostering peer support, mental well-being, and physical rehabilitation, we empower those who have served to heal and grow—strengthening both themselves and the community they call home.</p>
+        </div>
+      </div>
+
+      {/* COLUMBUS WARRIOR WAY */}
+      <div style={{marginBottom:32}}>
+        <div style={{fontFamily:NS_FH,fontSize:20,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",marginBottom:12,borderLeft:"3px solid "+C.red,paddingLeft:12}}>The Columbus Warrior Way</div>
+        <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
+          <p style={{fontFamily:F.b,fontSize:14,color:"#475569",lineHeight:1.8,margin:0}}>Building on this mission, Columbus Warrior Hockey takes a unique approach that extends beyond traditional disabled hockey programs. We supplement our core offerings with community-based activities that incorporate other military-connected individuals, creating a broader network of support. In addition to serving veterans, we welcome participation from current service members and Gold Star family members in our Chiller Adult Hockey League teams, "stick & puck" sessions, and drop-in hockey opportunities. By blending veterans, active service members, and families, we create a continuum of camaraderie and shared experience that strengthens bonds and fosters lasting positive impact within our community.</p>
+        </div>
+      </div>
+
+      {/* PROGRAMS */}
+      <div style={{marginBottom:32}}>
+        <div style={{fontFamily:NS_FH,fontSize:20,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",marginBottom:12,borderLeft:"3px solid "+C.red,paddingLeft:12}}>Our Programs</div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:16}}>
+          <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
+            <div style={{fontFamily:NS_FH,fontSize:17,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Disabled Hockey</div>
+            <p style={{fontFamily:F.b,fontSize:13,color:"#475569",lineHeight:1.7,margin:0}}>The disabled hockey pillar focuses on disabled veterans and activities pertaining to USA Hockey's Warrior Hockey which is a discipline of disabled hockey. This includes participation in USA Hockey sanctioned events such as the Warrior Classic and Warrior Nationals. In addition to this, the Warrior Hockey team will have opportunities to participate in and host events with other Warrior organizations such as tournaments and exhibition games.</p>
+          </div>
+          <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
+            <div style={{fontFamily:NS_FH,fontSize:17,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Veterans Hockey</div>
+            <p style={{fontFamily:F.b,fontSize:13,color:"#475569",lineHeight:1.7,margin:0}}>The veterans hockey pillar focuses on improving the lives of veterans, service members, and gold star families in the greater Columbus area. CWH leverages the existing adult recreational hockey program hosted by The OhioHealth Chiller rinks to create opportunities to establish meaningful peer-based support networks, develop a healthier lifestyle through physical activity, and heal from trauma through the sport of hockey.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
+        <a href={FORMS.reg} target="_blank" rel="noopener noreferrer" style={{padding:"10px 24px",background:C.red,borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",fontWeight:700,textDecoration:"none",letterSpacing:1}}>Join CWH</a>
+        <a href={FORMS.don} target="_blank" rel="noopener noreferrer" style={{padding:"10px 24px",background:"#f1f5f9",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:C.navy,fontWeight:700,textDecoration:"none",letterSpacing:1}}>Donate</a>
+      </div>
+
+    </NSAboutLayout>
+  );
+}
+
+function NSLeadershipPage({nav}) {
+  var sectionTitle = {fontFamily:NS_FH,fontSize:20,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",marginBottom:14,borderLeft:"3px solid "+C.red,paddingLeft:12};
+  var grid = {display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:16,marginBottom:32};
+  var personCard = function(p,i) {
+    var vacant = p.name==="Vacant";
+    return (
+      <div key={i} style={{...NS_CARD,borderTop:"4px solid "+C.navy,padding:"20px"}}>
+        <div style={{width:52,height:52,borderRadius:"50%",overflow:"hidden",marginBottom:12,background:"#e2e8f0"}}>
+          <svg viewBox="0 0 200 200" style={{width:"100%",height:"100%"}}><circle cx="100" cy="75" r="35" fill="#9ca3af"/><ellipse cx="100" cy="170" rx="55" ry="45" fill="#9ca3af"/></svg>
+        </div>
+        <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:vacant?"#94a3b8":C.navy,letterSpacing:1}}>{p.name}</div>
+        <div style={{fontFamily:F.b,fontSize:12,color:C.red,fontWeight:600,marginTop:2}}>{p.role}</div>
+        {p.branch && <div style={{fontFamily:F.b,fontSize:11,color:"#64748b",marginTop:6}}>{p.branch}</div>}
+        {p.years && <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8",marginTop:2}}>{p.years}</div>}
+      </div>
+    );
+  };
+  return (
+    <NSAboutLayout nav={nav} curPage="ns-leadership" title="Leadership" subtitle="The board, staff, and coaches who keep Columbus Warrior Hockey running.">
+      <div style={sectionTitle}>Board of Directors</div><div style={grid}>{BOARD_MEMBERS.map(personCard)}</div>
+      <div style={sectionTitle}>Operations Staff</div><div style={grid}>{OPS_STAFF.map(personCard)}</div>
+      <div style={sectionTitle}>Coaching Staff</div><div style={grid}>{COACHING.map(personCard)}</div>
+    </NSAboutLayout>
+  );
+}
+
+function NSSponsorsPage({nav}) {
+  return (
+    <NSAboutLayout nav={nav} curPage="ns-sponsors" title="Sponsors" subtitle="Every goal we score on and off the ice begins with your support. Donations and sponsorships fuel our programs by keeping veterans on the ice and connected to the community. Together, we can ensure that those who served our country continue to heal, grow, and give back.">
+
+      {NS_TIERS.map(function(tier) {
+        var members = NS_SPONSORS.filter(function(s){return s.tier===tier.id;});
+        return (
+          <div key={tier.id} style={{marginBottom:32}}>
+            {/* Tier header */}
+            <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14}}>
+              <div style={{width:12,height:12,borderRadius:"50%",background:tier.accent,flexShrink:0}} />
+              <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,color:tier.color,letterSpacing:3,textTransform:"uppercase"}}>{tier.label}</div>
+              <div style={{flex:1,height:1,background:"#e2e8f0"}} />
+            </div>
+
+            {members.length > 0 ? (
+              <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:16}}>
+                {members.map(function(s,i){
+                  return (
+                    <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
+                      style={{background:tier.bg,border:"1px solid #e2e8f0",borderTop:"4px solid "+tier.accent,borderRadius:10,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"28px 20px",textDecoration:"none",gap:12,transition:"box-shadow .15s"}}
+                      onMouseEnter={function(e){e.currentTarget.style.boxShadow="0 4px 16px rgba(0,0,0,0.08)";}}
+                      onMouseLeave={function(e){e.currentTarget.style.boxShadow="none";}}>
+                      <img src={s.img} alt={s.name} style={{maxHeight:72,maxWidth:160,objectFit:"contain"}} />
+                      <div style={{fontFamily:F.b,fontSize:13,color:"#475569",fontWeight:600,textAlign:"center"}}>{s.name}</div>
+                    </a>
+                  );
+                })}
+              </div>
+            ) : (
+              <div style={{background:"#fafafa",border:"1px dashed #e2e8f0",borderRadius:10,padding:"24px",textAlign:"center"}}>
+                <div style={{fontFamily:F.b,fontSize:13,color:tier.accent,fontWeight:700,cursor:"pointer"}}>Become a {tier.label} Tier Sponsor</div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+
+      {/* ADDITIONAL PARTNERS */}
+      <div style={{marginBottom:32}}>
+        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14}}>
+          <div style={{width:12,height:12,borderRadius:"50%",background:"#cbd5e1",flexShrink:0}} />
+          <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,color:"#64748b",letterSpacing:3,textTransform:"uppercase"}}>Additional Partners</div>
+          <div style={{flex:1,height:1,background:"#e2e8f0"}} />
+        </div>
+        <div style={{background:"#fafafa",border:"1px dashed #e2e8f0",borderRadius:10,padding:"24px",textAlign:"center"}}>
+          <div style={{fontFamily:F.b,fontSize:13,color:"#64748b",fontWeight:700,cursor:"pointer"}}>Become a Partner</div>
+        </div>
+      </div>
+
+      {/* BECOME A SPONSOR */}
+      <div id="ns-become-sponsor" style={{marginBottom:32}}>
+        <div style={{fontFamily:NS_FH,fontSize:20,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",marginBottom:12,borderLeft:"3px solid "+C.red,paddingLeft:12}}>Become a Sponsor</div>
+        <p style={{fontFamily:F.b,fontSize:14,color:"#475569",lineHeight:1.7,margin:"0 0 16px"}}>Interested in supporting veteran hockey in Columbus? Partner with us and make a difference in the lives of those who served.</p>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:16}}>
+          <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
+            <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:12}}>Non-Profit Information</div>
+            <div style={{display:"grid",gridTemplateColumns:"auto 1fr",gap:"4px 12px",fontFamily:F.b,fontSize:13,color:"#475569",marginBottom:16}}>
+              <span style={{color:"#94a3b8",fontWeight:600}}>IRS Status</span><span>501(c)(3)</span>
+              <span style={{color:"#94a3b8",fontWeight:600}}>EIN</span><span>33-3565860</span>
+              <span style={{color:"#94a3b8",fontWeight:600}}>Publication 78</span><span>Yes</span>
+              <span style={{color:"#94a3b8",fontWeight:600}}>Deductibility</span><span>PC – 50% (60% for cash contributions)</span>
+            </div>
+            <div style={{display:"flex",flexDirection:"column",gap:6}}>
+              <a href="https://charitableregistration.ohioago.gov/Charities/OrganizationDetails?Id=12242206" target="_blank" rel="noopener noreferrer" style={{fontFamily:F.b,fontSize:12,color:C.red,fontWeight:700,textDecoration:"none"}}>Ohio Attorney General's Office →</a>
+              <a href="https://businesssearch.ohiosos.gov/?=businessDetails/5360945" target="_blank" rel="noopener noreferrer" style={{fontFamily:F.b,fontSize:12,color:C.red,fontWeight:700,textDecoration:"none"}}>Ohio Secretary of State →</a>
+              <a href="https://apps.irs.gov/app/eos/" target="_blank" rel="noopener noreferrer" style={{fontFamily:F.b,fontSize:12,color:C.red,fontWeight:700,textDecoration:"none"}}>IRS →</a>
+            </div>
+          </div>
+          <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
+            <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Sponsor Deck</div>
+            <p style={{fontFamily:F.b,fontSize:13,color:"#475569",lineHeight:1.7,margin:"0 0 16px"}}>For more information please see the below sponsor deck pdf. This document contains information on sponsorship packages, how funding is spent, and other information relevant to prospective partners.</p>
+            <div style={{display:"flex",flexDirection:"column",gap:6}}>
+              <a href="/Sponsor Deck 3.0.pdf" target="_blank" rel="noopener noreferrer" style={{fontFamily:F.b,fontSize:13,color:C.red,fontWeight:700,textDecoration:"none"}}>Download Sponsor Deck →</a>
+              <a href="https://nonprofit.yourcause.com/nonprofits/nonprofit-public-profile/16109035" target="_blank" rel="noopener noreferrer" style={{fontFamily:F.b,fontSize:13,color:C.red,fontWeight:700,textDecoration:"none"}}>Blackbaud Verified Network →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </NSAboutLayout>
+  );
+}
+
 /* ═══ APP ═══ */
 export default function CWHSite() {
   var pg = useState("home"); var page = pg[0]; var setPage = pg[1];
@@ -762,15 +1158,21 @@ export default function CWHSite() {
     case "reg-guides": content = <ResourcePage page="reg-guides" />; break;
     case "players-corner": content = <ResourcePage page="players-corner" />; break;
     case "coaching": content = <ResourcePage page="coaching" />; break;
+    case "new-site": content = <NewSitePage nav={nav} />; break;
+    case "ns-about": content = <NSAboutPage nav={nav} />; break;
+    case "ns-leadership": content = <NSLeadershipPage nav={nav} />; break;
+    case "ns-sponsors": content = <NSSponsorsPage nav={nav} />; break;
     default: content = <HomePage nav={nav} />;
   }
 
+  var isNewSite = page === "new-site" || page === "ns-about" || page === "ns-leadership" || page === "ns-sponsors";
+
   return (
     <div style={{background:C.w,minHeight:"100vh"}}>
-      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
       <GlobalStyles />
-      <Navbar nav={nav} curPage={page} />
-      {isAbout && (
+      {!isNewSite && <Navbar nav={nav} curPage={page} />}
+      {!isNewSite && isAbout && (
         <div style={{paddingTop:110,background:C.olive,borderBottom:"2px solid "+C.red,overflowX:"auto",WebkitOverflowScrolling:"touch"}}>
           <div style={{display:"flex",gap:0,padding:"0 16px",minWidth:"max-content",maxWidth:1200,margin:"0 auto"}}>
             {aboutItems.map(function(it,i) {
@@ -780,7 +1182,7 @@ export default function CWHSite() {
         </div>
       )}
       {content}
-      <Footer />
+      {!isNewSite && <Footer />}
     </div>
   );
 }
