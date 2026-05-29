@@ -1,63 +1,108 @@
-# Columbus Warrior Hockey Website
+# CWH Website — Developer Setup Guide
 
-## Quick Start
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or later)
+- [Git](https://git-scm.com/)
+- A GitHub account with access to this repo
+
+## 1. Clone the repo
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/cwh-website.git
+git clone https://github.com/mangohero8/cwh-website.git
 cd cwh-website
-
-# 2. Download images from Crossbar
-chmod +x download-images.sh
-./download-images.sh
-
-# 3. Install dependencies
-npm install
-
-# 4. Run locally
-npm run dev
-
-# 5. Build for production
-npm run build
-# Output goes to /dist — upload this to Cloudflare Pages
 ```
 
-## Deploy to Cloudflare Pages
+## 2. Install dependencies
 
-1. Push this repo to GitHub
-2. Go to Cloudflare Dashboard → Pages → Create a project
-3. Connect your GitHub repo
-4. Build settings:
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-   - **Node version:** 18
-5. Deploy
+```bash
+npm install
+```
 
-## Image Setup
+## 3. Start the local dev server
 
-Images must be downloaded from Crossbar and placed in `public/images/`. Run the download script or manually save each image.
+```bash
+npm run dev
+```
 
-### Required images:
-| File | Source |
-|------|--------|
-| logo.png | CWH logo |
-| hero.jpg | Homepage banner photo |
-| sponsors-all.jpg | Sponsor collage image |
-| usahockey.png | USA Hockey badge |
-| midam.png | Mid-Am Hockey badge |
-| kroger.jpg | Kroger Community Rewards logo |
-| moomoo.png | Moo Moo Express Car Wash logo |
-| chiller.png | OhioHealth Chiller logo |
-| guardians-cup.jpg | Guardian's Cup article photo |
+Open `http://localhost:5173` in your browser — you'll see the site running locally. The dev server auto-reloads as you save changes.
 
-## Monday.com Form Links
-- Player Registration: https://wkf.ms/4fDnOqL
-- Uniform Order: https://wkf.ms/43cPPyl
-- Complaint Form: https://wkf.ms/4nMZ7KM
-- Expense Request: https://wkf.ms/4x2zl9E
+## 4. Create a branch for your work
+
+```bash
+git checkout -b feature/your-feature-name
+```
+
+Use descriptive names:
+- `feature/photo-gallery`
+- `fix/schedule-parsing`
+- `update/roster-photos`
+- `style/footer-spacing`
+
+## 5. Make your changes
+
+Edit files, add images, update styles. Key files:
+
+| File | Purpose |
+|---|---|
+| `src/App.jsx` | Main site — all pages and components |
+| `public/images/` | All images (logos, players, sponsors, news) |
+| `public/data/` | JSON data files (auto-generated — **do not edit**) |
+| `cwh_data_sync.py` | ChillerStats + Monday.com scraper (runs on Proxmox) |
+
+## 6. Commit your changes
+
+```bash
+git add -A
+git commit -m "Description of what you changed"
+```
+
+## 7. Push your branch
+
+```bash
+git push -u origin feature/your-feature-name
+```
+
+## 8. Create a Pull Request
+
+1. Go to [github.com/mangohero8/cwh-website](https://github.com/mangohero8/cwh-website)
+2. You'll see a banner: **"Compare & pull request"** — click it
+3. Add a description of your changes
+4. Click **"Create pull request"**
+5. Cloudflare will auto-build a preview at a temporary URL — check it to verify your changes look correct
+6. Tag Robb (@mangohero8) for review
+
+## 9. After approval, merge
+
+- Click **"Merge pull request"** on GitHub
+- The live site at [cwh.carp-home.com](https://cwh.carp-home.com) auto-deploys within ~1 minute
+- Delete your branch after merging to keep things clean
+
+## Rules
+
+- **Never push directly to `main`** — always use a branch + Pull Request
+- **Don't edit files in `public/data/`** — they're auto-generated every 30 minutes by the Proxmox scraper pulling from ChillerStats and Monday.com
+- **Test locally** with `npm run dev` before pushing
+- **Self-host images** — don't link to external image URLs; download and place them in `public/images/`
 
 ## Tech Stack
-- React 18 + Vite
-- Hosted on Cloudflare Pages
-- Images self-hosted (no Crossbar dependency)
-- Monday.com forms for data collection
+
+- **React 18** + **Vite 6** — frontend framework and build tool
+- **Cloudflare Pages** — hosting and deployment (auto-deploys on push to main)
+- **ChillerStats** — live hockey stats and schedule data
+- **Monday.com** — news articles and events management
+- **Proxmox** — server running the data sync cron job every 30 minutes
+
+## Data Pipeline
+
+```
+ChillerStats ─┐
+               ├─→ Proxmox (cwh_data_sync.py) ─→ JSON files ─→ GitHub ─→ Cloudflare Pages ─→ cwh.carp-home.com
+Monday.com  ───┘
+```
+
+The scraper runs every 30 minutes and auto-commits updated JSON to `public/data/`. The site reads these JSON files at runtime to display live stats, schedules, news, and events.
+
+## Questions?
+
+Contact Robb Carpenter — carprobb15@gmail.com
