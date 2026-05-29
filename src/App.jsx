@@ -53,7 +53,7 @@ var TEAMS = [
 var STATS = [{p:"Player 1",gp:12,g:8,a:6,pts:14},{p:"Player 2",gp:12,g:5,a:9,pts:14},{p:"Player 3",gp:11,g:6,a:5,pts:11},{p:"Player 4",gp:12,g:4,a:6,pts:10},{p:"Player 5",gp:10,g:3,a:7,pts:10}];
 
 var NAV_ITEMS = [
-  { label:"About", ch:[{l:"About Us",p:"about"},{l:"News",p:"news"},{l:"Leadership",p:"leadership"},{l:"Sponsors",p:"sponsors"},{l:"Become a Sponsor",p:"become-sponsor"},{l:"Become a Contributor",p:"contributor"}]},
+  { label:"About", ch:[{l:"About Us",p:"about"},{l:"News",p:"news"},{l:"Photo Gallery",p:"gallery"},{l:"Leadership",p:"leadership"},{l:"Sponsors",p:"sponsors"},{l:"Become a Sponsor",p:"become-sponsor"},{l:"Become a Contributor",p:"contributor"}]},
   { label:"Programs", ch:[{l:"Chiller Adult Hockey League",p:"cahl"},{l:"Disabled Hockey",p:"disabled-hockey"},{l:"Stick & Puck / Drop-In",p:"stick-puck"}]},
   { label:"Schedule", p:"schedule" },
   { label:"Teams", ch:[{l:"DV - Columbus Warriors",p:"team-dv"},{l:"CAHL C - Warriors",p:"team-c"},{l:"CAHL D - Warriors",p:"team-d"}]},
@@ -667,6 +667,55 @@ function ResourcePage({page}) {
   </PageWrap>;
 }
 
+/* ─── PHOTO GALLERY PAGE ─── */
+function GalleryPage() {
+  var ph = useState([]); var photos = ph[0]; var setPhotos = ph[1];
+  var ld = useState(true); var loading = ld[0]; var setLoading = ld[1];
+  var sel = useState(null); var selected = sel[0]; var setSelected = sel[1];
+
+  useEffect(function() {
+    fetch("/data/gallery.json").then(function(r){return r.json()}).then(function(d){
+      setPhotos(d.photos || []);
+      setLoading(false);
+    }).catch(function(){setLoading(false)});
+  }, []);
+
+  return <PageWrap title="Photo Gallery" sub="Game day photos, team events, and community moments.">
+    {loading ? (
+      <div style={{textAlign:"center",padding:60}}>
+        <div style={{fontFamily:F.b,fontSize:16,color:C.g4}}>Loading photos...</div>
+      </div>
+    ) : photos.length === 0 ? (
+      <div style={{textAlign:"center",padding:60}}>
+        <div style={{fontFamily:F.b,fontSize:16,color:C.g4}}>Gallery coming soon.</div>
+      </div>
+    ) : (
+      <div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(200px, 1fr))",gap:8}}>
+          {photos.map(function(p, i) {
+            return (
+              <div key={i} onClick={function(){setSelected(i)}} style={{cursor:"pointer",aspectRatio:"1",overflow:"hidden",borderRadius:4,background:C.g1}}>
+                <img src={p.url} alt={p.name||""} loading="lazy" style={{width:"100%",height:"100%",objectFit:"cover",transition:"transform .3s"}} onMouseOver={function(e){e.target.style.transform="scale(1.05)"}} onMouseOut={function(e){e.target.style.transform="scale(1)"}} />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Lightbox */}
+        {selected !== null && (
+          <div onClick={function(){setSelected(null)}} style={{position:"fixed",top:0,left:0,right:0,bottom:0,background:"rgba(0,0,0,0.9)",zIndex:9999,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer"}}>
+            <button onClick={function(e){e.stopPropagation();setSelected(selected > 0 ? selected - 1 : photos.length - 1)}} style={{position:"absolute",left:20,top:"50%",transform:"translateY(-50%)",background:"rgba(255,255,255,0.2)",border:"none",color:C.w,fontSize:36,padding:"8px 16px",borderRadius:8,cursor:"pointer"}}>‹</button>
+            <img src={photos[selected].url} alt="" style={{maxWidth:"90vw",maxHeight:"90vh",objectFit:"contain",borderRadius:8}} onClick={function(e){e.stopPropagation()}} />
+            <button onClick={function(e){e.stopPropagation();setSelected(selected < photos.length - 1 ? selected + 1 : 0)}} style={{position:"absolute",right:20,top:"50%",transform:"translateY(-50%)",background:"rgba(255,255,255,0.2)",border:"none",color:C.w,fontSize:36,padding:"8px 16px",borderRadius:8,cursor:"pointer"}}>›</button>
+            <button onClick={function(){setSelected(null)}} style={{position:"absolute",top:20,right:20,background:"none",border:"none",color:C.w,fontSize:32,cursor:"pointer"}}>✕</button>
+            <div style={{position:"absolute",bottom:20,color:"rgba(255,255,255,0.5)",fontFamily:F.b,fontSize:14}}>{(selected+1) + " / " + photos.length}</div>
+          </div>
+        )}
+      </div>
+    )}
+  </PageWrap>;
+}
+
 /* ─── ICE SCHEDULES PAGE ─── */
 function IceSchedulesPage() {
   var schedules = [
@@ -758,6 +807,7 @@ export default function CWHSite() {
     case "stick-puck": content = <ProgramPage page="stick-puck" />; break;
     case "schedule": content = <SchedulePage />; break;
     case "ice-schedules": content = <IceSchedulesPage />; break;
+    case "gallery": content = <GalleryPage />; break;
     case "team-dv": content = <TeamPage team="team-dv" />; break;
     case "team-c": content = <TeamPage team="team-c" />; break;
     case "team-d": content = <TeamPage team="team-d" />; break;
