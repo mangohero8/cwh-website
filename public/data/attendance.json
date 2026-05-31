@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T03:39:55.856155Z",
+  "updated": "2026-05-31T03:43:18.918579Z",
   "board_id": "18415594839",
   "games": [
     {
@@ -31,11 +31,11 @@
                 "team": "CAHL C"
               },
               {
-                "id": "12148105551",
-                "name": "John Hopkinson",
+                "id": "12148053327",
+                "name": "John Crouse",
                 "rsvp": "Yes",
-                "position": "Center",
-                "jersey": "10",
+                "position": "Wing",
+                "jersey": "99",
                 "team": "CAHL C"
               }
             ]
@@ -44,19 +44,19 @@
             "line": 2,
             "players": [
               {
-                "id": "12148053327",
-                "name": "John Crouse",
-                "rsvp": "Yes",
-                "position": "Wing",
-                "jersey": "99",
-                "team": "CAHL C"
-              },
-              {
                 "id": "12147948106",
                 "name": "Sam Stanley",
                 "rsvp": "Yes",
                 "position": "Wing",
                 "jersey": "44",
+                "team": "CAHL C"
+              },
+              {
+                "id": "12148105551",
+                "name": "John Hopkinson",
+                "rsvp": "Yes",
+                "position": "Center",
+                "jersey": "10",
                 "team": "CAHL C"
               },
               {
