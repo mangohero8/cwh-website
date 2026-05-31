@@ -523,6 +523,158 @@ def sync_monday_events(token):
     print(f"  -> {len(events)} events saved to {output_file}")
 
 
+def sync_monday_attendance(token):
+    """
+    Sync game attendance from Monday.com Game Attendance board.
+    Board structure: groups = games, items = players, RSVP status column.
+    """
+    print("\n=== MONDAY.COM ATTENDANCE ===")
+
+    boards = fetch_monday_boards(token)
+    att_board = None
+    for b in boards:
+        if "attendance" in b["name"].lower():
+            att_board = b
+            break
+
+    if not att_board:
+        print("  No 'Game Attendance' board found")
+        att_data = {
+            "updated": datetime.utcnow().isoformat() + "Z",
+            "games": [],
+        }
+        with open(os.path.join(OUTPUT_DIR, "attendance.json"), "w") as f:
+            json.dump(att_data, f, indent=2)
+        return
+
+    print(f"  Found board: {att_board['name']} (ID: {att_board['id']})")
+
+    # Fetch board with groups and items
+    query = """
+    query($boardId: [ID!]!) {
+        boards(ids: $boardId) {
+            groups {
+                id
+                title
+            }
+            items_page(limit: 500) {
+                items {
+                    id
+                    name
+                    group {
+                        id
+                        title
+                    }
+                    column_values {
+                        id
+                        text
+                        value
+                        type
+                    }
+                }
+            }
+        }
+    }
+    """
+    data = monday_query(token, query, {"boardId": [str(att_board["id"])]})
+    if not data or "boards" not in data or len(data["boards"]) == 0:
+        print("  Failed to fetch board data")
+        return
+
+    board = data["boards"][0]
+    items = board.get("items_page", {}).get("items", [])
+
+    # Organize by game (group)
+    games = {}
+    for item in items:
+        group = item.get("group", {})
+        group_title = group.get("title", "Unknown")
+        group_id = group.get("id", "")
+
+        if group_title not in games:
+            games[group_title] = {
+                "game": group_title,
+                "groupId": group_id,
+                "players": [],
+            }
+
+        player = {
+            "id": item["id"],
+            "name": item["name"],
+        }
+
+        for col in item.get("column_values", []):
+            col_id = col["id"]
+            if "rsvp" in col_id.lower() or col_id == "color_mm3wg5kd":
+                player["rsvp"] = col["text"] or ""
+            elif "position" in col_id.lower() or col_id == "color_mm3wff6z":
+                player["position"] = col["text"] or ""
+            elif "jersey" in col_id.lower() or col_id == "text_mm3w8t2w":
+                player["jersey"] = col["text"] or ""
+            elif "team" in col_id.lower() or col_id == "color_mm3w3fg4":
+                player["team"] = col["text"] or ""
+
+        games[group_title]["players"].append(player)
+
+    # Build lineup for each game
+    game_list = []
+    for game_name, game_data in games.items():
+        yes_players = [p for p in game_data["players"] if p.get("rsvp", "").lower() == "yes"]
+        maybe_players = [p for p in game_data["players"] if p.get("rsvp", "").lower() == "maybe"]
+        no_players = [p for p in game_data["players"] if p.get("rsvp", "").lower() == "no"]
+        no_response = [p for p in game_data["players"] if p.get("rsvp", "") == ""]
+
+        # Auto-generate lineup from Yes players
+        forwards = [p for p in yes_players if p.get("position", "").lower() in ["center", "wing", "forward"]]
+        defense = [p for p in yes_players if p.get("position", "").lower() == "defense"]
+        goalies = [p for p in yes_players if p.get("position", "").lower() == "goalie"]
+        unassigned = [p for p in yes_players if p.get("position", "") == "" or p.get("position", "").lower() not in ["center", "wing", "forward", "defense", "goalie"]]
+
+        # Build lines
+        lines = []
+        all_fwd = forwards + unassigned  # Put unassigned with forwards
+        line_num = 1
+        for i in range(0, len(all_fwd), 3):
+            line = all_fwd[i:i+3]
+            lines.append({"line": line_num, "players": line})
+            line_num += 1
+
+        d_pairs = []
+        pair_num = 1
+        for i in range(0, len(defense), 2):
+            pair = defense[i:i+2]
+            d_pairs.append({"pair": pair_num, "players": pair})
+            pair_num += 1
+
+        game_entry = {
+            "game": game_name,
+            "totalPlayers": len(game_data["players"]),
+            "yes": len(yes_players),
+            "no": len(no_players),
+            "maybe": len(maybe_players),
+            "noResponse": len(no_response),
+            "lineup": {
+                "forwards": lines,
+                "defense": d_pairs,
+                "goalies": goalies,
+            },
+            "bench": maybe_players,
+            "out": no_players,
+            "pending": no_response,
+        }
+        game_list.append(game_entry)
+
+    att_data = {
+        "updated": datetime.utcnow().isoformat() + "Z",
+        "board_id": att_board["id"],
+        "games": game_list,
+    }
+    output_file = os.path.join(OUTPUT_DIR, "attendance.json")
+    with open(output_file, "w") as f:
+        json.dump(att_data, f, indent=2)
+    print(f"  -> {len(game_list)} games with attendance saved to {output_file}")
+
+
 # ═══════════════════════════════════════════
 # MAIN
 # ═══════════════════════════════════════════
@@ -550,6 +702,7 @@ def main():
     if monday_token and not args.skip_monday:
         sync_monday_news(monday_token)
         sync_monday_events(monday_token)
+        sync_monday_attendance(monday_token)
     elif not args.skip_monday:
         print("\nSkipping Monday.com — no API token provided")
         print("  Set MONDAY_API_TOKEN env var or use --monday-token flag")

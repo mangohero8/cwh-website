@@ -55,7 +55,7 @@ var STATS = [{p:"Player 1",gp:12,g:8,a:6,pts:14},{p:"Player 2",gp:12,g:5,a:9,pts
 var NAV_ITEMS = [
   { label:"About", ch:[{l:"About Us",p:"about"},{l:"News",p:"news"},{l:"Photo Gallery",p:"gallery"},{l:"Leadership",p:"leadership"},{l:"Sponsors",p:"sponsors"},{l:"Become a Sponsor",p:"become-sponsor"},{l:"Become a Contributor",p:"contributor"}]},
   { label:"Programs", ch:[{l:"Chiller Adult Hockey League",p:"cahl"},{l:"Disabled Hockey",p:"disabled-hockey"},{l:"Stick & Puck / Drop-In",p:"stick-puck"}]},
-  { label:"Schedule", p:"schedule" },
+  { label:"Schedule", ch:[{l:"Game Schedule",p:"schedule"},{l:"Game Lineup",p:"lineup"}]},
   { label:"Teams", ch:[{l:"DV - Columbus Warriors",p:"team-dv"},{l:"CAHL C - Warriors",p:"team-c"},{l:"CAHL D - Warriors",p:"team-d"}]},
   { label:"Resources", ch:[{l:"Ice Schedules",p:"ice-schedules"},{l:"Mental Health",p:"mental-health"},{l:"Registration Guides",p:"reg-guides"},{l:"Players Corner",p:"players-corner"},{l:"Coaching for CWH",p:"coaching"}]},
 ];
@@ -716,6 +716,112 @@ function GalleryPage() {
   </PageWrap>;
 }
 
+/* ─── LINEUP / ATTENDANCE PAGE ─── */
+function LineupPage() {
+  var at = useState(null); var attendance = at[0]; var setAttendance = at[1];
+  useEffect(function() {
+    fetch("/data/attendance.json").then(function(r){return r.json()}).then(function(d){setAttendance(d)}).catch(function(){setAttendance(null)});
+  }, []);
+
+  function PlayerBadge(props) {
+    var p = props.player;
+    var bg = props.bg || C.navy;
+    return (
+      <div style={{display:"inline-flex",alignItems:"center",gap:8,background:bg,borderRadius:20,padding:"6px 14px 6px 8px",margin:4}}>
+        <div style={{width:28,height:28,borderRadius:"50%",background:"rgba(255,255,255,0.2)",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:F.h,fontSize:13,color:C.w}}>{p.jersey || "#"}</div>
+        <span style={{fontFamily:F.b,fontSize:13,color:C.w,fontWeight:600}}>{p.name}</span>
+      </div>
+    );
+  }
+
+  return <PageWrap title="Game Lineup" sub="Auto-generated lineups based on player RSVP from Monday.com">
+    {!attendance || !attendance.games || attendance.games.length === 0 ? (
+      <div style={{padding:40,background:C.g1,borderRadius:8,textAlign:"center"}}>
+        <p style={{fontFamily:F.b,fontSize:15,color:C.g6}}>No attendance data yet. Go to the <a href="https://columbuswarriorhockey.monday.com/boards/18415594839" target="_blank" rel="noopener noreferrer" style={{color:C.navy,fontWeight:600}}>Game Attendance board</a> in Monday.com and set RSVPs for upcoming games.</p>
+      </div>
+    ) : (
+      <div style={{display:"flex",flexDirection:"column",gap:32}}>
+        {attendance.games.map(function(game, gi) {
+          return (
+            <div key={gi} style={{background:C.w,borderRadius:12,overflow:"hidden",border:"1px solid "+C.g2}}>
+              {/* Game header */}
+              <div style={{background:C.navy,padding:"16px 24px",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:8}}>
+                <h3 style={{fontFamily:F.h,fontSize:22,color:C.w,textTransform:"uppercase",letterSpacing:1,margin:0}}>{game.game}</h3>
+                <div style={{display:"flex",gap:12}}>
+                  <span style={{background:"#4ade80",color:C.navy,padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>YES {game.yes}</span>
+                  <span style={{background:"#fbbf24",color:C.navy,padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>MAYBE {game.maybe}</span>
+                  <span style={{background:"#f87171",color:C.w,padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>NO {game.no}</span>
+                  {game.noResponse > 0 && <span style={{background:C.g4,color:C.w,padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>PENDING {game.noResponse}</span>}
+                </div>
+              </div>
+
+              <div style={{padding:24}}>
+                {/* Forward Lines */}
+                {game.lineup.forwards.length > 0 && (
+                  <div style={{marginBottom:20}}>
+                    <h4 style={{fontFamily:F.h,fontSize:16,color:C.navy,textTransform:"uppercase",letterSpacing:2,margin:"0 0 8px"}}>Forward Lines</h4>
+                    {game.lineup.forwards.map(function(line, li) {
+                      return (
+                        <div key={li} style={{marginBottom:8}}>
+                          <span style={{fontFamily:F.h,fontSize:13,color:C.g4,marginRight:8}}>LINE {line.line}</span>
+                          {line.players.map(function(p, pi) { return <PlayerBadge key={pi} player={p} bg={C.navy} />; })}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Defense Pairs */}
+                {game.lineup.defense.length > 0 && (
+                  <div style={{marginBottom:20}}>
+                    <h4 style={{fontFamily:F.h,fontSize:16,color:C.navy,textTransform:"uppercase",letterSpacing:2,margin:"0 0 8px"}}>Defense Pairs</h4>
+                    {game.lineup.defense.map(function(pair, di) {
+                      return (
+                        <div key={di} style={{marginBottom:8}}>
+                          <span style={{fontFamily:F.h,fontSize:13,color:C.g4,marginRight:8}}>PAIR {pair.pair}</span>
+                          {pair.players.map(function(p, pi) { return <PlayerBadge key={pi} player={p} bg={C.olive} />; })}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Goalies */}
+                {game.lineup.goalies.length > 0 && (
+                  <div style={{marginBottom:20}}>
+                    <h4 style={{fontFamily:F.h,fontSize:16,color:C.navy,textTransform:"uppercase",letterSpacing:2,margin:"0 0 8px"}}>Goalies</h4>
+                    {game.lineup.goalies.map(function(p, pi) { return <PlayerBadge key={pi} player={p} bg={C.red} />; })}
+                  </div>
+                )}
+
+                {/* Bench (Maybe) */}
+                {game.bench.length > 0 && (
+                  <div style={{marginBottom:20}}>
+                    <h4 style={{fontFamily:F.h,fontSize:16,color:"#b45309",textTransform:"uppercase",letterSpacing:2,margin:"0 0 8px"}}>Bench (Maybe)</h4>
+                    {game.bench.map(function(p, pi) { return <PlayerBadge key={pi} player={p} bg="#b45309" />; })}
+                  </div>
+                )}
+
+                {/* Pending */}
+                {game.pending.length > 0 && (
+                  <div style={{marginBottom:8}}>
+                    <h4 style={{fontFamily:F.h,fontSize:16,color:C.g4,textTransform:"uppercase",letterSpacing:2,margin:"0 0 8px"}}>Awaiting Response</h4>
+                    {game.pending.map(function(p, pi) { return <PlayerBadge key={pi} player={p} bg={C.g4} />; })}
+                  </div>
+                )}
+
+                {game.yes === 0 && game.maybe === 0 && game.noResponse === game.totalPlayers && (
+                  <p style={{fontFamily:F.b,fontSize:14,color:C.g4,textAlign:"center",padding:20}}>No RSVPs yet — update attendance in Monday.com</p>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    )}
+  </PageWrap>;
+}
+
 /* ─── ICE SCHEDULES PAGE ─── */
 function IceSchedulesPage() {
   var schedules = [
@@ -806,6 +912,7 @@ export default function CWHSite() {
     case "disabled-hockey": content = <ProgramPage page="disabled-hockey" />; break;
     case "stick-puck": content = <ProgramPage page="stick-puck" />; break;
     case "schedule": content = <SchedulePage />; break;
+    case "lineup": content = <LineupPage />; break;
     case "ice-schedules": content = <IceSchedulesPage />; break;
     case "gallery": content = <GalleryPage />; break;
     case "team-dv": content = <TeamPage team="team-dv" />; break;
