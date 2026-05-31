@@ -700,6 +700,132 @@ def sync_monday_attendance(token):
     print(f"  -> {len(game_list)} games with attendance saved to {output_file}")
 
 
+def sync_monday_leadership(token):
+    """Sync leadership data from Monday.com Leadership board."""
+    print("\n=== MONDAY.COM LEADERSHIP ===")
+
+    boards = fetch_monday_boards(token)
+    lead_board = None
+    for b in boards:
+        if "leadership" in b["name"].lower():
+            lead_board = b
+            break
+
+    if not lead_board:
+        print("  No 'Leadership' board found")
+        lead_data = {"updated": datetime.utcnow().isoformat() + "Z", "sections": []}
+        with open(os.path.join(OUTPUT_DIR, "leadership.json"), "w") as f:
+            json.dump(lead_data, f, indent=2)
+        return
+
+    print(f"  Found board: {lead_board['name']} (ID: {lead_board['id']})")
+
+    query = """
+    query($boardId: [ID!]!) {
+        boards(ids: $boardId) {
+            groups {
+                id
+                title
+            }
+            items_page(limit: 200) {
+                items {
+                    id
+                    name
+                    group {
+                        id
+                        title
+                    }
+                    column_values {
+                        id
+                        text
+                        value
+                        type
+                    }
+                }
+            }
+        }
+    }
+    """
+    data = monday_query(token, query, {"boardId": [str(lead_board["id"])]})
+    if not data or "boards" not in data or len(data["boards"]) == 0:
+        print("  Failed to fetch board data")
+        return
+
+    board = data["boards"][0]
+    groups = board.get("groups", [])
+    items = board.get("items_page", {}).get("items", [])
+
+    # Organize by group (section)
+    sections = {}
+    for group in groups:
+        sections[group["id"]] = {
+            "section": group["title"],
+            "members": [],
+        }
+
+    for item in items:
+        group = item.get("group", {})
+        group_id = group.get("id", "")
+        if group_id not in sections:
+            continue
+
+        member = {
+            "name": item["name"],
+        }
+
+        for col in item.get("column_values", []):
+            col_id = col["id"]
+            text = col.get("text", "") or ""
+            if col_id == "text_mm3w8845":
+                member["title"] = text
+            elif col_id == "long_text_mm3wjghn":
+                member["bio"] = text
+            elif col_id == "color_mm3wvp77":
+                member["branch"] = text
+            elif col_id == "link_mm3wsyaj":
+                # Parse link - Monday returns "text - url" format
+                if " - http" in text:
+                    member["photo"] = text.split(" - ")[-1]
+                elif text.startswith("http"):
+                    member["photo"] = text
+                else:
+                    member["photo"] = ""
+            elif col_id == "link_mm3weeds":
+                if " - http" in text:
+                    member["militaryPhoto"] = text.split(" - ")[-1]
+                elif text.startswith("http"):
+                    member["militaryPhoto"] = text
+                else:
+                    member["militaryPhoto"] = ""
+            elif col_id == "text_mm3wkb8f":
+                member["serviceYears"] = text
+            elif col_id == "numeric_mm3wcthf":
+                try:
+                    member["order"] = int(float(text)) if text else 99
+                except:
+                    member["order"] = 99
+
+        sections[group_id]["members"].append(member)
+
+    # Sort members by order within each section
+    section_list = []
+    for gid, section in sections.items():
+        section["members"].sort(key=lambda m: m.get("order", 99))
+        if section["members"]:
+            section_list.append(section)
+
+    lead_data = {
+        "updated": datetime.utcnow().isoformat() + "Z",
+        "board_id": lead_board["id"],
+        "sections": section_list,
+    }
+    output_file = os.path.join(OUTPUT_DIR, "leadership.json")
+    with open(output_file, "w") as f:
+        json.dump(lead_data, f, indent=2)
+    total = sum(len(s["members"]) for s in section_list)
+    print(f"  -> {total} members in {len(section_list)} sections saved to {output_file}")
+
+
 # ═══════════════════════════════════════════
 # MAIN
 # ═══════════════════════════════════════════
@@ -728,6 +854,7 @@ def main():
         sync_monday_news(monday_token)
         sync_monday_events(monday_token)
         sync_monday_attendance(monday_token)
+        sync_monday_leadership(monday_token)
     elif not args.skip_monday:
         print("\nSkipping Monday.com — no API token provided")
         print("  Set MONDAY_API_TOKEN env var or use --monday-token flag")

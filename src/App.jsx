@@ -19,7 +19,7 @@ var IMG = {
 
 var BOARD_MEMBERS = [
   { name:"Taylor DeCicco", role:"President", branch:"U.S. Marine Corps", years:"2010-2015", img:IMG.taylor },
-  { name:"TJ Nocar", role:"Vice President", branch:"U.S. Marine Corps", years:"2008-2012", img:IMG.tj },
+  { name:"Robert Carpenter", role:"Bad Dude", branch:"U.S. Army Ranger", img:IMG.robb },
   { name:"Matt Chamblin", role:"Secretary", branch:"U.S. Air Force / Ohio ANG", years:"2002-2015", img:IMG.matt },
   { name:"Steven Bowman", role:"Treasurer", branch:"U.S. Army", years:"2012-2020", img:IMG.steven },
 ];
@@ -378,20 +378,68 @@ function AboutPage() { return <PageWrap title="About Us">
   <div style={{display:"flex",gap:12,marginTop:28,flexWrap:"wrap"}}><Btn href={FORMS.reg}>Join CWH</Btn><Btn href={FORMS.reg} v="olive">Volunteer</Btn></div>
 </PageWrap>; }
 
-function LeadershipPage() { return <PageWrap title="Leadership">
-  <h2 style={{fontFamily:F.h,fontSize:24,color:C.navy,letterSpacing:2,margin:"0 0 20px"}}>Board of Directors</h2>
-  <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:8}}>
-    {BOARD_MEMBERS.map(function(p,i){return <PersonCard key={i} person={p} />})}
-  </div>
-  <h2 style={{fontFamily:F.h,fontSize:24,color:C.navy,letterSpacing:2,margin:"36px 0 20px"}}>Operations Staff</h2>
-  <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:8}}>
-    {OPS_STAFF.map(function(p,i){return <PersonCard key={i} person={p} />})}
-  </div>
-  <h2 style={{fontFamily:F.h,fontSize:24,color:C.navy,letterSpacing:2,margin:"36px 0 20px"}}>Coaching Staff</h2>
-  <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:8}}>
-    {COACHING.map(function(p,i){return <PersonCard key={i} person={p} />})}
-  </div>
-</PageWrap>; }
+function LeadershipPage() {
+  var ld = useState(null); var leadership = ld[0]; var setLeadership = ld[1];
+  useEffect(function() {
+    fetch("/data/leadership.json").then(function(r){return r.json()}).then(function(d){
+      if (d.sections && d.sections.length > 0) setLeadership(d);
+    }).catch(function(){});
+  }, []);
+
+  function LeaderCard(props) {
+    var m = props.member;
+    var vacant = m.name === "Vacant";
+    return (
+      <div style={{textAlign:"center",padding:16}}>
+        {m.photo ? <img src={m.photo} alt={m.name} style={{width:120,height:120,borderRadius:"50%",objectFit:"cover",border:"3px solid "+C.red}} />
+          : <div style={{width:120,height:120,borderRadius:"50%",background:vacant?C.g2:C.navy,display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto",border:"3px solid "+(vacant?C.g2:C.red),fontFamily:F.h,fontSize:32,fontWeight:400,color:vacant?C.g4:C.w}}>{vacant ? "?" : m.name.split(" ").map(function(n){return n[0]}).join("")}</div>}
+        <div style={{fontFamily:F.h,fontSize:20,fontWeight:400,color:vacant?C.g4:C.navy,textTransform:"uppercase",marginTop:12,letterSpacing:1}}>{m.name}</div>
+        <div style={{fontFamily:F.b,fontSize:12,color:C.red,textTransform:"uppercase",letterSpacing:1,marginTop:2,fontWeight:600}}>{m.title || ""}</div>
+        {m.branch && <div style={{fontFamily:F.b,fontSize:13,color:C.g6,marginTop:4}}>{m.branch}</div>}
+        {m.serviceYears && <div style={{fontFamily:F.b,fontSize:12,color:C.g4}}>{m.serviceYears}</div>}
+        {m.bio && m.name !== "Vacant" && <div style={{fontFamily:F.b,fontSize:12,color:C.g4,marginTop:4,fontStyle:"italic"}}>{m.bio}</div>}
+        {m.militaryPhoto && (
+          <div style={{marginTop:8}}>
+            <img src={m.militaryPhoto} alt={m.name + " service photo"} style={{width:80,height:80,borderRadius:4,objectFit:"cover",opacity:0.8}} />
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  if (leadership && leadership.sections.length > 0) {
+    return <PageWrap title="Leadership">
+      {leadership.sections.map(function(section, si) {
+        return (
+          <div key={si}>
+            <h2 style={{fontFamily:F.h,fontSize:24,color:C.navy,letterSpacing:2,margin:(si > 0 ? "36px" : "0") + " 0 20px",textAlign:"center"}}>{section.section}</h2>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:8}}>
+              {section.members.map(function(m, mi) {
+                return <LeaderCard key={mi} member={m} />;
+              })}
+            </div>
+          </div>
+        );
+      })}
+    </PageWrap>;
+  }
+
+  /* Fallback to hardcoded data if JSON not available */
+  return <PageWrap title="Leadership">
+    <h2 style={{fontFamily:F.h,fontSize:24,color:C.navy,letterSpacing:2,margin:"0 0 20px"}}>Board of Directors</h2>
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:8}}>
+      {BOARD_MEMBERS.map(function(p,i){return <PersonCard key={i} person={p} />})}
+    </div>
+    <h2 style={{fontFamily:F.h,fontSize:24,color:C.navy,letterSpacing:2,margin:"36px 0 20px"}}>Operations Staff</h2>
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:8}}>
+      {OPS_STAFF.map(function(p,i){return <PersonCard key={i} person={p} />})}
+    </div>
+    <h2 style={{fontFamily:F.h,fontSize:24,color:C.navy,letterSpacing:2,margin:"36px 0 20px"}}>Coaching Staff</h2>
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:8}}>
+      {COACHING.map(function(p,i){return <PersonCard key={i} person={p} />})}
+    </div>
+  </PageWrap>;
+}
 
 function SponsorsPage() { return <PageWrap title="Sponsors" sub="Their generous support makes our mission possible.">
   <img src={IMG.sponsorAll} alt="Sponsors" style={{width:"100%",borderRadius:8}} />
