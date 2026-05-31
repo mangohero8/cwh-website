@@ -625,18 +625,43 @@ def sync_monday_attendance(token):
         no_response = [p for p in game_data["players"] if p.get("rsvp", "") == ""]
 
         # Auto-generate lineup from Yes players
-        forwards = [p for p in yes_players if p.get("position", "").lower() in ["center", "wing", "forward"]]
+        centers = [p for p in yes_players if p.get("position", "").lower() == "center"]
+        wings = [p for p in yes_players if p.get("position", "").lower() in ["wing", "forward"]]
         defense = [p for p in yes_players if p.get("position", "").lower() == "defense"]
         goalies = [p for p in yes_players if p.get("position", "").lower() == "goalie"]
         unassigned = [p for p in yes_players if p.get("position", "") == "" or p.get("position", "").lower() not in ["center", "wing", "forward", "defense", "goalie"]]
 
-        # Build lines
+        # Build forward lines: 1 Center + 2 Wings per line
+        # Extra wings or unassigned fill remaining spots
+        available_wings = wings + unassigned  # Unassigned skaters go to wing pool
         lines = []
-        all_fwd = forwards + unassigned  # Put unassigned with forwards
         line_num = 1
-        for i in range(0, len(all_fwd), 3):
-            line = all_fwd[i:i+3]
-            lines.append({"line": line_num, "players": line})
+        
+        # First, build lines around each center
+        for c in centers:
+            line_players = []
+            # Pick up to 2 wings for this line
+            w1 = available_wings.pop(0) if available_wings else None
+            w2 = available_wings.pop(0) if available_wings else None
+            if w1:
+                line_players.append(w1)
+            line_players.append(c)  # Center in the middle
+            if w2:
+                line_players.append(w2)
+            lines.append({"line": line_num, "players": line_players})
+            line_num += 1
+        
+        # Remaining wings without a center form additional lines
+        while len(available_wings) >= 2:
+            chunk = []
+            for _ in range(min(3, len(available_wings))):
+                chunk.append(available_wings.pop(0))
+            lines.append({"line": line_num, "players": chunk})
+            line_num += 1
+        
+        # Any solo leftover wing
+        if available_wings:
+            lines.append({"line": line_num, "players": available_wings})
             line_num += 1
 
         d_pairs = []
