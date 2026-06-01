@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-01T02:00:02.361790Z",
+  "updated": "2026-06-01T02:30:02.013273Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -68,10 +68,20 @@
   ],
   "forwards": [
     {
+      "jersey": "88",
+      "name": "Brandon Lorenz",
+      "pos": "Wing",
+      "gp": 2,
+      "g": 2,
+      "a": 0,
+      "pts": 2,
+      "pim": 4
+    },
+    {
       "jersey": "55",
       "name": "Jaymes Albright",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -96,16 +106,6 @@
       "a": 0,
       "pts": 1,
       "pim": 0
-    },
-    {
-      "jersey": "88",
-      "name": "Brandon Lorenz",
-      "pos": "Wing",
-      "gp": 2,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 4
     },
     {
       "jersey": "12",
@@ -174,9 +174,19 @@
       "name": "DOUGLAS HOYT",
       "pos": "Defense",
       "gp": 2,
-      "g": 1,
+      "g": 2,
       "a": 1,
-      "pts": 2,
+      "pts": 3,
+      "pim": 0
+    },
+    {
+      "jersey": "37",
+      "name": "Eric Rohr",
+      "pos": "Defense",
+      "gp": 1,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
       "pim": 0
     },
     {
@@ -208,16 +218,6 @@
       "a": 0,
       "pts": 0,
       "pim": 0
-    },
-    {
-      "jersey": "37",
-      "name": "Eric Rohr",
-      "pos": "Defense",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
     }
   ],
   "goalies": [
@@ -237,8 +237,8 @@
       "name": "David wright",
       "pos": "Goalie",
       "gp": 1,
-      "w": 0,
-      "l": 1,
+      "w": 1,
+      "l": 0,
       "otl": 0,
       "ga": 1,
       "gaa": "1.0"
