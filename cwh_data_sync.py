@@ -310,6 +310,110 @@ def scrape_chillerstats():
         json.dump(combined, f, indent=2)
     print(f"\nCombined schedule: {len(all_schedules)} games -> {sched_file}")
 
+    # Generate season leaderboard from stats
+    print("\n=== LEADERBOARD ===")
+    all_skaters = []
+    all_goalies = []
+    for team_key, team_config in CHILLER_TEAMS.items():
+        stats_file = os.path.join(OUTPUT_DIR, f"stats-{team_key}.json")
+        if os.path.exists(stats_file):
+            with open(stats_file) as f:
+                team_stats = json.load(f)
+            team_name = team_config["name"]
+            for section in ["forwards", "defense", "unassigned"]:
+                for p in team_stats.get(section, []):
+                    if p.get("gp", 0) > 0:
+                        p["team"] = team_name
+                        p["teamKey"] = team_key
+                        all_skaters.append(p)
+            for p in team_stats.get("goalies", []):
+                if p.get("gp", 0) > 0:
+                    p["team"] = team_name
+                    p["teamKey"] = team_key
+                    all_goalies.append(p)
+
+    # Sort leaderboards
+    top_points = sorted(all_skaters, key=lambda x: (-x.get("pts", 0), -x.get("g", 0)))[:10]
+    top_goals = sorted(all_skaters, key=lambda x: (-x.get("g", 0), -x.get("pts", 0)))[:10]
+    top_assists = sorted(all_skaters, key=lambda x: (-x.get("a", 0), -x.get("pts", 0)))[:10]
+    top_pim = sorted(all_skaters, key=lambda x: -x.get("pim", 0))[:10]
+    top_goalies = sorted(all_goalies, key=lambda x: (float(x.get("gaa", "99")), -x.get("w", 0)))
+
+    # Player of the week - highest points
+    potw = top_points[0] if top_points else None
+
+    leaderboard = {
+        "updated": datetime.utcnow().isoformat() + "Z",
+        "topPoints": top_points,
+        "topGoals": top_goals,
+        "topAssists": top_assists,
+        "topPIM": top_pim,
+        "goalies": top_goalies,
+        "playerOfTheWeek": potw,
+    }
+    lb_file = os.path.join(OUTPUT_DIR, "leaderboard.json")
+    with open(lb_file, "w") as f:
+        json.dump(leaderboard, f, indent=2)
+    print(f"Leaderboard: {len(top_points)} skaters, {len(top_goalies)} goalies -> {lb_file}")
+    if potw:
+        print(f"Player of the Week: {potw['name']} ({potw.get('pts',0)} PTS)")
+
+    # Generate game recaps from schedule results
+    print("\n=== GAME RECAPS ===")
+    recaps = []
+    for game in all_schedules:
+        score = game.get("score", "").strip()
+        result = game.get("result", "").strip()
+        if score and result:
+            parts = score.split("-")
+            if len(parts) == 2:
+                try:
+                    s1 = int(parts[0].strip())
+                    s2 = int(parts[1].strip())
+                except:
+                    continue
+                
+                team_short = game["team"].split(" - ")[-1] if " - " in game["team"] else game["team"]
+                opponent = game.get("opponent", "Unknown")
+                ha = game.get("homeAway", "")
+                
+                if result == "W":
+                    if ha == "Home":
+                        headline = f"{team_short} defeats {opponent} {s1}-{s2} at home"
+                    else:
+                        headline = f"{team_short} wins {s2}-{s1} on the road against {opponent}"
+                    emoji = "🏆"
+                elif result == "L":
+                    if ha == "Home":
+                        headline = f"{team_short} falls to {opponent} {s1}-{s2} at home"
+                    else:
+                        headline = f"{team_short} loses {s2}-{s1} away to {opponent}"
+                    emoji = "📊"
+                else:
+                    headline = f"{team_short} ties {opponent} {score}"
+                    emoji = "🤝"
+                
+                recap = {
+                    "date": game.get("date", ""),
+                    "team": game["team"],
+                    "opponent": opponent,
+                    "score": score,
+                    "result": result,
+                    "homeAway": ha,
+                    "location": game.get("location", ""),
+                    "headline": headline,
+                }
+                recaps.append(recap)
+    
+    recaps_data = {
+        "updated": datetime.utcnow().isoformat() + "Z",
+        "recaps": recaps,
+    }
+    recap_file = os.path.join(OUTPUT_DIR, "recaps.json")
+    with open(recap_file, "w") as f:
+        json.dump(recaps_data, f, indent=2)
+    print(f"Game recaps: {len(recaps)} completed games -> {recap_file}")
+
 
 # ═══════════════════════════════════════════
 # MONDAY.COM API
@@ -700,6 +804,166 @@ def sync_monday_attendance(token):
     print(f"  -> {len(game_list)} games with attendance saved to {output_file}")
 
 
+def generate_leaderboard():
+    """Generate season leaderboard from stats JSON files."""
+    print("\n=== LEADERBOARD ===")
+    
+    all_skaters = []
+    all_goalies = []
+    
+    for team_key in ["cahl-c", "cahl-d"]:
+        stats_file = os.path.join(OUTPUT_DIR, f"stats-{team_key}.json")
+        if not os.path.exists(stats_file):
+            continue
+        with open(stats_file) as f:
+            stats = json.load(f)
+        
+        team_name = stats.get("team", team_key)
+        
+        for section in ["forwards", "defense", "unassigned"]:
+            for p in stats.get(section, []):
+                if p.get("gp", 0) > 0:
+                    all_skaters.append({
+                        "name": p["name"],
+                        "team": team_name,
+                        "jersey": p.get("jersey", ""),
+                        "pos": p.get("pos", ""),
+                        "gp": p.get("gp", 0),
+                        "g": p.get("g", 0),
+                        "a": p.get("a", 0),
+                        "pts": p.get("pts", 0),
+                        "pim": p.get("pim", 0),
+                    })
+        
+        for g in stats.get("goalies", []):
+            if g.get("gp", 0) > 0:
+                all_goalies.append({
+                    "name": g["name"],
+                    "team": team_name,
+                    "jersey": g.get("jersey", ""),
+                    "gp": g.get("gp", 0),
+                    "w": g.get("w", 0),
+                    "l": g.get("l", 0),
+                    "gaa": g.get("gaa", "0.0"),
+                    "ga": g.get("ga", 0),
+                })
+    
+    # Sort leaderboards
+    top_points = sorted(all_skaters, key=lambda x: (-x["pts"], -x["g"]))[:10]
+    top_goals = sorted(all_skaters, key=lambda x: -x["g"])[:10]
+    top_assists = sorted(all_skaters, key=lambda x: -x["a"])[:10]
+    top_pim = sorted(all_skaters, key=lambda x: -x["pim"])[:5]
+    goalies_ranked = sorted(all_goalies, key=lambda x: float(x["gaa"]))
+    
+    # Player of the week - top points scorer
+    potw = top_points[0] if top_points else None
+    
+    leaderboard = {
+        "updated": datetime.utcnow().isoformat() + "Z",
+        "playerOfTheWeek": potw,
+        "topPoints": top_points,
+        "topGoals": top_goals,
+        "topAssists": top_assists,
+        "topPIM": top_pim,
+        "goalies": goalies_ranked,
+    }
+    
+    output_file = os.path.join(OUTPUT_DIR, "leaderboard.json")
+    with open(output_file, "w") as f:
+        json.dump(leaderboard, f, indent=2)
+    print(f"  -> Leaderboard saved with {len(all_skaters)} skaters, {len(all_goalies)} goalies")
+
+
+def generate_recaps():
+    """Generate game recaps from schedule data (games with scores)."""
+    print("\n=== GAME RECAPS ===")
+    
+    sched_file = os.path.join(OUTPUT_DIR, "schedule.json")
+    if not os.path.exists(sched_file):
+        print("  No schedule.json found")
+        return
+    
+    with open(sched_file) as f:
+        schedule = json.load(f)
+    
+    recaps = []
+    for game in schedule.get("games", []):
+        score = game.get("score", "").strip()
+        result = game.get("result", "").strip()
+        if not score or not result:
+            continue
+        
+        # Parse score "2 - 3" format
+        parts = score.split("-")
+        if len(parts) != 2:
+            continue
+        
+        try:
+            score_home = int(parts[0].strip())
+            score_away = int(parts[1].strip())
+        except ValueError:
+            continue
+        
+        is_home = game.get("homeAway", "") == "Home"
+        opponent = game.get("opponent", "Unknown")
+        team = game.get("team", "")
+        
+        if is_home:
+            our_score = score_home
+            their_score = score_away
+        else:
+            our_score = score_away
+            their_score = score_home
+        
+        won = result.upper() == "W"
+        
+        # Generate recap text
+        if won:
+            if our_score - their_score >= 3:
+                headline = f"Warriors Dominate {opponent}"
+                summary = f"A commanding {our_score}-{their_score} victory over {opponent}."
+            elif our_score - their_score == 1:
+                headline = f"Warriors Edge {opponent} in Thriller"
+                summary = f"A hard-fought {our_score}-{their_score} win against {opponent}."
+            else:
+                headline = f"Warriors Take Down {opponent}"
+                summary = f"A solid {our_score}-{their_score} victory over {opponent}."
+        else:
+            if their_score - our_score >= 3:
+                headline = f"Warriors Fall to {opponent}"
+                summary = f"A tough {their_score}-{our_score} loss against {opponent}."
+            elif their_score - our_score == 1:
+                headline = f"Warriors Drop Close One to {opponent}"
+                summary = f"A narrow {their_score}-{our_score} defeat against {opponent}."
+            else:
+                headline = f"Warriors Come Up Short Against {opponent}"
+                summary = f"A {their_score}-{our_score} loss to {opponent}."
+        
+        recap = {
+            "date": game.get("date", ""),
+            "team": team,
+            "opponent": opponent,
+            "location": game.get("location", ""),
+            "homeAway": game.get("homeAway", ""),
+            "score": score,
+            "result": result,
+            "ourScore": our_score,
+            "theirScore": their_score,
+            "headline": headline,
+            "summary": summary,
+        }
+        recaps.append(recap)
+    
+    recap_data = {
+        "updated": datetime.utcnow().isoformat() + "Z",
+        "recaps": recaps,
+    }
+    output_file = os.path.join(OUTPUT_DIR, "recaps.json")
+    with open(output_file, "w") as f:
+        json.dump(recap_data, f, indent=2)
+    print(f"  -> {len(recaps)} game recaps generated")
+
+
 def sync_monday_leadership(token):
     """Sync leadership data from Monday.com Leadership board."""
     print("\n=== MONDAY.COM LEADERSHIP ===")
@@ -847,6 +1111,10 @@ def main():
         scrape_chillerstats()
     else:
         print("\nSkipping ChillerStats")
+
+    # Generate leaderboard and recaps from scraped data
+    generate_leaderboard()
+    generate_recaps()
 
     # Monday.com
     monday_token = args.monday_token or os.environ.get("MONDAY_API_TOKEN")
