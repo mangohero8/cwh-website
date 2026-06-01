@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-01T01:00:01.846572Z",
+  "updated": "2026-06-01T01:30:01.918092Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -105,7 +105,7 @@
       "g": 1,
       "a": 0,
       "pts": 1,
-      "pim": 0
+      "pim": 2
     },
     {
       "jersey": "12",
@@ -236,12 +236,12 @@
       "jersey": "0",
       "name": "David wright",
       "pos": "Goalie",
-      "gp": 0,
+      "gp": 1,
       "w": 0,
-      "l": 0,
+      "l": 1,
       "otl": 0,
-      "ga": 0,
-      "gaa": "0.0"
+      "ga": 1,
+      "gaa": "1.0"
     }
   ],
   "stickAndPuck": [
