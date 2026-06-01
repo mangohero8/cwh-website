@@ -55,7 +55,7 @@ var STATS = [{p:"Player 1",gp:12,g:8,a:6,pts:14},{p:"Player 2",gp:12,g:5,a:9,pts
 var NAV_ITEMS = [
   { label:"About", ch:[{l:"About Us",p:"about"},{l:"News",p:"news"},{l:"Photo Gallery",p:"gallery"},{l:"Leadership",p:"leadership"},{l:"Sponsors",p:"sponsors"},{l:"Become a Sponsor",p:"become-sponsor"},{l:"Become a Contributor",p:"contributor"}]},
   { label:"Programs", ch:[{l:"Chiller Adult Hockey League",p:"cahl"},{l:"Disabled Hockey",p:"disabled-hockey"},{l:"Stick & Puck / Drop-In",p:"stick-puck"}]},
-  { label:"Schedule", ch:[{l:"Game Schedule",p:"schedule"},{l:"Game Lineup",p:"lineup"}]},
+  { label:"Schedule", ch:[{l:"Game Schedule",p:"schedule"},{l:"Game Lineup",p:"lineup"},{l:"Game Recaps",p:"recaps"},{l:"Season Leaderboard",p:"leaderboard"}]},
   { label:"Teams", ch:[{l:"DV - Columbus Warriors",p:"team-dv"},{l:"CAHL C - Warriors",p:"team-c"},{l:"CAHL D - Warriors",p:"team-d"}]},
   { label:"Resources", ch:[{l:"Ice Schedules",p:"ice-schedules"},{l:"Mental Health",p:"mental-health"},{l:"Registration Guides",p:"reg-guides"},{l:"Players Corner",p:"players-corner"},{l:"Coaching for CWH",p:"coaching"}]},
 ];
@@ -212,12 +212,16 @@ function PageWrap({children, title, sub}) {
 function HomePage({nav:n}) {
   var mn = useState([]); var mondayNews = mn[0]; var setMondayNews = mn[1];
   var me = useState([]); var mondayEvents = me[0]; var setMondayEvents = me[1];
+  var lb = useState(null); var leaderboard = lb[0]; var setLeaderboard = lb[1];
   useEffect(function() {
     fetch("/data/news.json").then(function(r){return r.json()}).then(function(d){
       if (d.articles) setMondayNews(d.articles);
     }).catch(function(){});
     fetch("/data/events.json").then(function(r){return r.json()}).then(function(d){
       if (d.events) setMondayEvents(d.events);
+    }).catch(function(){});
+    fetch("/data/leaderboard.json").then(function(r){return r.json()}).then(function(d){
+      setLeaderboard(d);
     }).catch(function(){});
   }, []);
 
@@ -264,6 +268,21 @@ function HomePage({nav:n}) {
           <div style={{flex:1,textAlign:"center"}}><a href="https://www.kroger.com/account/communityrewards" target="_blank" rel="noopener noreferrer"><img src={IMG.kroger} alt="Kroger" style={{maxWidth:"80%",maxHeight:140}} /></a></div>
         </div>
       </section>
+
+      {/* PLAYER OF THE WEEK */}
+      {leaderboard && leaderboard.playerOfTheWeek && (
+        <section style={{padding:"40px 0",background:C.navy}}>
+          <div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",gap:24,flexWrap:"wrap",justifyContent:"center"}}>
+            <div style={{width:80,height:80,borderRadius:"50%",background:C.red,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:F.h,fontSize:40,color:C.w,flexShrink:0}}>★</div>
+            <div style={{textAlign:"center"}}>
+              <div style={{fontFamily:F.h,fontSize:14,color:"rgba(255,255,255,0.5)",textTransform:"uppercase",letterSpacing:3}}>Player of the Week</div>
+              <div style={{fontFamily:F.h,fontSize:32,color:C.w,textTransform:"uppercase",letterSpacing:2}}>{leaderboard.playerOfTheWeek.name}</div>
+              <div style={{fontFamily:F.b,fontSize:16,color:"rgba(255,255,255,0.7)",marginTop:4}}>{leaderboard.playerOfTheWeek.g} Goals • {leaderboard.playerOfTheWeek.a} Assists • {leaderboard.playerOfTheWeek.pts} Points</div>
+            </div>
+            <a onClick={function(e){e.preventDefault();n("leaderboard")}} href="#" style={{fontFamily:F.h,fontSize:14,color:C.w,textDecoration:"none",textTransform:"uppercase",letterSpacing:2,padding:"10px 20px",border:"1px solid rgba(255,255,255,0.3)",borderRadius:4,cursor:"pointer"}}>View Leaderboard →</a>
+          </div>
+        </section>
+      )}
 
       {/* NEWS — Grid 3+2 with alternating overlays */}
       <section style={{padding:"80px 0"}}>
@@ -870,6 +889,139 @@ function LineupPage() {
   </PageWrap>;
 }
 
+/* ─── SEASON LEADERBOARD ─── */
+function LeaderboardPage() {
+  var lb = useState(null); var board = lb[0]; var setBoard = lb[1];
+  useEffect(function() {
+    fetch("/data/leaderboard.json").then(function(r){return r.json()}).then(function(d){setBoard(d)}).catch(function(){});
+  }, []);
+
+  function LeaderTable(props) {
+    var title = props.title; var players = props.players; var stat = props.stat; var label = props.label;
+    if (!players || players.length === 0) return null;
+    return (
+      <div style={{marginBottom:32}}>
+        <h3 style={{fontFamily:F.h,fontSize:20,color:C.navy,textTransform:"uppercase",letterSpacing:2,margin:"0 0 12px"}}>{title}</h3>
+        <div style={{borderRadius:8,overflow:"hidden"}}>
+          <table style={{width:"100%",borderCollapse:"collapse",background:C.w}}>
+            <thead><tr style={{background:C.navy}}>
+              <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"center",width:40}}>#</th>
+              <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"left"}}>Player</th>
+              <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"left"}}>Team</th>
+              <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"center"}}>GP</th>
+              <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"center"}}>{label}</th>
+            </tr></thead>
+            <tbody>{players.map(function(p, i) {
+              return (
+                <tr key={i} style={{borderBottom:"1px solid "+C.g2,background:i===0?"rgba(183,35,44,0.05)":"transparent"}}>
+                  <td style={{padding:"8px 12px",fontFamily:F.h,fontSize:16,color:i===0?C.red:C.g4,textAlign:"center",fontWeight:i===0?700:400}}>{i+1}</td>
+                  <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g8,fontWeight:600}}>{p.name}</td>
+                  <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:12,color:C.g4}}>{(p.team||"").replace("Columbus Warriors ","").replace("CAHL ","")}</td>
+                  <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g6,textAlign:"center"}}>{p.gp}</td>
+                  <td style={{padding:"8px 12px",fontFamily:F.h,fontSize:18,color:i===0?C.red:C.navy,textAlign:"center"}}>{p[stat]}</td>
+                </tr>
+              );
+            })}</tbody>
+          </table>
+        </div>
+      </div>
+    );
+  }
+
+  return <PageWrap title="Season Leaderboard" sub="Top performers across all CWH teams — auto-updated from ChillerStats.">
+    {!board ? (
+      <div style={{padding:40,textAlign:"center"}}><p style={{fontFamily:F.b,color:C.g4}}>Loading leaderboard...</p></div>
+    ) : (
+      <div>
+        {/* Player of the Week */}
+        {board.playerOfTheWeek && (
+          <div style={{background:C.navy,borderRadius:12,padding:24,marginBottom:32,display:"flex",alignItems:"center",gap:20,flexWrap:"wrap"}}>
+            <div style={{width:64,height:64,borderRadius:"50%",background:C.red,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:F.h,fontSize:28,color:C.w}}>★</div>
+            <div>
+              <div style={{fontFamily:F.h,fontSize:14,color:"rgba(255,255,255,0.6)",textTransform:"uppercase",letterSpacing:2}}>Player of the Week</div>
+              <div style={{fontFamily:F.h,fontSize:28,color:C.w,textTransform:"uppercase",letterSpacing:1}}>{board.playerOfTheWeek.name}</div>
+              <div style={{fontFamily:F.b,fontSize:14,color:"rgba(255,255,255,0.7)"}}>{board.playerOfTheWeek.g}G • {board.playerOfTheWeek.a}A • {board.playerOfTheWeek.pts} PTS</div>
+            </div>
+          </div>
+        )}
+
+        {/* Goalie Leaders */}
+        {board.goalies && board.goalies.length > 0 && (
+          <div style={{marginBottom:32}}>
+            <h3 style={{fontFamily:F.h,fontSize:20,color:C.navy,textTransform:"uppercase",letterSpacing:2,margin:"0 0 12px"}}>Goalie Leaders</h3>
+            <div style={{borderRadius:8,overflow:"hidden"}}>
+              <table style={{width:"100%",borderCollapse:"collapse",background:C.w}}>
+                <thead><tr style={{background:C.navy}}>
+                  <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"center",width:40}}>#</th>
+                  <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"left"}}>Goalie</th>
+                  <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"center"}}>GP</th>
+                  <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"center"}}>W</th>
+                  <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"center"}}>L</th>
+                  <th style={{padding:"8px 12px",fontFamily:F.h,fontSize:13,color:C.w,textAlign:"center"}}>GAA</th>
+                </tr></thead>
+                <tbody>{board.goalies.map(function(g, i) {
+                  return (
+                    <tr key={i} style={{borderBottom:"1px solid "+C.g2}}>
+                      <td style={{padding:"8px 12px",fontFamily:F.h,fontSize:16,color:C.g4,textAlign:"center"}}>{i+1}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g8,fontWeight:600}}>{g.name}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:C.g6,textAlign:"center"}}>{g.gp}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:"#4ade80",textAlign:"center",fontWeight:600}}>{g.w}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.b,fontSize:14,color:"#f87171",textAlign:"center"}}>{g.l}</td>
+                      <td style={{padding:"8px 12px",fontFamily:F.h,fontSize:18,color:C.navy,textAlign:"center"}}>{g.gaa}</td>
+                    </tr>
+                  );
+                })}</tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))",gap:24}}>
+          <LeaderTable title="Points Leaders" players={board.topPoints} stat="pts" label="PTS" />
+          <LeaderTable title="Goal Leaders" players={board.topGoals} stat="g" label="G" />
+          <LeaderTable title="Assist Leaders" players={board.topAssists} stat="a" label="A" />
+          <LeaderTable title="Penalty Minutes" players={board.topPIM} stat="pim" label="PIM" />
+        </div>
+      </div>
+    )}
+  </PageWrap>;
+}
+
+/* ─── GAME RECAPS ─── */
+function RecapsPage() {
+  var rc = useState(null); var recaps = rc[0]; var setRecaps = rc[1];
+  useEffect(function() {
+    fetch("/data/recaps.json").then(function(r){return r.json()}).then(function(d){setRecaps(d)}).catch(function(){});
+  }, []);
+
+  return <PageWrap title="Game Recaps" sub="Auto-generated summaries from completed games.">
+    {!recaps || !recaps.recaps || recaps.recaps.length === 0 ? (
+      <div style={{padding:40,textAlign:"center"}}><p style={{fontFamily:F.b,color:C.g4}}>No completed games yet this season.</p></div>
+    ) : (
+      <div style={{display:"flex",flexDirection:"column",gap:12}}>
+        {recaps.recaps.slice().reverse().map(function(r, i) {
+          var isWin = r.result === "W";
+          var isLoss = r.result === "L";
+          return (
+            <div key={i} style={{background:C.w,borderRadius:8,overflow:"hidden",border:"1px solid "+C.g2,display:"flex"}}>
+              <div style={{width:6,background:isWin?"#4ade80":isLoss?"#f87171":"#fbbf24",flexShrink:0}} />
+              <div style={{padding:"16px 20px",flex:1}}>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:8}}>
+                  <div>
+                    <div style={{fontFamily:F.h,fontSize:18,color:C.navy,textTransform:"uppercase",letterSpacing:1}}>{r.headline}</div>
+                    <div style={{fontFamily:F.b,fontSize:13,color:C.g4,marginTop:4}}>{r.date} • {r.location}</div>
+                  </div>
+                  <div style={{fontFamily:F.h,fontSize:28,color:isWin?"#4ade80":isLoss?"#f87171":C.navy}}>{r.score}</div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    )}
+  </PageWrap>;
+}
+
 /* ─── ICE SCHEDULES PAGE ─── */
 function IceSchedulesPage() {
   var schedules = [
@@ -961,6 +1113,8 @@ export default function CWHSite() {
     case "stick-puck": content = <ProgramPage page="stick-puck" />; break;
     case "schedule": content = <SchedulePage />; break;
     case "lineup": content = <LineupPage />; break;
+    case "leaderboard": content = <LeaderboardPage />; break;
+    case "recaps": content = <RecapsPage />; break;
     case "ice-schedules": content = <IceSchedulesPage />; break;
     case "gallery": content = <GalleryPage />; break;
     case "team-dv": content = <TeamPage team="team-dv" />; break;
