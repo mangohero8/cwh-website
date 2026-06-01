@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-01T23:00:03.695186Z",
+  "updated": "2026-06-01T23:30:03.763875Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -9,7 +9,7 @@
       "jersey": "0",
       "name": "Alex Vakkur",
       "pos": "",
-      "gp": 1,
+      "gp": 2,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -69,7 +69,7 @@
       "jersey": "0",
       "name": "Cai Lorenz",
       "pos": "",
-      "gp": 1,
+      "gp": 2,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -79,7 +79,7 @@
       "jersey": "0",
       "name": "Luke Marshall",
       "pos": "",
-      "gp": 1,
+      "gp": 2,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -119,7 +119,7 @@
       "jersey": "0",
       "name": "Ethan Yeazel",
       "pos": "",
-      "gp": 0,
+      "gp": 1,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -141,7 +141,7 @@
       "jersey": "97",
       "name": "Allen Gambrel",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -151,7 +151,7 @@
       "jersey": "4",
       "name": "Nicholas Flores",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 0,
       "a": 1,
       "pts": 1,
@@ -226,12 +226,12 @@
       "jersey": "12",
       "name": "Will Sullivan",
       "pos": "Goalie",
-      "gp": 2,
+      "gp": 3,
       "w": 2,
       "l": 0,
       "otl": 0,
       "ga": 3,
-      "gaa": "1.5"
+      "gaa": "1.0"
     }
   ],
   "stickAndPuck": [
@@ -254,11 +254,6 @@
   "dropIn": [
     {
       "rink": "North 1",
-      "date": "Monday, June 1",
-      "time": "6:30 PM"
-    },
-    {
-      "rink": "North 1",
       "date": "Friday, June 5",
       "time": "6:20 PM"
     },
@@ -266,6 +261,11 @@
       "rink": "Ice Works",
       "date": "Thursday, June 11",
       "time": "7:30 PM"
+    },
+    {
+      "rink": "North 1",
+      "date": "Friday, June 12",
+      "time": "8:30 PM"
     }
   ]
 }
