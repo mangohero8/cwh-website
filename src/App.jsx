@@ -626,6 +626,97 @@ function TeamPage({team}) {
     );
   }
 
+  /* DV Warriors — dedicated page with no ChillerStats */
+  if (team === "team-dv") {
+    return <PageWrap title="DV - Columbus Warriors" sub="USA Hockey Warrior Discipline — Adaptive hockey for disabled veterans">
+      {/* Hero banner */}
+      <div style={{background:C.navy,borderRadius:12,padding:"40px 32px",marginBottom:32,position:"relative",overflow:"hidden"}}>
+        <img src={IMG.logo} alt="" style={{position:"absolute",right:-30,bottom:-30,width:200,opacity:0.1}} />
+        <div style={{position:"relative",zIndex:1}}>
+          <div style={{display:"inline-block",background:"#c8a84e",color:C.navy,fontFamily:F.h,fontSize:13,letterSpacing:2,padding:"4px 16px",borderRadius:4,textTransform:"uppercase",marginBottom:16}}>USA Hockey Warrior Hockey</div>
+          <h2 style={{fontFamily:F.h,fontSize:36,color:C.w,textTransform:"uppercase",letterSpacing:2,margin:"0 0 16px",lineHeight:1.1}}>From the Rink to Resilience</h2>
+          <p style={{fontFamily:F.b,fontSize:16,color:"rgba(255,255,255,0.8)",lineHeight:1.8,maxWidth:700,margin:0}}>USA Hockey's Warrior Hockey Discipline is dedicated to injured and disabled U.S. military veterans who have served our country and play the sport of ice hockey. The Columbus Warriors represent Ohio on the national stage.</p>
+        </div>
+      </div>
+
+      {/* Eligibility & Info cards */}
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(280px, 1fr))",gap:20,marginBottom:32}}>
+        <div style={{background:C.w,borderRadius:8,padding:24,border:"1px solid "+C.g2,borderTop:"4px solid #c8a84e"}}>
+          <h3 style={{fontFamily:F.h,fontSize:20,color:C.navy,textTransform:"uppercase",letterSpacing:1,margin:"0 0 12px"}}>Eligibility</h3>
+          <p style={{fontFamily:F.b,fontSize:14,color:C.g6,lineHeight:1.7,margin:0}}>Open to U.S. military veterans with a 10% or higher VA disability rating, or recipients of the Purple Heart. All skill levels welcome — from first-timers to experienced players.</p>
+        </div>
+        <div style={{background:C.w,borderRadius:8,padding:24,border:"1px solid "+C.g2,borderTop:"4px solid "+C.navy}}>
+          <h3 style={{fontFamily:F.h,fontSize:20,color:C.navy,textTransform:"uppercase",letterSpacing:1,margin:"0 0 12px"}}>National Events</h3>
+          <p style={{fontFamily:F.b,fontSize:14,color:C.g6,lineHeight:1.7,margin:0}}>USA Hockey hosts two national Warrior Hockey events each season. The Columbus Warriors compete against teams from across the country, building camaraderie and competitive spirit.</p>
+        </div>
+        <div style={{background:C.w,borderRadius:8,padding:24,border:"1px solid "+C.g2,borderTop:"4px solid "+C.red}}>
+          <h3 style={{fontFamily:F.h,fontSize:20,color:C.navy,textTransform:"uppercase",letterSpacing:1,margin:"0 0 12px"}}>Our Mission</h3>
+          <p style={{fontFamily:F.b,fontSize:14,color:C.g6,lineHeight:1.7,margin:0}}>Provide veterans with meaningful peer-based support networks, encourage a healthier lifestyle through physical activity, and offer a therapeutic experience that contributes to both mental and physical healing.</p>
+        </div>
+      </div>
+
+      {/* Recent highlights */}
+      <div style={{marginBottom:32}}>
+        <h2 style={{fontFamily:F.h,fontSize:22,color:C.navy,letterSpacing:2,margin:"0 0 16px"}}>Recent Highlights</h2>
+        <a href="https://www.columbuswarriorhockey.org/news/columbus-warriors-debut-at-the-guardians-cup-in-rochester/26965" target="_blank" rel="noopener noreferrer" style={{display:"block",background:C.g1,borderRadius:8,padding:24,borderLeft:"4px solid #c8a84e",textDecoration:"none",marginBottom:12}}>
+          <div style={{fontFamily:F.b,fontSize:12,color:C.g4,textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>March 2026</div>
+          <h3 style={{fontFamily:F.h,fontSize:20,color:C.navy,textTransform:"uppercase",letterSpacing:1,margin:"0 0 8px"}}>Columbus Warriors Debut at the Guardian's Cup in Rochester</h3>
+          <p style={{fontFamily:F.b,fontSize:14,color:C.g6,margin:0}}>The Columbus Warriors competed in their first national tournament, representing Ohio at the Guardian's Cup in Rochester, NY.</p>
+        </a>
+      </div>
+
+      {/* How to join */}
+      <div style={{background:C.olive,borderRadius:12,padding:"32px 28px",marginBottom:32}}>
+        <h2 style={{fontFamily:F.h,fontSize:24,color:C.w,textTransform:"uppercase",letterSpacing:2,margin:"0 0 16px"}}>How to Join</h2>
+        <div style={{fontFamily:F.b,fontSize:15,color:"rgba(255,255,255,0.85)",lineHeight:1.8}}>
+          <p style={{margin:"0 0 16px"}}>Ready to hit the ice? Here's how to get started:</p>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(200px, 1fr))",gap:16}}>
+            {[
+              {step:"1", title:"Register", desc:"Complete our online registration form to express your interest."},
+              {step:"2", title:"Verify", desc:"Submit your service verification document (DD-214 or VA rating letter)."},
+              {step:"3", title:"Gear Up", desc:"We'll help you get equipment. Loaner gear is available for new players."},
+              {step:"4", title:"Play", desc:"Join practices, games, and national events with your fellow warriors."},
+            ].map(function(s, i) {
+              return (
+                <div key={i} style={{background:"rgba(255,255,255,0.1)",borderRadius:8,padding:16,textAlign:"center"}}>
+                  <div style={{fontFamily:F.h,fontSize:32,color:"#c8a84e",marginBottom:4}}>{s.step}</div>
+                  <div style={{fontFamily:F.h,fontSize:16,color:C.w,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>{s.title}</div>
+                  <div style={{fontFamily:F.b,fontSize:13,color:"rgba(255,255,255,0.7)"}}>{s.desc}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div style={{marginBottom:32}}>
+        <h2 style={{fontFamily:F.h,fontSize:22,color:C.navy,letterSpacing:2,margin:"0 0 16px"}}>Frequently Asked Questions</h2>
+        {[
+          {q:"Can I play on both the DV team and a CAHL team?", a:"Yes! You can participate in both the Warrior Hockey team and a C or D league team."},
+          {q:"What if I can't commit to a full season?", a:"Check out our Drop-In or Stick & Puck sessions if you want to hit the ice on a more casual basis."},
+          {q:"I've never played hockey before. Can I still join?", a:"Absolutely! All skill levels are welcome. Sign up for our D League team or attend a skills development session to get started."},
+          {q:"Do I need my own equipment?", a:"We have loaner gear available for new players. As you get more involved, we can help you find affordable equipment."},
+          {q:"What if I don't have a disability rating?", a:"You can still participate in our C or D league teams even without a disability rating. If you have a Purple Heart, you may sign up for the Warrior Hockey team regardless of rating."},
+        ].map(function(faq, i) {
+          return (
+            <div key={i} style={{background:C.w,borderRadius:8,padding:20,marginBottom:8,border:"1px solid "+C.g2}}>
+              <div style={{fontFamily:F.h,fontSize:16,color:C.navy,textTransform:"uppercase",letterSpacing:1,marginBottom:6}}>{faq.q}</div>
+              <div style={{fontFamily:F.b,fontSize:14,color:C.g6,lineHeight:1.7}}>{faq.a}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* CTA buttons */}
+      <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
+        <Btn href={FORMS.reg}>Register Now</Btn>
+        <Btn href="https://www.usahockey.com/warriorhockey" v="olive">USA Hockey Warriors</Btn>
+        <Btn href="mailto:info@columbuswarriorhockey.org" v="red">Contact Us</Btn>
+      </div>
+    </PageWrap>;
+  }
+
   return <PageWrap title={t.name} sub={t.desc}>
     <div style={{display:"flex",gap:12,marginBottom:28,flexWrap:"wrap"}}>
       <Btn href={"https://chillerstats.com/team/stats.cfm?TeamID=" + (stats ? stats.teamId : "")}>View on ChillerStats</Btn>
