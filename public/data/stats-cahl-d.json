@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-02T00:30:03.245536Z",
+  "updated": "2026-06-02T01:00:03.470637Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -230,8 +230,8 @@
       "w": 2,
       "l": 1,
       "otl": 0,
-      "ga": 6,
-      "gaa": "2.0"
+      "ga": 8,
+      "gaa": "2.7"
     }
   ],
   "stickAndPuck": [
