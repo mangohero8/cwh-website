@@ -1,20 +1,10 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-02T12:30:02.877915Z",
+  "updated": "2026-06-02T13:00:04.094586Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
-    {
-      "jersey": "0",
-      "name": "Alex Vakkur",
-      "pos": "",
-      "gp": 2,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 0
-    },
     {
       "jersey": "0",
       "name": "Garett Beltz",
@@ -37,49 +27,9 @@
     },
     {
       "jersey": "0",
-      "name": "Aaron Foster",
-      "pos": "",
-      "gp": 0,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
       "name": "Brian Kennedy",
       "pos": "",
       "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 2
-    },
-    {
-      "jersey": "0",
-      "name": "Keith Kriesberg",
-      "pos": "",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Cai Lorenz",
-      "pos": "",
-      "gp": 2,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 2
-    },
-    {
-      "jersey": "0",
-      "name": "Luke Marshall",
-      "pos": "",
-      "gp": 2,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -114,16 +64,6 @@
       "a": 0,
       "pts": 0,
       "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Ethan Yeazel",
-      "pos": "",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
     }
   ],
   "forwards": [
@@ -140,7 +80,7 @@
     {
       "jersey": "97",
       "name": "Allen Gambrel",
-      "pos": "Wing",
+      "pos": "Center",
       "gp": 3,
       "g": 1,
       "a": 0,
@@ -148,14 +88,14 @@
       "pim": 0
     },
     {
-      "jersey": "4",
-      "name": "Nicholas Flores",
+      "jersey": "0",
+      "name": "Alex Vakkur",
       "pos": "Wing",
-      "gp": 3,
-      "g": 0,
-      "a": 1,
+      "gp": 2,
+      "g": 1,
+      "a": 0,
       "pts": 1,
-      "pim": 2
+      "pim": 0
     },
     {
       "jersey": "92",
@@ -178,6 +118,16 @@
       "pim": 0
     },
     {
+      "jersey": "0",
+      "name": "Keith Kriesberg",
+      "pos": "Wing",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
       "jersey": "30",
       "name": "Alex Lopez",
       "pos": "Wing",
@@ -186,9 +136,49 @@
       "a": 0,
       "pts": 0,
       "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Cai Lorenz",
+      "pos": "Wing",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 2
+    },
+    {
+      "jersey": "42",
+      "name": "Lydia Stroul",
+      "pos": "Wing",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Ethan Yeazel",
+      "pos": "Wing",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
     }
   ],
   "defense": [
+    {
+      "jersey": "4",
+      "name": "Nicholas Flores",
+      "pos": "Defense",
+      "gp": 3,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 2
+    },
     {
       "jersey": "17",
       "name": "Taylor DeCicco",
@@ -200,14 +190,24 @@
       "pim": 0
     },
     {
-      "jersey": "42",
-      "name": "Lydia Stroul",
+      "jersey": "0",
+      "name": "Aaron Foster",
       "pos": "Defense",
-      "gp": 1,
+      "gp": 0,
       "g": 0,
       "a": 0,
       "pts": 0,
       "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Luke Marshall",
+      "pos": "Defense",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 2
     }
   ],
   "goalies": [
