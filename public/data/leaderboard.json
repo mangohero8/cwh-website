@@ -1,11 +1,11 @@
 {
-  "updated": "2026-06-01T23:30:04.171850Z",
+  "updated": "2026-06-02T00:00:03.594138Z",
   "playerOfTheWeek": {
     "name": "Wyatt Beltz",
     "team": "CAHL D - Columbus Warriors DWB",
     "jersey": "13",
     "pos": "Center",
-    "gp": 2,
+    "gp": 3,
     "g": 3,
     "a": 0,
     "pts": 3,
@@ -17,7 +17,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "13",
       "pos": "Center",
-      "gp": 2,
+      "gp": 3,
       "g": 3,
       "a": 0,
       "pts": 3,
@@ -129,7 +129,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "13",
       "pos": "Center",
-      "gp": 2,
+      "gp": 3,
       "g": 3,
       "a": 0,
       "pts": 3,
@@ -421,9 +421,9 @@
       "jersey": "12",
       "gp": 3,
       "w": 2,
-      "l": 0,
-      "gaa": "1.0",
-      "ga": 3
+      "l": 1,
+      "gaa": "1.3",
+      "ga": 4
     },
     {
       "name": "Michael Bennett",
