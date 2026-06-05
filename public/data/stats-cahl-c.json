@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-05T17:00:03.028179Z",
+  "updated": "2026-06-05T17:30:02.328003Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -246,11 +246,6 @@
   ],
   "stickAndPuck": [
     {
-      "rink": "North 1",
-      "date": "Friday, June 5",
-      "time": "12:30 PM"
-    },
-    {
       "rink": "North 2",
       "date": "Saturday, June 6",
       "time": "12:40 PM"
@@ -259,6 +254,11 @@
       "rink": "Easton 1",
       "date": "Sunday, June 7",
       "time": "12:20 PM"
+    },
+    {
+      "rink": "Easton 2",
+      "date": "Monday, June 8",
+      "time": "11:45 AM"
     }
   ],
   "dropIn": [
