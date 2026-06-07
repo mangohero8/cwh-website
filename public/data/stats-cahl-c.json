@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-07T18:00:02.212160Z",
+  "updated": "2026-06-07T18:30:02.770500Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -50,6 +50,16 @@
       "name": "Gerald Fedorko",
       "pos": "",
       "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Gavin Gould",
+      "pos": "",
+      "gp": 0,
       "g": 0,
       "a": 0,
       "pts": 0,
