@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-07T20:00:03.680005Z",
+  "updated": "2026-06-07T20:30:03.204818Z",
   "recaps": [
     {
       "date": "May 17",
@@ -39,6 +39,19 @@
       "theirScore": 1,
       "headline": "Warriors Edge Tabby Daddies in Thriller",
       "summary": "A hard-fought 2-1 win against Tabby Daddies."
+    },
+    {
+      "date": "Jun 7",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "opponent": "Spare Parts",
+      "location": "Chiller Dublin - Rink 2",
+      "homeAway": "Away",
+      "score": "0 - 0",
+      "result": "~",
+      "ourScore": 0,
+      "theirScore": 0,
+      "headline": "Warriors Come Up Short Against Spare Parts",
+      "summary": "A 0-0 loss to Spare Parts."
     },
     {
       "date": "May 11",
