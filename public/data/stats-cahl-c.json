@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-07T19:30:01.993891Z",
+  "updated": "2026-06-07T20:00:02.421284Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -59,7 +59,7 @@
       "jersey": "0",
       "name": "Gavin Gould",
       "pos": "",
-      "gp": 0,
+      "gp": 1,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -68,6 +68,16 @@
     {
       "jersey": "0",
       "name": "Kenzie Kattich",
+      "pos": "",
+      "gp": 0,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "james REDD",
       "pos": "",
       "gp": 0,
       "g": 0,
@@ -111,7 +121,7 @@
       "jersey": "10",
       "name": "John Hopkinson",
       "pos": "Center",
-      "gp": 1,
+      "gp": 2,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -121,7 +131,7 @@
       "jersey": "12",
       "name": "Will Sullivan",
       "pos": "Center",
-      "gp": 3,
+      "gp": 4,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -131,7 +141,7 @@
       "jersey": "27",
       "name": "Robert Carpenter",
       "pos": "Center",
-      "gp": 3,
+      "gp": 4,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -246,12 +256,12 @@
       "jersey": "0",
       "name": "David wright",
       "pos": "Goalie",
-      "gp": 1,
+      "gp": 2,
       "w": 1,
       "l": 0,
       "otl": 0,
       "ga": 1,
-      "gaa": "1.0"
+      "gaa": "0.5"
     }
   ],
   "stickAndPuck": [
