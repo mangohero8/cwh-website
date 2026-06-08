@@ -902,7 +902,21 @@ function LineupPage() {
     ) : (
       <div style={{display:"flex",flexDirection:"column",gap:32}}>
         {attendance.games.filter(function(game) {
-          return game.yes > 0 || game.maybe > 0 || game.no > 0;
+          // Only show games with RSVPs and in the future
+          var hasRsvp = game.yes > 0 || game.maybe > 0 || game.no > 0;
+          // Parse date from game title like "Jun 14 — CAHL C vs ..."
+          var dateMatch = game.game.match(/^([A-Za-z]{3})\s+(\d{1,2})/);
+          if (dateMatch) {
+            var months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+            var m = months[dateMatch[1]];
+            var d = parseInt(dateMatch[2]);
+            if (m !== undefined) {
+              var gameDate = new Date(new Date().getFullYear(), m, d);
+              var today = new Date(); today.setHours(0,0,0,0);
+              if (gameDate < today) return false;
+            }
+          }
+          return hasRsvp;
         }).slice(0, 2).map(function(game, gi) {
           return (
             <div key={gi} style={{background:C.w,borderRadius:12,overflow:"hidden",border:"1px solid "+C.g2}}>
