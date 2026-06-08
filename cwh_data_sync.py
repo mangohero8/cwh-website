@@ -1134,7 +1134,10 @@ def main():
         if f.endswith(".json"):
             size = os.path.getsize(os.path.join(OUTPUT_DIR, f))
             print(f"  {f} ({size:,} bytes)")
-
+    # ChillerStats RSVP (requires login)
+    if os.environ.get("CHILLERSTATS_EMAIL"):
+        from chillerstats_rsvp import scrape_chillerstats_rsvp
+        scrape_chillerstats_rsvp()
 
 if __name__ == "__main__":
     main()
