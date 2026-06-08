@@ -93,7 +93,7 @@ function GlobalStyles() {
 }
 
 /* ─── NAVBAR — Matches Crossbar 3-tier structure ─── */
-function Navbar({nav, curPage}) {
+function Navbar({nav, curPage, user, setUser}) {
   var m = useState(false); var menuOpen = m[0]; var setMenuOpen = m[1];
   var d = useState(null); var openDrop = d[0]; var setOpenDrop = d[1];
 
@@ -156,6 +156,10 @@ function Navbar({nav, curPage}) {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
               Registration
             </a>
+            <button onClick={function(){nav("login")}} style={{marginLeft:8,padding:"12px 24px",background:"transparent",color:C.w,fontFamily:F.h,fontSize:16,fontWeight:400,textTransform:"uppercase",letterSpacing:2,border:"1px solid rgba(255,255,255,0.3)",borderRadius:24,cursor:"pointer",display:"flex",alignItems:"center",gap:8}}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              Login
+            </button>
           </div>
 
           {/* Mobile hamburger */}
@@ -2550,8 +2554,64 @@ function NSProfilePage({nav}) {
     </div>
   );
 }
+
+/* ─── LOGIN PAGE (OKTA STAGING) ─── */
+function LoginPage({nav, setUser}) {
+  var em = useState(""); var email = em[0]; var setEmail = em[1];
+  var pw = useState(""); var pass = pw[0]; var setPass = pw[1];
+  var err = useState(""); var error = err[0]; var setError = err[1];
+
+  function handleLogin() {
+    // TODO: Replace with OKTA authentication
+    // For now, just show that login is not yet active
+    setError("Login coming soon — OKTA SSO integration in progress.");
+  }
+
+  return <PageWrap title="Member Login" sub="Secure access for Columbus Warrior Hockey members">
+    <div style={{maxWidth:400,margin:"0 auto"}}>
+      <div style={{background:"#fff",borderRadius:12,padding:32,border:"1px solid #e2e8f0",boxShadow:"0 4px 12px rgba(0,0,0,0.08)"}}>
+        <div style={{textAlign:"center",marginBottom:24}}>
+          <img src={IMG.logo} alt="CWH" style={{height:80,marginBottom:12}} />
+          <p style={{fontFamily:F.b,fontSize:14,color:"#64748b",margin:0}}>Sign in to access your player portal, team roster, and game details.</p>
+        </div>
+
+        {error && (
+          <div style={{background:"#fef3c7",border:"1px solid #f59e0b",borderRadius:8,padding:"12px 16px",marginBottom:16}}>
+            <p style={{fontFamily:F.b,fontSize:13,color:"#92400e",margin:0}}>{error}</p>
+          </div>
+        )}
+
+        <div style={{marginBottom:16}}>
+          <label style={{fontFamily:F.b,fontSize:13,color:"#475569",fontWeight:600,display:"block",marginBottom:4}}>Email</label>
+          <input type="email" value={email} onChange={function(e){setEmail(e.target.value)}} placeholder="your@email.com"
+            style={{width:"100%",padding:"10px 14px",border:"1px solid #d1d5db",borderRadius:6,fontFamily:F.b,fontSize:14,outline:"none",boxSizing:"border-box"}} />
+        </div>
+
+        <div style={{marginBottom:24}}>
+          <label style={{fontFamily:F.b,fontSize:13,color:"#475569",fontWeight:600,display:"block",marginBottom:4}}>Password</label>
+          <input type="password" value={pass} onChange={function(e){setPass(e.target.value)}} placeholder="Enter password"
+            style={{width:"100%",padding:"10px 14px",border:"1px solid #d1d5db",borderRadius:6,fontFamily:F.b,fontSize:14,outline:"none",boxSizing:"border-box"}} />
+        </div>
+
+        <button onClick={handleLogin} style={{width:"100%",padding:"12px 24px",background:C.navy,color:"#fff",fontFamily:F.h,fontSize:18,fontWeight:400,textTransform:"uppercase",letterSpacing:2,border:"none",borderRadius:6,cursor:"pointer",marginBottom:12}}>Sign In</button>
+
+        <div style={{textAlign:"center"}}>
+          <p style={{fontFamily:F.b,fontSize:12,color:"#94a3b8",margin:"8px 0"}}>— or —</p>
+          <button onClick={handleLogin} style={{width:"100%",padding:"10px 24px",background:"#f8fafc",color:C.navy,fontFamily:F.b,fontSize:14,fontWeight:600,border:"1px solid #e2e8f0",borderRadius:6,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v-2h2v-2h-2V8h-2v4H9v2h2v2z" fill="#00294D"/></svg>
+            Sign in with OKTA SSO
+          </button>
+        </div>
+
+        <p style={{fontFamily:F.b,fontSize:11,color:"#94a3b8",textAlign:"center",marginTop:16}}>Contact info@columbuswarriorhockey.org if you need help accessing your account.</p>
+      </div>
+    </div>
+  </PageWrap>;
+}
+
 export default function CWHSite() {
   var pg = useState("home"); var page = pg[0]; var setPage = pg[1];
+  var au = useState(null); var user = au[0]; var setUser = au[1]; // OKTA auth state — null = logged out, object = logged in
   var nav = function(p) { setPage(p); window.scrollTo({top:0,behavior:"smooth"}); };
   var aboutPages = ["about","news","leadership","sponsors","become-sponsor","contributor"];
   var aboutItems = [{l:"About Us",p:"about"},{l:"News",p:"news"},{l:"Leadership",p:"leadership"},{l:"Sponsors",p:"sponsors"},{l:"Sponsor",p:"become-sponsor"},{l:"Contribute",p:"contributor"}];
@@ -2590,6 +2650,7 @@ export default function CWHSite() {
     case "reg-guides": content = <ResourcePage page="reg-guides" />; break;
     case "players-corner": content = <ResourcePage page="players-corner" />; break;
     case "coaching": content = <ResourcePage page="coaching" />; break;
+    case "login": content = <LoginPage nav={nav} setUser={setUser} />; break;
     default: content = <HomePage nav={nav} />;
   }
 
@@ -2601,7 +2662,7 @@ export default function CWHSite() {
     <div style={{background:C.w,minHeight:"100vh"}}>
       <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
       <GlobalStyles />
-      <Navbar nav={nav} curPage={page} />
+      <Navbar nav={nav} curPage={page} user={user} setUser={setUser} />
       {isAbout && (
         <div style={{paddingTop:110,background:C.olive,borderBottom:"2px solid "+C.red,overflowX:"auto",WebkitOverflowScrolling:"touch"}}>
           <div style={{display:"flex",gap:0,padding:"0 16px",minWidth:"max-content",maxWidth:1200,margin:"0 auto"}}>
