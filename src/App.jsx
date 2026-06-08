@@ -1243,7 +1243,7 @@ var NS_RBG = {W:"#dcfce7",L:"#fee2e2",T:"#fef3c7"};
 var NS_RL = {W:"Win",L:"Loss",T:"OTL"};
 function NS_DOW(s){var d=new Date(s+" 2025");return["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()];}
 
-function NSHeader({nav, curPage}) {
+function NSHeader({nav, curPage, isLoggedIn}) {
   var linkStyle = {background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,color:"#64748b",padding:"8px 12px",fontWeight:500,textDecoration:"none",display:"inline-block"};
   var activeStyle = Object.assign({},linkStyle,{color:C.navy,fontWeight:700});
   return (
@@ -1258,8 +1258,21 @@ function NSHeader({nav, curPage}) {
           <a href={FORMS.don} target="_blank" rel="noopener noreferrer" style={linkStyle} onMouseEnter={function(e){e.currentTarget.style.color=C.navy;}} onMouseLeave={function(e){e.currentTarget.style.color="#64748b";}}>Donate</a>
           <a href={FORMS.store} target="_blank" rel="noopener noreferrer" style={linkStyle} onMouseEnter={function(e){e.currentTarget.style.color=C.navy;}} onMouseLeave={function(e){e.currentTarget.style.color="#64748b";}}>Store</a>
           <div style={{width:1,height:20,background:"#e2e8f0",margin:"0 6px"}} />
-          <a href={FORMS.reg} target="_blank" rel="noopener noreferrer" style={{padding:"8px 18px",background:C.red,borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",letterSpacing:1,fontWeight:600,textDecoration:"none",display:"inline-block"}}>Join</a>
-          <button style={{padding:"8px 18px",background:C.navy,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",cursor:"pointer",letterSpacing:1,fontWeight:600}}>Sign In</button>
+          {isLoggedIn
+            ? <div style={{display:"flex",alignItems:"center",gap:8}}>
+                <button onClick={function(){nav("ns-profile");}} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 14px",background:"none",border:"1px solid #e2e8f0",borderRadius:6,cursor:"pointer",fontFamily:F.b,fontSize:13,color:"#475569",fontWeight:600}}>
+                  <div style={{width:26,height:26,borderRadius:"50%",background:C.navy,overflow:"hidden",flexShrink:0}}>
+                    <svg viewBox="0 0 200 200" style={{width:"100%",height:"100%"}}><circle cx="100" cy="75" r="35" fill="rgba(255,255,255,0.6)"/><ellipse cx="100" cy="170" rx="55" ry="45" fill="rgba(255,255,255,0.6)"/></svg>
+                  </div>
+                  My profile
+                </button>
+                <button style={{padding:"8px 18px",background:"none",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#64748b",cursor:"pointer",letterSpacing:1,fontWeight:600}}>Sign out</button>
+              </div>
+            : <>
+                <button onClick={function(){nav("ns-join");}} style={{padding:"8px 18px",background:C.red,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",letterSpacing:1,fontWeight:600,cursor:"pointer"}}>Join</button>
+                <button onClick={function(){nav("ns-portal");}} style={{padding:"8px 18px",background:C.navy,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",cursor:"pointer",letterSpacing:1,fontWeight:600}}>Sign in</button>
+              </>
+          }
         </nav>
       </div>
       <div style={{height:3,background:C.red}} />
@@ -1284,7 +1297,10 @@ function NewSitePage({nav}) {
               return (
                 <div key={i} style={{background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
                   <div style={{background:C.navy,padding:"14px 20px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-                    <div style={{fontFamily:NS_FH,fontSize:19,fontWeight:700,color:"#fff",letterSpacing:2}}>{team.label}</div>
+                    <div>
+                      <div style={{fontFamily:NS_FH,fontSize:19,fontWeight:700,color:"#fff",letterSpacing:2}}>{team.label}</div>
+                      <div style={{fontFamily:F.b,fontSize:11,color:"rgba(255,255,255,0.55)",letterSpacing:1,textTransform:"uppercase",marginTop:2}}>Summer League</div>
+                    </div>
                     <div style={{fontFamily:NS_FH,fontSize:26,fontWeight:700,color:"#fff",letterSpacing:1}}>{(function(){var p=team.games.filter(function(g){return !g.upcoming;});return p.filter(function(g){return g.r==="W";}).length+"-"+p.filter(function(g){return g.r==="L";}).length+"-"+p.filter(function(g){return g.r==="T";}).length;})()}</div>
                   </div>
                   <div style={{maxHeight:165,overflowY:"auto"}}>
@@ -1368,13 +1384,49 @@ function NewSitePage({nav}) {
 }
 
 var NS_ABOUT_TABS = [{l:"About",p:"ns-about"},{l:"Leadership",p:"ns-leadership"},{l:"Sponsors",p:"ns-sponsors"}];
-var NS_FOOTER = function(nav) {
+var NS_FOOTER = function(nav, devMode, setDevMode) {
   return (
-    <div style={{borderTop:"1px solid #e2e8f0",padding:"18px 24px",textAlign:"center"}}>
-      <button onClick={function(){nav("home");}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:12,color:"#94a3b8",letterSpacing:1}}>
-        ← Return to classic site
-      </button>
+    <>
+    <div style={{background:C.navy,padding:"40px 24px",textAlign:"center"}}>
+      <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:"#fff",letterSpacing:3,textTransform:"uppercase",marginBottom:20}}>Follow Columbus Warrior Hockey</div>
+      <div style={{display:"flex",gap:24,justifyContent:"center",alignItems:"center"}}>
+        <a href="https://www.facebook.com/ColumbusWarriorHockey/" target="_blank" rel="noopener noreferrer" style={{opacity:0.8,transition:"opacity .15s"}} onMouseEnter={function(e){e.currentTarget.style.opacity="1";}} onMouseLeave={function(e){e.currentTarget.style.opacity="0.8";}}>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/columbuswarriorhockey" target="_blank" rel="noopener noreferrer" style={{opacity:0.8,transition:"opacity .15s"}} onMouseEnter={function(e){e.currentTarget.style.opacity="1";}} onMouseLeave={function(e){e.currentTarget.style.opacity="0.8";}}>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
     </div>
+    <footer style={{background:"#fff",borderTop:"1px solid #e2e8f0"}}>
+      <div style={{maxWidth:1100,margin:"0 auto",padding:"40px 24px 28px",display:"grid",gridTemplateColumns:"auto 2fr 1fr",gap:48,alignItems:"start"}}>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"center",alignSelf:"center"}}>
+          <img src={IMG.logo} alt="Columbus Warrior Hockey" style={{height:64}} />
+        </div>
+        <div>
+          <div style={{fontFamily:NS_FH,fontSize:14,fontWeight:700,letterSpacing:2,textTransform:"uppercase",marginBottom:10,color:C.navy}}>About Us</div>
+          <p style={{fontFamily:F.b,fontSize:13,color:"#64748b",lineHeight:1.8,margin:0,maxWidth:480}}>Columbus Warrior Hockey is a 501(c)(3) non-profit organization that provides veterans with meaningful peer-based support networks, encourages a healthier lifestyle through physical activity, and offers a therapeutic experience that contributes to both mental and physical healing through the sport of hockey.</p>
+        </div>
+        <div>
+          <div style={{fontFamily:NS_FH,fontSize:14,fontWeight:700,letterSpacing:2,textTransform:"uppercase",marginBottom:10,color:C.navy}}>Contact</div>
+          <div style={{display:"flex",flexDirection:"column",gap:4,fontFamily:F.b,fontSize:13,color:"#64748b",lineHeight:1.8}}>
+            <a href="mailto:info@columbuswarriorhockey.org" style={{color:C.red,textDecoration:"none",fontWeight:600}}>info@columbuswarriorhockey.org</a>
+            <span>Columbus Warrior Hockey</span>
+            <span>Powell, OH 43065</span>
+          </div>
+        </div>
+      </div>
+      <div style={{borderTop:"1px solid #e2e8f0",padding:"14px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",maxWidth:1100,margin:"0 auto"}}>
+        <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8"}}>© 2026 Columbus Warrior Hockey. All rights reserved.</div>
+        {setDevMode && (
+          <button onClick={function(){setDevMode(function(v){return !v;});}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:11,color:devMode?"#a78bfa":"#94a3b8",letterSpacing:1,padding:0}}>
+            {devMode ? "Disable dev mode" : "Enable dev mode"}
+          </button>
+        )}
+        <button onClick={function(){nav("home");}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:11,color:"#94a3b8",letterSpacing:1,padding:0}}>← Return to classic site</button>
+      </div>
+    </footer>
+    </>
   );
 };
 var NS_CARD = {background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,padding:"28px"};
@@ -1446,22 +1498,72 @@ function NSAboutPage({nav}) {
       {/* PROGRAMS */}
       <div style={{marginBottom:32}}>
         <div style={{fontFamily:NS_FH,fontSize:20,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",marginBottom:12,borderLeft:"3px solid "+C.red,paddingLeft:12}}>Our Programs</div>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:16}}>
+        <p style={{fontFamily:F.b,fontSize:13,color:"#64748b",lineHeight:1.6,margin:"0 0 14px",fontStyle:"italic"}}>Programs are eligibility-based. If your status changes, update your profile to make sure you have access to the right programs.</p>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
           <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
             <div style={{fontFamily:NS_FH,fontSize:17,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Disabled Hockey</div>
-            <p style={{fontFamily:F.b,fontSize:13,color:"#475569",lineHeight:1.7,margin:0}}>The disabled hockey pillar focuses on disabled veterans and activities pertaining to USA Hockey's Warrior Hockey which is a discipline of disabled hockey. This includes participation in USA Hockey sanctioned events such as the Warrior Classic and Warrior Nationals. In addition to this, the Warrior Hockey team will have opportunities to participate in and host events with other Warrior organizations such as tournaments and exhibition games.</p>
+            <p style={{fontFamily:F.b,fontSize:13,color:"#475569",lineHeight:1.7,margin:"0 0 14px"}}>The disabled hockey pillar focuses on disabled veterans and activities pertaining to USA Hockey's Warrior Hockey which is a discipline of disabled hockey. This includes participation in USA Hockey sanctioned events such as the Warrior Classic and Warrior Nationals. In addition to this, the Warrior Hockey team will have opportunities to participate in and host events with other Warrior organizations such as tournaments and exhibition games.</p>
+            <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Eligibility</div>
+            <div style={{display:"flex",flexDirection:"column",gap:5}}>
+              {["Purple Heart recipient","VA disability rating of 10% or greater","Medically discharged from active duty, reserve, or National Guard"].map(function(req,i){
+                return (
+                  <div key={i} style={{display:"flex",alignItems:"flex-start",gap:8}}>
+                    <div style={{width:5,height:5,borderRadius:"50%",background:C.red,flexShrink:0,marginTop:5}} />
+                    <span style={{fontFamily:F.b,fontSize:12,color:"#475569",lineHeight:1.5}}>{req}</span>
+                  </div>
+                );
+              })}
+            </div>
+            <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8",marginTop:10,fontStyle:"italic"}}>Supporting documentation required.</div>
           </div>
           <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
             <div style={{fontFamily:NS_FH,fontSize:17,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Veterans Hockey</div>
-            <p style={{fontFamily:F.b,fontSize:13,color:"#475569",lineHeight:1.7,margin:0}}>The veterans hockey pillar focuses on improving the lives of veterans, service members, and gold star families in the greater Columbus area. CWH leverages the existing adult recreational hockey program hosted by The OhioHealth Chiller rinks to create opportunities to establish meaningful peer-based support networks, develop a healthier lifestyle through physical activity, and heal from trauma through the sport of hockey.</p>
+            <p style={{fontFamily:F.b,fontSize:13,color:"#475569",lineHeight:1.7,margin:"0 0 14px"}}>The veterans hockey pillar focuses on improving the lives of veterans, service members, and gold star families in the greater Columbus area. CWH leverages the existing adult recreational hockey program hosted by The OhioHealth Chiller rinks to create opportunities to establish meaningful peer-based support networks, develop a healthier lifestyle through physical activity, and heal from trauma through hockey.</p>
+            <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Eligibility</div>
+            <div style={{display:"flex",flexDirection:"column",gap:5}}>
+              {[
+                {req:"Honorable discharge", note:"verified by VA Service Verification Letter"},
+                {req:"Current active or reserve service member", note:"verified by SCRA certificate"},
+                {req:"Gold Star Family member", note:"spouse, child, parent or sibling"},
+                {req:"Immediate family of a current participant", note:"spouse, child, parent or sibling"},
+              ].map(function(item,i){
+                return (
+                  <div key={i} style={{display:"flex",alignItems:"flex-start",gap:8}}>
+                    <div style={{width:5,height:5,borderRadius:"50%",background:C.red,flexShrink:0,marginTop:5}} />
+                    <span style={{fontFamily:F.b,fontSize:12,color:"#475569",lineHeight:1.5}}>{item.req} <span style={{color:"#94a3b8"}}>({item.note})</span></span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <div style={{...NS_CARD,borderTop:"4px solid "+C.navy}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:24,alignItems:"start"}}>
+            <div>
+              <div style={{fontFamily:NS_FH,fontSize:17,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Volunteer</div>
+              <p style={{fontFamily:F.b,fontSize:13,color:"#475569",lineHeight:1.7,margin:0}}>You don't have to be a player to be part of Columbus Warrior Hockey. We welcome anyone who wants to give their time, whether as part of our coaching staff, by contributing a skill set that supports our programs, or by participating in our community volunteer events.</p>
+            </div>
+            <div>
+              <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Opportunities</div>
+              <div style={{display:"flex",flexDirection:"column",gap:5}}>
+                {["Coaching and on-ice instruction","Administrative and operational support","Community outreach and volunteer events","Skills-based volunteering"].map(function(req,i){
+                  return (
+                    <div key={i} style={{display:"flex",alignItems:"flex-start",gap:8}}>
+                      <div style={{width:5,height:5,borderRadius:"50%",background:C.red,flexShrink:0,marginTop:5}} />
+                      <span style={{fontFamily:F.b,fontSize:12,color:"#475569",lineHeight:1.5}}>{req}</span>
+                    </div>
+                  );
+                })}
+              </div>
+              <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8",fontStyle:"italic",marginTop:10}}>Open to everyone regardless of player eligibility.</div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* CTA */}
-      <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
-        <a href={FORMS.reg} target="_blank" rel="noopener noreferrer" style={{padding:"10px 24px",background:C.red,borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",fontWeight:700,textDecoration:"none",letterSpacing:1}}>Join CWH</a>
-        <a href={FORMS.don} target="_blank" rel="noopener noreferrer" style={{padding:"10px 24px",background:"#f1f5f9",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:C.navy,fontWeight:700,textDecoration:"none",letterSpacing:1}}>Donate</a>
+      <div style={{textAlign:"center"}}>
+        <button onClick={function(){nav("ns-join");}} style={{padding:"10px 32px",background:C.red,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",fontWeight:700,letterSpacing:1,cursor:"pointer"}}>Join</button>
       </div>
 
     </NSAboutLayout>
@@ -1577,6 +1679,861 @@ function NSSponsorsPage({nav}) {
     </NSAboutLayout>
   );
 }
+
+function NSJoinPage({nav}) {
+  var s = useState([]); var sel = s[0]; var setSel = s[1];
+  var ih = useState(false); var infoHover = ih[0]; var setInfoHover = ih[1];
+  var ih2 = useState(false); var infoHover2 = ih2[0]; var setInfoHover2 = ih2[1];
+  var pp = useState(1); var step = pp[0]; var setStep = pp[1];
+  var sentRef = useRef(null);
+  var sk = useState(true); var isSticky = sk[0]; var setIsSticky = sk[1];
+
+  useEffect(function() {
+    setIsSticky(true);
+    var el = sentRef.current;
+    if (!el) return;
+    var obs = new IntersectionObserver(function(entries) { setIsSticky(!entries[0].isIntersecting); }, {threshold:0});
+    obs.observe(el);
+    return function() { obs.disconnect(); };
+  }, [step]);
+
+  var CRITERIA = [
+    {id:"purple-heart",   label:"Purple Heart recipient",                                           group:"disabled"},
+    {id:"va-rating",      label:"VA disability rating of 10% or greater",                           group:"disabled"},
+    {id:"med-discharge",  label:"Medically discharged from active duty, reserve, or National Guard", group:"disabled"},
+    {id:"honorable",      label:"Honorable discharge",                                                               group:"veterans"},
+    {id:"active",         label:"Current active or reserve service member",                                          group:"veterans"},
+    {id:"gold-star",      label:"Gold Star Family member",                      note:"spouse, child, parent or sibling",            group:"veterans"},
+    {id:"family",         label:"Immediate family of a current participant",    note:"spouse, child, parent or sibling",            group:"veterans"},
+  ];
+
+  var toggle = function(id) {
+    if (id === "none") { setSel(["none"]); return; }
+    var next = sel.filter(function(x){return x !== "none";});
+    var idx = next.indexOf(id);
+    setSel(idx >= 0 ? next.filter(function(x){return x!==id;}) : next.concat([id]));
+  };
+
+  var hasDisabled = CRITERIA.some(function(c){return c.group==="disabled" && sel.indexOf(c.id)>=0;});
+  var hasVeterans = CRITERIA.some(function(c){return c.group==="veterans" && sel.indexOf(c.id)>=0;});
+  var isNone      = sel.indexOf("none") >= 0;
+  var hasSel      = sel.length > 0;
+
+  var QUAL_PROGRAMS = hasDisabled
+    ? [{label:"Disabled Hockey", desc:"Adaptive hockey for disabled veterans and service members."},
+       {label:"Veterans Hockey",  desc:"Competitive and recreational play for veterans and their families."},
+       {label:"Volunteer",        desc:"Support the team on and off the ice."}]
+    : hasVeterans
+    ? [{label:"Veterans Hockey",  desc:"Competitive and recreational play for veterans and their families."},
+       {label:"Volunteer",        desc:"Support the team on and off the ice."}]
+    : isNone
+    ? [{label:"Volunteer",        desc:"Support the team on and off the ice. Open to everyone."}]
+    : [];
+
+  var showBranch = ["purple-heart","va-rating","med-discharge","honorable","active"].some(function(id){return sel.indexOf(id)>=0;});
+  var ph = useState(""); var phone = ph[0]; var setPhone = ph[1];
+  var formatPhone = function(v) {
+    var d = v.replace(/\D/g,"").slice(0,10);
+    if (d.length <= 3) return d.length ? "("+d : "";
+    if (d.length <= 6) return "("+d.slice(0,3)+") "+d.slice(3);
+    return "("+d.slice(0,3)+") "+d.slice(3,6)+"-"+d.slice(6);
+  };
+
+  var fv = useState({firstName:"",lastName:"",email:"",branch:"",howHeard:"",password:"",confirmPassword:""});
+  var formVals = fv[0]; var setFormVals = fv[1];
+  var ev = useState({}); var errors = ev[0]; var setErrors = ev[1];
+
+  var setField = function(key) {
+    return function(e) {
+      setFormVals(Object.assign({},formVals,{[key]:e.target.value}));
+      if (errors[key]) setErrors(Object.assign({},errors,{[key]:undefined}));
+    };
+  };
+
+  var validate = function() {
+    var e = {};
+    if (!formVals.firstName.trim()) e.firstName = "Required";
+    if (!formVals.lastName.trim()) e.lastName = "Required";
+    if (!formVals.email.trim()) { e.email = "Required"; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formVals.email)) { e.email = "Enter a valid email address"; }
+    if (!phone) { e.phone = "Required"; }
+    else if (phone.replace(/\D/g,"").length < 10) { e.phone = "Enter a valid phone number"; }
+    if (showBranch && !formVals.branch) e.branch = "Choose one";
+    if (!formVals.howHeard) e.howHeard = "Choose one";
+    if (!formVals.password) { e.password = "Required"; }
+    else if (formVals.password.length < 8 || !/[A-Z]/.test(formVals.password) || !/[0-9]/.test(formVals.password) || !/[^A-Za-z0-9]/.test(formVals.password)) { e.password = "Password does not meet the requirements listed above"; }
+    if (!formVals.confirmPassword) { e.confirmPassword = "Required"; }
+    else if (formVals.password && formVals.confirmPassword !== formVals.password) { e.confirmPassword = "Passwords do not match"; }
+    return e;
+  };
+
+  var handleSubmit = function(e) {
+    e.preventDefault();
+    var errs = validate();
+    setErrors(errs);
+    if (Object.keys(errs).length === 0) { window.open(FORMS.reg,"_blank"); }
+  };
+
+  var errBorder = function(key) { return errors[key] ? {borderColor:C.red} : {}; };
+  var ErrMsg = function(key) { return errors[key] ? <div style={{fontFamily:F.b,fontSize:11,color:C.red,marginTop:4}}>{errors[key]}</div> : null; };
+
+  var fBase = {width:"100%",padding:"10px 14px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,boxSizing:"border-box",outline:"none"};
+  var fOn   = Object.assign({},fBase,{color:"#1e293b",background:"#fff"});
+  var lbl   = {display:"block",fontFamily:F.b,fontSize:11,fontWeight:700,color:"#475569",letterSpacing:1,textTransform:"uppercase",marginBottom:6};
+
+  var Checkbox = function(checked) {
+    return (
+      <div style={{width:18,height:18,borderRadius:4,border:"2px solid "+(checked?C.red:"#cbd5e1"),background:checked?C.red:"transparent",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:1,transition:"all .15s"}}>
+        {checked && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+      </div>
+    );
+  };
+
+  var goNext = function() { setStep(2); window.scrollTo({top:0,behavior:"smooth"}); };
+  var goBack = function() { setStep(1); window.scrollTo({top:0,behavior:"smooth"}); };
+
+  return (
+    <div style={{background:"#f8fafc",minHeight:"100vh",fontFamily:F.b}}>
+      <NSHeader nav={nav} curPage="ns-join" />
+
+      <div style={{maxWidth:680,margin:"0 auto",padding:"48px 24px 80px"}}>
+
+        {/* Title */}
+        <div style={{textAlign:"center",marginBottom:44}}>
+          <div style={{fontFamily:NS_FH,fontSize:34,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase",marginBottom:10}}>Join Columbus Warrior Hockey</div>
+        </div>
+
+        {/* PAGE 1 */}
+        {step===1 && (
+          <>
+            {/* Step 1 — About You */}
+            <div style={{marginBottom:32}}>
+              <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
+                <div style={{width:28,height:28,borderRadius:"50%",background:C.navy,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:F.b,fontSize:13,color:"#fff",fontWeight:700,flexShrink:0}}>1</div>
+                <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,letterSpacing:2,textTransform:"uppercase",color:C.navy}}>About You</div>
+                <div style={{position:"relative",display:"inline-flex",alignItems:"center"}}
+                  onMouseEnter={function(){setInfoHover(true);}} onMouseLeave={function(){setInfoHover(false);}}>
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style={{cursor:"default",flexShrink:0}}>
+                    <circle cx="8" cy="8" r="7.5" stroke="#94a3b8" strokeWidth="1.5"/>
+                    <rect x="7.25" y="7" width="1.5" height="5" rx=".75" fill="#94a3b8"/>
+                    <rect x="7.25" y="4" width="1.5" height="1.5" rx=".75" fill="#94a3b8"/>
+                  </svg>
+                  {infoHover && (
+                    <div style={{position:"absolute",bottom:"calc(100% + 8px)",left:"50%",transform:"translateX(-50%)",background:"#1e293b",color:"#fff",fontFamily:F.b,fontSize:12,fontWeight:400,lineHeight:1.6,padding:"8px 12px",borderRadius:6,width:240,zIndex:10,boxShadow:"0 4px 12px rgba(0,0,0,0.15)",letterSpacing:0,textTransform:"none",whiteSpace:"normal"}}>
+                      Your eligibility can be updated in your profile at any time.
+                      <div style={{position:"absolute",bottom:-4,left:"50%",marginLeft:-4,width:8,height:8,background:"#1e293b",transform:"rotate(45deg)"}} />
+                    </div>
+                  )}
+                </div>
+              </div>
+              <p style={{fontFamily:F.b,fontSize:13,color:"#64748b",margin:"0 0 14px",lineHeight:1.6}}>Check all that apply to you. This will help us identify which programs are available to you.</p>
+              <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+                {CRITERIA.map(function(c,i){
+                  var checked = sel.indexOf(c.id) >= 0;
+                  return (
+                    <button key={c.id} onClick={function(){toggle(c.id);}}
+                      style={{display:"flex",alignItems:"flex-start",gap:14,width:"100%",padding:"14px 20px",background:checked?"#fafbff":"#fff",border:"none",borderBottom:i<CRITERIA.length-1?"1px solid #f1f5f9":"none",cursor:"pointer",textAlign:"left",transition:"background .1s"}}>
+                      {Checkbox(checked)}
+                      <div>
+                        <div style={{fontFamily:F.b,fontSize:14,color:checked?"#1e293b":"#334155",fontWeight:checked?600:400,lineHeight:1.5}}>{c.label}</div>
+                        {c.note && <div style={{fontFamily:F.b,fontSize:12,color:"#94a3b8",marginTop:2}}>{c.note}</div>}
+                      </div>
+                    </button>
+                  );
+                })}
+                <div style={{borderTop:"2px solid #e2e8f0"}} />
+                <button onClick={function(){toggle("none");}}
+                  style={{display:"flex",alignItems:"center",gap:14,width:"100%",padding:"14px 20px",background:isNone?"#fafbff":"#fff",border:"none",cursor:"pointer",textAlign:"left",transition:"background .1s"}}>
+                  {Checkbox(isNone)}
+                  <div style={{fontFamily:F.b,fontSize:14,color:isNone?"#1e293b":"#64748b",fontWeight:isNone?600:400,fontStyle:"italic"}}>None of the above</div>
+                </button>
+              </div>
+            </div>
+
+            {/* Natural position — sentinel for IntersectionObserver */}
+            <div ref={sentRef} style={{display:"flex",justifyContent:"flex-end"}}>
+              <button onClick={goNext} disabled={!hasSel}
+                style={{padding:"12px 32px",background:hasSel?C.red:"#e2e8f0",color:hasSel?"#fff":"#94a3b8",border:"none",borderRadius:6,fontFamily:F.b,fontSize:14,fontWeight:700,letterSpacing:1,cursor:hasSel?"pointer":"default",transition:"all .2s"}}>
+                Next →
+              </button>
+            </div>
+          </>
+        )}
+
+        {/* PAGE 2 */}
+        {step===2 && (
+          <>
+            {/* Programs recap */}
+            {QUAL_PROGRAMS.length > 0 && (
+              <div style={{marginBottom:32}}>
+                <div style={{fontFamily:NS_FH,fontSize:14,fontWeight:700,letterSpacing:2,textTransform:"uppercase",color:C.navy,marginBottom:12,borderLeft:"3px solid "+C.red,paddingLeft:10,display:"flex",alignItems:"center",gap:8}}>
+                  Programs Available to You
+                  <div style={{position:"relative",display:"inline-flex",alignItems:"center"}}
+                    onMouseEnter={function(){setInfoHover2(true);}} onMouseLeave={function(){setInfoHover2(false);}}>
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style={{cursor:"default",flexShrink:0}}>
+                      <circle cx="8" cy="8" r="7.5" stroke="#94a3b8" strokeWidth="1.5"/>
+                      <rect x="7.25" y="7" width="1.5" height="5" rx=".75" fill="#94a3b8"/>
+                      <rect x="7.25" y="4" width="1.5" height="1.5" rx=".75" fill="#94a3b8"/>
+                    </svg>
+                    {infoHover2 && (
+                      <div style={{position:"absolute",bottom:"calc(100% + 8px)",left:"50%",transform:"translateX(-50%)",background:"#1e293b",color:"#fff",fontFamily:F.b,fontSize:12,fontWeight:400,lineHeight:1.6,padding:"8px 12px",borderRadius:6,width:260,zIndex:10,boxShadow:"0 4px 12px rgba(0,0,0,0.15)",letterSpacing:0,textTransform:"none",whiteSpace:"normal"}}>
+                        These are the programs you'll be able to sign up for. Open registrations will appear in your player portal.
+                        <div style={{position:"absolute",bottom:-4,left:"50%",marginLeft:-4,width:8,height:8,background:"#1e293b",transform:"rotate(45deg)"}} />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(160px,1fr))",gap:12}}>
+                  {QUAL_PROGRAMS.map(function(p,i){
+                    return (
+                      <div key={i} style={{background:"#fff",border:"1px solid #e2e8f0",borderTop:"4px solid "+C.navy,borderRadius:10,padding:"14px 16px"}}>
+                        <div style={{fontFamily:NS_FH,fontSize:15,fontWeight:700,color:C.navy,letterSpacing:1,marginBottom:4}}>{p.label}</div>
+                        <div style={{fontFamily:F.b,fontSize:12,color:"#64748b",lineHeight:1.5}}>{p.desc}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Your Information */}
+            <div style={{marginBottom:32}}>
+              <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
+                <div style={{width:28,height:28,borderRadius:"50%",background:C.navy,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:F.b,fontSize:13,color:"#fff",fontWeight:700,flexShrink:0}}>2</div>
+                <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,letterSpacing:2,textTransform:"uppercase",color:C.navy}}>Your Information</div>
+              </div>
+              <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"24px"}}>
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
+                  <div>
+                    <label style={lbl}>First Name</label>
+                    <input type="text" value={formVals.firstName} onChange={setField("firstName")} style={Object.assign({},fOn,errBorder("firstName"))} />
+                    {ErrMsg("firstName")}
+                  </div>
+                  <div>
+                    <label style={lbl}>Last Name</label>
+                    <input type="text" value={formVals.lastName} onChange={setField("lastName")} style={Object.assign({},fOn,errBorder("lastName"))} />
+                    {ErrMsg("lastName")}
+                  </div>
+                </div>
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
+                  <div>
+                    <label style={lbl}>Email</label>
+                    <input type="email" value={formVals.email} onChange={setField("email")} style={Object.assign({},fOn,errBorder("email"))} />
+                    {ErrMsg("email")}
+                  </div>
+                  <div>
+                    <label style={lbl}>Phone</label>
+                    <input type="tel" value={phone} onChange={function(e){setPhone(formatPhone(e.target.value));if(errors.phone)setErrors(Object.assign({},errors,{phone:undefined}));}} style={Object.assign({},fOn,errBorder("phone"))} />
+                    {ErrMsg("phone")}
+                  </div>
+                </div>
+                {showBranch && (
+                  <div style={{marginBottom:16}}>
+                    <label style={lbl}>Branch of Service</label>
+                    <select value={formVals.branch} onChange={setField("branch")} style={Object.assign({},fOn,errBorder("branch"),{appearance:"none"})}>
+                      <option value="">Select branch...</option>
+                      <option>Army</option>
+                      <option>Navy</option>
+                      <option>Marine Corps</option>
+                      <option>Air Force</option>
+                      <option>Space Force</option>
+                      <option>Coast Guard</option>
+                      <option>National Guard</option>
+                    </select>
+                    {ErrMsg("branch")}
+                  </div>
+                )}
+                <div style={{marginBottom:16}}>
+                  <label style={lbl}>How did you hear about us?</label>
+                  <select value={formVals.howHeard} onChange={setField("howHeard")} style={Object.assign({},fOn,errBorder("howHeard"),{appearance:"none"})}>
+                    <option value="">Select one...</option>
+                    <option>Social media</option>
+                    <option>Friend or family</option>
+                    <option>VA or military organization</option>
+                    <option>Event or game</option>
+                    <option>Other</option>
+                  </select>
+                  {ErrMsg("howHeard")}
+                </div>
+                <div style={{borderTop:"1px solid #f1f5f9",paddingTop:20}}>
+                  <div style={{fontFamily:NS_FH,fontSize:13,fontWeight:700,letterSpacing:2,textTransform:"uppercase",color:C.navy,marginBottom:14}}>Create a Password</div>
+                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+                    <div>
+                      <label style={lbl}>Password</label>
+                      <input type="password" value={formVals.password} onChange={setField("password")} style={Object.assign({},fOn,errBorder("password"))} />
+                      <div style={{fontFamily:F.b,fontSize:11,color:errors.password?C.red:"#94a3b8",marginTop:6,lineHeight:1.6}}>8+ characters &middot; 1 uppercase &middot; 1 number &middot; 1 special character</div>
+                    </div>
+                    <div>
+                      <label style={lbl}>Confirm Password</label>
+                      <input type="password" value={formVals.confirmPassword} onChange={setField("confirmPassword")} style={Object.assign({},fOn,errBorder("confirmPassword"),(formVals.confirmPassword&&formVals.password&&formVals.confirmPassword!==formVals.password?{borderColor:C.red}:{}))} />
+                      {(errors.confirmPassword||(formVals.confirmPassword&&formVals.password&&formVals.confirmPassword!==formVals.password))
+                        ? <div style={{fontFamily:F.b,fontSize:11,color:C.red,marginTop:6,lineHeight:1.6}}>Passwords do not match</div>
+                        : <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8",marginTop:6,lineHeight:1.6}}>Re-enter your password to confirm.</div>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Natural position — Back + Submit */}
+            <div ref={sentRef} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+              <button onClick={goBack} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,color:"#64748b",padding:0,display:"flex",alignItems:"center",gap:6}}>← Back</button>
+              <button onClick={handleSubmit} style={{padding:"12px 32px",background:C.red,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:14,fontWeight:700,letterSpacing:1,cursor:"pointer"}}>Submit</button>
+            </div>
+          </>
+        )}
+
+      </div>
+      {isSticky && (
+        <div style={{position:"fixed",bottom:0,left:0,right:0,background:"#fff",borderTop:"1px solid #e2e8f0",boxShadow:"0 -2px 12px rgba(0,0,0,0.06)",zIndex:50,padding:"14px 24px"}}>
+          <div style={{maxWidth:680,margin:"0 auto",padding:"0 24px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+            {step===2
+              ? <button onClick={goBack} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,color:"#64748b",padding:0,display:"flex",alignItems:"center",gap:6}}>← Back</button>
+              : <div />
+            }
+            {step===1
+              ? <button onClick={goNext} disabled={!hasSel} style={{padding:"12px 32px",background:hasSel?C.red:"#e2e8f0",color:hasSel?"#fff":"#94a3b8",border:"none",borderRadius:6,fontFamily:F.b,fontSize:14,fontWeight:700,letterSpacing:1,cursor:hasSel?"pointer":"default",transition:"all .2s"}}>Next →</button>
+              : <button onClick={handleSubmit} style={{padding:"12px 32px",background:C.red,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:14,fontWeight:700,letterSpacing:1,cursor:"pointer"}}>Submit</button>
+            }
+          </div>
+        </div>
+      )}
+      {NS_FOOTER(nav)}
+    </div>
+  );
+}
+
+function NSPlayerPortal({nav}) {
+  var dm = useState(false); var devMode = dm[0]; var setDevMode = dm[1];
+  var tr = useState("vet"); var tier = tr[0]; var setTier = tr[1];
+  var pr = useState("yes"); var programs = pr[0]; var setPrograms = pr[1];
+  var tc = useState(2); var teamCount = tc[0]; var setTeamCount = tc[1];
+
+  var DISPLAY_NAME = "Player 1";
+  var ALL_TEAMS = [
+    {
+      id:"c",
+      label:"CAHL C League",
+      tag:"East",
+      nextGame:{dow:"Sunday",date:"Jun 7, 2026",time:"7:30 PM",opp:"Team A",loc:"Chiller North",home:true},
+      record:{w:8,l:3,t:1,gp:12},
+      myStats:{gp:12,g:8,a:6,pts:14,pim:4},
+      games:[
+        {date:"Jun 21",time:"8:00 PM", loc:"Chiller Easton",opp:"Storm",   away:false,upcoming:true},
+        {date:"Jun 14",time:"6:00 PM", loc:"Chiller Dublin",opp:"Rangers", away:true, upcoming:true},
+        {date:"Jun 7", time:"7:30 PM", loc:"Chiller North", opp:"Team A",  away:false,upcoming:true},
+        {date:"May 22",opp:"Predators",    gf:4,ga:2,r:"W"},
+        {date:"May 15",opp:"Blue Jackets", gf:3,ga:3,r:"T"},
+        {date:"May 8", opp:"Rangers",      gf:2,ga:5,r:"L"},
+        {date:"May 1", opp:"Knights",      gf:4,ga:1,r:"W"},
+        {date:"Apr 24",opp:"Storm",        gf:3,ga:2,r:"W"},
+        {date:"Apr 17",opp:"Wolves",       gf:1,ga:3,r:"L"},
+        {date:"Apr 10",opp:"Eagles",       gf:5,ga:0,r:"W"},
+        {date:"Apr 3", opp:"Predators",    gf:2,ga:4,r:"L"},
+        {date:"Mar 27",opp:"Blue Jackets", gf:4,ga:3,r:"W"},
+        {date:"Mar 20",opp:"Rangers",      gf:3,ga:1,r:"W"},
+        {date:"Mar 13",opp:"Knights",      gf:2,ga:3,r:"L"},
+        {date:"Mar 6", opp:"Storm",        gf:4,ga:2,r:"W"},
+        {date:"Feb 27",opp:"Wolves",       gf:3,ga:1,r:"W"},
+      ],
+      lines:{
+        set:true,
+        setBy:"Coach Name",
+        offense:[
+          {lw:"Player 2",c:"Player 1",rw:"Player 3"},
+          {lw:"Player 4",c:"Player 5",rw:"Player 6"},
+          {lw:"Player 7",c:"Player 8",rw:"Player 9"},
+        ],
+        defense:[
+          {ld:"Player 10",rd:"Player 11"},
+          {ld:"Player 12",rd:"Player 13"},
+        ],
+        goalie:"Player 14",
+      },
+    },
+    {
+      id:"d",
+      label:"CAHL D League",
+      tag:"West A",
+      nextGame:{dow:"Saturday",date:"Jun 6, 2026",time:"9:15 PM",opp:"Team B",loc:"Chiller Easton",home:false},
+      record:{w:5,l:5,t:2,gp:12},
+      myStats:{gp:10,g:3,a:5,pts:8,pim:2},
+      games:[
+        {date:"Jun 20",time:"8:30 PM", loc:"Chiller Dublin",opp:"Wolves",  away:false,upcoming:true},
+        {date:"Jun 13",time:"7:00 PM", loc:"Chiller Easton",opp:"Knights", away:true, upcoming:true},
+        {date:"Jun 6", time:"6:30 PM", loc:"Chiller North", opp:"Team B",  away:false,upcoming:true},
+        {date:"May 21",opp:"Knights", gf:5,ga:1,r:"W"},
+        {date:"May 14",opp:"Storm",   gf:2,ga:4,r:"L"},
+        {date:"May 7", opp:"Wolves",  gf:3,ga:3,r:"T"},
+        {date:"Apr 30",opp:"Thunder", gf:4,ga:2,r:"W"},
+        {date:"Apr 23",opp:"Knights", gf:1,ga:3,r:"L"},
+        {date:"Apr 16",opp:"Storm",   gf:3,ga:3,r:"T"},
+        {date:"Apr 9", opp:"Wolves",  gf:2,ga:4,r:"L"},
+        {date:"Apr 2", opp:"Thunder", gf:4,ga:1,r:"W"},
+        {date:"Mar 26",opp:"Knights", gf:1,ga:2,r:"L"},
+        {date:"Mar 19",opp:"Storm",   gf:3,ga:1,r:"W"},
+        {date:"Mar 12",opp:"Wolves",  gf:2,ga:3,r:"L"},
+        {date:"Mar 5", opp:"Thunder", gf:5,ga:2,r:"W"},
+      ],
+      lines:{set:false},
+    },
+    {
+      id:"gc",
+      label:"Guardians Cup Tournament",
+      tag:"Tournament",
+      nextGame:{dow:"Monday",date:"Jun 8, 2026",time:"11:00 AM",opp:"Team C",loc:"Nationwide Ice",home:true},
+      record:{w:1,l:0,t:0,gp:1},
+      myStats:{gp:1,g:2,a:0,pts:2,pim:0},
+      games:[
+        {date:"Jun 8",time:"2:00 PM",  loc:"Nationwide Ice",opp:"Team E",away:false,upcoming:true},
+        {date:"Jun 8",time:"11:00 AM", loc:"Nationwide Ice",opp:"Team C",away:false,upcoming:true},
+        {date:"Jun 1",opp:"Team D",gf:4,ga:2,r:"W"},
+      ],
+      lines:{set:false},
+    },
+  ];
+  var TEAMS = ALL_TEAMS.slice(0, teamCount).sort(function(a,b){ return new Date(a.nextGame.date) - new Date(b.nextGame.date); });
+  var ALL_PROGRAMS = [
+    {label:"Guardians Cup Tournament",season:"Winter 2026",date:"Aug 15–17, 2026",registerBy:"Jul 15, 2026",desc:"Registration is open for the Guardians Cup Tournament. Sign up now to compete.",tiers:["disabled"]},
+    {label:"Winter C League",season:"Winter 2026",date:"Sep 6 – Dec 20, 2026",registerBy:"Aug 1, 2026",desc:"Winter season registration is now open for the C League.",tiers:["disabled","vet"]},
+    {label:"Winter D League",season:"Winter 2026",date:"Sep 6 – Dec 20, 2026",registerBy:"Aug 1, 2026",desc:"Winter season registration is now open for the D League.",tiers:["disabled","vet"]},
+    {label:"Car Wash",season:"Winter 2026",date:"Jun 21, 2026",registerBy:"Jun 10, 2026",closingSoon:true,desc:"Help raise funds for the program by volunteering at our upcoming car wash event.",tiers:["disabled","vet","volunteer"]},
+  ];
+  var AVAIL_PROGRAMS = programs === "no" ? [] : ALL_PROGRAMS.filter(function(p){ return p.tiers.indexOf(tier) >= 0; });
+  var ORD = ["1st","2nd","3rd"];
+  var nameCell = function(name) {
+    var me = name === DISPLAY_NAME;
+    return <span style={{fontFamily:F.b,fontSize:13,color:me?C.red:"#334155",fontWeight:me?700:400}}>{name}</span>;
+  };
+  var thStyle = function(align) { return {fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",textAlign:align||"left"}; };
+  var devSelect = function(label, value, setter, opts) {
+    return (
+      <label style={{display:"flex",alignItems:"center",gap:6}}>
+        <span style={{fontFamily:F.b,fontSize:11,color:"rgba(255,255,255,0.4)"}}>{label}</span>
+        <select value={value} onChange={function(e){setter(e.target.value);}} style={{background:"rgba(167,139,250,0.12)",border:"1px solid rgba(167,139,250,0.3)",borderRadius:4,fontFamily:F.b,fontSize:11,color:"#a78bfa",padding:"3px 8px",cursor:"pointer",outline:"none"}}>
+          {opts.map(function(o){ return <option key={o.value} value={o.value} style={{background:"#1e1b4b",color:"#a78bfa"}}>{o.label}</option>; })}
+        </select>
+      </label>
+    );
+  };
+
+  var carouselRef = useRef(null);
+  var cso = useState(false); var carouselOverflows = cso[0]; var setCarouselOverflows = cso[1];
+  useEffect(function() {
+    var el = carouselRef.current;
+    if (el) setCarouselOverflows(el.scrollWidth > el.clientWidth);
+  }, [AVAIL_PROGRAMS.length]);
+  var scrollCarousel = function(dir) {
+    if (carouselRef.current) carouselRef.current.scrollBy({left: dir * 296, behavior:"smooth"});
+  };
+
+  return (
+    <div style={{background:"#f1f5f9",minHeight:"100vh"}}>
+      <NSHeader nav={nav} curPage="ns-portal" isLoggedIn={true} />
+
+      {devMode && (
+        <div style={{background:"#1e1b4b",padding:"8px 24px",display:"flex",alignItems:"center",gap:20,position:"sticky",top:64,zIndex:90}}>
+          <span style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#a78bfa",background:"rgba(167,139,250,0.15)",padding:"2px 8px",borderRadius:4,letterSpacing:1,textTransform:"uppercase",flexShrink:0}}>Dev</span>
+          {devSelect("Player Tier:", tier, setTier, [
+            {value:"vet",label:"Veteran"},
+            {value:"disabled",label:"Disabled"},
+            {value:"volunteer",label:"Volunteer"},
+          ])}
+          {devSelect("Programs:", programs, setPrograms, [
+            {value:"yes",label:"Available"},
+            {value:"no",label:"None"},
+          ])}
+          {devSelect("Teams:", String(teamCount), function(v){setTeamCount(Number(v));}, [
+            {value:"0",label:"0 Teams"},
+            {value:"1",label:"1 Team"},
+            {value:"2",label:"2 Teams"},
+            {value:"3",label:"3 Teams"},
+          ])}
+        </div>
+      )}
+
+      <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 60px"}}>
+
+        {/* Open Sign-Ups — only shown when programs are available */}
+        {AVAIL_PROGRAMS.length > 0 && (
+          <div style={{marginBottom:40}}>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:16}}>
+              <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",borderLeft:"3px solid "+C.red,paddingLeft:12,lineHeight:1}}>Open Sign-Ups</div>
+              {carouselOverflows && (
+                <div style={{display:"flex",gap:8}}>
+                  <button onClick={function(){scrollCarousel(-1);}} style={{width:34,height:34,borderRadius:"50%",background:C.navy,border:"none",color:"#fff",cursor:"pointer",fontSize:18,display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1,flexShrink:0}}>‹</button>
+                  <button onClick={function(){scrollCarousel(1);}} style={{width:34,height:34,borderRadius:"50%",background:C.navy,border:"none",color:"#fff",cursor:"pointer",fontSize:18,display:"flex",alignItems:"center",justifyContent:"center",lineHeight:1,flexShrink:0}}>›</button>
+                </div>
+              )}
+            </div>
+            <div ref={carouselRef} style={{display:"flex",gap:16,overflowX:"hidden",scrollBehavior:"smooth"}}>
+              {AVAIL_PROGRAMS.map(function(prog,i){return (
+                <div key={i} style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"20px 24px",display:"flex",flexDirection:"column",gap:10,minWidth:280,maxWidth:280,flexShrink:0}}>
+                  <div style={{display:"flex",alignItems:"flex-start",justifyContent:"space-between",gap:12}}>
+                    <div>
+                      <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,color:"#1e293b",letterSpacing:1}}>{prog.label}</div>
+                      {prog.date && <div style={{fontFamily:F.b,fontSize:12,color:"#94a3b8",marginTop:2}}>{prog.date}</div>}
+                    </div>
+                    {prog.closingSoon
+                      ? <div style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#b45309",background:"#fef3c7",padding:"3px 10px",borderRadius:20,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap",flexShrink:0}}>Closing Soon</div>
+                      : <div style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#16a34a",background:"#dcfce7",padding:"3px 10px",borderRadius:20,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap",flexShrink:0}}>Open</div>
+                    }
+                  </div>
+                  <div style={{fontFamily:F.b,fontSize:13,color:"#64748b"}}>{prog.desc}</div>
+                  <div style={{marginTop:"auto"}}>
+                    {prog.registerBy && <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8",marginBottom:6}}>Register by <span style={{color:"#475569",fontWeight:700}}>{prog.registerBy}</span></div>}
+                    <button style={{width:"100%",padding:"9px 0",background:C.navy,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,fontWeight:700,letterSpacing:1,cursor:"pointer"}}>Register</button>
+                  </div>
+                </div>
+              );})}
+            </div>
+          </div>
+        )}
+
+        {/* One section per team */}
+        {TEAMS.map(function(team) {
+          var lg = team.lines;
+          return (
+            <div key={team.id} style={{marginBottom:40}}>
+
+              {/* Section header */}
+              <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16,borderLeft:"3px solid "+C.red,paddingLeft:12}}>
+                <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",lineHeight:1}}>{team.label}</div>
+                <span style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:C.navy,background:"rgba(0,41,77,0.09)",padding:"3px 10px",borderRadius:20,letterSpacing:0.5,alignSelf:"center"}}>{team.tag}</span>
+              </div>
+
+              {/* Next Game */}
+              <div style={{marginBottom:16}}>
+                <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+                  <div style={{background:C.navy,padding:"12px 20px"}}>
+                    <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase"}}>Next Game</div>
+                  </div>
+                  <div style={{padding:"14px 20px",display:"flex",alignItems:"center",gap:24}}>
+                    <div style={{flex:1}}>
+                      <div style={{fontFamily:NS_FH,fontSize:28,fontWeight:700,color:"#1e293b",letterSpacing:1}}>vs {team.nextGame.opp}</div>
+                      <div style={{fontFamily:F.b,fontSize:13,color:"#64748b",marginTop:6}}>{team.nextGame.dow}, {team.nextGame.date} · {team.nextGame.time}</div>
+                      <div style={{fontFamily:F.b,fontSize:13,color:"#64748b",marginTop:2}}>{team.nextGame.loc}</div>
+                    </div>
+                    <span style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:team.nextGame.home?"#fff":"#8c7046",background:team.nextGame.home?C.olive:"#f5e9d6",padding:"4px 12px",borderRadius:20,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap"}}>
+                      {team.nextGame.home?"Home":"Away"}
+                    </span>
+                  </div>
+                  <div style={{borderTop:"1px solid #e2e8f0"}}>
+                    <div style={{padding:"10px 20px",background:"#f8fafc",borderBottom:"1px solid #e2e8f0",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                      <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase"}}>Game Lines</div>
+                      {lg.set && <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8"}}>Set by {lg.setBy}</div>}
+                    </div>
+                    {lg.set ? (
+                      <div style={{padding:"16px 24px"}}>
+                        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20}}>
+                          <div>
+                            <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:700,color:"#94a3b8",letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Offense</div>
+                            <div style={{border:"1px solid #e2e8f0",borderRadius:8,overflow:"hidden"}}>
+                              <div style={{display:"grid",gridTemplateColumns:"44px 1fr 1fr 1fr",background:"#f8fafc",borderBottom:"1px solid #e2e8f0",padding:"6px 14px"}}>
+                                <div style={thStyle()}>Line</div><div style={thStyle()}>LW</div><div style={thStyle("center")}>C</div><div style={thStyle("right")}>RW</div>
+                              </div>
+                              {lg.offense.map(function(ln,i){return (
+                                <div key={i} style={{display:"grid",gridTemplateColumns:"44px 1fr 1fr 1fr",padding:"8px 14px",borderBottom:i<lg.offense.length-1?"1px solid #f1f5f9":"none",alignItems:"center"}}>
+                                  <div style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:"#cbd5e1"}}>{ORD[i]}</div>
+                                  <div>{nameCell(ln.lw)}</div>
+                                  <div style={{textAlign:"center"}}>{nameCell(ln.c)}</div>
+                                  <div style={{textAlign:"right"}}>{nameCell(ln.rw)}</div>
+                                </div>
+                              );})}
+                            </div>
+                          </div>
+                          <div>
+                            <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:700,color:"#94a3b8",letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Defense</div>
+                            <div style={{border:"1px solid #e2e8f0",borderRadius:8,overflow:"hidden"}}>
+                              <div style={{display:"grid",gridTemplateColumns:"44px 1fr 1fr",background:"#f8fafc",borderBottom:"1px solid #e2e8f0",padding:"6px 14px"}}>
+                                <div style={thStyle()}>Pair</div><div style={thStyle()}>LD</div><div style={thStyle("right")}>RD</div>
+                              </div>
+                              {lg.defense.map(function(pr,i){return (
+                                <div key={i} style={{display:"grid",gridTemplateColumns:"44px 1fr 1fr",padding:"8px 14px",borderBottom:i<lg.defense.length-1?"1px solid #f1f5f9":"none",alignItems:"center"}}>
+                                  <div style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:"#cbd5e1"}}>{ORD[i]}</div>
+                                  <div>{nameCell(pr.ld)}</div>
+                                  <div style={{textAlign:"right"}}>{nameCell(pr.rd)}</div>
+                                </div>
+                              );})}
+                            </div>
+                            <div style={{marginTop:10,display:"flex",alignItems:"center",gap:8}}>
+                              <div style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#94a3b8",textTransform:"uppercase",letterSpacing:1}}>Goalie</div>
+                              <div>{nameCell(lg.goalie)}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div style={{padding:"16px 24px",textAlign:"center"}}>
+                        <div style={{fontFamily:F.b,fontSize:13,color:"#94a3b8"}}>Lines have not been set for this game yet.</div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Season Schedule */}
+              {(team.games && team.games.length > 0) && (
+                <div style={{background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",marginBottom:16}}>
+                  <div style={{background:C.navy,padding:"12px 20px"}}>
+                    <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase"}}>Season Schedule</div>
+                  </div>
+                  <div style={{maxHeight:190,overflowY:"auto"}}>
+                    <div style={{display:"grid",gridTemplateColumns:"80px 1fr 130px 44px",padding:"6px 16px",borderBottom:"1px solid #e2e8f0",background:"#fff",position:"sticky",top:0,zIndex:1}}>
+                      <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>Date</div>
+                      <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>Opponent</div>
+                      <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",textTransform:"uppercase"}}>Result</div>
+                      <div />
+                    </div>
+                    {team.games.map(function(g,j){return (
+                      <div key={j} style={{display:"grid",gridTemplateColumns:"80px 1fr 130px 44px",padding:"6px 16px",borderBottom:j<team.games.length-1?"1px solid #f1f5f9":"none",alignItems:"center",background:g.upcoming?"#f0f9ff":"transparent"}}>
+                        <div style={{fontFamily:F.b,fontSize:12,color:g.upcoming?"#2563eb":"#94a3b8",fontWeight:g.upcoming?600:400}}>{g.date}</div>
+                        <div style={{fontFamily:F.b,fontSize:13,color:"#334155"}}>{g.upcoming&&g.away?"@ ":""}{g.opp}</div>
+                        <div>
+                          {g.upcoming
+                            ? <div><div style={{fontFamily:F.b,fontSize:12,color:"#2563eb",fontWeight:600}}>{g.time}</div><div style={{fontFamily:F.b,fontSize:11,color:"#64748b",marginTop:1}}>{g.loc}</div></div>
+                            : <div style={{fontFamily:F.b,fontSize:13,color:"#334155",fontWeight:600}}>{g.gf}–{g.ga}</div>
+                          }
+                        </div>
+                        <div>
+                          {!g.upcoming&&<div style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:NS_RC[g.r],background:NS_RBG[g.r],padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{NS_RL[g.r]}</div>}
+                        </div>
+                      </div>
+                    );})}
+                  </div>
+                </div>
+              )}
+
+              {/* Season Record + My Stats */}
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
+                <div style={{background:C.navy,borderRadius:10,padding:"16px 20px",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center"}}>
+                  <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Season Record</div>
+                  <div style={{fontFamily:NS_FH,fontSize:44,fontWeight:700,color:"#fff",letterSpacing:2,lineHeight:1}}>{team.record.w}–{team.record.l}–{team.record.t}</div>
+                  <div style={{fontFamily:F.b,fontSize:11,color:"rgba(255,255,255,0.4)",marginTop:6,letterSpacing:1}}>W–L–T · {team.record.gp} GP</div>
+                </div>
+                <div style={{background:C.navy,borderRadius:10,padding:"16px 20px",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center"}}>
+                  <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>My Stats</div>
+                  <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:8,width:"100%",marginTop:4}}>
+                    {[
+                      {label:"GP",  val:team.myStats.gp},
+                      {label:"G",   val:team.myStats.g},
+                      {label:"A",   val:team.myStats.a},
+                      {label:"PTS", val:team.myStats.pts},
+                      {label:"PIM", val:team.myStats.pim},
+                    ].map(function(s,i){return (
+                      <div key={i} style={{textAlign:"center"}}>
+                        <div style={{fontFamily:NS_FH,fontSize:28,fontWeight:700,color:"rgba(255,255,255,0.85)",letterSpacing:1,lineHeight:1}}>{s.val}</div>
+                        <div style={{fontFamily:F.b,fontSize:10,color:"rgba(255,255,255,0.4)",marginTop:5,letterSpacing:1,textTransform:"uppercase"}}>{s.label}</div>
+                      </div>
+                    );})}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          );
+        })}
+
+
+      </main>
+      {NS_FOOTER(nav, devMode, setDevMode)}
+    </div>
+  );
+}
+
+function NSProfilePage({nav}) {
+  var PLAYER_NUMBER = 4;
+  var fv = useState({firstName:"Player",lastName:"One",email:"player@example.com",phone:"(614) 555-0100",branch:"Navy"});
+  var formVals = fv[0]; var setFormVals = fv[1];
+  var ph = useState(null); var photoURL = ph[0]; var setPhotoURL = ph[1];
+  var sv = useState(false); var saved = sv[0]; var setSaved = sv[1];
+  var ev = useState({}); var errors = ev[0]; var setErrors = ev[1];
+  var pv = useState({current:"",newPw:"",confirm:""}); var pwVals = pv[0]; var setPwVals = pv[1];
+  var pe = useState({}); var pwErrors = pe[0]; var setPwErrors = pe[1];
+  var ps = useState(false); var pwSaved = ps[0]; var setPwSaved = ps[1];
+  var fileRef = useRef(null);
+
+  var setField = function(key) {
+    return function(e) {
+      setFormVals(Object.assign({},formVals,{[key]:e.target.value}));
+      if (errors[key]) setErrors(Object.assign({},errors,{[key]:undefined}));
+      setSaved(false);
+    };
+  };
+  var handlePhotoChange = function(e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(ev) { setPhotoURL(ev.target.result); };
+    reader.readAsDataURL(file);
+    setSaved(false);
+  };
+  var formatPhone = function(v) {
+    var d = v.replace(/\D/g,"").slice(0,10);
+    if (d.length <= 3) return d.length ? "("+d : "";
+    if (d.length <= 6) return "("+d.slice(0,3)+") "+d.slice(3);
+    return "("+d.slice(0,3)+") "+d.slice(3,6)+"-"+d.slice(6);
+  };
+  var validate = function() {
+    var e = {};
+    if (!formVals.firstName.trim()) e.firstName = "Required";
+    if (!formVals.lastName.trim()) e.lastName = "Required";
+    if (!formVals.email.trim()) e.email = "Required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formVals.email)) e.email = "Enter a valid email";
+    if (!formVals.phone || formVals.phone.replace(/\D/g,"").length < 10) e.phone = "Enter a valid phone number";
+    return e;
+  };
+  var handleSave = function(e) {
+    e.preventDefault();
+    var errs = validate();
+    setErrors(errs);
+    if (Object.keys(errs).length === 0) setSaved(true);
+  };
+  var setPwField = function(key) {
+    return function(e) {
+      setPwVals(Object.assign({},pwVals,{[key]:e.target.value}));
+      if (pwErrors[key]) setPwErrors(Object.assign({},pwErrors,{[key]:undefined}));
+      setPwSaved(false);
+    };
+  };
+  var validatePw = function() {
+    var e = {};
+    if (!pwVals.current) e.current = "Required";
+    if (!pwVals.newPw) e.newPw = "Required";
+    else if (pwVals.newPw.length < 8 || !/[A-Z]/.test(pwVals.newPw) || !/[0-9]/.test(pwVals.newPw) || !/[^A-Za-z0-9]/.test(pwVals.newPw)) e.newPw = true;
+    if (!pwVals.confirm) e.confirm = "Required";
+    else if (pwVals.newPw && pwVals.confirm !== pwVals.newPw) e.confirm = "Passwords do not match";
+    return e;
+  };
+  var handlePwSave = function(e) {
+    e.preventDefault();
+    var errs = validatePw();
+    setPwErrors(errs);
+    if (Object.keys(errs).length === 0) { setPwSaved(true); setPwVals({current:"",newPw:"",confirm:""}); }
+  };
+  var fBase = {width:"100%",padding:"10px 14px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,boxSizing:"border-box",outline:"none",color:"#1e293b",background:"#fff"};
+  var errBorder = function(key) { return errors[key] ? {borderColor:C.red} : {}; };
+  var ErrMsg = function(key) { return errors[key] ? <div style={{fontFamily:F.b,fontSize:11,color:C.red,marginTop:4}}>{errors[key]}</div> : null; };
+  var pwErrBorder = function(key) { return pwErrors[key] ? {borderColor:C.red} : {}; };
+  var PwErrMsg = function(key) { return pwErrors[key] ? <div style={{fontFamily:F.b,fontSize:11,color:C.red,marginTop:4}}>{pwErrors[key]}</div> : null; };
+  var lbl = {display:"block",fontFamily:F.b,fontSize:11,fontWeight:700,color:"#475569",letterSpacing:1,textTransform:"uppercase",marginBottom:6};
+  var cardHeader = {background:C.navy,padding:"12px 20px"};
+  var cardHeaderLabel = {fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase"};
+
+  return (
+    <div style={{background:"#f1f5f9",minHeight:"100vh"}}>
+      <NSHeader nav={nav} curPage="ns-portal" isLoggedIn={true} />
+      <div style={{maxWidth:720,margin:"0 auto",padding:"40px 24px 80px"}}>
+
+        <div style={{marginBottom:28}}>
+          <button onClick={function(){nav("ns-portal");}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,color:"#64748b",padding:0,marginBottom:14,display:"flex",alignItems:"center",gap:6}}>← Back to portal</button>
+          <div style={{fontFamily:NS_FH,fontSize:32,fontWeight:700,color:C.navy,letterSpacing:2,textTransform:"uppercase"}}>{PLAYER_NUMBER ? "#"+PLAYER_NUMBER+" " : ""}{formVals.firstName} {formVals.lastName}</div>
+        </div>
+
+        {/* Profile Photo */}
+        <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",marginBottom:20}}>
+          <div style={cardHeader}><div style={cardHeaderLabel}>Profile Photo</div></div>
+          <div style={{padding:"24px 28px",display:"flex",alignItems:"center",gap:24}}>
+            <div style={{width:88,height:88,borderRadius:"50%",overflow:"hidden",flexShrink:0,border:"3px solid #e2e8f0",background:"#f1f5f9"}}>
+              {photoURL
+                ? <img src={photoURL} alt="Profile" style={{width:"100%",height:"100%",objectFit:"cover"}} />
+                : <svg viewBox="0 0 200 200" style={{width:"100%",height:"100%"}}><circle cx="100" cy="75" r="35" fill="#9ca3af"/><ellipse cx="100" cy="170" rx="55" ry="45" fill="#9ca3af"/></svg>
+              }
+            </div>
+            <div>
+              <div style={{fontFamily:F.b,fontSize:13,color:"#64748b",marginBottom:12}}>Upload a photo to personalize your profile. JPG or PNG accepted.</div>
+              <input ref={fileRef} type="file" accept=".jpg,.jpeg,.png" style={{display:"none"}} onChange={handlePhotoChange} />
+              <div style={{display:"flex",gap:10}}>
+                <button onClick={function(){fileRef.current&&fileRef.current.click();}} style={{padding:"8px 18px",background:C.navy,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,fontWeight:600,cursor:"pointer"}}>
+                  {photoURL ? "Change photo" : "Upload photo"}
+                </button>
+                {photoURL && (
+                  <button onClick={function(){setPhotoURL(null);setSaved(false);}} style={{padding:"8px 18px",background:"none",color:"#64748b",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,fontWeight:600,cursor:"pointer"}}>Remove</button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Personal Information */}
+        <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+          <div style={cardHeader}><div style={cardHeaderLabel}>Personal Information</div></div>
+          <form onSubmit={handleSave} style={{padding:"24px 28px"}}>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
+              <div>
+                <label style={lbl}>First Name</label>
+                <input type="text" value={formVals.firstName} onChange={setField("firstName")} style={Object.assign({},fBase,errBorder("firstName"))} />
+                {ErrMsg("firstName")}
+              </div>
+              <div>
+                <label style={lbl}>Last Name</label>
+                <input type="text" value={formVals.lastName} onChange={setField("lastName")} style={Object.assign({},fBase,errBorder("lastName"))} />
+                {ErrMsg("lastName")}
+              </div>
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}}>
+              <div>
+                <label style={lbl}>Email</label>
+                <input type="email" value={formVals.email} onChange={setField("email")} style={Object.assign({},fBase,errBorder("email"))} />
+                {ErrMsg("email")}
+              </div>
+              <div>
+                <label style={lbl}>Phone</label>
+                <input type="tel" value={formVals.phone} onChange={function(e){var v=formatPhone(e.target.value);setFormVals(Object.assign({},formVals,{phone:v}));if(errors.phone)setErrors(Object.assign({},errors,{phone:undefined}));setSaved(false);}} style={Object.assign({},fBase,errBorder("phone"))} />
+                {ErrMsg("phone")}
+              </div>
+            </div>
+            <div style={{marginBottom:24}}>
+              <label style={lbl}>Branch of Service</label>
+              <select value={formVals.branch} onChange={setField("branch")} style={Object.assign({},fBase,{appearance:"none"})}>
+                <option value="">Select branch...</option>
+                {["Army","Navy","Marine Corps","Air Force","Space Force","Coast Guard","National Guard","N/A"].map(function(b){return <option key={b}>{b}</option>;})}
+              </select>
+            </div>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:14,paddingTop:4}}>
+              {saved && <div style={{fontFamily:F.b,fontSize:13,color:"#16a34a",fontWeight:600}}>Changes saved.</div>}
+              <button type="submit" style={{padding:"10px 28px",background:C.red,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,fontWeight:700,letterSpacing:1,cursor:"pointer"}}>Save changes</button>
+            </div>
+          </form>
+        </div>
+
+        {/* Change Password */}
+        <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",marginTop:20}}>
+          <div style={cardHeader}><div style={cardHeaderLabel}>Change Password</div></div>
+          <form onSubmit={handlePwSave} style={{padding:"24px 28px"}}>
+            <div style={{marginBottom:16}}>
+              <label style={lbl}>Current password</label>
+              <input type="password" value={pwVals.current} onChange={setPwField("current")} style={Object.assign({},fBase,pwErrBorder("current"))} />
+              {PwErrMsg("current")}
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:24}}>
+              <div>
+                <label style={lbl}>New password</label>
+                <input type="password" value={pwVals.newPw} onChange={setPwField("newPw")} style={Object.assign({},fBase,pwErrBorder("newPw"))} />
+                <div style={{fontFamily:F.b,fontSize:11,color:pwErrors.newPw?C.red:"#94a3b8",marginTop:6,lineHeight:1.6}}>8+ characters &middot; 1 uppercase &middot; 1 number &middot; 1 special character</div>
+              </div>
+              <div>
+                <label style={lbl}>Confirm new password</label>
+                <input type="password" value={pwVals.confirm} onChange={setPwField("confirm")} style={Object.assign({},fBase,pwErrBorder("confirm"),(pwVals.confirm&&pwVals.newPw&&pwVals.confirm!==pwVals.newPw?{borderColor:C.red}:{}))} />
+                {(pwErrors.confirm||(pwVals.confirm&&pwVals.newPw&&pwVals.confirm!==pwVals.newPw))
+                  ? <div style={{fontFamily:F.b,fontSize:11,color:C.red,marginTop:6,lineHeight:1.6}}>Passwords do not match</div>
+                  : <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8",marginTop:6,lineHeight:1.6}}>Re-enter your password to confirm.</div>
+                }
+              </div>
+            </div>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:14,paddingTop:4}}>
+              {pwSaved && <div style={{fontFamily:F.b,fontSize:13,color:"#16a34a",fontWeight:600}}>Password updated.</div>}
+              <button type="submit" style={{padding:"10px 28px",background:C.red,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,fontWeight:700,letterSpacing:1,cursor:"pointer"}}>Update password</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+      {NS_FOOTER(nav)}
+    </div>
+  );
+}
 export default function CWHSite() {
   var pg = useState("home"); var page = pg[0]; var setPage = pg[1];
   var nav = function(p) { setPage(p); window.scrollTo({top:0,behavior:"smooth"}); };
@@ -1608,6 +2565,9 @@ export default function CWHSite() {
     case "ns-about": content = <NSAboutPage nav={nav} />; break;
     case "ns-leadership": content = <NSLeadershipPage nav={nav} />; break;
     case "ns-sponsors": content = <NSSponsorsPage nav={nav} />; break;
+    case "ns-join": content = <NSJoinPage nav={nav} />; break;
+    case "ns-portal": content = <NSPlayerPortal nav={nav} />; break;
+    case "ns-profile": content = <NSProfilePage nav={nav} />; break;
     case "team-c": content = <TeamPage team="team-c" />; break;
     case "team-d": content = <TeamPage team="team-d" />; break;
     case "mental-health": content = <ResourcePage page="mental-health" />; break;
