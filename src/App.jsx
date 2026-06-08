@@ -1583,6 +1583,7 @@ export default function CWHSite() {
   var aboutPages = ["about","news","leadership","sponsors","become-sponsor","contributor"];
   var aboutItems = [{l:"About Us",p:"about"},{l:"News",p:"news"},{l:"Leadership",p:"leadership"},{l:"Sponsors",p:"sponsors"},{l:"Sponsor",p:"become-sponsor"},{l:"Contribute",p:"contributor"}];
   var isAbout = aboutPages.indexOf(page) >= 0;
+  var isNewSite = page === "new-site" || page === "ns-about" || page === "ns-leadership" || page === "ns-sponsors" || page === "ns-portal" || page === "ns-profile" || page === "ns-join";
 
   var content;
   switch (page) {
@@ -1614,6 +1615,10 @@ export default function CWHSite() {
     case "players-corner": content = <ResourcePage page="players-corner" />; break;
     case "coaching": content = <ResourcePage page="coaching" />; break;
     default: content = <HomePage nav={nav} />;
+  }
+
+  if (isNewSite) {
+    return <div><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" /><GlobalStyles />{content}</div>;
   }
 
   return (
