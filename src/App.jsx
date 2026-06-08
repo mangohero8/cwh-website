@@ -901,7 +901,9 @@ function LineupPage() {
       </div>
     ) : (
       <div style={{display:"flex",flexDirection:"column",gap:32}}>
-        {attendance.games.map(function(game, gi) {
+        {attendance.games.filter(function(game) {
+          return game.yes > 0 || game.maybe > 0 || game.no > 0;
+        }).slice(0, 2).map(function(game, gi) {
           return (
             <div key={gi} style={{background:C.w,borderRadius:12,overflow:"hidden",border:"1px solid "+C.g2}}>
               {/* Game header */}
