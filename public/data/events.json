@@ -1,20 +1,20 @@
 {
-  "updated": "2026-06-08T02:00:05.151726Z",
+  "updated": "2026-06-08T02:05:25.411684Z",
   "board_id": "18415137408",
   "events": [
     {
       "id": "12127104886",
-      "name": "CAHL C Game vs Spare Parts",
-      "date": "2026-06-07",
+      "name": "CAHL C Game vs Boomer\u2019s Comeback",
+      "date": "2026-06-14",
       "status": "CAHL C",
-      "description": "CAHL C Warriors take on Spare Parts in a regular season matchup. Come out and support the team!"
+      "description": "CAHL C Warriors take on Boomer\u2019s Comeback in a regular season matchup at 5:10 PM. Come out and support the team!"
     },
     {
       "id": "12127139458",
-      "name": "CAHL D Game vs Spare Parts HC",
-      "date": "2026-06-01",
+      "name": "CAHL D Game vs Lumberquacks",
+      "date": "2026-06-08",
       "status": "CAHL D",
-      "description": "CAHL D Warriors take on Spare Parts HC in a regular season matchup. Come out and support the team!"
+      "description": "CAHL D Warriors take on Lumberquacks in a regular season matchup at 8:20 PM. Come out and support the team!"
     }
   ]
 }
