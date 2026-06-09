@@ -54,6 +54,7 @@ def scrape_chillerstats_rsvp():
     # Step 1: Login
     print(f"  Logging in as {CHILLERSTATS_EMAIL}...")
     login_url = "https://chillerstats.com/login.cfm"
+    post_url = "https://chillerstats.com/cflogin.cfm"
 
     # First GET the login page to grab any hidden fields/cookies
     try:
@@ -73,8 +74,9 @@ def scrape_chillerstats_rsvp():
         # Override with our credentials - try common field names
         # ChillerStats likely uses email/password or username/password
         login_data.update({
-            "email": CHILLERSTATS_EMAIL,
-            "password": CHILLERSTATS_PASSWORD,
+            "username": CHILLERSTATS_EMAIL,
+            "userpassword": CHILLERSTATS_PASSWORD,
+            "PayNow": "N",
         })
         # Also try alternate field names
         if "Email" in [inp.get("name") for inp in (form.find_all("input") if form else [])]:
@@ -89,7 +91,7 @@ def scrape_chillerstats_rsvp():
             if not action.startswith("http"):
                 action = f"https://chillerstats.com/{action.lstrip('/')}"
 
-        resp = session.post(action, data=login_data, allow_redirects=True, timeout=15)
+        resp = session.post(post_url, data=login_data, allow_redirects=True, timeout=15)
 
         # Check if login succeeded
         if "login.cfm" in resp.url.lower() and ("error" in resp.text.lower() or "invalid" in resp.text.lower()):

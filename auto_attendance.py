@@ -27,7 +27,9 @@ COL_TEAM = "color_mm3w3fg4"
 # Team mapping for schedule -> roster
 TEAM_MAP = {
     "Columbus Warriors CSC": {"roster": "roster-cahl-c.json", "stats": "stats-cahl-c.json", "label": "CAHL C"},
+    "CAHL C - Columbus Warriors CSC": {"roster": "roster-cahl-c.json", "stats": "stats-cahl-c.json", "label": "CAHL C"},
     "Columbus Warriors DWB": {"roster": "roster-cahl-d.json", "stats": "stats-cahl-d.json", "label": "CAHL D"},
+    "CAHL D - Columbus Warriors DWB": {"roster": "roster-cahl-d.json", "stats": "stats-cahl-d.json", "label": "CAHL D"},
 }
 
 
