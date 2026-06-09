@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-09T01:00:02.732020Z",
+  "updated": "2026-06-09T01:30:02.941378Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -91,7 +91,7 @@
       "jersey": "97",
       "name": "Allen Gambrel",
       "pos": "Center",
-      "gp": 3,
+      "gp": 4,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -175,10 +175,20 @@
       "g": 0,
       "a": 0,
       "pts": 0,
-      "pim": 0
+      "pim": 2
     }
   ],
   "defense": [
+    {
+      "jersey": "17",
+      "name": "Taylor DeCicco",
+      "pos": "Defense",
+      "gp": 4,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
     {
       "jersey": "4",
       "name": "Nicholas Flores",
@@ -188,16 +198,6 @@
       "a": 1,
       "pts": 1,
       "pim": 2
-    },
-    {
-      "jersey": "17",
-      "name": "Taylor DeCicco",
-      "pos": "Defense",
-      "gp": 4,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
     },
     {
       "jersey": "0",

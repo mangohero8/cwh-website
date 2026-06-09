@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-09T01:00:03.148648Z",
+  "updated": "2026-06-09T01:30:03.333892Z",
   "recaps": [
     {
       "date": "May 17",
@@ -98,12 +98,12 @@
       "opponent": "Lumberquacks",
       "location": "Chiller Easton - Rink 2",
       "homeAway": "Home",
-      "score": "0 - 5",
-      "result": "~",
-      "ourScore": 0,
-      "theirScore": 5,
+      "score": "1 - 10",
+      "result": "L",
+      "ourScore": 1,
+      "theirScore": 10,
       "headline": "Warriors Fall to Lumberquacks",
-      "summary": "A tough 5-0 loss against Lumberquacks."
+      "summary": "A tough 10-1 loss against Lumberquacks."
     }
   ]
 }
