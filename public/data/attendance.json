@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-09T02:30:08.884529Z",
+  "updated": "2026-06-09T03:00:09.928352Z",
   "board_id": "18415594839",
   "games": [
     {
@@ -3291,12 +3291,26 @@
     {
       "game": "Jun 14 \u2014 CAHL C vs Boomer\u2019s Comeback (Home)",
       "totalPlayers": 25,
-      "yes": 0,
+      "yes": 1,
       "no": 0,
       "maybe": 0,
-      "noResponse": 25,
+      "noResponse": 24,
       "lineup": {
-        "forwards": [],
+        "forwards": [
+          {
+            "line": 1,
+            "players": [
+              {
+                "id": "12215525019",
+                "name": "Robert Carpenter",
+                "rsvp": "Yes",
+                "position": "Center",
+                "jersey": "27",
+                "team": "CAHL C"
+              }
+            ]
+          }
+        ],
         "defense": [],
         "goalies": []
       },
@@ -3341,14 +3355,6 @@
           "rsvp": "",
           "position": "Center",
           "jersey": "10",
-          "team": "CAHL C"
-        },
-        {
-          "id": "12215525019",
-          "name": "Robert Carpenter",
-          "rsvp": "",
-          "position": "Center",
-          "jersey": "27",
           "team": "CAHL C"
         },
         {
