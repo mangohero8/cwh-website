@@ -1,20 +1,5 @@
 {
-  "updated": "2026-06-09T04:00:05.658604Z",
-  "board_id": "18415137408",
-  "events": [
-    {
-      "id": "12127104886",
-      "name": "CAHL C Game vs Boomer\u2019s Comeback",
-      "date": "2026-06-14",
-      "status": "CAHL C",
-      "description": "CAHL C Warriors take on Boomer\u2019s Comeback in a regular season matchup at 5:10 PM. Come out and support the team!"
-    },
-    {
-      "id": "12127139458",
-      "name": "CAHL D Game vs Columbus Thunder",
-      "date": "2026-06-15",
-      "status": "CAHL D",
-      "description": "CAHL D Warriors take on Columbus Thunder in a regular season matchup at 7:10 PM. Come out and support the team!"
-    }
-  ]
+  "updated": "2026-06-09T04:31:01.927933Z",
+  "events": [],
+  "note": "Create an 'Events' board in Monday.com to populate"
 }
