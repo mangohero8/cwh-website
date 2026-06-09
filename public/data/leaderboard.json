@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-09T00:00:03.555760Z",
+  "updated": "2026-06-09T00:30:03.837221Z",
   "playerOfTheWeek": {
     "name": "Wyatt Beltz",
     "team": "CAHL D - Columbus Warriors DWB",
@@ -371,6 +371,17 @@
       "pim": 4
     },
     {
+      "name": "Luke Marshall",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "0",
+      "pos": "Defense",
+      "gp": 3,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 4
+    },
+    {
       "name": "DOUGLAS HOYT",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "6",
@@ -390,17 +401,6 @@
       "g": 0,
       "a": 0,
       "pts": 0,
-      "pim": 2
-    },
-    {
-      "name": "Nicholas Flores",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "4",
-      "pos": "Defense",
-      "gp": 4,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
       "pim": 2
     }
   ],
