@@ -1,0 +1,83 @@
+{
+  "updated": "2026-06-06T19:00:03.945682Z",
+  "recaps": [
+    {
+      "date": "May 17",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "opponent": "Crash Test Dummies",
+      "location": "Chiller Ice Works - Main Ice",
+      "homeAway": "Home",
+      "score": "2 - 3",
+      "result": "L",
+      "ourScore": 2,
+      "theirScore": 3,
+      "headline": "Warriors Drop Close One to Crash Test Dummies",
+      "summary": "A narrow 3-2 defeat against Crash Test Dummies."
+    },
+    {
+      "date": "May 24",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "opponent": "Ice Dogs",
+      "location": "Chiller Easton - Rink 1",
+      "homeAway": "Away",
+      "score": "0 - 4",
+      "result": "W",
+      "ourScore": 4,
+      "theirScore": 0,
+      "headline": "Warriors Dominate Ice Dogs",
+      "summary": "A commanding 4-0 victory over Ice Dogs."
+    },
+    {
+      "date": "May 31",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "opponent": "Tabby Daddies",
+      "location": "Chiller North - Rink 2",
+      "homeAway": "Home",
+      "score": "2 - 1",
+      "result": "W",
+      "ourScore": 2,
+      "theirScore": 1,
+      "headline": "Warriors Edge Tabby Daddies in Thriller",
+      "summary": "A hard-fought 2-1 win against Tabby Daddies."
+    },
+    {
+      "date": "May 11",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "opponent": "Red Knights",
+      "location": "Chiller Dublin - Rink 1",
+      "homeAway": "Away",
+      "score": "1 - 3",
+      "result": "W",
+      "ourScore": 3,
+      "theirScore": 1,
+      "headline": "Warriors Take Down Red Knights",
+      "summary": "A solid 3-1 victory over Red Knights."
+    },
+    {
+      "date": "May 18",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "opponent": "Jagrbombs",
+      "location": "Chiller Ice Works - Main Ice",
+      "homeAway": "Home",
+      "score": "3 - 2",
+      "result": "W",
+      "ourScore": 3,
+      "theirScore": 2,
+      "headline": "Warriors Edge Jagrbombs in Thriller",
+      "summary": "A hard-fought 3-2 win against Jagrbombs."
+    },
+    {
+      "date": "Jun 1",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "opponent": "Spare Parts HC",
+      "location": "Chiller North - Rink 2",
+      "homeAway": "Away",
+      "score": "5 - 0",
+      "result": "L",
+      "ourScore": 0,
+      "theirScore": 5,
+      "headline": "Warriors Fall to Spare Parts HC",
+      "summary": "A tough 5-0 loss against Spare Parts HC."
+    }
+  ]
+}

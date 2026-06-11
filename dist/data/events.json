@@ -1,0 +1,20 @@
+{
+  "updated": "2026-06-06T19:00:06.086608Z",
+  "board_id": "18415137408",
+  "events": [
+    {
+      "id": "12127104886",
+      "name": "CAHL C Game vs Spare Parts",
+      "date": "2026-06-07",
+      "status": "CAHL C",
+      "description": "CAHL C Warriors take on Spare Parts in a regular season matchup. Come out and support the team!"
+    },
+    {
+      "id": "12127139458",
+      "name": "CAHL D Game vs Spare Parts HC",
+      "date": "2026-06-01",
+      "status": "CAHL D",
+      "description": "CAHL D Warriors take on Spare Parts HC in a regular season matchup. Come out and support the team!"
+    }
+  ]
+}

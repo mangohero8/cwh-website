@@ -1,0 +1,30 @@
+{
+  "team": "CAHL D - Warriors",
+  "season": "CAHL D League - Summer Session",
+  "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
+  "updated": "2026-05-28T00:00:00Z",
+  "players": [
+    {"jersey": "", "first": "Garett", "last": "Beltz", "photo": null},
+    {"jersey": "13", "first": "Wyatt", "last": "Beltz", "photo": "/images/players/d-wbeltz-13.jpg"},
+    {"jersey": "92", "first": "James", "last": "Brown", "photo": "/images/players/d-brown-92.jpg"},
+    {"jersey": "1", "first": "Matt", "last": "Chamblin", "photo": null},
+    {"jersey": "17", "first": "Taylor", "last": "DeCicco", "photo": "/images/players/d-decicco-17.jpg"},
+    {"jersey": "", "first": "Nicholas", "last": "Flores", "photo": null},
+    {"jersey": "", "first": "Aaron", "last": "Foster", "photo": "/images/players/d-foster.jpg"},
+    {"jersey": "97", "first": "Allen", "last": "Gambrel", "photo": "/images/players/d-gambrel-97.jpg"},
+    {"jersey": "83", "first": "Veronica", "last": "Haertling", "photo": "/images/players/d-haertling-83.jpg"},
+    {"jersey": "", "first": "Brian", "last": "Kennedy", "photo": "/images/players/d-kennedy.jpg"},
+    {"jersey": "", "first": "Anthony", "last": "Kline", "photo": null},
+    {"jersey": "", "first": "Keith", "last": "Kriesberg", "photo": null},
+    {"jersey": "30", "first": "Alex", "last": "Lopez", "photo": "/images/players/d-lopez-30.jpg"},
+    {"jersey": "", "first": "Cai", "last": "Lorenz", "photo": null},
+    {"jersey": "85", "first": "Luke", "last": "Marshall", "photo": "/images/players/d-marshall-85.jpg"},
+    {"jersey": "33", "first": "TJ", "last": "Nocar", "photo": "/images/players/nocar-33.jpg"},
+    {"jersey": "", "first": "Lydia", "last": "Stroul", "photo": null},
+    {"jersey": "12", "first": "William", "last": "Sullivan", "photo": "/images/players/sullivan-12.jpg"},
+    {"jersey": "23", "first": "Chuck", "last": "Terch", "photo": null},
+    {"jersey": "", "first": "Alex", "last": "Vakkur", "photo": null},
+    {"jersey": "", "first": "Leslie", "last": "Walker", "photo": "/images/players/d-walker.jpg"},
+    {"jersey": "", "first": "Ethan", "last": "Yeazel", "photo": "/images/players/d-yeazel.jpg"}
+  ]
+}

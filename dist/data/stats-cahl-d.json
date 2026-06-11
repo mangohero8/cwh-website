@@ -1,0 +1,271 @@
+{
+  "team": "CAHL D - Columbus Warriors DWB",
+  "season": "Summer 2026",
+  "updated": "2026-06-06T19:00:03.491740Z",
+  "source": "chillerstats.com",
+  "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
+  "unassigned": [
+    {
+      "jersey": "0",
+      "name": "Garett Beltz",
+      "pos": "",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "1",
+      "name": "Matt Chamblin",
+      "pos": "",
+      "gp": 0,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Brian Kennedy",
+      "pos": "",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 2
+    },
+    {
+      "jersey": "25",
+      "name": "William Teater",
+      "pos": "",
+      "gp": 0,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "23",
+      "name": "Charles Terch",
+      "pos": "",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Leslie Walker",
+      "pos": "",
+      "gp": 0,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    }
+  ],
+  "forwards": [
+    {
+      "jersey": "13",
+      "name": "Wyatt Beltz",
+      "pos": "Center",
+      "gp": 3,
+      "g": 3,
+      "a": 0,
+      "pts": 3,
+      "pim": 0
+    },
+    {
+      "jersey": "97",
+      "name": "Allen Gambrel",
+      "pos": "Center",
+      "gp": 3,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Alex Vakkur",
+      "pos": "Wing",
+      "gp": 2,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "92",
+      "name": "James Brown",
+      "pos": "Wing",
+      "gp": 0,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "83",
+      "name": "Veronica Haertling",
+      "pos": "Wing",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Keith Kriesberg",
+      "pos": "Wing",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "30",
+      "name": "Alex Lopez",
+      "pos": "Wing",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Cai Lorenz",
+      "pos": "Wing",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 2
+    },
+    {
+      "jersey": "42",
+      "name": "Lydia Stroul",
+      "pos": "Wing",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Ethan Yeazel",
+      "pos": "Wing",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    }
+  ],
+  "defense": [
+    {
+      "jersey": "4",
+      "name": "Nicholas Flores",
+      "pos": "Defense",
+      "gp": 3,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 2
+    },
+    {
+      "jersey": "17",
+      "name": "Taylor DeCicco",
+      "pos": "Defense",
+      "gp": 3,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Aaron Foster",
+      "pos": "Defense",
+      "gp": 0,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Luke Marshall",
+      "pos": "Defense",
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 2
+    }
+  ],
+  "goalies": [
+    {
+      "jersey": "33",
+      "name": "TJ Nocar",
+      "pos": "Goalie",
+      "gp": 0,
+      "w": 0,
+      "l": 0,
+      "otl": 0,
+      "ga": 0,
+      "gaa": "0.0"
+    },
+    {
+      "jersey": "12",
+      "name": "Will Sullivan",
+      "pos": "Goalie",
+      "gp": 3,
+      "w": 2,
+      "l": 1,
+      "otl": 0,
+      "ga": 8,
+      "gaa": "2.7"
+    }
+  ],
+  "stickAndPuck": [
+    {
+      "rink": "Easton 1",
+      "date": "Sunday, June 7",
+      "time": "12:20 PM"
+    },
+    {
+      "rink": "Easton 2",
+      "date": "Monday, June 8",
+      "time": "11:45 AM"
+    },
+    {
+      "rink": "Ice Works",
+      "date": "Monday, June 8",
+      "time": "7:20 PM"
+    }
+  ],
+  "dropIn": [
+    {
+      "rink": "Ice Works",
+      "date": "Thursday, June 11",
+      "time": "7:30 PM"
+    },
+    {
+      "rink": "North 1",
+      "date": "Friday, June 12",
+      "time": "8:30 PM"
+    },
+    {
+      "rink": "Ice Haus",
+      "date": "Saturday, June 13",
+      "time": "10:15 AM"
+    }
+  ]
+}
