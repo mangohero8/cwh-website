@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-14T22:00:03.231528Z",
+  "updated": "2026-06-14T22:30:02.761567Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -92,9 +92,9 @@
       "name": "Jaymes Albright",
       "pos": "Wing",
       "gp": 4,
-      "g": 2,
+      "g": 3,
       "a": 1,
-      "pts": 3,
+      "pts": 4,
       "pim": 0
     },
     {
@@ -128,20 +128,20 @@
       "pim": 0
     },
     {
-      "jersey": "10",
-      "name": "John Hopkinson",
-      "pos": "Center",
-      "gp": 3,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 0
-    },
-    {
       "jersey": "68",
       "name": "Brent McCreedy",
       "pos": "Wing",
       "gp": 2,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "10",
+      "name": "John Hopkinson",
+      "pos": "Center",
+      "gp": 3,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -207,7 +207,7 @@
       "g": 1,
       "a": 0,
       "pts": 1,
-      "pim": 0
+      "pim": 4
     },
     {
       "jersey": "37",

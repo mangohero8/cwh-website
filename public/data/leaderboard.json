@@ -1,17 +1,28 @@
 {
-  "updated": "2026-06-14T22:00:04.554398Z",
+  "updated": "2026-06-14T22:30:04.036747Z",
   "playerOfTheWeek": {
-    "name": "Wyatt Beltz",
-    "team": "CAHL D - Columbus Warriors DWB",
-    "jersey": "13",
-    "pos": "Center",
+    "name": "Jaymes Albright",
+    "team": "CAHL C - Columbus Warriors CSC",
+    "jersey": "55",
+    "pos": "Wing",
     "gp": 4,
     "g": 3,
-    "a": 0,
-    "pts": 3,
+    "a": 1,
+    "pts": 4,
     "pim": 0
   },
   "topPoints": [
+    {
+      "name": "Jaymes Albright",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "55",
+      "pos": "Wing",
+      "gp": 4,
+      "g": 3,
+      "a": 1,
+      "pts": 4,
+      "pim": 0
+    },
     {
       "name": "Wyatt Beltz",
       "team": "CAHL D - Columbus Warriors DWB",
@@ -20,17 +31,6 @@
       "gp": 4,
       "g": 3,
       "a": 0,
-      "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Jaymes Albright",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "55",
-      "pos": "Wing",
-      "gp": 4,
-      "g": 2,
-      "a": 1,
       "pts": 3,
       "pim": 0
     },
@@ -79,22 +79,22 @@
       "pim": 0
     },
     {
-      "name": "John Hopkinson",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "10",
-      "pos": "Center",
-      "gp": 3,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 0
-    },
-    {
       "name": "Brent McCreedy",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "68",
       "pos": "Wing",
       "gp": 2,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "name": "John Hopkinson",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "10",
+      "pos": "Center",
+      "gp": 3,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -109,7 +109,7 @@
       "g": 1,
       "a": 0,
       "pts": 1,
-      "pim": 0
+      "pim": 4
     },
     {
       "name": "james REDD",
@@ -125,6 +125,17 @@
   ],
   "topGoals": [
     {
+      "name": "Jaymes Albright",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "55",
+      "pos": "Wing",
+      "gp": 4,
+      "g": 3,
+      "a": 1,
+      "pts": 4,
+      "pim": 0
+    },
+    {
       "name": "Wyatt Beltz",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "13",
@@ -132,17 +143,6 @@
       "gp": 4,
       "g": 3,
       "a": 0,
-      "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Jaymes Albright",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "55",
-      "pos": "Wing",
-      "gp": 4,
-      "g": 2,
-      "a": 1,
       "pts": 3,
       "pim": 0
     },
@@ -191,22 +191,22 @@
       "pim": 0
     },
     {
-      "name": "John Hopkinson",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "10",
-      "pos": "Center",
-      "gp": 3,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 0
-    },
-    {
       "name": "Brent McCreedy",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "68",
       "pos": "Wing",
       "gp": 2,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "name": "John Hopkinson",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "10",
+      "pos": "Center",
+      "gp": 3,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -221,7 +221,7 @@
       "g": 1,
       "a": 0,
       "pts": 1,
-      "pim": 0
+      "pim": 4
     },
     {
       "name": "james REDD",
@@ -242,9 +242,9 @@
       "jersey": "55",
       "pos": "Wing",
       "gp": 4,
-      "g": 2,
+      "g": 3,
       "a": 1,
-      "pts": 3,
+      "pts": 4,
       "pim": 0
     },
     {
@@ -264,6 +264,17 @@
       "jersey": "1",
       "pos": "Wing",
       "gp": 3,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "name": "Brent McCreedy",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "68",
+      "pos": "Wing",
+      "gp": 2,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -334,17 +345,6 @@
       "a": 1,
       "pts": 1,
       "pim": 4
-    },
-    {
-      "name": "Nicholas Flores",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "4",
-      "pos": "Defense",
-      "gp": 4,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
-      "pim": 2
     }
   ],
   "topPIM": [
@@ -357,6 +357,17 @@
       "g": 2,
       "a": 0,
       "pts": 2,
+      "pim": 4
+    },
+    {
+      "name": "Steven Bowman",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "2",
+      "pos": "Defense",
+      "gp": 2,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
       "pim": 4
     },
     {
@@ -390,17 +401,6 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 2
-    },
-    {
-      "name": "Cai Lorenz",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "0",
-      "pos": "Wing",
-      "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
       "pim": 2
     }
   ],
