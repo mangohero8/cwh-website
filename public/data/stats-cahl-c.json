@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-14T21:30:01.914320Z",
+  "updated": "2026-06-14T22:00:03.231528Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -12,6 +12,26 @@
       "gp": 1,
       "g": 1,
       "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Alexander Burton",
+      "pos": "",
+      "gp": 3,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Annabelle Demmon",
+      "pos": "",
+      "gp": 4,
+      "g": 0,
+      "a": 1,
       "pts": 1,
       "pim": 0
     },
@@ -37,29 +57,9 @@
     },
     {
       "jersey": "0",
-      "name": "Alexander Burton",
-      "pos": "",
-      "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
       "name": "Dennis Cesarz",
       "pos": "",
       "gp": 0,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Annabelle Demmon",
-      "pos": "",
-      "gp": 4,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -88,6 +88,26 @@
   ],
   "forwards": [
     {
+      "jersey": "55",
+      "name": "Jaymes Albright",
+      "pos": "Wing",
+      "gp": 4,
+      "g": 2,
+      "a": 1,
+      "pts": 3,
+      "pim": 0
+    },
+    {
+      "jersey": "12",
+      "name": "Will Sullivan",
+      "pos": "Center",
+      "gp": 5,
+      "g": 2,
+      "a": 1,
+      "pts": 3,
+      "pim": 0
+    },
+    {
       "jersey": "88",
       "name": "Brandon Lorenz",
       "pos": "Wing",
@@ -98,33 +118,13 @@
       "pim": 4
     },
     {
-      "jersey": "55",
-      "name": "Jaymes Albright",
-      "pos": "Wing",
-      "gp": 4,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 0
-    },
-    {
-      "jersey": "12",
-      "name": "Will Sullivan",
-      "pos": "Center",
-      "gp": 5,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 0
-    },
-    {
       "jersey": "1",
       "name": "Matt Chamblin",
       "pos": "Wing",
       "gp": 3,
       "g": 1,
-      "a": 0,
-      "pts": 1,
+      "a": 1,
+      "pts": 2,
       "pim": 0
     },
     {
@@ -138,13 +138,13 @@
       "pim": 0
     },
     {
-      "jersey": "27",
-      "name": "Robert Carpenter",
-      "pos": "Center",
-      "gp": 4,
-      "g": 0,
+      "jersey": "68",
+      "name": "Brent McCreedy",
+      "pos": "Wing",
+      "gp": 2,
+      "g": 1,
       "a": 0,
-      "pts": 0,
+      "pts": 1,
       "pim": 0
     },
     {
@@ -153,15 +153,15 @@
       "pos": "Wing",
       "gp": 4,
       "g": 0,
-      "a": 0,
-      "pts": 0,
+      "a": 1,
+      "pts": 1,
       "pim": 0
     },
     {
-      "jersey": "68",
-      "name": "Brent McCreedy",
-      "pos": "Wing",
-      "gp": 2,
+      "jersey": "27",
+      "name": "Robert Carpenter",
+      "pos": "Center",
+      "gp": 4,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -200,6 +200,16 @@
       "pim": 2
     },
     {
+      "jersey": "2",
+      "name": "Steven Bowman",
+      "pos": "Defense",
+      "gp": 2,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
       "jersey": "37",
       "name": "Eric Rohr",
       "pos": "Defense",
@@ -207,16 +217,6 @@
       "g": 0,
       "a": 1,
       "pts": 1,
-      "pim": 0
-    },
-    {
-      "jersey": "2",
-      "name": "Steven Bowman",
-      "pos": "Defense",
-      "gp": 2,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
       "pim": 0
     },
     {
