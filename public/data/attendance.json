@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-14T20:00:09.552003Z",
+  "updated": "2026-06-14T20:26:46.695020Z",
   "board_id": "18415594839",
   "games": [
     {
@@ -3069,9 +3069,9 @@
       "game": "Jun 14 \u2014 CAHL C vs Boomer\u2019s Comeback (Home)",
       "totalPlayers": 25,
       "yes": 11,
-      "no": 0,
+      "no": 1,
       "maybe": 0,
-      "noResponse": 14,
+      "noResponse": 13,
       "lineup": {
         "forwards": [
           {
@@ -3115,11 +3115,11 @@
                 "team": "CAHL C"
               },
               {
-                "id": "12215569741",
-                "name": "DOUGLAS HOYT",
+                "id": "12215656889",
+                "name": "Brent McCreedy",
                 "rsvp": "Yes",
                 "position": "Center",
-                "jersey": "6",
+                "jersey": "68",
                 "team": "CAHL C"
               },
               {
@@ -3146,11 +3146,11 @@
                 "team": "CAHL C"
               },
               {
-                "id": "12215525019",
-                "name": "Robert Carpenter",
+                "id": "12215569741",
+                "name": "DOUGLAS HOYT",
                 "rsvp": "Yes",
                 "position": "Defense",
-                "jersey": "27",
+                "jersey": "6",
                 "team": "CAHL C"
               }
             ]
@@ -3189,7 +3189,16 @@
         ]
       },
       "bench": [],
-      "out": [],
+      "out": [
+        {
+          "id": "12215525019",
+          "name": "Robert Carpenter",
+          "rsvp": "No",
+          "position": "Defense",
+          "jersey": "27",
+          "team": "CAHL C"
+        }
+      ],
       "pending": [
         {
           "id": "12215656980",
@@ -3197,14 +3206,6 @@
           "rsvp": "",
           "position": "Wing",
           "jersey": "88",
-          "team": "CAHL C"
-        },
-        {
-          "id": "12215656889",
-          "name": "Brent McCreedy",
-          "rsvp": "",
-          "position": "Wing",
-          "jersey": "68",
           "team": "CAHL C"
         },
         {
