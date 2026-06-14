@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-08T02:00:02.678086Z",
+  "updated": "2026-06-14T21:00:03.358430Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -29,11 +29,21 @@
       "jersey": "0",
       "name": "Brian Kennedy",
       "pos": "",
-      "gp": 1,
+      "gp": 2,
       "g": 0,
       "a": 0,
       "pts": 0,
       "pim": 2
+    },
+    {
+      "jersey": "0",
+      "name": "Brandon Lorenz",
+      "pos": "",
+      "gp": 1,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
     },
     {
       "jersey": "25",
@@ -71,7 +81,7 @@
       "jersey": "13",
       "name": "Wyatt Beltz",
       "pos": "Center",
-      "gp": 3,
+      "gp": 4,
       "g": 3,
       "a": 0,
       "pts": 3,
@@ -81,7 +91,7 @@
       "jersey": "97",
       "name": "Allen Gambrel",
       "pos": "Center",
-      "gp": 3,
+      "gp": 4,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -91,7 +101,7 @@
       "jersey": "0",
       "name": "Alex Vakkur",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -131,7 +141,7 @@
       "jersey": "30",
       "name": "Alex Lopez",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -141,7 +151,7 @@
       "jersey": "0",
       "name": "Cai Lorenz",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -161,33 +171,33 @@
       "jersey": "0",
       "name": "Ethan Yeazel",
       "pos": "Wing",
-      "gp": 1,
+      "gp": 2,
       "g": 0,
       "a": 0,
       "pts": 0,
-      "pim": 0
+      "pim": 2
     }
   ],
   "defense": [
     {
+      "jersey": "17",
+      "name": "Taylor DeCicco",
+      "pos": "Defense",
+      "gp": 4,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
       "jersey": "4",
       "name": "Nicholas Flores",
       "pos": "Defense",
-      "gp": 3,
+      "gp": 4,
       "g": 0,
       "a": 1,
       "pts": 1,
       "pim": 2
-    },
-    {
-      "jersey": "17",
-      "name": "Taylor DeCicco",
-      "pos": "Defense",
-      "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
     },
     {
       "jersey": "0",
@@ -203,11 +213,11 @@
       "jersey": "0",
       "name": "Luke Marshall",
       "pos": "Defense",
-      "gp": 2,
+      "gp": 3,
       "g": 0,
       "a": 0,
       "pts": 0,
-      "pim": 2
+      "pim": 4
     }
   ],
   "goalies": [
@@ -236,36 +246,36 @@
   ],
   "stickAndPuck": [
     {
-      "rink": "Easton 2",
-      "date": "Monday, June 8",
-      "time": "11:45 AM"
+      "rink": "Dublin 1",
+      "date": "Monday, June 15",
+      "time": "12:30 PM"
     },
     {
       "rink": "Ice Works",
-      "date": "Monday, June 8",
-      "time": "7:20 PM"
+      "date": "Monday, June 15",
+      "time": "6:00 PM"
     },
     {
       "rink": "Easton 2",
-      "date": "Wednesday, June 10",
-      "time": "11:45 AM"
+      "date": "Tuesday, June 16",
+      "time": "11:10 AM"
     }
   ],
   "dropIn": [
     {
+      "rink": "Easton 1",
+      "date": "Friday, June 19",
+      "time": "6:15 PM"
+    },
+    {
       "rink": "Ice Works",
-      "date": "Thursday, June 11",
-      "time": "7:30 PM"
+      "date": "Saturday, June 20",
+      "time": "11:40 AM"
     },
     {
-      "rink": "North 1",
-      "date": "Friday, June 12",
-      "time": "8:30 PM"
-    },
-    {
-      "rink": "Ice Haus",
-      "date": "Saturday, June 13",
-      "time": "10:15 AM"
+      "rink": "Easton 2",
+      "date": "Sunday, June 21",
+      "time": "11:30 AM"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-08T02:00:01.757806Z",
+  "updated": "2026-06-14T21:00:02.571856Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -39,7 +39,7 @@
       "jersey": "0",
       "name": "Alexander Burton",
       "pos": "",
-      "gp": 2,
+      "gp": 3,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -59,7 +59,7 @@
       "jersey": "0",
       "name": "Annabelle Demmon",
       "pos": "",
-      "gp": 3,
+      "gp": 4,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -101,7 +101,7 @@
       "jersey": "55",
       "name": "Jaymes Albright",
       "pos": "Wing",
-      "gp": 3,
+      "gp": 4,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -111,7 +111,7 @@
       "jersey": "12",
       "name": "Will Sullivan",
       "pos": "Center",
-      "gp": 4,
+      "gp": 5,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -121,7 +121,7 @@
       "jersey": "1",
       "name": "Matt Chamblin",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -131,7 +131,7 @@
       "jersey": "10",
       "name": "John Hopkinson",
       "pos": "Center",
-      "gp": 2,
+      "gp": 3,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -151,7 +151,7 @@
       "jersey": "99",
       "name": "John Crouse",
       "pos": "Wing",
-      "gp": 3,
+      "gp": 4,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -161,7 +161,7 @@
       "jersey": "68",
       "name": "Brent McCreedy",
       "pos": "Wing",
-      "gp": 1,
+      "gp": 2,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -193,7 +193,7 @@
       "jersey": "6",
       "name": "DOUGLAS HOYT",
       "pos": "Defense",
-      "gp": 3,
+      "gp": 4,
       "g": 2,
       "a": 1,
       "pts": 3,
@@ -213,7 +213,7 @@
       "jersey": "2",
       "name": "Steven Bowman",
       "pos": "Defense",
-      "gp": 1,
+      "gp": 2,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -233,7 +233,7 @@
       "jersey": "33",
       "name": "TJ Nocar",
       "pos": "Defense",
-      "gp": 2,
+      "gp": 3,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -266,36 +266,36 @@
   ],
   "stickAndPuck": [
     {
-      "rink": "Easton 2",
-      "date": "Monday, June 8",
-      "time": "11:45 AM"
+      "rink": "Dublin 1",
+      "date": "Monday, June 15",
+      "time": "12:30 PM"
     },
     {
       "rink": "Ice Works",
-      "date": "Monday, June 8",
-      "time": "7:20 PM"
+      "date": "Monday, June 15",
+      "time": "6:00 PM"
     },
     {
       "rink": "Easton 2",
-      "date": "Wednesday, June 10",
-      "time": "11:45 AM"
+      "date": "Tuesday, June 16",
+      "time": "11:10 AM"
     }
   ],
   "dropIn": [
     {
+      "rink": "Easton 1",
+      "date": "Friday, June 19",
+      "time": "6:15 PM"
+    },
+    {
       "rink": "Ice Works",
-      "date": "Thursday, June 11",
-      "time": "7:30 PM"
+      "date": "Saturday, June 20",
+      "time": "11:40 AM"
     },
     {
-      "rink": "North 1",
-      "date": "Friday, June 12",
-      "time": "8:30 PM"
-    },
-    {
-      "rink": "Ice Haus",
-      "date": "Saturday, June 13",
-      "time": "10:15 AM"
+      "rink": "Easton 2",
+      "date": "Sunday, June 21",
+      "time": "11:30 AM"
     }
   ]
 }

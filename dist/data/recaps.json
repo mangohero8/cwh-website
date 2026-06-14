@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-08T02:05:23.484165Z",
+  "updated": "2026-06-14T21:00:03.791176Z",
   "recaps": [
     {
       "date": "May 17",
@@ -91,6 +91,19 @@
       "theirScore": 5,
       "headline": "Warriors Fall to Spare Parts HC",
       "summary": "A tough 5-0 loss against Spare Parts HC."
+    },
+    {
+      "date": "Jun 8",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "opponent": "Lumberquacks",
+      "location": "Chiller Easton - Rink 2",
+      "homeAway": "Home",
+      "score": "1 - 10",
+      "result": "L",
+      "ourScore": 1,
+      "theirScore": 10,
+      "headline": "Warriors Fall to Lumberquacks",
+      "summary": "A tough 10-1 loss against Lumberquacks."
     }
   ]
 }

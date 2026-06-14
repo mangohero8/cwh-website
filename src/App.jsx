@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from "react";
 /* CWH SITE v3 — Exact Crossbar Match */
 
 var NS_FH = "'Oswald',sans-serif";
+
+
 var C = { navy:"#00294D", olive:"#525441", red:"#B7232C", w:"#fff", g1:"#F2F5F7", g2:"#e2e8f0", g4:"#94a3b8", g6:"#475569", g8:"#1e293b", bl:"#3b82f6", gr:"#22c55e" };
 var F = { h:"'Bebas Neue',sans-serif", b:"'Source Sans 3',sans-serif" };
 var FORMS = { reg:"https://wkf.ms/4fDnOqL", uni:"https://wkf.ms/43cPPyl", comp:"https://wkf.ms/4nMZ7KM", exp:"https://wkf.ms/4x2zl9E", don:"https://www.zeffy.com/donation-form/columbus-warrior-hockey", store:"https://teamlocker.squadlocker.com/#/lockers/2888135" };
@@ -2024,11 +2026,413 @@ function NSJoinPage({nav}) {
   );
 }
 
+function NSCoachPortalContent({coachIsAlsoPlayer, coachPortalView, setCoachPortalView}) {
+  var TEAM = {
+    label:"CAHL C League", tag:"East",
+    nextGame:{dow:"Sunday",date:"Jun 7, 2026",time:"7:30 PM",opp:"Team A",loc:"Chiller North",home:true},
+    record:{w:8,l:3,t:1,gp:12},
+    games:[
+      {date:"Jun 21",time:"8:00 PM", loc:"Chiller Easton",opp:"Storm",   away:false,upcoming:true},
+      {date:"Jun 14",time:"6:00 PM", loc:"Chiller Dublin",opp:"Rangers", away:true, upcoming:true},
+      {date:"Jun 7", time:"7:30 PM", loc:"Chiller North", opp:"Team A",  away:false,upcoming:true},
+      {date:"May 22",opp:"Predators",    gf:4,ga:2,r:"W"},
+      {date:"May 15",opp:"Blue Jackets", gf:3,ga:3,r:"T"},
+      {date:"May 8", opp:"Rangers",      gf:2,ga:5,r:"L"},
+      {date:"May 1", opp:"Knights",      gf:4,ga:1,r:"W"},
+      {date:"Apr 24",opp:"Storm",        gf:3,ga:2,r:"W"},
+      {date:"Apr 17",opp:"Wolves",       gf:1,ga:3,r:"L"},
+      {date:"Apr 10",opp:"Eagles",       gf:5,ga:0,r:"W"},
+      {date:"Apr 3", opp:"Predators",    gf:2,ga:4,r:"L"},
+      {date:"Mar 27",opp:"Blue Jackets", gf:4,ga:3,r:"W"},
+      {date:"Mar 20",opp:"Rangers",      gf:3,ga:1,r:"W"},
+      {date:"Mar 13",opp:"Knights",      gf:2,ga:3,r:"L"},
+      {date:"Mar 6", opp:"Storm",        gf:4,ga:2,r:"W"},
+      {date:"Feb 27",opp:"Wolves",       gf:3,ga:1,r:"W"},
+    ],
+  };
+  var ROSTER = [
+    {name:"Player 1",  jersey:4,  pos:"C",  gp:12, g:8, a:6,  pts:14, pim:4,  avail:"yes"},
+    {name:"Player 2",  jersey:7,  pos:"LW", gp:12, g:5, a:9,  pts:14, pim:2,  avail:"yes"},
+    {name:"Player 3",  jersey:11, pos:"RW", gp:10, g:6, a:4,  pts:10, pim:6,  avail:"maybe"},
+    {name:"Player 4",  jersey:14, pos:"LW", gp:12, g:3, a:7,  pts:10, pim:0,  avail:"yes"},
+    {name:"Player 5",  jersey:21, pos:"C",  gp:11, g:4, a:5,  pts:9,  pim:8,  avail:"no"},
+    {name:"Player 6",  jersey:9,  pos:"RW", gp:12, g:7, a:1,  pts:8,  pim:2,  avail:"yes"},
+    {name:"Player 7",  jersey:17, pos:"LW", gp:9,  g:2, a:6,  pts:8,  pim:0,  avail:"maybe"},
+    {name:"Player 8",  jersey:3,  pos:"C",  gp:12, g:1, a:5,  pts:6,  pim:14, avail:"none"},
+    {name:"Player 9",  jersey:22, pos:"RW", gp:8,  g:2, a:3,  pts:5,  pim:4,  avail:"yes"},
+    {name:"Player 10", jersey:6,  pos:"LD", gp:12, g:1, a:4,  pts:5,  pim:10, avail:"yes"},
+    {name:"Player 11", jersey:13, pos:"RD", gp:12, g:0, a:4,  pts:4,  pim:2,  avail:"yes"},
+    {name:"Player 12", jersey:18, pos:"LD", gp:7,  g:1, a:2,  pts:3,  pim:6,  avail:"maybe"},
+    {name:"Player 13", jersey:5,  pos:"RD", gp:10, g:0, a:3,  pts:3,  pim:0,  avail:"no"},
+    {name:"Player 14", jersey:30, pos:"G",  gp:10, g:0, a:1,  pts:1,  pim:0,  avail:"yes"},
+    {name:"Player 15", jersey:1,  pos:"G",  gp:2,  g:0, a:0,  pts:0,  pim:2,  avail:"none"},
+  ];
+  var INIT_LINES = {
+    offense:[
+      {lw:"Player 2", c:"Player 1", rw:"Player 6"},
+      {lw:"Player 4", c:"Player 8", rw:null},
+      {lw:null,       c:null,       rw:null},
+    ],
+    defense:[
+      {ld:"Player 10", rd:"Player 11"},
+      {ld:"Player 13", rd:null},
+    ],
+    goalie:"Player 14",
+  };
+  var ORD = ["1st","2nd","3rd","4th"];
+
+  var ls = useState(INIT_LINES); var lines = ls[0]; var setLines = ls[1];
+  var ss = useState(null);       var sel   = ss[0]; var setSel   = ss[1];
+  var sv = useState(false);      var saved = sv[0]; var setSaved = sv[1];
+  var sc = useState("jersey");    var sortCol = sc[0]; var setSortCol = sc[1];
+  var sd = useState("asc");      var sortDir = sd[0]; var setSortDir = sd[1];
+  var pf = useState("");          var posFilter = pf[0]; var setPosFilter = pf[1];
+
+  var handleSort = function(col) {
+    if (sortCol === col) { setSortDir(sortDir === "asc" ? "desc" : "asc"); }
+    else { setSortCol(col); setSortDir(col === "name" || col === "pos" || col === "jersey" ? "asc" : "desc"); }
+  };
+  var sortedRoster = ROSTER.slice().sort(function(a, b) {
+    var av = a[sortCol]; var bv = b[sortCol];
+    if (typeof av === "string") return sortDir === "asc" ? av.localeCompare(bv) : bv.localeCompare(av);
+    return sortDir === "asc" ? av - bv : bv - av;
+  });
+
+  var OFFENSE_POS = ["C","LW","RW"];
+  var DEFENSE_POS = ["LD","RD"];
+  var sortedPanelRoster = (function(){
+    var allInLine = [];
+    lines.offense.forEach(function(ln){if(ln.lw)allInLine.push(ln.lw);if(ln.c)allInLine.push(ln.c);if(ln.rw)allInLine.push(ln.rw);});
+    lines.defense.forEach(function(pr){if(pr.ld)allInLine.push(pr.ld);if(pr.rd)allInLine.push(pr.rd);});
+    if(lines.goalie) allInLine.push(lines.goalie);
+    var getPosRank = function(pos) {
+      if (posFilter && pos === posFilter) return 0;
+      var filterIsOff = OFFENSE_POS.indexOf(posFilter) >= 0;
+      var filterIsDef = DEFENSE_POS.indexOf(posFilter) >= 0;
+      if (filterIsOff) {
+        if (OFFENSE_POS.indexOf(pos) >= 0) return 1;
+        if (DEFENSE_POS.indexOf(pos) >= 0) return 2;
+        return 3;
+      }
+      if (filterIsDef) {
+        if (DEFENSE_POS.indexOf(pos) >= 0) return 1;
+        if (OFFENSE_POS.indexOf(pos) >= 0) return 2;
+        return 3;
+      }
+      if (OFFENSE_POS.indexOf(pos) >= 0) return 1;
+      if (DEFENSE_POS.indexOf(pos) >= 0) return 2;
+      return 3;
+    };
+    var getAvailRank = function(avail) {
+      if (avail === "yes")   return 0;
+      if (avail === "maybe") return 1;
+      return 2;
+    };
+    return ROSTER.filter(function(p){ return p.avail !== "no"; })
+      .sort(function(a,b){
+        var ar=getPosRank(a.pos); var br=getPosRank(b.pos);
+        if (ar !== br) return ar - br;
+        var aIn=allInLine.indexOf(a.name)>=0?1:0; var bIn=allInLine.indexOf(b.name)>=0?1:0;
+        if (aIn !== bIn) return aIn - bIn;
+        var aa=getAvailRank(a.avail); var ba=getAvailRank(b.avail);
+        if (aa !== ba) return aa - ba;
+        return a.jersey - b.jersey;
+      });
+  })();
+
+  var getSlotVal = function(slot) {
+    if (!slot) return null;
+    if (slot.type === "goalie")  return lines.goalie;
+    if (slot.type === "offense") return lines.offense[slot.idx][slot.pos];
+    if (slot.type === "defense") return lines.defense[slot.idx][slot.pos];
+    return null;
+  };
+  var isSelSlot = function(slot) {
+    return sel && sel.type===slot.type && sel.idx===slot.idx && sel.pos===slot.pos;
+  };
+  var inLineNames = function() {
+    var n = [];
+    lines.offense.forEach(function(ln){if(ln.lw)n.push(ln.lw);if(ln.c)n.push(ln.c);if(ln.rw)n.push(ln.rw);});
+    lines.defense.forEach(function(pr){if(pr.ld)n.push(pr.ld);if(pr.rd)n.push(pr.rd);});
+    if(lines.goalie) n.push(lines.goalie);
+    return n;
+  };
+  var POS_MAP = {lw:"LW",c:"C",rw:"RW",ld:"LD",rd:"RD",g:"G"};
+  var clickSlot = function(slot) {
+    if (isSelSlot(slot)) { setSel(null); setPosFilter(""); return; }
+    setSel(slot);
+    setPosFilter(slot.type === "goalie" ? "G" : (POS_MAP[slot.pos] || ""));
+  };
+  var assignPlayer = function(playerName) {
+    if (!sel) return;
+    var nl = JSON.parse(JSON.stringify(lines));
+    nl.offense = nl.offense.map(function(ln){return {lw:ln.lw===playerName?null:ln.lw, c:ln.c===playerName?null:ln.c, rw:ln.rw===playerName?null:ln.rw};});
+    nl.defense = nl.defense.map(function(pr){return {ld:pr.ld===playerName?null:pr.ld, rd:pr.rd===playerName?null:pr.rd};});
+    if (nl.goalie===playerName) nl.goalie=null;
+    if (sel.type==="goalie")        nl.goalie=playerName;
+    else if (sel.type==="offense")  nl.offense[sel.idx][sel.pos]=playerName;
+    else if (sel.type==="defense")  nl.defense[sel.idx][sel.pos]=playerName;
+    setLines(nl); setSel(null); setSaved(false);
+  };
+  var addOffenseLine = function(){ var nl=JSON.parse(JSON.stringify(lines)); nl.offense.push({lw:null,c:null,rw:null}); setLines(nl); setSaved(false); };
+  var addDefensePair = function(){ var nl=JSON.parse(JSON.stringify(lines)); nl.defense.push({ld:null,rd:null}); setLines(nl); setSaved(false); };
+
+  var slotBtn = function(slot) {
+    var val    = getSlotVal(slot);
+    var active = isSelSlot(slot);
+    return (
+      <button onClick={function(){clickSlot(slot);}}
+        style={{width:"100%",padding:"6px 8px",borderRadius:6,border:"2px solid "+(active?"#3b82f6":"#e2e8f0"),background:active?"#eff6ff":val?"#fff":"#f8fafc",cursor:"pointer",fontFamily:F.b,fontSize:12,color:active?"#2563eb":val?"#1e293b":"#94a3b8",fontWeight:val?600:400,transition:"all .15s",textAlign:"center",minHeight:34}}>
+        {val || "—"}
+      </button>
+    );
+  };
+
+  var inL  = inLineNames();
+  var cardH = function(t){ return <div style={{background:C.navy,padding:"12px 20px"}}><div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase"}}>{t}</div></div>; };
+
+  return (
+    <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 60px"}}>
+
+      {/* Team header + Next Game + Record */}
+      <div style={{marginBottom:32}}>
+        <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16,borderLeft:"3px solid "+C.red,paddingLeft:12}}>
+          <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase"}}>{TEAM.label}</div>
+          <span style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:C.navy,background:"rgba(0,41,77,0.09)",padding:"3px 10px",borderRadius:20}}>{TEAM.tag}</span>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+          <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+            {cardH("Next Game")}
+            <div style={{padding:"14px 20px",display:"flex",alignItems:"center",gap:16}}>
+              <div style={{flex:1}}>
+                <div style={{fontFamily:NS_FH,fontSize:24,fontWeight:700,color:"#1e293b",letterSpacing:1}}>vs {TEAM.nextGame.opp}</div>
+                <div style={{fontFamily:F.b,fontSize:13,color:"#64748b",marginTop:4}}>{TEAM.nextGame.dow}, {TEAM.nextGame.date} · {TEAM.nextGame.time}</div>
+                <div style={{fontFamily:F.b,fontSize:13,color:"#64748b",marginTop:2}}>{TEAM.nextGame.loc}</div>
+              </div>
+              <span style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:TEAM.nextGame.home?"#fff":"#8c7046",background:TEAM.nextGame.home?C.olive:"#f5e9d6",padding:"4px 12px",borderRadius:20,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap"}}>{TEAM.nextGame.home?"Home":"Away"}</span>
+            </div>
+          </div>
+          <div style={{background:C.navy,borderRadius:10,padding:"16px 20px",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center"}}>
+            <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase",marginBottom:8}}>Season Record</div>
+            <div style={{fontFamily:NS_FH,fontSize:44,fontWeight:700,color:"#fff",letterSpacing:2,lineHeight:1}}>{TEAM.record.w}–{TEAM.record.l}–{TEAM.record.t}</div>
+            <div style={{fontFamily:F.b,fontSize:11,color:"rgba(255,255,255,0.4)",marginTop:6,letterSpacing:1}}>W–L–T · {TEAM.record.gp} GP</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Season Schedule */}
+      <div style={{background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",marginBottom:16}}>
+        <div style={{background:C.navy,padding:"12px 20px"}}>
+          <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase"}}>Season Schedule</div>
+        </div>
+        <div style={{maxHeight:190,overflowY:"auto"}}>
+          <div style={{display:"grid",gridTemplateColumns:"80px 1fr 130px 44px",padding:"6px 16px",borderBottom:"1px solid #e2e8f0",background:"#fff",position:"sticky",top:0,zIndex:1}}>
+            <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>Date</div>
+            <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>Opponent</div>
+            <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",textTransform:"uppercase"}}>Result</div>
+            <div />
+          </div>
+          {TEAM.games.map(function(g,j){return (
+            <div key={j} style={{display:"grid",gridTemplateColumns:"80px 1fr 130px 44px",padding:"6px 16px",borderBottom:j<TEAM.games.length-1?"1px solid #f1f5f9":"none",alignItems:"center",background:g.upcoming?"#f0f9ff":"transparent"}}>
+              <div style={{fontFamily:F.b,fontSize:12,color:g.upcoming?"#2563eb":"#94a3b8",fontWeight:g.upcoming?600:400}}>{g.date}</div>
+              <div style={{fontFamily:F.b,fontSize:13,color:"#334155"}}>{g.upcoming&&g.away?"@ ":""}{g.opp}</div>
+              <div>
+                {g.upcoming
+                  ? <div><div style={{fontFamily:F.b,fontSize:12,color:"#2563eb",fontWeight:600}}>{g.time}</div><div style={{fontFamily:F.b,fontSize:11,color:"#64748b",marginTop:1}}>{g.loc}</div></div>
+                  : <div style={{fontFamily:F.b,fontSize:13,color:"#334155",fontWeight:600}}>{g.gf}–{g.ga}</div>
+                }
+              </div>
+              <div>
+                {!g.upcoming&&<div style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:NS_RC[g.r],background:NS_RBG[g.r],padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{NS_RL[g.r]}</div>}
+              </div>
+            </div>
+          );})}
+        </div>
+      </div>
+
+      {/* Team Roster */}
+      <div style={{background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",marginBottom:32}}>
+        <div style={{background:C.navy,padding:"12px 20px"}}>
+          <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase"}}>Team Roster</div>
+        </div>
+        <div style={{overflowX:"auto"}}>
+          <table style={{width:"100%",borderCollapse:"collapse"}}>
+            <thead>
+              <tr style={{background:"#fff",borderBottom:"1px solid #e2e8f0",position:"sticky",top:0,zIndex:1}}>
+                {[["jersey","#"],["name","Player"],["pos","Pos"],["gp","GP"],["g","G"],["a","A"],["pts","PTS"],["pim","PIM"]].map(function(col){
+                  var active = sortCol === col[0];
+                  return (
+                    <th key={col[0]} onClick={function(){handleSort(col[0]);}}
+                      style={{padding:"6px 16px",fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",textAlign:"left",cursor:"pointer",whiteSpace:"nowrap",userSelect:"none"}}>
+                      <span style={{display:"inline-flex",alignItems:"center",gap:4}}>
+                        {col[1]}
+                        <span style={{display:"inline-flex",flexDirection:"column",gap:1}}>
+                          <span style={{fontSize:7,fontFamily:"sans-serif",color:active&&sortDir==="asc"?"#475569":"#d1d5db",lineHeight:1}}>▲</span>
+                          <span style={{fontSize:7,fontFamily:"sans-serif",color:active&&sortDir==="desc"?"#475569":"#d1d5db",lineHeight:1}}>▼</span>
+                        </span>
+                      </span>
+                    </th>
+                  );
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {sortedRoster.map(function(p,i){
+                return (
+                  <tr key={i} style={{borderBottom:"1px solid #f1f5f9"}}>
+                    <td style={{padding:"6px 16px",fontFamily:F.b,fontSize:12,color:"#94a3b8",fontWeight:600}}>{p.jersey}</td>
+                    <td style={{padding:"6px 16px",fontFamily:F.b,fontSize:13,color:"#334155",fontWeight:600}}>{p.name}</td>
+                    <td style={{padding:"6px 16px",fontFamily:F.b,fontSize:13,color:"#334155"}}>{p.pos}</td>
+                    <td style={{padding:"6px 16px",fontFamily:F.b,fontSize:13,color:"#334155"}}>{p.gp}</td>
+                    <td style={{padding:"6px 16px",fontFamily:F.b,fontSize:13,color:"#334155"}}>{p.g}</td>
+                    <td style={{padding:"6px 16px",fontFamily:F.b,fontSize:13,color:"#334155"}}>{p.a}</td>
+                    <td style={{padding:"6px 16px",fontFamily:F.b,fontSize:13,color:"#334155"}}>{p.pts}</td>
+                    <td style={{padding:"6px 16px",fontFamily:F.b,fontSize:13,color:"#334155"}}>{p.pim}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Game Lines */}
+      <div style={{marginBottom:32}}>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
+          <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",borderLeft:"3px solid "+C.red,paddingLeft:12}}>Game Lines</div>
+          <div style={{display:"flex",gap:8,alignItems:"center"}}>
+            {saved && <span style={{fontFamily:F.b,fontSize:12,color:"#16a34a",fontWeight:700}}>Lines saved</span>}
+            <button onClick={function(){setLines({offense:lines.offense.map(function(){return {lw:null,c:null,rw:null};}),defense:lines.defense.map(function(){return {ld:null,rd:null};}),goalie:null});setSel(null);setPosFilter("");setSaved(false);}} style={{padding:"8px 16px",background:"none",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:12,color:"#64748b",cursor:"pointer"}}>Clear all</button>
+            <button onClick={function(){setSaved(true);}} style={{padding:"8px 20px",background:C.red,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:12,fontWeight:700,letterSpacing:1,cursor:"pointer"}}>Save lines</button>
+          </div>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 300px",gap:16,alignItems:"start"}}>
+
+          {/* Lines grid */}
+          <div style={{display:"flex",flexDirection:"column",gap:12}}>
+
+            {/* Offense */}
+            <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+              <div style={{background:"#f8fafc",borderBottom:"1px solid #e2e8f0",padding:"8px 16px"}}>
+                <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:700,color:"#94a3b8",letterSpacing:2,textTransform:"uppercase"}}>Offense</div>
+              </div>
+              <div style={{padding:"12px 16px"}}>
+                <div style={{display:"grid",gridTemplateColumns:"44px 1fr 1fr 1fr 24px",gap:6,marginBottom:6}}>
+                  {["","LW","C","RW",""].map(function(h,i){return <div key={i} style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",textAlign:i===0?"left":"center"}}>{h}</div>;})}
+                </div>
+                {lines.offense.map(function(ln,i){
+                  return (
+                    <div key={i} style={{display:"grid",gridTemplateColumns:"44px 1fr 1fr 1fr 24px",gap:6,marginBottom:6,alignItems:"center"}}>
+                      <div style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:"#cbd5e1"}}>{ORD[i]}</div>
+                      {["lw","c","rw"].map(function(pos){return <div key={pos}>{slotBtn({type:"offense",idx:i,pos:pos})}</div>;})}
+                      {lines.offense.length > 1
+                        ? <button onClick={function(){var nl=JSON.parse(JSON.stringify(lines));nl.offense.splice(i,1);if(sel&&sel.type==="offense"&&sel.idx===i)setSel(null);setLines(nl);setSaved(false);}} style={{background:"none",border:"none",color:"#cbd5e1",cursor:"pointer",padding:0,display:"flex",alignItems:"center"}}><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
+                        : <div/>}
+                    </div>
+                  );
+                })}
+                {lines.offense.length < 4 && (
+                  <button onClick={addOffenseLine} style={{marginTop:4,width:"100%",padding:"6px",background:"none",border:"1px dashed #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:12,color:"#94a3b8",cursor:"pointer"}}>+ Add line</button>
+                )}
+              </div>
+            </div>
+
+            {/* Defense */}
+            <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+              <div style={{background:"#f8fafc",borderBottom:"1px solid #e2e8f0",padding:"8px 16px"}}>
+                <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:700,color:"#94a3b8",letterSpacing:2,textTransform:"uppercase"}}>Defense</div>
+              </div>
+              <div style={{padding:"12px 16px"}}>
+                <div style={{display:"grid",gridTemplateColumns:"44px 1fr 1fr 24px",gap:6,marginBottom:6}}>
+                  {["","LD","RD",""].map(function(h,i){return <div key={i} style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",textAlign:i===0?"left":"center"}}>{h}</div>;})}
+                </div>
+                {lines.defense.map(function(pr,i){
+                  return (
+                    <div key={i} style={{display:"grid",gridTemplateColumns:"44px 1fr 1fr 24px",gap:6,marginBottom:6,alignItems:"center"}}>
+                      <div style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:"#cbd5e1"}}>{ORD[i]}</div>
+                      {["ld","rd"].map(function(pos){return <div key={pos}>{slotBtn({type:"defense",idx:i,pos:pos})}</div>;})}
+                      {lines.defense.length > 1
+                        ? <button onClick={function(){var nl=JSON.parse(JSON.stringify(lines));nl.defense.splice(i,1);if(sel&&sel.type==="defense"&&sel.idx===i)setSel(null);setLines(nl);setSaved(false);}} style={{background:"none",border:"none",color:"#cbd5e1",cursor:"pointer",padding:0,display:"flex",alignItems:"center"}}><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
+                        : <div/>}
+                    </div>
+                  );
+                })}
+                {lines.defense.length < 3 && (
+                  <button onClick={addDefensePair} style={{marginTop:4,width:"100%",padding:"6px",background:"none",border:"1px dashed #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:12,color:"#94a3b8",cursor:"pointer"}}>+ Add pair</button>
+                )}
+              </div>
+            </div>
+
+            {/* Goalie */}
+            <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+              <div style={{background:"#f8fafc",borderBottom:"1px solid #e2e8f0",padding:"8px 16px"}}>
+                <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:700,color:"#94a3b8",letterSpacing:2,textTransform:"uppercase"}}>Goalie</div>
+              </div>
+              <div style={{padding:"12px 16px"}}>
+                {(function(){var slot={type:"goalie",idx:0,pos:"g"};var active=isSelSlot(slot);return (
+                  <button onClick={function(){clickSlot(slot);}} style={{width:"100%",padding:"8px 12px",borderRadius:6,border:"2px solid "+(active?"#3b82f6":"#e2e8f0"),background:active?"#eff6ff":lines.goalie?"#fff":"#f8fafc",cursor:"pointer",fontFamily:F.b,fontSize:13,color:active?"#2563eb":lines.goalie?"#1e293b":"#94a3b8",fontWeight:lines.goalie?600:400,transition:"all .15s",textAlign:"left"}}>
+                    {lines.goalie || "Click to assign"}
+                  </button>
+                );})()}
+              </div>
+            </div>
+          </div>
+
+          {/* Roster picker */}
+          <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",position:"sticky",top:80}}>
+            <div style={{background:C.navy,padding:"10px 16px"}}>
+              <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase"}}>Roster</div>
+              {sel && <div style={{fontFamily:F.b,fontSize:11,color:"#93c5fd",marginTop:2}}>Click a player to assign</div>}
+            </div>
+            {/* Column headers */}
+            <div style={{display:"grid",gridTemplateColumns:"28px 1fr 40px 86px",padding:"5px 14px",borderBottom:"1px solid #e2e8f0",background:"#fff"}}>
+              <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>#</div>
+              <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>Player</div>
+              <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>Pos</div>
+              <div />
+            </div>
+            <div style={{maxHeight:420,overflowY:"auto"}}>
+              {sortedPanelRoster.map(function(p,i){
+                var inLine=inL.indexOf(p.name)>=0;
+                var posActive=!!sel&&posFilter===p.pos;
+                return (
+                  <button key={i}
+                    onClick={function(){if(sel) assignPlayer(p.name);}}
+                    style={{display:"grid",gridTemplateColumns:"28px 1fr 40px 86px",alignItems:"center",width:"100%",padding:"8px 14px",background:inLine?"#eff6ff":"#fff",border:"none",borderBottom:"1px solid #f1f5f9",cursor:sel?"pointer":"default",textAlign:"left",transition:"background .1s",borderLeft:inLine?"3px solid #93c5fd":"3px solid transparent"}}
+                    onMouseEnter={function(e){if(sel)e.currentTarget.style.background="#f0f9ff";}}
+                    onMouseLeave={function(e){e.currentTarget.style.background=inLine?"#eff6ff":"#fff";}}>
+                    <span style={{fontFamily:F.b,fontSize:11,color:"#94a3b8"}}>{p.jersey}</span>
+                    <span style={{fontFamily:F.b,fontSize:13,color:"#1e293b",fontWeight:inLine?600:400}}>{p.name}</span>
+                    <span
+                      onClick={function(e){e.stopPropagation();setPosFilter(posFilter===p.pos?"":p.pos);}}
+                      style={{fontFamily:F.b,fontSize:11,fontWeight:posActive?700:400,color:posActive?"#1d4ed8":"#64748b",background:posActive?"#dbeafe":"#f1f5f9",padding:"2px 6px",borderRadius:4,cursor:"pointer",userSelect:"none",textAlign:"center"}}>
+                      {p.pos}
+                    </span>
+                    {inLine
+                      ? <span style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#1d4ed8",background:"#dbeafe",padding:"2px 6px",borderRadius:4,justifySelf:"end",whiteSpace:"nowrap"}}>In lineup</span>
+                      : (function(){var a=NS_AVAIL_GET(p.avail);return <span style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:a.color,background:a.bg,padding:"2px 6px",borderRadius:4,justifySelf:"end",whiteSpace:"nowrap"}}>{a.label}</span>;}())
+                    }
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  );
+}
+
+
 function NSPlayerPortal({nav}) {
   var dm = useState(false); var devMode = dm[0]; var setDevMode = dm[1];
   var tr = useState("vet"); var tier = tr[0]; var setTier = tr[1];
   var pr = useState("yes"); var programs = pr[0]; var setPrograms = pr[1];
   var tc = useState(2); var teamCount = tc[0]; var setTeamCount = tc[1];
+  var ro = useState("player"); var role = ro[0]; var setRole = ro[1];
+  var cip = useState(true); var coachIsAlsoPlayer = cip[0]; var setCoachIsAlsoPlayer = cip[1];
+  var cpv = useState("coach"); var coachPortalView = cpv[0]; var setCoachPortalView = cpv[1];
 
   var DISPLAY_NAME = "Player 1";
   var ALL_TEAMS = [
@@ -2153,8 +2557,16 @@ function NSPlayerPortal({nav}) {
       <NSHeader nav={nav} curPage="ns-portal" isLoggedIn={true} />
 
       {devMode && (
-        <div style={{background:"#1e1b4b",padding:"8px 24px",display:"flex",alignItems:"center",gap:20,position:"sticky",top:64,zIndex:90}}>
+        <div style={{background:"#1e1b4b",padding:"8px 24px",display:"flex",alignItems:"center",gap:20,position:"sticky",top:64,zIndex:90,flexWrap:"wrap"}}>
           <span style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#a78bfa",background:"rgba(167,139,250,0.15)",padding:"2px 8px",borderRadius:4,letterSpacing:1,textTransform:"uppercase",flexShrink:0}}>Dev</span>
+          {devSelect("Role:", role, setRole, [
+            {value:"player",label:"Player"},
+            {value:"coach", label:"Coach"},
+          ])}
+          {role === "coach" && devSelect("Coach on team:", String(coachIsAlsoPlayer), function(v){setCoachIsAlsoPlayer(v==="true");}, [
+            {value:"true", label:"Yes"},
+            {value:"false",label:"No"},
+          ])}
           {devSelect("Player Tier:", tier, setTier, [
             {value:"vet",label:"Veteran"},
             {value:"disabled",label:"Disabled"},
@@ -2173,7 +2585,18 @@ function NSPlayerPortal({nav}) {
         </div>
       )}
 
-      <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 60px"}}>
+      {role === "coach" && coachIsAlsoPlayer && (
+      <div style={{background:"#fff",borderBottom:"1px solid #e2e8f0",padding:"10px 24px",display:"flex",justifyContent:"flex-end",alignItems:"center",gap:10}}>
+        <span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>View as</span>
+        <div style={{display:"flex",border:"1px solid #e2e8f0",borderRadius:6,overflow:"hidden"}}>
+          <button onClick={function(){setCoachPortalView("coach");}} style={{padding:"6px 18px",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:12,fontWeight:700,background:coachPortalView==="coach"?C.navy:"transparent",color:coachPortalView==="coach"?"#fff":"#64748b",transition:"all .15s"}}>Coach</button>
+          <button onClick={function(){setCoachPortalView("player");}} style={{padding:"6px 18px",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:12,fontWeight:700,background:coachPortalView==="player"?C.navy:"transparent",color:coachPortalView==="player"?"#fff":"#64748b",transition:"all .15s"}}>Player</button>
+        </div>
+      </div>
+    )}
+    {role === "coach" && coachPortalView === "coach"
+      ? <NSCoachPortalContent coachIsAlsoPlayer={coachIsAlsoPlayer} coachPortalView={coachPortalView} setCoachPortalView={setCoachPortalView} />
+      : <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 60px"}}>
 
         {/* Open Sign-Ups — only shown when programs are available */}
         {AVAIL_PROGRAMS.length > 0 && (
@@ -2356,11 +2779,13 @@ function NSPlayerPortal({nav}) {
         })}
 
 
-      </main>
-      {NS_FOOTER(nav, devMode, setDevMode)}
+      </main>}
+    {NS_FOOTER(nav, devMode, setDevMode)}
     </div>
   );
 }
+
+
 
 function NSProfilePage({nav}) {
   var PLAYER_NUMBER = 4;
