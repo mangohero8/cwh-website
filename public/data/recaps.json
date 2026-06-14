@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-14T21:00:03.791176Z",
+  "updated": "2026-06-14T21:30:03.176830Z",
   "recaps": [
     {
       "date": "May 17",
@@ -52,6 +52,19 @@
       "theirScore": 2,
       "headline": "Warriors Drop Close One to Spare Parts",
       "summary": "A narrow 2-1 defeat against Spare Parts."
+    },
+    {
+      "date": "Jun 14",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "opponent": "Boomer\u2019s Comeback",
+      "location": "Chiller North - Rink 1",
+      "homeAway": "Home",
+      "score": "0 - 3",
+      "result": "~",
+      "ourScore": 0,
+      "theirScore": 3,
+      "headline": "Warriors Fall to Boomer\u2019s Comeback",
+      "summary": "A tough 3-0 loss against Boomer\u2019s Comeback."
     },
     {
       "date": "May 11",
