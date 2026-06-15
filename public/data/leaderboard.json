@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-15T22:30:03.699279Z",
+  "updated": "2026-06-15T23:00:03.212471Z",
   "playerOfTheWeek": {
     "name": "Jaymes Albright",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -28,7 +28,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "13",
       "pos": "Center",
-      "gp": 4,
+      "gp": 5,
       "g": 3,
       "a": 0,
       "pts": 3,
@@ -140,7 +140,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "13",
       "pos": "Center",
-      "gp": 4,
+      "gp": 5,
       "g": 3,
       "a": 0,
       "pts": 3,
@@ -386,7 +386,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "0",
       "pos": "Defense",
-      "gp": 3,
+      "gp": 4,
       "g": 0,
       "a": 0,
       "pts": 0,
