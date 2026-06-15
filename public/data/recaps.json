@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-15T23:00:03.212917Z",
+  "updated": "2026-06-15T23:30:03.847405Z",
   "recaps": [
     {
       "date": "May 17",
@@ -117,6 +117,19 @@
       "theirScore": 10,
       "headline": "Warriors Fall to Lumberquacks",
       "summary": "A tough 10-1 loss against Lumberquacks."
+    },
+    {
+      "date": "Jun 15",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "opponent": "Columbus Thunder",
+      "location": "Chiller Ice Works - Main Ice",
+      "homeAway": "Away",
+      "score": "1 - 0",
+      "result": "~",
+      "ourScore": 0,
+      "theirScore": 1,
+      "headline": "Warriors Drop Close One to Columbus Thunder",
+      "summary": "A narrow 1-0 defeat against Columbus Thunder."
     }
   ]
 }
