@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-15T22:00:03.007766Z",
+  "updated": "2026-06-15T22:30:03.273543Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -19,7 +19,7 @@
       "jersey": "1",
       "name": "Matt Chamblin",
       "pos": "",
-      "gp": 0,
+      "gp": 1,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -193,7 +193,7 @@
       "jersey": "4",
       "name": "Nicholas Flores",
       "pos": "Defense",
-      "gp": 4,
+      "gp": 5,
       "g": 0,
       "a": 1,
       "pts": 1,
