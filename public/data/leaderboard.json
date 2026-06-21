@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T21:30:03.509538Z",
+  "updated": "2026-06-21T22:00:03.065980Z",
   "playerOfTheWeek": {
     "name": "Jaymes Albright",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -7,8 +7,8 @@
     "pos": "Wing",
     "gp": 5,
     "g": 3,
-    "a": 1,
-    "pts": 4,
+    "a": 2,
+    "pts": 5,
     "pim": 0
   },
   "topPoints": [
@@ -19,8 +19,8 @@
       "pos": "Wing",
       "gp": 5,
       "g": 3,
-      "a": 1,
-      "pts": 4,
+      "a": 2,
+      "pts": 5,
       "pim": 0
     },
     {
@@ -31,6 +31,17 @@
       "gp": 5,
       "g": 3,
       "a": 0,
+      "pts": 3,
+      "pim": 0
+    },
+    {
+      "name": "Brent McCreedy",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "68",
+      "pos": "Wing",
+      "gp": 3,
+      "g": 2,
+      "a": 1,
       "pts": 3,
       "pim": 0
     },
@@ -79,11 +90,11 @@
       "pim": 0
     },
     {
-      "name": "Brent McCreedy",
+      "name": "Annabelle Demmon",
       "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "68",
-      "pos": "Wing",
-      "gp": 3,
+      "jersey": "0",
+      "pos": "",
+      "gp": 5,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -101,22 +112,11 @@
       "pim": 0
     },
     {
-      "name": "Steven Bowman",
+      "name": "John Poffenberger",
       "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "2",
-      "pos": "Defense",
-      "gp": 2,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 4
-    },
-    {
-      "name": "james REDD",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "0",
-      "pos": "",
-      "gp": 1,
+      "jersey": "18",
+      "pos": "Wing",
+      "gp": 4,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -131,8 +131,8 @@
       "pos": "Wing",
       "gp": 5,
       "g": 3,
-      "a": 1,
-      "pts": 4,
+      "a": 2,
+      "pts": 5,
       "pim": 0
     },
     {
@@ -143,6 +143,17 @@
       "gp": 5,
       "g": 3,
       "a": 0,
+      "pts": 3,
+      "pim": 0
+    },
+    {
+      "name": "Brent McCreedy",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "68",
+      "pos": "Wing",
+      "gp": 3,
+      "g": 2,
+      "a": 1,
       "pts": 3,
       "pim": 0
     },
@@ -191,21 +202,21 @@
       "pim": 0
     },
     {
-      "name": "Brent McCreedy",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "68",
-      "pos": "Wing",
-      "gp": 3,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 0
-    },
-    {
       "name": "John Hopkinson",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "10",
       "pos": "Center",
+      "gp": 4,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "name": "John Poffenberger",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "18",
+      "pos": "Wing",
       "gp": 4,
       "g": 1,
       "a": 0,
@@ -222,17 +233,6 @@
       "a": 0,
       "pts": 1,
       "pim": 4
-    },
-    {
-      "name": "james REDD",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "0",
-      "pos": "",
-      "gp": 1,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 0
     }
   ],
   "topAssists": [
@@ -243,8 +243,19 @@
       "pos": "Wing",
       "gp": 5,
       "g": 3,
+      "a": 2,
+      "pts": 5,
+      "pim": 0
+    },
+    {
+      "name": "Brent McCreedy",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "68",
+      "pos": "Wing",
+      "gp": 3,
+      "g": 2,
       "a": 1,
-      "pts": 4,
+      "pts": 3,
       "pim": 0
     },
     {
@@ -264,17 +275,6 @@
       "jersey": "1",
       "pos": "Wing",
       "gp": 4,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 0
-    },
-    {
-      "name": "Brent McCreedy",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "68",
-      "pos": "Wing",
-      "gp": 3,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -314,22 +314,22 @@
       "pim": 0
     },
     {
-      "name": "Alexander Burton",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "0",
-      "pos": "",
-      "gp": 4,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
-      "pim": 0
-    },
-    {
       "name": "Annabelle Demmon",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "0",
       "pos": "",
       "gp": 5,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "name": "Alexander Burton",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "0",
+      "pos": "",
+      "gp": 4,
       "g": 0,
       "a": 1,
       "pts": 1,
@@ -406,16 +406,6 @@
   ],
   "goalies": [
     {
-      "name": "Michael Bennett",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "50",
-      "gp": 3,
-      "w": 1,
-      "l": 1,
-      "gaa": "1.0",
-      "ga": 3
-    },
-    {
       "name": "David wright",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "0",
@@ -424,6 +414,16 @@
       "l": 1,
       "gaa": "1.5",
       "ga": 3
+    },
+    {
+      "name": "Michael Bennett",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "50",
+      "gp": 3,
+      "w": 2,
+      "l": 1,
+      "gaa": "1.7",
+      "ga": 5
     },
     {
       "name": "Will Sullivan",
