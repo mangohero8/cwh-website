@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-21T21:00:02.115119Z",
+  "updated": "2026-06-21T21:30:02.245648Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -19,7 +19,7 @@
       "jersey": "0",
       "name": "Alexander Burton",
       "pos": "",
-      "gp": 3,
+      "gp": 4,
       "g": 0,
       "a": 1,
       "pts": 1,
@@ -121,7 +121,7 @@
       "jersey": "1",
       "name": "Matt Chamblin",
       "pos": "Wing",
-      "gp": 3,
+      "gp": 4,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -193,7 +193,7 @@
       "jersey": "6",
       "name": "DOUGLAS HOYT",
       "pos": "Defense",
-      "gp": 4,
+      "gp": 5,
       "g": 2,
       "a": 1,
       "pts": 3,
@@ -245,12 +245,12 @@
       "jersey": "50",
       "name": "Michael Bennett",
       "pos": "Goalie",
-      "gp": 2,
+      "gp": 3,
       "w": 1,
       "l": 1,
       "otl": 0,
       "ga": 3,
-      "gaa": "1.5"
+      "gaa": "1.0"
     },
     {
       "jersey": "0",
