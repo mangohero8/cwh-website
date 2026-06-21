@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-21T22:00:01.904646Z",
+  "updated": "2026-06-21T22:30:02.343584Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -246,11 +246,11 @@
       "name": "Michael Bennett",
       "pos": "Goalie",
       "gp": 3,
-      "w": 2,
+      "w": 1,
       "l": 1,
-      "otl": 0,
-      "ga": 5,
-      "gaa": "1.7"
+      "otl": 1,
+      "ga": 6,
+      "gaa": "2.0"
     },
     {
       "jersey": "0",

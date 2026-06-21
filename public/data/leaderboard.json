@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-21T22:00:03.065980Z",
+  "updated": "2026-06-21T22:30:03.587206Z",
   "playerOfTheWeek": {
     "name": "Jaymes Albright",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -420,10 +420,10 @@
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "50",
       "gp": 3,
-      "w": 2,
+      "w": 1,
       "l": 1,
-      "gaa": "1.7",
-      "ga": 5
+      "gaa": "2.0",
+      "ga": 6
     },
     {
       "name": "Will Sullivan",
