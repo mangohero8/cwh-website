@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-22T20:30:03.295032Z",
+  "updated": "2026-06-22T21:00:03.147136Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -34,16 +34,6 @@
       "a": 0,
       "pts": 0,
       "pim": 2
-    },
-    {
-      "jersey": "0",
-      "name": "Brandon Lorenz",
-      "pos": "",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
     },
     {
       "jersey": "25",
@@ -221,6 +211,17 @@
     }
   ],
   "goalies": [
+    {
+      "jersey": "0",
+      "name": "Brandon Lorenz",
+      "pos": "Goalie",
+      "gp": 1,
+      "w": 0,
+      "l": 1,
+      "otl": 0,
+      "ga": 10,
+      "gaa": "10.0"
+    },
     {
       "jersey": "33",
       "name": "TJ Nocar",
