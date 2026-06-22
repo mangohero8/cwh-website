@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-22T22:30:03.257507Z",
+  "updated": "2026-06-22T23:00:02.885187Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -20,6 +20,16 @@
       "name": "Garett Beltz",
       "pos": "",
       "gp": 3,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "James Benedetto",
+      "pos": "",
+      "gp": 0,
       "g": 0,
       "a": 0,
       "pts": 0,
