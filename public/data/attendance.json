@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-22T19:30:08.600596Z",
+  "updated": "2026-06-22T20:00:08.380781Z",
   "board_id": "18415594839",
   "games": [
     {
@@ -970,64 +970,192 @@
     {
       "game": "Jun 29 \u2014 CAHL D vs Capybeeras (Home)",
       "totalPlayers": 22,
-      "yes": 0,
-      "no": 0,
+      "yes": 8,
+      "no": 10,
       "maybe": 0,
-      "noResponse": 22,
+      "noResponse": 4,
       "lineup": {
-        "forwards": [],
-        "defense": [],
-        "goalies": []
+        "forwards": [
+          {
+            "line": 1,
+            "players": [
+              {
+                "id": "12215658047",
+                "name": "Veronica Haertling",
+                "rsvp": "Yes",
+                "position": "Wing",
+                "jersey": "83",
+                "team": "CAHL D"
+              },
+              {
+                "id": "12215658421",
+                "name": "Allen Gambrel",
+                "rsvp": "Yes",
+                "position": "Center",
+                "jersey": "97",
+                "team": "CAHL D"
+              },
+              {
+                "id": "12215525763",
+                "name": "Keith Kriesberg",
+                "rsvp": "Yes",
+                "position": "Wing",
+                "jersey": "0",
+                "team": "CAHL D"
+              }
+            ]
+          },
+          {
+            "line": 2,
+            "players": [
+              {
+                "id": "12215658154",
+                "name": "Lydia Stroul",
+                "rsvp": "Yes",
+                "position": "Wing",
+                "jersey": "42",
+                "team": "CAHL D"
+              }
+            ]
+          }
+        ],
+        "defense": [
+          {
+            "pair": 1,
+            "players": [
+              {
+                "id": "12215523017",
+                "name": "Taylor DeCicco",
+                "rsvp": "Yes",
+                "position": "Defense",
+                "jersey": "17",
+                "team": "CAHL D"
+              },
+              {
+                "id": "12215658237",
+                "name": "Aaron Foster",
+                "rsvp": "Yes",
+                "position": "Defense",
+                "jersey": "0",
+                "team": "CAHL D"
+              }
+            ]
+          },
+          {
+            "pair": 2,
+            "players": [
+              {
+                "id": "12215658156",
+                "name": "Luke Marshall",
+                "rsvp": "Yes",
+                "position": "Defense",
+                "jersey": "0",
+                "team": "CAHL D"
+              }
+            ]
+          }
+        ],
+        "goalies": [
+          {
+            "id": "12215525769",
+            "name": "TJ Nocar",
+            "rsvp": "Yes",
+            "position": "Goalie",
+            "jersey": "33",
+            "team": "CAHL D"
+          }
+        ]
       },
       "bench": [],
-      "out": [],
-      "pending": [
+      "out": [
         {
           "id": "12215658045",
           "name": "Wyatt Beltz",
-          "rsvp": "",
+          "rsvp": "No",
           "position": "Center",
           "jersey": "13",
           "team": "CAHL D"
         },
         {
-          "id": "12215658421",
-          "name": "Allen Gambrel",
-          "rsvp": "",
-          "position": "Center",
-          "jersey": "97",
-          "team": "CAHL D"
-        },
-        {
           "id": "12215523014",
           "name": "Alex Vakkur",
-          "rsvp": "",
+          "rsvp": "No",
           "position": "Wing",
           "jersey": "0",
           "team": "CAHL D"
         },
+        {
+          "id": "12215523683",
+          "name": "Cai Lorenz",
+          "rsvp": "No",
+          "position": "Wing",
+          "jersey": "0",
+          "team": "CAHL D"
+        },
+        {
+          "id": "12215658143",
+          "name": "Ethan Yeazel",
+          "rsvp": "No",
+          "position": "Wing",
+          "jersey": "0",
+          "team": "CAHL D"
+        },
+        {
+          "id": "12215658050",
+          "name": "Nicholas Flores",
+          "rsvp": "No",
+          "position": "Defense",
+          "jersey": "4",
+          "team": "CAHL D"
+        },
+        {
+          "id": "12215523891",
+          "name": "Will Sullivan",
+          "rsvp": "No",
+          "position": "Goalie",
+          "jersey": "12",
+          "team": "CAHL D"
+        },
+        {
+          "id": "12215646273",
+          "name": "Matt Chamblin",
+          "rsvp": "No",
+          "position": "",
+          "jersey": "1",
+          "team": "CAHL D"
+        },
+        {
+          "id": "12215658239",
+          "name": "Brian Kennedy",
+          "rsvp": "No",
+          "position": "",
+          "jersey": "0",
+          "team": "CAHL D"
+        },
+        {
+          "id": "12215524001",
+          "name": "William Teater",
+          "rsvp": "No",
+          "position": "",
+          "jersey": "25",
+          "team": "CAHL D"
+        },
+        {
+          "id": "12215523893",
+          "name": "Charles Terch",
+          "rsvp": "No",
+          "position": "",
+          "jersey": "23",
+          "team": "CAHL D"
+        }
+      ],
+      "pending": [
         {
           "id": "12215523669",
           "name": "James Brown",
           "rsvp": "",
           "position": "Wing",
           "jersey": "92",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215658047",
-          "name": "Veronica Haertling",
-          "rsvp": "",
-          "position": "Wing",
-          "jersey": "83",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215525763",
-          "name": "Keith Kriesberg",
-          "rsvp": "",
-          "position": "Wing",
-          "jersey": "0",
           "team": "CAHL D"
         },
         {
@@ -1039,115 +1167,11 @@
           "team": "CAHL D"
         },
         {
-          "id": "12215523683",
-          "name": "Cai Lorenz",
-          "rsvp": "",
-          "position": "Wing",
-          "jersey": "0",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215658154",
-          "name": "Lydia Stroul",
-          "rsvp": "",
-          "position": "Wing",
-          "jersey": "42",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215658143",
-          "name": "Ethan Yeazel",
-          "rsvp": "",
-          "position": "Wing",
-          "jersey": "0",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215658050",
-          "name": "Nicholas Flores",
-          "rsvp": "",
-          "position": "Defense",
-          "jersey": "4",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215523017",
-          "name": "Taylor DeCicco",
-          "rsvp": "",
-          "position": "Defense",
-          "jersey": "17",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215658237",
-          "name": "Aaron Foster",
-          "rsvp": "",
-          "position": "Defense",
-          "jersey": "0",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215658156",
-          "name": "Luke Marshall",
-          "rsvp": "",
-          "position": "Defense",
-          "jersey": "0",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215525769",
-          "name": "TJ Nocar",
-          "rsvp": "",
-          "position": "Goalie",
-          "jersey": "33",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215523891",
-          "name": "Will Sullivan",
-          "rsvp": "",
-          "position": "Goalie",
-          "jersey": "12",
-          "team": "CAHL D"
-        },
-        {
           "id": "12215646080",
           "name": "Garett Beltz",
           "rsvp": "",
           "position": "",
           "jersey": "0",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215646273",
-          "name": "Matt Chamblin",
-          "rsvp": "",
-          "position": "",
-          "jersey": "1",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215658239",
-          "name": "Brian Kennedy",
-          "rsvp": "",
-          "position": "",
-          "jersey": "0",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215524001",
-          "name": "William Teater",
-          "rsvp": "",
-          "position": "",
-          "jersey": "25",
-          "team": "CAHL D"
-        },
-        {
-          "id": "12215523893",
-          "name": "Charles Terch",
-          "rsvp": "",
-          "position": "",
-          "jersey": "23",
           "team": "CAHL D"
         },
         {
