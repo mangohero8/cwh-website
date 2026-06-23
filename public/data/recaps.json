@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-23T00:00:03.699808Z",
+  "updated": "2026-06-23T00:30:03.435773Z",
   "recaps": [
     {
       "date": "May 17",
@@ -150,12 +150,12 @@
       "opponent": "Brew Jackets",
       "location": "Chiller North - Rink 3",
       "homeAway": "Away",
-      "score": "0 - 0",
+      "score": "1 - 1",
       "result": "~",
-      "ourScore": 0,
-      "theirScore": 0,
+      "ourScore": 1,
+      "theirScore": 1,
       "headline": "Warriors Come Up Short Against Brew Jackets",
-      "summary": "A 0-0 loss to Brew Jackets."
+      "summary": "A 1-1 loss to Brew Jackets."
     }
   ]
 }

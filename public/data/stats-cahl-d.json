@@ -1,10 +1,30 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-23T00:00:03.273973Z",
+  "updated": "2026-06-23T00:30:03.050434Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
+    {
+      "jersey": "0",
+      "name": "James Benedetto",
+      "pos": "",
+      "gp": 1,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "23",
+      "name": "Charles Terch",
+      "pos": "",
+      "gp": 3,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 0
+    },
     {
       "jersey": "0",
       "name": "Marc Anderson",
@@ -20,16 +40,6 @@
       "name": "Garett Beltz",
       "pos": "",
       "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "James Benedetto",
-      "pos": "",
-      "gp": 1,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -106,16 +116,6 @@
       "pim": 0
     },
     {
-      "jersey": "23",
-      "name": "Charles Terch",
-      "pos": "",
-      "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
       "jersey": "0",
       "name": "Leslie Walker",
       "pos": "",
@@ -141,7 +141,7 @@
       "jersey": "97",
       "name": "Allen Gambrel",
       "pos": "Center",
-      "gp": 4,
+      "gp": 5,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -181,7 +181,7 @@
       "jersey": "0",
       "name": "Keith Kriesberg",
       "pos": "Wing",
-      "gp": 1,
+      "gp": 2,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -290,8 +290,8 @@
       "w": 0,
       "l": 0,
       "otl": 0,
-      "ga": 0,
-      "gaa": "0.0"
+      "ga": 1,
+      "gaa": "1.0"
     },
     {
       "jersey": "12",
@@ -308,11 +308,6 @@
   "stickAndPuck": [
     {
       "rink": "Ice Works",
-      "date": "Monday, June 22",
-      "time": "7:20 PM"
-    },
-    {
-      "rink": "Ice Works",
       "date": "Wednesday, June 24",
       "time": "8:20 PM"
     },
@@ -320,6 +315,11 @@
       "rink": "Ice Haus",
       "date": "Saturday, June 27",
       "time": "9:40 AM"
+    },
+    {
+      "rink": "Dublin 1",
+      "date": "Monday, June 29",
+      "time": "11:30 AM"
     }
   ],
   "dropIn": [
