@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-22T23:30:03.235496Z",
+  "updated": "2026-06-23T00:00:03.699808Z",
   "recaps": [
     {
       "date": "May 17",
@@ -143,6 +143,19 @@
       "theirScore": 2,
       "headline": "Warriors Come Up Short Against Columbus Thunder",
       "summary": "A 2-0 loss to Columbus Thunder."
+    },
+    {
+      "date": "Jun 22",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "opponent": "Brew Jackets",
+      "location": "Chiller North - Rink 3",
+      "homeAway": "Away",
+      "score": "0 - 0",
+      "result": "~",
+      "ourScore": 0,
+      "theirScore": 0,
+      "headline": "Warriors Come Up Short Against Brew Jackets",
+      "summary": "A 0-0 loss to Brew Jackets."
     }
   ]
 }
