@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-23T00:30:03.435288Z",
+  "updated": "2026-06-23T01:00:03.395313Z",
   "playerOfTheWeek": {
     "name": "Jaymes Albright",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -35,6 +35,17 @@
       "pim": 0
     },
     {
+      "name": "Allen Gambrel",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "97",
+      "pos": "Center",
+      "gp": 5,
+      "g": 3,
+      "a": 0,
+      "pts": 3,
+      "pim": 0
+    },
+    {
       "name": "Brent McCreedy",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "68",
@@ -79,6 +90,17 @@
       "pim": 4
     },
     {
+      "name": "Taylor DeCicco",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "17",
+      "pos": "Defense",
+      "gp": 6,
+      "g": 2,
+      "a": 0,
+      "pts": 2,
+      "pim": 0
+    },
+    {
       "name": "Matt Chamblin",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "1",
@@ -98,28 +120,6 @@
       "g": 1,
       "a": 1,
       "pts": 2,
-      "pim": 0
-    },
-    {
-      "name": "John Hopkinson",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "10",
-      "pos": "Center",
-      "gp": 4,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 0
-    },
-    {
-      "name": "John Poffenberger",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "18",
-      "pos": "Wing",
-      "gp": 4,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
       "pim": 0
     }
   ],
@@ -147,6 +147,17 @@
       "pim": 0
     },
     {
+      "name": "Allen Gambrel",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "97",
+      "pos": "Center",
+      "gp": 5,
+      "g": 3,
+      "a": 0,
+      "pts": 3,
+      "pim": 0
+    },
+    {
       "name": "Brent McCreedy",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "68",
@@ -191,6 +202,17 @@
       "pim": 2
     },
     {
+      "name": "Taylor DeCicco",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "17",
+      "pos": "Defense",
+      "gp": 6,
+      "g": 2,
+      "a": 0,
+      "pts": 2,
+      "pim": 0
+    },
+    {
       "name": "Matt Chamblin",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "1",
@@ -211,28 +233,6 @@
       "a": 0,
       "pts": 1,
       "pim": 0
-    },
-    {
-      "name": "John Poffenberger",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "18",
-      "pos": "Wing",
-      "gp": 4,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 0
-    },
-    {
-      "name": "Steven Bowman",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "2",
-      "pos": "Defense",
-      "gp": 2,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 4
     }
   ],
   "topAssists": [
@@ -406,16 +406,6 @@
   ],
   "goalies": [
     {
-      "name": "TJ Nocar",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "33",
-      "gp": 1,
-      "w": 0,
-      "l": 0,
-      "gaa": "1.0",
-      "ga": 1
-    },
-    {
       "name": "David wright",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "0",
@@ -444,6 +434,16 @@
       "l": 1,
       "gaa": "2.7",
       "ga": 8
+    },
+    {
+      "name": "TJ Nocar",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "33",
+      "gp": 1,
+      "w": 1,
+      "l": 0,
+      "gaa": "3.0",
+      "ga": 3
     },
     {
       "name": "Brandon Lorenz",

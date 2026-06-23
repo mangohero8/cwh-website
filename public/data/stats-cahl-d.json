@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-23T00:30:03.050434Z",
+  "updated": "2026-06-23T01:00:02.991567Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -16,10 +16,10 @@
       "pim": 0
     },
     {
-      "jersey": "23",
-      "name": "Charles Terch",
+      "jersey": "0",
+      "name": "Marc Anderson",
       "pos": "",
-      "gp": 3,
+      "gp": 1,
       "g": 0,
       "a": 1,
       "pts": 1,
@@ -27,12 +27,22 @@
     },
     {
       "jersey": "0",
-      "name": "Marc Anderson",
+      "name": "Joseph Jones",
       "pos": "",
       "gp": 1,
       "g": 0,
-      "a": 0,
-      "pts": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "23",
+      "name": "Charles Terch",
+      "pos": "",
+      "gp": 3,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
       "pim": 0
     },
     {
@@ -87,16 +97,6 @@
     },
     {
       "jersey": "0",
-      "name": "Joseph Jones",
-      "pos": "",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
       "name": "Brian Kennedy",
       "pos": "",
       "gp": 2,
@@ -142,9 +142,9 @@
       "name": "Allen Gambrel",
       "pos": "Center",
       "gp": 5,
-      "g": 1,
+      "g": 3,
       "a": 0,
-      "pts": 1,
+      "pts": 3,
       "pim": 0
     },
     {
@@ -154,6 +154,16 @@
       "gp": 4,
       "g": 1,
       "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "42",
+      "name": "Lydia Stroul",
+      "pos": "Wing",
+      "gp": 3,
+      "g": 0,
+      "a": 1,
       "pts": 1,
       "pim": 0
     },
@@ -208,16 +218,6 @@
       "pim": 2
     },
     {
-      "jersey": "42",
-      "name": "Lydia Stroul",
-      "pos": "Wing",
-      "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
       "jersey": "0",
       "name": "Ethan Yeazel",
       "pos": "Wing",
@@ -234,9 +234,9 @@
       "name": "Taylor DeCicco",
       "pos": "Defense",
       "gp": 6,
-      "g": 1,
+      "g": 2,
       "a": 0,
-      "pts": 1,
+      "pts": 2,
       "pim": 0
     },
     {
@@ -287,11 +287,11 @@
       "name": "TJ Nocar",
       "pos": "Goalie",
       "gp": 1,
-      "w": 0,
+      "w": 1,
       "l": 0,
       "otl": 0,
-      "ga": 1,
-      "gaa": "1.0"
+      "ga": 3,
+      "gaa": "3.0"
     },
     {
       "jersey": "12",
