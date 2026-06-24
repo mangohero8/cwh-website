@@ -1,20 +1,20 @@
 {
-  "updated": "2026-06-24T16:00:05.669976Z",
+  "updated": "2026-06-24T16:30:05.835892Z",
   "board_id": "18415137408",
   "events": [
     {
       "id": "12127104886",
-      "name": "CAHL C Game vs Boomer\u2019s Comeback",
-      "date": "2026-06-14",
+      "name": "CAHL C Game vs Tommy O'Bryan's Pub",
+      "date": "2026-07-05",
       "status": "CAHL C",
-      "description": "CAHL C Warriors take on Boomer\u2019s Comeback in a regular season matchup at 5:10 PM. Come out and support the team!"
+      "description": "CAHL C Warriors take on Tommy O'Bryan's Pub in a regular season matchup at 5:00 PM. Come out and support the team!"
     },
     {
       "id": "12127139458",
-      "name": "CAHL D Game vs Brew Jackets",
-      "date": "2026-06-22",
+      "name": "CAHL D Game vs Capybeeras",
+      "date": "2026-06-29",
       "status": "CAHL D",
-      "description": "CAHL D Warriors take on Brew Jackets in a regular season matchup at 8:00 PM. Come out and support the team!"
+      "description": "CAHL D Warriors take on Capybeeras in a regular season matchup at 8:30 PM. Come out and support the team!"
     }
   ]
 }
