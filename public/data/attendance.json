@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T16:45:04.331333Z",
+  "updated": "2026-06-28T16:47:23.081709Z",
   "board_id": "18415594839",
   "games": [
     {
@@ -2686,10 +2686,10 @@
     {
       "game": "Jun 28 \u2014 CAHL C vs Ale'Ers (Home)",
       "totalPlayers": 25,
-      "yes": 11,
+      "yes": 12,
       "no": 3,
       "maybe": 5,
-      "noResponse": 6,
+      "noResponse": 5,
       "lineup": {
         "forwards": [
           {
@@ -2759,6 +2759,14 @@
                 "rsvp": "Yes",
                 "position": "Wing",
                 "jersey": "44",
+                "team": "CAHL C"
+              },
+              {
+                "id": "12215657375",
+                "name": "Alexander Burton",
+                "rsvp": "Yes",
+                "position": "Wing",
+                "jersey": "0",
                 "team": "CAHL C"
               }
             ]
@@ -2907,14 +2915,6 @@
         {
           "id": "12215525046",
           "name": "Benjamin Bezaire",
-          "rsvp": "",
-          "position": "",
-          "jersey": "0",
-          "team": "CAHL C"
-        },
-        {
-          "id": "12215657375",
-          "name": "Alexander Burton",
           "rsvp": "",
           "position": "",
           "jersey": "0",
