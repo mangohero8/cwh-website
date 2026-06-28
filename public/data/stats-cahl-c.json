@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-28T17:30:02.491294Z",
+  "updated": "2026-06-28T18:00:02.485431Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -171,7 +171,7 @@
       "jersey": "27",
       "name": "Robert Carpenter",
       "pos": "Center",
-      "gp": 4,
+      "gp": 5,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -213,7 +213,7 @@
       "jersey": "37",
       "name": "Eric Rohr",
       "pos": "Defense",
-      "gp": 1,
+      "gp": 2,
       "g": 0,
       "a": 1,
       "pts": 1,
