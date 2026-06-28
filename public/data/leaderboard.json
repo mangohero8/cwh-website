@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T18:30:03.425793Z",
+  "updated": "2026-06-28T19:00:03.353456Z",
   "playerOfTheWeek": {
     "name": "Jaymes Albright",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -406,6 +406,16 @@
   ],
   "goalies": [
     {
+      "name": "Michael Bennett",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "50",
+      "gp": 4,
+      "w": 1,
+      "l": 1,
+      "gaa": "1.5",
+      "ga": 6
+    },
+    {
       "name": "David wright",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "0",
@@ -414,16 +424,6 @@
       "l": 1,
       "gaa": "1.5",
       "ga": 3
-    },
-    {
-      "name": "Michael Bennett",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "50",
-      "gp": 3,
-      "w": 1,
-      "l": 1,
-      "gaa": "2.0",
-      "ga": 6
     },
     {
       "name": "Will Sullivan",

@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-28T18:30:02.141560Z",
+  "updated": "2026-06-28T19:00:01.773516Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -181,7 +181,7 @@
       "jersey": "44",
       "name": "Samuel Stanley",
       "pos": "Wing",
-      "gp": 4,
+      "gp": 5,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -245,12 +245,12 @@
       "jersey": "50",
       "name": "Michael Bennett",
       "pos": "Goalie",
-      "gp": 3,
+      "gp": 4,
       "w": 1,
       "l": 1,
       "otl": 1,
       "ga": 6,
-      "gaa": "2.0"
+      "gaa": "1.5"
     },
     {
       "jersey": "0",

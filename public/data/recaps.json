@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T18:30:03.426252Z",
+  "updated": "2026-06-28T19:00:03.353913Z",
   "recaps": [
     {
       "date": "May 17",
@@ -78,6 +78,19 @@
       "theirScore": 4,
       "headline": "Warriors Drop Close One to Two-Cans",
       "summary": "A narrow 4-3 defeat against Two-Cans."
+    },
+    {
+      "date": "Jun 28",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "opponent": "Ale'Ers",
+      "location": "Chiller Dublin - Rink 1",
+      "homeAway": "Home",
+      "score": "0 - 0",
+      "result": "~",
+      "ourScore": 0,
+      "theirScore": 0,
+      "headline": "Warriors Come Up Short Against Ale'Ers",
+      "summary": "A 0-0 loss to Ale'Ers."
     },
     {
       "date": "May 11",
