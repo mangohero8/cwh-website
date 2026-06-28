@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-28T19:30:03.328463Z",
+  "updated": "2026-06-28T20:00:03.980834Z",
   "playerOfTheWeek": {
     "name": "Jaymes Albright",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -9,7 +9,7 @@
     "g": 3,
     "a": 2,
     "pts": 5,
-    "pim": 0
+    "pim": 2
   },
   "topPoints": [
     {
@@ -21,6 +21,17 @@
       "g": 3,
       "a": 2,
       "pts": 5,
+      "pim": 2
+    },
+    {
+      "name": "Will Sullivan",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "12",
+      "pos": "Center",
+      "gp": 7,
+      "g": 3,
+      "a": 1,
+      "pts": 4,
       "pim": 0
     },
     {
@@ -51,17 +62,6 @@
       "jersey": "68",
       "pos": "Wing",
       "gp": 4,
-      "g": 2,
-      "a": 1,
-      "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Will Sullivan",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "12",
-      "pos": "Center",
-      "gp": 7,
       "g": 2,
       "a": 1,
       "pts": 3,
@@ -112,15 +112,15 @@
       "pim": 0
     },
     {
-      "name": "Annabelle Demmon",
+      "name": "Eric Rohr",
       "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "0",
-      "pos": "",
-      "gp": 5,
+      "jersey": "37",
+      "pos": "Defense",
+      "gp": 2,
       "g": 1,
       "a": 1,
       "pts": 2,
-      "pim": 0
+      "pim": 10
     }
   ],
   "topGoals": [
@@ -133,6 +133,17 @@
       "g": 3,
       "a": 2,
       "pts": 5,
+      "pim": 2
+    },
+    {
+      "name": "Will Sullivan",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "12",
+      "pos": "Center",
+      "gp": 7,
+      "g": 3,
+      "a": 1,
+      "pts": 4,
       "pim": 0
     },
     {
@@ -163,17 +174,6 @@
       "jersey": "68",
       "pos": "Wing",
       "gp": 4,
-      "g": 2,
-      "a": 1,
-      "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Will Sullivan",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "12",
-      "pos": "Center",
-      "gp": 7,
       "g": 2,
       "a": 1,
       "pts": 3,
@@ -245,6 +245,17 @@
       "g": 3,
       "a": 2,
       "pts": 5,
+      "pim": 2
+    },
+    {
+      "name": "Will Sullivan",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "12",
+      "pos": "Center",
+      "gp": 7,
+      "g": 3,
+      "a": 1,
+      "pts": 4,
       "pim": 0
     },
     {
@@ -253,17 +264,6 @@
       "jersey": "68",
       "pos": "Wing",
       "gp": 4,
-      "g": 2,
-      "a": 1,
-      "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Will Sullivan",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "12",
-      "pos": "Center",
-      "gp": 7,
       "g": 2,
       "a": 1,
       "pts": 3,
@@ -308,10 +308,10 @@
       "jersey": "37",
       "pos": "Defense",
       "gp": 2,
-      "g": 0,
+      "g": 1,
       "a": 1,
-      "pts": 1,
-      "pim": 0
+      "pts": 2,
+      "pim": 10
     },
     {
       "name": "Annabelle Demmon",
@@ -348,6 +348,17 @@
     }
   ],
   "topPIM": [
+    {
+      "name": "Eric Rohr",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "37",
+      "pos": "Defense",
+      "gp": 2,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 10
+    },
     {
       "name": "Brandon Lorenz",
       "team": "CAHL C - Columbus Warriors CSC",
@@ -391,30 +402,9 @@
       "a": 0,
       "pts": 0,
       "pim": 4
-    },
-    {
-      "name": "Luke Marshall",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "0",
-      "pos": "Defense",
-      "gp": 5,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 4
     }
   ],
   "goalies": [
-    {
-      "name": "Michael Bennett",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "50",
-      "gp": 4,
-      "w": 1,
-      "l": 1,
-      "gaa": "1.5",
-      "ga": 6
-    },
     {
       "name": "David wright",
       "team": "CAHL C - Columbus Warriors CSC",
@@ -434,6 +424,16 @@
       "l": 1,
       "gaa": "2.7",
       "ga": 8
+    },
+    {
+      "name": "Michael Bennett",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "50",
+      "gp": 4,
+      "w": 1,
+      "l": 2,
+      "gaa": "2.8",
+      "ga": 11
     },
     {
       "name": "TJ Nocar",

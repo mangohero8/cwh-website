@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-28T19:30:02.084266Z",
+  "updated": "2026-06-28T20:00:02.623737Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -95,6 +95,16 @@
       "g": 3,
       "a": 2,
       "pts": 5,
+      "pim": 2
+    },
+    {
+      "jersey": "12",
+      "name": "Will Sullivan",
+      "pos": "Center",
+      "gp": 7,
+      "g": 3,
+      "a": 1,
+      "pts": 4,
       "pim": 0
     },
     {
@@ -102,16 +112,6 @@
       "name": "Brent McCreedy",
       "pos": "Wing",
       "gp": 4,
-      "g": 2,
-      "a": 1,
-      "pts": 3,
-      "pim": 0
-    },
-    {
-      "jersey": "12",
-      "name": "Will Sullivan",
-      "pos": "Center",
-      "gp": 7,
       "g": 2,
       "a": 1,
       "pts": 3,
@@ -175,7 +175,7 @@
       "g": 0,
       "a": 0,
       "pts": 0,
-      "pim": 0
+      "pim": 2
     },
     {
       "jersey": "44",
@@ -200,6 +200,16 @@
       "pim": 2
     },
     {
+      "jersey": "37",
+      "name": "Eric Rohr",
+      "pos": "Defense",
+      "gp": 2,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 10
+    },
+    {
       "jersey": "2",
       "name": "Steven Bowman",
       "pos": "Defense",
@@ -208,16 +218,6 @@
       "a": 0,
       "pts": 1,
       "pim": 4
-    },
-    {
-      "jersey": "37",
-      "name": "Eric Rohr",
-      "pos": "Defense",
-      "gp": 2,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
-      "pim": 0
     },
     {
       "jersey": "17",
@@ -247,10 +247,10 @@
       "pos": "Goalie",
       "gp": 4,
       "w": 1,
-      "l": 1,
+      "l": 2,
       "otl": 1,
-      "ga": 6,
-      "gaa": "1.5"
+      "ga": 11,
+      "gaa": "2.8"
     },
     {
       "jersey": "0",
