@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-30T01:00:03.211892Z",
+  "updated": "2026-06-30T01:30:02.956531Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -148,6 +148,26 @@
       "pim": 0
     },
     {
+      "jersey": "92",
+      "name": "James Brown",
+      "pos": "Wing",
+      "gp": 1,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Keith Kriesberg",
+      "pos": "Wing",
+      "gp": 3,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
       "jersey": "0",
       "name": "Alex Vakkur",
       "pos": "Wing",
@@ -168,28 +188,8 @@
       "pim": 0
     },
     {
-      "jersey": "92",
-      "name": "James Brown",
-      "pos": "Wing",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
       "jersey": "83",
       "name": "Veronica Haertling",
-      "pos": "Wing",
-      "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Keith Kriesberg",
       "pos": "Wing",
       "gp": 3,
       "g": 0,
@@ -255,8 +255,8 @@
       "pos": "Defense",
       "gp": 2,
       "g": 0,
-      "a": 0,
-      "pts": 0,
+      "a": 1,
+      "pts": 1,
       "pim": 0
     },
     {
@@ -265,8 +265,8 @@
       "pos": "Defense",
       "gp": 6,
       "g": 0,
-      "a": 0,
-      "pts": 0,
+      "a": 1,
+      "pts": 1,
       "pim": 4
     }
   ],
