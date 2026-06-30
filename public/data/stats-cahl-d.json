@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-30T00:00:03.073194Z",
+  "updated": "2026-06-30T00:30:03.584196Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -161,7 +161,7 @@
       "jersey": "42",
       "name": "Lydia Stroul",
       "pos": "Wing",
-      "gp": 3,
+      "gp": 4,
       "g": 0,
       "a": 1,
       "pts": 1,
@@ -171,7 +171,7 @@
       "jersey": "92",
       "name": "James Brown",
       "pos": "Wing",
-      "gp": 0,
+      "gp": 1,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -191,7 +191,7 @@
       "jersey": "0",
       "name": "Keith Kriesberg",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -221,7 +221,7 @@
       "jersey": "0",
       "name": "Ethan Yeazel",
       "pos": "Wing",
-      "gp": 3,
+      "gp": 4,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -233,7 +233,7 @@
       "jersey": "17",
       "name": "Taylor DeCicco",
       "pos": "Defense",
-      "gp": 6,
+      "gp": 7,
       "g": 2,
       "a": 0,
       "pts": 2,
@@ -263,7 +263,7 @@
       "jersey": "0",
       "name": "Luke Marshall",
       "pos": "Defense",
-      "gp": 5,
+      "gp": 6,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -324,11 +324,6 @@
   ],
   "dropIn": [
     {
-      "rink": "Ice Works",
-      "date": "Monday, June 29",
-      "time": "7:30 PM"
-    },
-    {
       "rink": "North 2",
       "date": "Tuesday, June 30",
       "time": "7:00 PM"
@@ -337,6 +332,11 @@
       "rink": "Easton 2",
       "date": "Friday, July 3",
       "time": "1:00 PM"
+    },
+    {
+      "rink": "North 2",
+      "date": "Sunday, July 5",
+      "time": "11:45 AM"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30T00:00:03.475103Z",
+  "updated": "2026-06-30T00:30:04.027994Z",
   "games": [
     {
       "team": "CAHL C - Columbus Warriors CSC",
@@ -188,8 +188,8 @@
       "opponent": "Capybeeras",
       "location": "Chiller Dublin - Rink 1",
       "homeAway": "Home",
-      "score": "",
-      "result": ""
+      "score": "0 - 0",
+      "result": "~"
     },
     {
       "team": "CAHL D - Columbus Warriors DWB",
