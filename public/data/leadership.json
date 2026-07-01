@@ -1,4 +1,141 @@
 {
-  "updated": "2026-07-01T16:01:04.084456Z",
-  "sections": []
+  "updated": "2026-07-01T16:30:09.185083Z",
+  "board_id": "18415598506",
+  "sections": [
+    {
+      "section": "Coaching Staff",
+      "members": [
+        {
+          "name": "Vacant",
+          "title": "Head Coach",
+          "bio": "",
+          "branch": "",
+          "photo": "",
+          "militaryPhoto": "",
+          "order": 9,
+          "serviceYears": ""
+        },
+        {
+          "name": "Vacant",
+          "title": "Assistant Coach",
+          "bio": "",
+          "branch": "",
+          "photo": "",
+          "militaryPhoto": "",
+          "order": 10,
+          "serviceYears": ""
+        },
+        {
+          "name": "Vacant",
+          "title": "Player Development Specialist",
+          "bio": "",
+          "branch": "",
+          "photo": "",
+          "militaryPhoto": "",
+          "order": 11,
+          "serviceYears": ""
+        },
+        {
+          "name": "Vacant",
+          "title": "Conditioning Coach",
+          "bio": "Volunteer and help guide veterans through their journey toward health, fitness, and hockey readiness.",
+          "branch": "",
+          "photo": "",
+          "militaryPhoto": "",
+          "order": 12,
+          "serviceYears": ""
+        }
+      ]
+    },
+    {
+      "section": "Operations Staff",
+      "members": [
+        {
+          "name": "Robert Carpenter",
+          "title": "I.T Operations",
+          "bio": "",
+          "branch": "Army",
+          "photo": "https://photos.cwh.carp-home.com/leadership/robert-carpenter.jpg",
+          "militaryPhoto": "",
+          "order": 4,
+          "serviceYears": "2007-2017"
+        },
+        {
+          "name": "William Teater",
+          "title": "Content Manager",
+          "bio": "",
+          "branch": "Navy",
+          "photo": "https://photos.cwh.carp-home.com/leadership/teater.jpg",
+          "militaryPhoto": "",
+          "order": 5,
+          "serviceYears": "2016-2023"
+        },
+        {
+          "name": "Brent McCreedy",
+          "title": "Player Representative",
+          "bio": "",
+          "branch": "Marines",
+          "photo": "https://photos.cwh.carp-home.com/leadership/mccreedy.jpg",
+          "militaryPhoto": "",
+          "order": 6,
+          "serviceYears": "2008-2013"
+        },
+        {
+          "name": "Vacant",
+          "title": "Social Media Specialist",
+          "bio": "",
+          "branch": "",
+          "photo": "",
+          "militaryPhoto": "",
+          "order": 7,
+          "serviceYears": ""
+        },
+        {
+          "name": "Vacant",
+          "title": "Volunteer Coordinator",
+          "bio": "",
+          "branch": "",
+          "photo": "",
+          "militaryPhoto": "",
+          "order": 8,
+          "serviceYears": ""
+        }
+      ]
+    },
+    {
+      "section": "Board of Directors",
+      "members": [
+        {
+          "name": "Taylor DeCicco",
+          "title": "President",
+          "bio": "",
+          "branch": "Marines",
+          "photo": "https://photos.cwh.carp-home.com/leadership/decicco.jpg",
+          "militaryPhoto": "",
+          "order": 1,
+          "serviceYears": "2010-2015"
+        },
+        {
+          "name": "Matt Chamblin",
+          "title": "Secretary",
+          "bio": "U.S. Air Force / Ohio Air National Guard",
+          "branch": "Air Force",
+          "photo": "https://photos.cwh.carp-home.com/leadership/chamblin.jpg",
+          "militaryPhoto": "",
+          "order": 2,
+          "serviceYears": "2002-2015"
+        },
+        {
+          "name": "Steven Bowman",
+          "title": "Treasurer",
+          "bio": "",
+          "branch": "Army",
+          "photo": "https://photos.cwh.carp-home.com/leadership/bowman.jpg",
+          "militaryPhoto": "",
+          "order": 3,
+          "serviceYears": "2012-2020"
+        }
+      ]
+    }
+  ]
 }
