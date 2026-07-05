@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-07-05T19:30:01.873298Z",
+  "updated": "2026-07-05T20:00:01.926703Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -131,7 +131,7 @@
       "jersey": "1",
       "name": "Matt Chamblin",
       "pos": "Wing",
-      "gp": 4,
+      "gp": 5,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -245,12 +245,12 @@
       "jersey": "50",
       "name": "Michael Bennett",
       "pos": "Goalie",
-      "gp": 4,
+      "gp": 5,
       "w": 1,
       "l": 2,
       "otl": 1,
       "ga": 11,
-      "gaa": "2.8"
+      "gaa": "2.2"
     },
     {
       "jersey": "0",

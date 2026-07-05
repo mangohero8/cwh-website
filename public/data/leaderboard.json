@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T19:30:03.159967Z",
+  "updated": "2026-07-05T20:00:03.224511Z",
   "playerOfTheWeek": {
     "name": "Jaymes Albright",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -105,7 +105,7 @@
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "1",
       "pos": "Wing",
-      "gp": 4,
+      "gp": 5,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -217,7 +217,7 @@
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "1",
       "pos": "Wing",
-      "gp": 4,
+      "gp": 5,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -274,7 +274,7 @@
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "1",
       "pos": "Wing",
-      "gp": 4,
+      "gp": 5,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -416,6 +416,16 @@
       "ga": 3
     },
     {
+      "name": "Michael Bennett",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "50",
+      "gp": 5,
+      "w": 1,
+      "l": 2,
+      "gaa": "2.2",
+      "ga": 11
+    },
+    {
       "name": "Will Sullivan",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "12",
@@ -424,16 +434,6 @@
       "l": 1,
       "gaa": "2.7",
       "ga": 8
-    },
-    {
-      "name": "Michael Bennett",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "50",
-      "gp": 4,
-      "w": 1,
-      "l": 2,
-      "gaa": "2.8",
-      "ga": 11
     },
     {
       "name": "TJ Nocar",
