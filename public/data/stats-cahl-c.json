@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-07-05T21:30:01.930888Z",
+  "updated": "2026-07-05T22:00:02.056079Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -118,6 +118,16 @@
       "pim": 0
     },
     {
+      "jersey": "10",
+      "name": "John Hopkinson",
+      "pos": "Center",
+      "gp": 6,
+      "g": 1,
+      "a": 2,
+      "pts": 3,
+      "pim": 0
+    },
+    {
       "jersey": "88",
       "name": "Brandon Lorenz",
       "pos": "Wing",
@@ -132,16 +142,6 @@
       "name": "Matt Chamblin",
       "pos": "Wing",
       "gp": 5,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 0
-    },
-    {
-      "jersey": "10",
-      "name": "John Hopkinson",
-      "pos": "Center",
-      "gp": 6,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -194,9 +194,9 @@
       "name": "DOUGLAS HOYT",
       "pos": "Defense",
       "gp": 6,
-      "g": 3,
+      "g": 4,
       "a": 1,
-      "pts": 4,
+      "pts": 5,
       "pim": 2
     },
     {
@@ -249,8 +249,8 @@
       "w": 1,
       "l": 3,
       "otl": 1,
-      "ga": 13,
-      "gaa": "2.6"
+      "ga": 15,
+      "gaa": "3.0"
     },
     {
       "jersey": "0",
