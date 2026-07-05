@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-07-05T21:00:02.455399Z",
+  "updated": "2026-07-05T21:30:01.930888Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -143,8 +143,8 @@
       "pos": "Center",
       "gp": 6,
       "g": 1,
-      "a": 0,
-      "pts": 1,
+      "a": 1,
+      "pts": 2,
       "pim": 0
     },
     {
@@ -194,9 +194,9 @@
       "name": "DOUGLAS HOYT",
       "pos": "Defense",
       "gp": 6,
-      "g": 2,
+      "g": 3,
       "a": 1,
-      "pts": 3,
+      "pts": 4,
       "pim": 2
     },
     {
@@ -247,10 +247,10 @@
       "pos": "Goalie",
       "gp": 5,
       "w": 1,
-      "l": 2,
+      "l": 3,
       "otl": 1,
-      "ga": 11,
-      "gaa": "2.2"
+      "ga": 13,
+      "gaa": "2.6"
     },
     {
       "jersey": "0",
