@@ -1,5 +1,20 @@
 {
-  "updated": "2026-07-06T13:30:04.182283Z",
-  "events": [],
-  "note": "Create an 'Events' board in Monday.com to populate"
+  "updated": "2026-07-06T14:00:09.162567Z",
+  "board_id": "18415137408",
+  "events": [
+    {
+      "id": "12127104886",
+      "name": "CAHL C Game vs Tommy O'Bryan's Pub",
+      "date": "2026-07-05",
+      "status": "CAHL C",
+      "description": "CAHL C Warriors take on Tommy O'Bryan's Pub in a regular season matchup at 5:00 PM. Come out and support the team!"
+    },
+    {
+      "id": "12127139458",
+      "name": "CAHL D Game vs Capybeeras",
+      "date": "2026-06-29",
+      "status": "CAHL D",
+      "description": "CAHL D Warriors take on Capybeeras in a regular season matchup at 8:30 PM. Come out and support the team!"
+    }
+  ]
 }
