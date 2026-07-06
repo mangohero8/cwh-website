@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-07-06T22:30:03.182902Z",
+  "updated": "2026-07-06T23:00:03.430910Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -171,7 +171,7 @@
       "jersey": "0",
       "name": "Alex Vakkur",
       "pos": "Wing",
-      "gp": 5,
+      "gp": 6,
       "g": 1,
       "a": 0,
       "pts": 1,
@@ -253,7 +253,7 @@
       "jersey": "0",
       "name": "Aaron Foster",
       "pos": "Defense",
-      "gp": 2,
+      "gp": 3,
       "g": 0,
       "a": 1,
       "pts": 1,
