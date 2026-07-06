@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T23:30:08.422590Z",
+  "updated": "2026-07-06T00:00:08.963145Z",
   "board_id": "18415598506",
   "sections": [
     {
@@ -51,16 +51,6 @@
       "section": "Operations Staff",
       "members": [
         {
-          "name": "Robert Carpenter",
-          "title": "I.T Operations",
-          "bio": "",
-          "branch": "Army",
-          "photo": "https://photos.cwh.carp-home.com/leadership/robert-carpenter.jpg",
-          "militaryPhoto": "",
-          "order": 4,
-          "serviceYears": "2007-2017"
-        },
-        {
           "name": "William Teater",
           "title": "Content Manager",
           "bio": "",
@@ -109,31 +99,41 @@
           "name": "Matt Chamblin",
           "title": "President",
           "bio": "U.S. Air Force / Ohio Air National Guard",
-          "branch": "Marines",
-          "photo": "https://photos.cwh.carp-home.com/leadership/decicco.jpg",
+          "branch": "Air Force",
+          "photo": "",
           "militaryPhoto": "",
           "order": 1,
           "serviceYears": "2010-2015"
         },
         {
-          "name": "Matt Chamblin",
-          "title": "Secretary",
-          "bio": "U.S. Air Force / Ohio Air National Guard",
-          "branch": "Air Force",
-          "photo": "https://photos.cwh.carp-home.com/leadership/chamblin.jpg",
+          "name": "Steven Bowman",
+          "title": "Vice President",
+          "bio": "",
+          "branch": "Army",
+          "photo": "https://photos.cwh.carp-home.com/leadership/bowman.jpg",
           "militaryPhoto": "",
           "order": 2,
           "serviceYears": "2002-2015"
         },
         {
-          "name": "Steven Bowman",
+          "name": "Gerald Fedorko",
+          "title": "Secretary",
+          "bio": "",
+          "branch": "Army",
+          "photo": "",
+          "militaryPhoto": "",
+          "order": 3,
+          "serviceYears": ""
+        },
+        {
+          "name": "Robert Carpenter",
           "title": "Treasurer",
           "bio": "",
           "branch": "Army",
-          "photo": "https://photos.cwh.carp-home.com/leadership/bowman.jpg",
+          "photo": "https://photos.cwh.carp-home.com/leadership/robert-carpenter.jpg",
           "militaryPhoto": "",
-          "order": 3,
-          "serviceYears": "2012-2020"
+          "order": 4,
+          "serviceYears": "2007-2017"
         }
       ]
     }
