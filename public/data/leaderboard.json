@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-07T00:30:03.687152Z",
+  "updated": "2026-07-07T01:00:03.441384Z",
   "playerOfTheWeek": {
     "name": "DOUGLAS HOYT",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -416,16 +416,6 @@
       "ga": 3
     },
     {
-      "name": "TJ Nocar",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "33",
-      "gp": 2,
-      "w": 2,
-      "l": 0,
-      "gaa": "2.0",
-      "ga": 4
-    },
-    {
       "name": "Will Sullivan",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "12",
@@ -444,6 +434,16 @@
       "l": 3,
       "gaa": "3.0",
       "ga": 15
+    },
+    {
+      "name": "TJ Nocar",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "33",
+      "gp": 2,
+      "w": 2,
+      "l": 0,
+      "gaa": "3.5",
+      "ga": 7
     },
     {
       "name": "Brandon Lorenz",
