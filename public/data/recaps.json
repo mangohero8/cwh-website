@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-07T00:00:03.827051Z",
+  "updated": "2026-07-07T00:30:03.687639Z",
   "recaps": [
     {
       "date": "May 17",
@@ -202,12 +202,12 @@
       "opponent": "The Neptunes",
       "location": "Chiller Dublin - Rink 1",
       "homeAway": "Away",
-      "score": "0 - 0",
+      "score": "1 - 5",
       "result": "~",
-      "ourScore": 0,
-      "theirScore": 0,
+      "ourScore": 5,
+      "theirScore": 1,
       "headline": "Warriors Come Up Short Against The Neptunes",
-      "summary": "A 0-0 loss to The Neptunes."
+      "summary": "A 1-5 loss to The Neptunes."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-07-07T00:00:03.417640Z",
+  "updated": "2026-07-07T00:30:03.280416Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -132,9 +132,9 @@
       "name": "Wyatt Beltz",
       "pos": "Center",
       "gp": 6,
-      "g": 3,
-      "a": 0,
-      "pts": 3,
+      "g": 4,
+      "a": 1,
+      "pts": 5,
       "pim": 0
     },
     {
@@ -142,9 +142,9 @@
       "name": "Allen Gambrel",
       "pos": "Center",
       "gp": 7,
-      "g": 3,
+      "g": 4,
       "a": 0,
-      "pts": 3,
+      "pts": 4,
       "pim": 0
     },
     {
@@ -152,9 +152,19 @@
       "name": "James Brown",
       "pos": "Wing",
       "gp": 2,
-      "g": 1,
+      "g": 3,
       "a": 0,
-      "pts": 1,
+      "pts": 3,
+      "pim": 0
+    },
+    {
+      "jersey": "42",
+      "name": "Lydia Stroul",
+      "pos": "Wing",
+      "gp": 5,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
       "pim": 0
     },
     {
@@ -174,16 +184,6 @@
       "gp": 6,
       "g": 1,
       "a": 0,
-      "pts": 1,
-      "pim": 0
-    },
-    {
-      "jersey": "42",
-      "name": "Lydia Stroul",
-      "pos": "Wing",
-      "gp": 5,
-      "g": 0,
-      "a": 1,
       "pts": 1,
       "pim": 0
     },
@@ -287,11 +287,11 @@
       "name": "TJ Nocar",
       "pos": "Goalie",
       "gp": 2,
-      "w": 1,
+      "w": 2,
       "l": 0,
       "otl": 0,
-      "ga": 3,
-      "gaa": "1.5"
+      "ga": 4,
+      "gaa": "2.0"
     },
     {
       "jersey": "12",

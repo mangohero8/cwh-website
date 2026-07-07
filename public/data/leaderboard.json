@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-07T00:00:03.826599Z",
+  "updated": "2026-07-07T00:30:03.687152Z",
   "playerOfTheWeek": {
     "name": "DOUGLAS HOYT",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -24,6 +24,17 @@
       "pim": 2
     },
     {
+      "name": "Wyatt Beltz",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "13",
+      "pos": "Center",
+      "gp": 6,
+      "g": 4,
+      "a": 1,
+      "pts": 5,
+      "pim": 0
+    },
+    {
       "name": "Jaymes Albright",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "55",
@@ -33,6 +44,17 @@
       "a": 2,
       "pts": 5,
       "pim": 2
+    },
+    {
+      "name": "Allen Gambrel",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "97",
+      "pos": "Center",
+      "gp": 7,
+      "g": 4,
+      "a": 0,
+      "pts": 4,
+      "pim": 0
     },
     {
       "name": "Will Sullivan",
@@ -46,22 +68,11 @@
       "pim": 0
     },
     {
-      "name": "Wyatt Beltz",
+      "name": "James Brown",
       "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "13",
-      "pos": "Center",
-      "gp": 6,
-      "g": 3,
-      "a": 0,
-      "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Allen Gambrel",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "97",
-      "pos": "Center",
-      "gp": 7,
+      "jersey": "92",
+      "pos": "Wing",
+      "gp": 2,
       "g": 3,
       "a": 0,
       "pts": 3,
@@ -108,17 +119,6 @@
       "gp": 8,
       "g": 2,
       "a": 0,
-      "pts": 2,
-      "pim": 0
-    },
-    {
-      "name": "Matt Chamblin",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "1",
-      "pos": "Wing",
-      "gp": 5,
-      "g": 1,
-      "a": 1,
       "pts": 2,
       "pim": 0
     }
@@ -136,6 +136,28 @@
       "pim": 2
     },
     {
+      "name": "Wyatt Beltz",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "13",
+      "pos": "Center",
+      "gp": 6,
+      "g": 4,
+      "a": 1,
+      "pts": 5,
+      "pim": 0
+    },
+    {
+      "name": "Allen Gambrel",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "97",
+      "pos": "Center",
+      "gp": 7,
+      "g": 4,
+      "a": 0,
+      "pts": 4,
+      "pim": 0
+    },
+    {
       "name": "Jaymes Albright",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "55",
@@ -158,22 +180,11 @@
       "pim": 0
     },
     {
-      "name": "Wyatt Beltz",
+      "name": "James Brown",
       "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "13",
-      "pos": "Center",
-      "gp": 6,
-      "g": 3,
-      "a": 0,
-      "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Allen Gambrel",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "97",
-      "pos": "Center",
-      "gp": 7,
+      "jersey": "92",
+      "pos": "Wing",
+      "gp": 2,
       "g": 3,
       "a": 0,
       "pts": 3,
@@ -221,17 +232,6 @@
       "g": 1,
       "a": 2,
       "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Matt Chamblin",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "1",
-      "pos": "Wing",
-      "gp": 5,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
       "pim": 0
     }
   ],
@@ -420,10 +420,10 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "33",
       "gp": 2,
-      "w": 1,
+      "w": 2,
       "l": 0,
-      "gaa": "1.5",
-      "ga": 3
+      "gaa": "2.0",
+      "ga": 4
     },
     {
       "name": "Will Sullivan",
