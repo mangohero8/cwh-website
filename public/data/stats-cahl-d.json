@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-07-08T01:30:03.291852Z",
+  "updated": "2026-07-08T02:00:03.295851Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -307,11 +307,6 @@
   ],
   "stickAndPuck": [
     {
-      "rink": "Easton 2",
-      "date": "Tuesday, July 7",
-      "time": "9:00 PM"
-    },
-    {
       "rink": "Dublin 1",
       "date": "Wednesday, July 8",
       "time": "11:15 AM"
@@ -320,6 +315,11 @@
       "rink": "Ice Works",
       "date": "Wednesday, July 8",
       "time": "8:20 PM"
+    },
+    {
+      "rink": "North 2",
+      "date": "Friday, July 10",
+      "time": "11:30 AM"
     }
   ],
   "dropIn": [
