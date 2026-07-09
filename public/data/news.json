@@ -1,5 +1,16 @@
 {
-  "updated": "2026-07-09T09:00:07.792035Z",
+  "updated": "2026-07-09T09:30:05.236472Z",
   "board_id": "18415137335",
-  "articles": []
+  "articles": [
+    {
+      "id": "12127190966",
+      "title": "CWH Website Goes Live \u2014 New Custom Platform Launches",
+      "created": "2026-05-28T13:38:39Z",
+      "updated": "2026-05-29T02:19:52Z",
+      "status": "Published",
+      "date": "2026-05-28",
+      "excerpt": "Columbus Warrior Hockey is proud to announce the launch of our new custom website, featuring live ChillerStats integration, team rosters, and automated player onboarding.",
+      "link": "cwh.carp-home.com - https://cwh.carp-home.com"
+    }
+  ]
 }
