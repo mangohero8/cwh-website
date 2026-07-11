@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-07-11T23:00:02.436616Z",
+  "updated": "2026-07-11T23:30:02.227479Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -78,6 +78,16 @@
     {
       "jersey": "0",
       "name": "Kenzie Kattich",
+      "pos": "",
+      "gp": 0,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Chip Miller",
       "pos": "",
       "gp": 0,
       "g": 0,
