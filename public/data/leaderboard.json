@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-12T20:30:03.624091Z",
+  "updated": "2026-07-12T21:00:03.147672Z",
   "playerOfTheWeek": {
     "name": "DOUGLAS HOYT",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -98,7 +98,7 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 4
+      "pim": 6
     },
     {
       "name": "Brent McCreedy",
@@ -210,7 +210,7 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 4
+      "pim": 6
     },
     {
       "name": "Brent McCreedy",
@@ -278,7 +278,7 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 4
+      "pim": 6
     },
     {
       "name": "Brent McCreedy",
@@ -368,7 +368,7 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 4
+      "pim": 6
     },
     {
       "name": "Steven Bowman",
@@ -416,16 +416,6 @@
       "ga": 3
     },
     {
-      "name": "Michael Bennett",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "50",
-      "gp": 6,
-      "w": 2,
-      "l": 3,
-      "gaa": "2.7",
-      "ga": 16
-    },
-    {
       "name": "Will Sullivan",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "12",
@@ -434,6 +424,16 @@
       "l": 1,
       "gaa": "2.7",
       "ga": 8
+    },
+    {
+      "name": "Michael Bennett",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "50",
+      "gp": 6,
+      "w": 1,
+      "l": 3,
+      "gaa": "2.8",
+      "ga": 17
     },
     {
       "name": "TJ Nocar",
