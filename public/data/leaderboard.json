@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-12T20:00:03.299596Z",
+  "updated": "2026-07-12T20:30:03.624091Z",
   "playerOfTheWeek": {
     "name": "DOUGLAS HOYT",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -68,6 +68,17 @@
       "pim": 0
     },
     {
+      "name": "John Hopkinson",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "10",
+      "pos": "Center",
+      "gp": 7,
+      "g": 2,
+      "a": 2,
+      "pts": 4,
+      "pim": 0
+    },
+    {
       "name": "James Brown",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "92",
@@ -79,6 +90,17 @@
       "pim": 0
     },
     {
+      "name": "Brandon Lorenz",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "88",
+      "pos": "Wing",
+      "gp": 6,
+      "g": 2,
+      "a": 1,
+      "pts": 3,
+      "pim": 4
+    },
+    {
       "name": "Brent McCreedy",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "68",
@@ -88,28 +110,6 @@
       "a": 1,
       "pts": 3,
       "pim": 0
-    },
-    {
-      "name": "John Hopkinson",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "10",
-      "pos": "Center",
-      "gp": 7,
-      "g": 1,
-      "a": 2,
-      "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Brandon Lorenz",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "88",
-      "pos": "Wing",
-      "gp": 6,
-      "g": 2,
-      "a": 0,
-      "pts": 2,
-      "pim": 4
     },
     {
       "name": "Taylor DeCicco",
@@ -191,6 +191,28 @@
       "pim": 0
     },
     {
+      "name": "John Hopkinson",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "10",
+      "pos": "Center",
+      "gp": 7,
+      "g": 2,
+      "a": 2,
+      "pts": 4,
+      "pim": 0
+    },
+    {
+      "name": "Brandon Lorenz",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "88",
+      "pos": "Wing",
+      "gp": 6,
+      "g": 2,
+      "a": 1,
+      "pts": 3,
+      "pim": 4
+    },
+    {
       "name": "Brent McCreedy",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "68",
@@ -202,17 +224,6 @@
       "pim": 0
     },
     {
-      "name": "Brandon Lorenz",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "88",
-      "pos": "Wing",
-      "gp": 6,
-      "g": 2,
-      "a": 0,
-      "pts": 2,
-      "pim": 4
-    },
-    {
       "name": "Taylor DeCicco",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "17",
@@ -221,17 +232,6 @@
       "g": 2,
       "a": 0,
       "pts": 2,
-      "pim": 0
-    },
-    {
-      "name": "John Hopkinson",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "10",
-      "pos": "Center",
-      "gp": 7,
-      "g": 1,
-      "a": 2,
-      "pts": 3,
       "pim": 0
     }
   ],
@@ -253,9 +253,9 @@
       "jersey": "10",
       "pos": "Center",
       "gp": 7,
-      "g": 1,
+      "g": 2,
       "a": 2,
-      "pts": 3,
+      "pts": 4,
       "pim": 0
     },
     {
@@ -268,6 +268,17 @@
       "a": 1,
       "pts": 4,
       "pim": 0
+    },
+    {
+      "name": "Brandon Lorenz",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "88",
+      "pos": "Wing",
+      "gp": 6,
+      "g": 2,
+      "a": 1,
+      "pts": 3,
+      "pim": 4
     },
     {
       "name": "Brent McCreedy",
@@ -286,6 +297,17 @@
       "jersey": "1",
       "pos": "Wing",
       "gp": 6,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 2
+    },
+    {
+      "name": "John Poffenberger",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "18",
+      "pos": "Wing",
+      "gp": 7,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -323,28 +345,6 @@
       "a": 1,
       "pts": 2,
       "pim": 10
-    },
-    {
-      "name": "Annabelle Demmon",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "0",
-      "pos": "",
-      "gp": 7,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 0
-    },
-    {
-      "name": "Alexander Burton",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "0",
-      "pos": "",
-      "gp": 7,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
-      "pim": 0
     }
   ],
   "topPIM": [
@@ -366,8 +366,8 @@
       "pos": "Wing",
       "gp": 6,
       "g": 2,
-      "a": 0,
-      "pts": 2,
+      "a": 1,
+      "pts": 3,
       "pim": 4
     },
     {
@@ -420,10 +420,10 @@
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "50",
       "gp": 6,
-      "w": 1,
+      "w": 2,
       "l": 3,
-      "gaa": "2.5",
-      "ga": 15
+      "gaa": "2.7",
+      "ga": 16
     },
     {
       "name": "Will Sullivan",
