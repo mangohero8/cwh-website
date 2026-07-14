@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T23:30:03.645506Z",
+  "updated": "2026-07-14T00:00:03.547059Z",
   "playerOfTheWeek": {
     "name": "DOUGLAS HOYT",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -50,7 +50,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "97",
       "pos": "Center",
-      "gp": 7,
+      "gp": 8,
       "g": 4,
       "a": 0,
       "pts": 4,
@@ -116,7 +116,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "17",
       "pos": "Defense",
-      "gp": 8,
+      "gp": 9,
       "g": 2,
       "a": 0,
       "pts": 2,
@@ -151,7 +151,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "97",
       "pos": "Center",
-      "gp": 7,
+      "gp": 8,
       "g": 4,
       "a": 0,
       "pts": 4,
@@ -228,7 +228,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "17",
       "pos": "Defense",
-      "gp": 8,
+      "gp": 9,
       "g": 2,
       "a": 0,
       "pts": 2,
@@ -416,6 +416,16 @@
       "ga": 3
     },
     {
+      "name": "TJ Nocar",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "33",
+      "gp": 3,
+      "w": 2,
+      "l": 0,
+      "gaa": "2.3",
+      "ga": 7
+    },
+    {
       "name": "Will Sullivan",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "12",
@@ -434,16 +444,6 @@
       "l": 3,
       "gaa": "2.8",
       "ga": 17
-    },
-    {
-      "name": "TJ Nocar",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "33",
-      "gp": 2,
-      "w": 2,
-      "l": 0,
-      "gaa": "3.5",
-      "ga": 7
     },
     {
       "name": "Brandon Lorenz",
