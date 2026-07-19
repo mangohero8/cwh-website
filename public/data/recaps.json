@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T20:00:04.044340Z",
+  "updated": "2026-07-19T20:30:03.442854Z",
   "recaps": [
     {
       "date": "May 17",
@@ -117,6 +117,19 @@
       "theirScore": 3,
       "headline": "Warriors Drop Close One to Hive",
       "summary": "A narrow 3-2 defeat against Hive."
+    },
+    {
+      "date": "Jul 19",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "opponent": "Lucky Pucks",
+      "location": "Chiller Easton - Rink 1",
+      "homeAway": "Home",
+      "score": "0 - 0",
+      "result": "~",
+      "ourScore": 0,
+      "theirScore": 0,
+      "headline": "Warriors Come Up Short Against Lucky Pucks",
+      "summary": "A 0-0 loss to Lucky Pucks."
     },
     {
       "date": "May 11",
