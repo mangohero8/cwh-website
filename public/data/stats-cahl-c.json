@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-07-19T21:00:01.858941Z",
+  "updated": "2026-07-19T21:30:01.830753Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -10,6 +10,16 @@
       "name": "Annabelle Demmon",
       "pos": "",
       "gp": 7,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "21",
+      "name": "Gerald Fedorko",
+      "pos": "",
+      "gp": 3,
       "g": 1,
       "a": 1,
       "pts": 2,
@@ -40,16 +50,6 @@
       "name": "Alexander Burton",
       "pos": "",
       "gp": 8,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
-      "pim": 0
-    },
-    {
-      "jersey": "21",
-      "name": "Gerald Fedorko",
-      "pos": "",
-      "gp": 3,
       "g": 0,
       "a": 1,
       "pts": 1,
@@ -115,7 +115,7 @@
       "g": 3,
       "a": 1,
       "pts": 4,
-      "pim": 0
+      "pim": 4
     },
     {
       "jersey": "10",
@@ -133,9 +133,19 @@
       "pos": "Wing",
       "gp": 7,
       "g": 2,
+      "a": 2,
+      "pts": 4,
+      "pim": 8
+    },
+    {
+      "jersey": "1",
+      "name": "Matt Chamblin",
+      "pos": "Wing",
+      "gp": 7,
+      "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 6
+      "pim": 2
     },
     {
       "jersey": "68",
@@ -146,16 +156,6 @@
       "a": 1,
       "pts": 3,
       "pim": 0
-    },
-    {
-      "jersey": "1",
-      "name": "Matt Chamblin",
-      "pos": "Wing",
-      "gp": 7,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 2
     },
     {
       "jersey": "18",
@@ -178,6 +178,16 @@
       "pim": 0
     },
     {
+      "jersey": "27",
+      "name": "Robert Carpenter",
+      "pos": "Center",
+      "gp": 6,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 2
+    },
+    {
       "jersey": "99",
       "name": "John Crouse",
       "pos": "Wing",
@@ -186,16 +196,6 @@
       "a": 1,
       "pts": 1,
       "pim": 0
-    },
-    {
-      "jersey": "27",
-      "name": "Robert Carpenter",
-      "pos": "Center",
-      "gp": 6,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 2
     }
   ],
   "defense": [
@@ -204,10 +204,10 @@
       "name": "Douglas Hoyt",
       "pos": "Defense",
       "gp": 7,
-      "g": 4,
-      "a": 2,
-      "pts": 6,
-      "pim": 2
+      "g": 5,
+      "a": 3,
+      "pts": 8,
+      "pim": 4
     },
     {
       "jersey": "33",
@@ -259,8 +259,8 @@
       "w": 2,
       "l": 3,
       "otl": 2,
-      "ga": 18,
-      "gaa": "2.6"
+      "ga": 19,
+      "gaa": "2.7"
     },
     {
       "jersey": "0",

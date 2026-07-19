@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-19T21:00:03.157319Z",
+  "updated": "2026-07-19T21:30:03.233313Z",
   "playerOfTheWeek": {
     "name": "Douglas Hoyt",
     "team": "CAHL C - Columbus Warriors CSC",
     "jersey": "6",
     "pos": "Defense",
     "gp": 7,
-    "g": 4,
-    "a": 2,
-    "pts": 6,
-    "pim": 2
+    "g": 5,
+    "a": 3,
+    "pts": 8,
+    "pim": 4
   },
   "topPoints": [
     {
@@ -18,10 +18,10 @@
       "jersey": "6",
       "pos": "Defense",
       "gp": 7,
-      "g": 4,
-      "a": 2,
-      "pts": 6,
-      "pim": 2
+      "g": 5,
+      "a": 3,
+      "pts": 8,
+      "pim": 4
     },
     {
       "name": "Wyatt Beltz",
@@ -65,7 +65,7 @@
       "g": 3,
       "a": 1,
       "pts": 4,
-      "pim": 0
+      "pim": 4
     },
     {
       "name": "John Hopkinson",
@@ -79,6 +79,17 @@
       "pim": 0
     },
     {
+      "name": "Brandon Lorenz",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "88",
+      "pos": "Wing",
+      "gp": 7,
+      "g": 2,
+      "a": 2,
+      "pts": 4,
+      "pim": 8
+    },
+    {
       "name": "James Brown",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "92",
@@ -90,15 +101,15 @@
       "pim": 0
     },
     {
-      "name": "Brandon Lorenz",
+      "name": "Matt Chamblin",
       "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "88",
+      "jersey": "1",
       "pos": "Wing",
       "gp": 7,
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 6
+      "pim": 2
     },
     {
       "name": "Brent McCreedy",
@@ -109,17 +120,6 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 0
-    },
-    {
-      "name": "Taylor DeCicco",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "17",
-      "pos": "Defense",
-      "gp": 9,
-      "g": 2,
-      "a": 0,
-      "pts": 2,
       "pim": 0
     }
   ],
@@ -130,10 +130,10 @@
       "jersey": "6",
       "pos": "Defense",
       "gp": 7,
-      "g": 4,
-      "a": 2,
-      "pts": 6,
-      "pim": 2
+      "g": 5,
+      "a": 3,
+      "pts": 8,
+      "pim": 4
     },
     {
       "name": "Wyatt Beltz",
@@ -177,7 +177,7 @@
       "g": 3,
       "a": 1,
       "pts": 4,
-      "pim": 0
+      "pim": 4
     },
     {
       "name": "James Brown",
@@ -208,9 +208,20 @@
       "pos": "Wing",
       "gp": 7,
       "g": 2,
+      "a": 2,
+      "pts": 4,
+      "pim": 8
+    },
+    {
+      "name": "Matt Chamblin",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "1",
+      "pos": "Wing",
+      "gp": 7,
+      "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 6
+      "pim": 2
     },
     {
       "name": "Brent McCreedy",
@@ -222,20 +233,20 @@
       "a": 1,
       "pts": 3,
       "pim": 0
-    },
-    {
-      "name": "Taylor DeCicco",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "17",
-      "pos": "Defense",
-      "gp": 9,
-      "g": 2,
-      "a": 0,
-      "pts": 2,
-      "pim": 0
     }
   ],
   "topAssists": [
+    {
+      "name": "Douglas Hoyt",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "6",
+      "pos": "Defense",
+      "gp": 7,
+      "g": 5,
+      "a": 3,
+      "pts": 8,
+      "pim": 4
+    },
     {
       "name": "Jaymes Albright",
       "team": "CAHL C - Columbus Warriors CSC",
@@ -259,15 +270,15 @@
       "pim": 0
     },
     {
-      "name": "Douglas Hoyt",
+      "name": "Brandon Lorenz",
       "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "6",
-      "pos": "Defense",
+      "jersey": "88",
+      "pos": "Wing",
       "gp": 7,
-      "g": 4,
+      "g": 2,
       "a": 2,
-      "pts": 6,
-      "pim": 2
+      "pts": 4,
+      "pim": 8
     },
     {
       "name": "Will Sullivan",
@@ -278,18 +289,18 @@
       "g": 3,
       "a": 1,
       "pts": 4,
-      "pim": 0
+      "pim": 4
     },
     {
-      "name": "Brandon Lorenz",
+      "name": "Matt Chamblin",
       "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "88",
+      "jersey": "1",
       "pos": "Wing",
       "gp": 7,
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 6
+      "pim": 2
     },
     {
       "name": "Brent McCreedy",
@@ -301,17 +312,6 @@
       "a": 1,
       "pts": 3,
       "pim": 0
-    },
-    {
-      "name": "Matt Chamblin",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "1",
-      "pos": "Wing",
-      "gp": 7,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 2
     },
     {
       "name": "John Poffenberger",
@@ -336,15 +336,15 @@
       "pim": 0
     },
     {
-      "name": "John Crouse",
+      "name": "Robert Carpenter",
       "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "99",
-      "pos": "Wing",
+      "jersey": "27",
+      "pos": "Center",
       "gp": 6,
       "g": 0,
       "a": 1,
       "pts": 1,
-      "pim": 0
+      "pim": 2
     }
   ],
   "topPIM": [
@@ -366,9 +366,31 @@
       "pos": "Wing",
       "gp": 7,
       "g": 2,
+      "a": 2,
+      "pts": 4,
+      "pim": 8
+    },
+    {
+      "name": "Will Sullivan",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "12",
+      "pos": "Center",
+      "gp": 9,
+      "g": 3,
       "a": 1,
-      "pts": 3,
-      "pim": 6
+      "pts": 4,
+      "pim": 4
+    },
+    {
+      "name": "Douglas Hoyt",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "6",
+      "pos": "Defense",
+      "gp": 7,
+      "g": 5,
+      "a": 3,
+      "pts": 8,
+      "pim": 4
     },
     {
       "name": "Steven Bowman",
@@ -379,28 +401,6 @@
       "g": 1,
       "a": 0,
       "pts": 1,
-      "pim": 4
-    },
-    {
-      "name": "Gavin Gould",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "0",
-      "pos": "",
-      "gp": 1,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
-      "pim": 4
-    },
-    {
-      "name": "Ethan Yeazel",
-      "team": "CAHL D - Columbus Warriors DWB",
-      "jersey": "0",
-      "pos": "Wing",
-      "gp": 6,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
       "pim": 4
     }
   ],
@@ -422,8 +422,8 @@
       "gp": 7,
       "w": 2,
       "l": 3,
-      "gaa": "2.6",
-      "ga": 18
+      "gaa": "2.7",
+      "ga": 19
     },
     {
       "name": "Will Sullivan",
