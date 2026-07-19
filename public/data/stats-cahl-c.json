@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-07-19T20:30:02.130838Z",
+  "updated": "2026-07-19T21:00:01.858941Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -168,6 +168,16 @@
       "pim": 0
     },
     {
+      "jersey": "44",
+      "name": "Samuel Stanley",
+      "pos": "Wing",
+      "gp": 7,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
       "jersey": "99",
       "name": "John Crouse",
       "pos": "Wing",
@@ -186,16 +196,6 @@
       "a": 0,
       "pts": 0,
       "pim": 2
-    },
-    {
-      "jersey": "44",
-      "name": "Samuel Stanley",
-      "pos": "Wing",
-      "gp": 7,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
     }
   ],
   "defense": [
@@ -205,9 +205,19 @@
       "pos": "Defense",
       "gp": 7,
       "g": 4,
-      "a": 1,
-      "pts": 5,
+      "a": 2,
+      "pts": 6,
       "pim": 2
+    },
+    {
+      "jersey": "33",
+      "name": "TJ Nocar",
+      "pos": "Defense",
+      "gp": 4,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
     },
     {
       "jersey": "37",
@@ -238,16 +248,6 @@
       "a": 0,
       "pts": 0,
       "pim": 0
-    },
-    {
-      "jersey": "33",
-      "name": "TJ Nocar",
-      "pos": "Defense",
-      "gp": 4,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
     }
   ],
   "goalies": [
@@ -255,12 +255,12 @@
       "jersey": "50",
       "name": "Michael Bennett",
       "pos": "Goalie",
-      "gp": 6,
-      "w": 1,
+      "gp": 7,
+      "w": 2,
       "l": 3,
       "otl": 2,
-      "ga": 17,
-      "gaa": "2.8"
+      "ga": 18,
+      "gaa": "2.6"
     },
     {
       "jersey": "0",

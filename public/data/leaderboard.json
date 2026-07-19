@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-19T20:30:03.442359Z",
+  "updated": "2026-07-19T21:00:03.157319Z",
   "playerOfTheWeek": {
     "name": "Douglas Hoyt",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -7,8 +7,8 @@
     "pos": "Defense",
     "gp": 7,
     "g": 4,
-    "a": 1,
-    "pts": 5,
+    "a": 2,
+    "pts": 6,
     "pim": 2
   },
   "topPoints": [
@@ -19,8 +19,8 @@
       "pos": "Defense",
       "gp": 7,
       "g": 4,
-      "a": 1,
-      "pts": 5,
+      "a": 2,
+      "pts": 6,
       "pim": 2
     },
     {
@@ -131,8 +131,8 @@
       "pos": "Defense",
       "gp": 7,
       "g": 4,
-      "a": 1,
-      "pts": 5,
+      "a": 2,
+      "pts": 6,
       "pim": 2
     },
     {
@@ -259,6 +259,17 @@
       "pim": 0
     },
     {
+      "name": "Douglas Hoyt",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "6",
+      "pos": "Defense",
+      "gp": 7,
+      "g": 4,
+      "a": 2,
+      "pts": 6,
+      "pim": 2
+    },
+    {
       "name": "Will Sullivan",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "12",
@@ -314,6 +325,17 @@
       "pim": 0
     },
     {
+      "name": "Samuel Stanley",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "44",
+      "pos": "Wing",
+      "gp": 7,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
       "name": "John Crouse",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "99",
@@ -323,28 +345,6 @@
       "a": 1,
       "pts": 1,
       "pim": 0
-    },
-    {
-      "name": "Douglas Hoyt",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "6",
-      "pos": "Defense",
-      "gp": 7,
-      "g": 4,
-      "a": 1,
-      "pts": 5,
-      "pim": 2
-    },
-    {
-      "name": "Eric Rohr",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "37",
-      "pos": "Defense",
-      "gp": 2,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 10
     }
   ],
   "topPIM": [
@@ -416,6 +416,16 @@
       "ga": 3
     },
     {
+      "name": "Michael Bennett",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "50",
+      "gp": 7,
+      "w": 2,
+      "l": 3,
+      "gaa": "2.6",
+      "ga": 18
+    },
+    {
       "name": "Will Sullivan",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "12",
@@ -424,16 +434,6 @@
       "l": 1,
       "gaa": "2.7",
       "ga": 8
-    },
-    {
-      "name": "Michael Bennett",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "50",
-      "gp": 6,
-      "w": 1,
-      "l": 3,
-      "gaa": "2.8",
-      "ga": 17
     },
     {
       "name": "TJ Nocar",
