@@ -45,6 +45,21 @@ var NEWS = [
   { date:"July 29, 2025", title:"Columbus Warrior Hockey Holds First Official Stick and Puck Session After Formation of 501(c)(3)", img:IMG.newsFirst, style:2, url:"https://www.columbuswarriorhockey.org/news/columbus-warrior-hockey-holds-first-official-stick-and-puck-session-after-formation-of-501-c-3/22058" },
 ];
 
+var INIT_NEWSLETTERS = [
+  {id:1, title:"Columbus Warriors Debut at the Guardian's Cup in Rochester",
+   headline:"Columbus Warriors Debut at the Guardian's Cup in Rochester",
+   date:"March 12, 2026", status:"sent", publishTarget:"both", recipients:87, imageDataUrl:IMG.guardiansCup,
+   body:"The Columbus Warriors traveled to Rochester, New York this past weekend to compete in their first travel tournament, the Guardians Cup.\n\nThe Guardian's Cup is an annual hockey tournament that brings together active and retired first responders and veterans in a competitive environment with the goal of raising funds for the New York Law Enforcement Assistance Program (NYLEAP). NYLEAP is a nonprofit that provides mental health and wellness resources for first responders across New York State (www.nyleap.org).\n\nThe tournament brought together a strong group of warrior hockey programs including the Buffalo Warriors, Long Island Warriors, Saginaw Spirit Warriors, Capital Beltway Warriors, Toledo Warriors, Pittsburgh Warriors, and Flower City Warriors.\n\nColumbus finished 6th out of 10 teams, recording 7 goals for and 16 goals against. While the standings are part of the story, the weekend represented an important milestone as the Columbus Warriors continued building their program, traveling together, and representing the Columbus veteran hockey community on the road.\n\nFollowing elimination from tournament play, Columbus and Pittsburgh stayed on the ice for a pair of exhibition games. Each team earned one win and one loss, leaving both programs with a .500 record against each other. That split result may have quietly sparked the beginning of an interstate rivalry between Columbus and Pittsburgh.\n\nTo be continued.."},
+  {id:2, title:"Columbus Warriors Close Out Strong Fall Session in CAHL's C South League",
+   headline:"Columbus Warriors Close Out Strong Fall Session in CAHL's C South League",
+   date:"December 16, 2025", status:"sent", publishTarget:"both", recipients:82, imageDataUrl:IMG.newsCahl,
+   body:"The Columbus Warriors wrapped up their inaugural season in the Chiller Adult Hockey League (CAHL) C South C League with a performance that reflects both competitive excellence and the growing strength of our community-based hockey program.\n\nOver the course of the regular season, the Warriors posted an impressive 9–3–0 record, finishing third overall in the standings. The team demonstrated balance on both sides of the puck, recording 43 goals-for while allowing 33 goals-against, a reflection of disciplined play, depth across the lineup, and strong team chemistry.\n\nThe momentum carried into the postseason, where the Warriors continued to demonstrate resilience, teamwork, and discipline. After advancing through the playoff rounds, the Warriors earned a spot in the league championship game, ultimately finishing in second place overall, a remarkable achievement for a first-year program.\n\nBeyond team success, multiple Warriors stood out among the league's top performers:\n\nSteven Bowman finished 3rd in the league in total points (20), 3rd in goals (13), and 3rd in assists (7)\n\nJohn Hopkinson ranked 5th in league points (16) and 5th in goals (11)\n\nThese individual accomplishments reflect not only skill and effort, but the collective support and chemistry built throughout the season.\n\nThis inaugural CAHL session marked an important milestone for Columbus Warrior Hockey. Through our partnership with the OhioHealth Chiller Ice Rinks, the CAHL program was created to provide consistent, local opportunities for veterans and military-connected individuals to skate, compete, and connect year-round. The success of this first season reinforces the value of community-based hockey as an extension of our broader mission.\n\nAs we close the book on this historic first season, we do so with gratitude for our players, volunteers, league partners, and supporters who made it possible. The foundation has been laid and we look forward to building on this momentum in seasons/sessions to come."},
+  {id:3, title:"Grand Opening, Greater Commitment: Moo Moo Express Car Wash Elevates to Platinum Sponsor",
+   headline:"Grand Opening, Greater Commitment: Moo Moo Express Car Wash Elevates to Platinum Sponsor",
+   date:"November 24, 2025", status:"sent", publishTarget:"both", recipients:79, imageDataUrl:IMG.newsMooPlatinum,
+   body:"Columbus Warrior Hockey is honored to share that Moo Moo Express Car Wash has deepened their commitment to our mission, elevating their support from Gold to Platinum Level Sponsor through their Grand Opening Fundraiser at the new Lewis Center location.\n\nThis expanded partnership reflects Moo Moo Express Car Wash's unwavering dedication to strengthening the communities they serve. As a home-grown Columbus company built on service, generosity, and community stewardship, Moo Moo Express continues to set the bar for what impactful local support looks like. Their Moo Cares initiative has long provided critical contributions to nonprofits and youth programs across Central Ohio, and we are proud to stand among the organizations benefiting from their leadership and compassion.\n\nThe Grand Opening Fundraiser at their 8986 Owenfield Dr location in Lewis Center represents more than an event; it represents a bold statement of belief in the power of hockey to bring healing, camaraderie, and purpose to veterans in our community. By choosing Columbus Warrior Hockey as the beneficiary of their opening event, Moo Moo Express Car Wash is helping us expand access to ice-time, reduce financial barriers for players, and strengthen the programs that allow veterans to reconnect with purpose both on and off the ice.\n\nThis extraordinary demonstration of support ensures that more veterans can experience the resilience, teamwork, and community that hockey provides. It moves us closer to our long-term vision: a program where cost is never a barrier to participation, and every veteran has a place to grow, recover, and belong.\n\nWe extend our deepest gratitude to Moo Moo Express Car Wash for their continued generosity, trust, and shared commitment to supporting those who have served our nation. Their enhanced sponsorship strengthens our ability to carry out our mission and ensures that veterans across Central Ohio feel the impact of their community standing behind them.\n\nPlease join us in celebrating Moo Moo Express Car Wash as our new Platinum Level Sponsor!\n\nWe are proud to continue this journey together."},
+];
+
 var TEAMS = [
   { id:"team-dv", name:"DV - Columbus Warriors", league:"Disabled Veterans", color:"#c8a84e", desc:"Adaptive hockey for disabled veterans with 10%+ VA rating or Purple Heart." },
   { id:"team-c", name:"CAHL C - Warriors", league:"CAHL C League", color:C.bl, desc:"Intermediate competitive play in the CAHL C South division." },
@@ -735,6 +750,60 @@ function Footer() {
   );
 }
 
+/* ═══ ADMIN SHARED DATA ═══ */
+var ADMIN_MEMBERS = [
+  /* admins / staff / coach */
+  {id:1, name:"Taylor DeCicco", email:"taylor@cwh.org",  tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"admin", joined:"Jan 2024", jersey:4,  pos:"C",  stats:{gp:12,g:5,a:9, pts:14,pim:2},  avail:"yes"},
+  {id:2, name:"Matt Chamblin",  email:"matt@cwh.org",    tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"admin", joined:"Jan 2024", jersey:17, pos:"LD", stats:{gp:10,g:1,a:4, pts:5, pim:10}, avail:"yes"},
+  {id:3, name:"William Teater", email:"will@cwh.org",    tier:"volunteer",docs:{submitted:true, reviewed:true, approved:true}, role:"staff", joined:"Mar 2024"},
+  {id:7, name:"Player C",       email:"pc@cwh.org",      tier:"volunteer",docs:{submitted:true, reviewed:false,approved:false},role:"coach", joined:"Jun 2024"},
+  /* vet players – C League + D League */
+  {id:4, name:"Brent McCreedy", email:"brent@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:false},role:"player",joined:"Feb 2024", jersey:21, pos:"LW", stats:{gp:11,g:4,a:5, pts:9, pim:8},  avail:"maybe"},
+  {id:8, name:"Player D",       email:"pd@cwh.org",      tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jul 2024", jersey:22, pos:"RD", stats:{gp:8, g:2,a:3, pts:5, pim:4},  avail:"yes"},
+  {id:9, name:"Marcus Webb",    email:"mwebb@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jan 2024", jersey:7,  pos:"LW", stats:{gp:12,g:5,a:9, pts:14,pim:2},  avail:"yes"},
+  {id:10,name:"Chris Holt",     email:"cholt@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Feb 2024", jersey:11, pos:"RW", stats:{gp:10,g:6,a:4, pts:10,pim:6},  avail:"yes"},
+  {id:11,name:"Jake Torres",    email:"jtorres@cwh.org", tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Feb 2024", jersey:14, pos:"C",  stats:{gp:12,g:3,a:7, pts:10,pim:0},  avail:"yes"},
+  {id:12,name:"Derek Neal",     email:"dneal@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Mar 2024", jersey:6,  pos:"LD", stats:{gp:12,g:1,a:4, pts:5, pim:10}, avail:"yes"},
+  {id:13,name:"Aaron Liu",      email:"aliu@cwh.org",    tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Mar 2024", jersey:13, pos:"RD", stats:{gp:12,g:0,a:4, pts:4, pim:2},  avail:"yes"},
+  {id:14,name:"Sam Roper",      email:"sroper@cwh.org",  tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Apr 2024", jersey:30, pos:"G",  stats:{gp:10,g:0,a:1, pts:1, pim:0},  avail:"yes"},
+  {id:15,name:"Travis Ford",    email:"tford@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Apr 2024", jersey:18, pos:"LD", stats:{gp:7, g:1,a:2, pts:3, pim:6},  avail:"maybe"},
+  {id:16,name:"Kevin Shaw",     email:"kshaw@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"May 2024", jersey:5,  pos:"RW", stats:{gp:9, g:2,a:6, pts:8, pim:0},  avail:"yes"},
+  {id:17,name:"Ryan Cole",      email:"rcole@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"May 2024", jersey:1,  pos:"G",  stats:{gp:2, g:0,a:0, pts:0, pim:2},  avail:"none"},
+  {id:18,name:"Pete Ochoa",     email:"pochoa@cwh.org",  tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jun 2024", jersey:19, pos:"C",  stats:{gp:11,g:4,a:5, pts:9, pim:8},  avail:"yes"},
+  {id:19,name:"Dom Russo",      email:"drussso@cwh.org", tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jun 2024", jersey:23, pos:"LW", stats:{gp:9, g:2,a:6, pts:8, pim:0},  avail:"yes"},
+  {id:20,name:"Ty Benson",      email:"tbenson@cwh.org", tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jul 2024", jersey:16, pos:"LW", stats:{gp:12,g:7,a:1, pts:8, pim:2},  avail:"yes"},
+  {id:27,name:"Brian Fox",      email:"bfox@cwh.org",    tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Aug 2024", jersey:24, pos:"RW", stats:{gp:12,g:3,a:7, pts:10,pim:0},  avail:"yes"},
+  {id:28,name:"Scott Lenz",     email:"slenz@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Aug 2024", jersey:2,  pos:"RD", stats:{gp:10,g:0,a:3, pts:3, pim:0},  avail:"yes"},
+  {id:29,name:"Chad Monroe",    email:"cmonroe@cwh.org", tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Sep 2024", jersey:28, pos:"C",  stats:{gp:8, g:1,a:4, pts:5, pim:14}, avail:"yes"},
+  {id:6, name:"Player B",       email:"pb@cwh.org",      tier:"vet",      docs:{submitted:false,reviewed:false,approved:false},role:"player",joined:"May 2024", jersey:3,  pos:"C",  stats:{gp:8, g:1,a:4, pts:5, pim:14}, avail:"none"},
+  /* volunteer-tier player */
+  {id:30,name:"Alex Morgan",    email:"amorgan@cwh.org", tier:"volunteer",docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Oct 2024"},
+  /* disabled players – C League */
+  {id:5, name:"Player A",       email:"pa@cwh.org",      tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Apr 2024", jersey:9,  pos:"RW", stats:{gp:12,g:7,a:1, pts:8, pim:2},  avail:"yes"},
+  {id:21,name:"James Ortiz",    email:"jortiz@cwh.org",  tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Feb 2024", jersey:8,  pos:"C",  stats:{gp:12,g:4,a:6, pts:10,pim:4},  avail:"yes"},
+  {id:22,name:"Mike Tran",      email:"mtran@cwh.org",   tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Mar 2024", jersey:15, pos:"LW", stats:{gp:11,g:3,a:5, pts:8, pim:2},  avail:"yes"},
+  {id:23,name:"Carlos Diaz",    email:"cdiaz@cwh.org",   tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Mar 2024", jersey:26, pos:"RD", stats:{gp:10,g:0,a:3, pts:3, pim:6},  avail:"yes"},
+  {id:24,name:"Ethan Hill",     email:"ehill@cwh.org",   tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Apr 2024", jersey:12, pos:"LD", stats:{gp:9, g:1,a:2, pts:3, pim:4},  avail:"maybe"},
+  {id:25,name:"Noah Bauer",     email:"nbauer@cwh.org",  tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"May 2024", jersey:33, pos:"LW", stats:{gp:8, g:2,a:3, pts:5, pim:0},  avail:"yes"},
+  {id:26,name:"Liam Grant",     email:"lgrant@cwh.org",  tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jun 2024", jersey:10, pos:"RW", stats:{gp:7, g:2,a:2, pts:4, pim:2},  avail:"yes"},
+];
+var ADMIN_TEAMS_INIT = [
+  {id:1,pid:"c",name:"CAHL C League – Warriors",         startDate:"2026-01-15",endDate:"2026-06-30",rosterSize:18,players:14,status:"active",tiers:["vet","disabled"],description:"Spring season for the CAHL C League competitive roster.", headCoach:2,    roster:[1,4,5,8,9,10,11,12,13,14,15,16,21,22]},
+  {id:2,pid:"d",name:"CAHL D League – Warriors",         startDate:"2026-01-15",endDate:"2026-06-30",rosterSize:16,players:13,status:"active",tiers:["vet","disabled"],description:"Spring season for the CAHL D League competitive roster.", headCoach:7,    roster:[2,4,6,17,18,19,20,23,24,25,26,27,28,29]},
+  {id:3,        name:"CAHL C League – Warriors (Winter)",startDate:"2026-09-06",endDate:"2026-12-20",rosterSize:18,players:0, status:"signup",tiers:["vet","disabled"],  description:"Winter season registration is now open for the C League.",headCoach:null, roster:[]},
+];
+var ADMIN_TOURNAMENTS_INIT = [
+  {id:1,pid:"gc",name:"Guardians Cup 2026",startDate:"2026-08-15",endDate:"2026-08-17",location:"Nationwide Ice",rosterSize:20,participants:10,status:"active",tiers:["vet","disabled"],description:"The 2026 Guardians Cup is underway. Good luck to all participants!",                   headCoach:null,roster:[1,4,8,9,10,11,12,13,14,16]},
+  {id:2,         name:"Guardians Cup 2027",startDate:"2027-08-14",endDate:"2027-08-16",location:"Nationwide Ice",rosterSize:20,participants:0, status:"signup",tiers:["vet","disabled"],description:"Registration is open for the 2027 Guardians Cup. Register your spot by Jul 15, 2027.",headCoach:null,roster:[]},
+];
+var ADMIN_VOLUNTEERS_INIT = [
+  {id:1,name:"Ice Rink Clean-Up Day",  date:"2026-07-26",location:"Chiller North", spotsAvailable:20,volunteers:3,status:"signup",tiers:["vet","disabled","volunteer"],description:"Help prep the ice for the fall season. We'll be cleaning equipment, painting lines, and getting the facility ready. Lunch provided!", roster:[3,4,30]},
+  {id:2,name:"Car Wash Fundraiser",    date:"2026-06-21",location:"Chiller Easton",spotsAvailable:12,volunteers:2,status:"signup",tiers:["vet","disabled","volunteer"],description:"Help raise funds for the program at our upcoming car wash event.", roster:[3,30]},
+];
+var ADMIN_GAMES_INIT = [
+  {id:1,name:"Preseason Scrimmage vs Columbus Knights",date:"2026-08-01",time:"7:30 PM",location:"Chiller North",home:true,rosterSize:20,players:1,status:"signup",tiers:["vet","disabled"],description:"Open sign-up for a pre-season scrimmage before fall league kicks off. Great warm-up before the season!",headCoach:null,roster:[4]},
+];
+
 /* ═══ NEW SITE ═══ */
 var NS_SCORES = [
   { id:"c", label:"C League Warriors", standing:"C South Division", record:"8-4-1", color:C.bl,
@@ -801,7 +870,7 @@ var NS_AVAIL = {
 };
 function NS_AVAIL_GET(a){return NS_AVAIL[a||"none"];}
 
-function NSHeader({nav, curPage, isLoggedIn}) {
+function NSHeader({nav, curPage, isLoggedIn, onSignIn, onSignOut}) {
   var linkStyle = {background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,color:"#64748b",padding:"8px 12px",fontWeight:500,textDecoration:"none",display:"inline-block"};
   var activeStyle = Object.assign({},linkStyle,{color:C.navy,fontWeight:700});
   return (
@@ -818,17 +887,18 @@ function NSHeader({nav, curPage, isLoggedIn}) {
           <div style={{width:1,height:20,background:"#e2e8f0",margin:"0 6px"}} />
           {isLoggedIn
             ? <div style={{display:"flex",alignItems:"center",gap:8}}>
-                <button onClick={function(){nav("ns-profile");}} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 14px",background:"none",border:"1px solid #e2e8f0",borderRadius:6,cursor:"pointer",fontFamily:F.b,fontSize:13,color:"#475569",fontWeight:600}}>
-                  <div style={{width:26,height:26,borderRadius:"50%",background:C.navy,overflow:"hidden",flexShrink:0}}>
+                {curPage!=="ns-portal"&&curPage!=="ns-admin"&&<button onClick={function(){nav("ns-portal");}} style={{height:36,boxSizing:"border-box",display:"flex",alignItems:"center",padding:"0 18px",background:C.navy,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",cursor:"pointer",letterSpacing:1,fontWeight:600}}>Dashboard</button>}
+                <button onClick={function(){nav("ns-profile");}} style={{height:36,boxSizing:"border-box",display:"flex",alignItems:"center",gap:8,padding:"0 14px",background:"none",border:"1px solid #e2e8f0",borderRadius:6,cursor:"pointer",fontFamily:F.b,fontSize:13,color:"#475569",fontWeight:600}}>
+                  <div style={{width:20,height:20,borderRadius:"50%",background:C.navy,overflow:"hidden",flexShrink:0}}>
                     <svg viewBox="0 0 200 200" style={{width:"100%",height:"100%"}}><circle cx="100" cy="75" r="35" fill="rgba(255,255,255,0.6)"/><ellipse cx="100" cy="170" rx="55" ry="45" fill="rgba(255,255,255,0.6)"/></svg>
                   </div>
                   My profile
                 </button>
-                <button style={{padding:"8px 18px",background:"none",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#64748b",cursor:"pointer",letterSpacing:1,fontWeight:600}}>Sign out</button>
+                <button onClick={function(){onSignOut();}} style={{height:36,boxSizing:"border-box",display:"flex",alignItems:"center",padding:"0 18px",background:"none",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#64748b",cursor:"pointer",letterSpacing:1,fontWeight:600}}>Sign out</button>
               </div>
             : <>
-                <button onClick={function(){nav("ns-join");}} style={{padding:"8px 18px",background:C.red,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",letterSpacing:1,fontWeight:600,cursor:"pointer"}}>Join</button>
-                <button onClick={function(){nav("ns-portal");}} style={{padding:"8px 18px",background:C.navy,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",cursor:"pointer",letterSpacing:1,fontWeight:600}}>Sign in</button>
+                <button onClick={function(){nav("ns-join");}} style={{height:36,boxSizing:"border-box",display:"flex",alignItems:"center",padding:"0 18px",background:C.red,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",letterSpacing:1,fontWeight:600,cursor:"pointer"}}>Join</button>
+                <button onClick={function(){onSignIn ? onSignIn() : nav("ns-portal");}} style={{height:36,boxSizing:"border-box",display:"flex",alignItems:"center",padding:"0 18px",background:C.navy,border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#fff",cursor:"pointer",letterSpacing:1,fontWeight:600}}>Sign in</button>
               </>
           }
         </nav>
@@ -838,11 +908,9 @@ function NSHeader({nav, curPage, isLoggedIn}) {
   );
 }
 
-function NewSitePage({nav}) {
+function NewSitePage({nav, adminNewsletters, navArticle}) {
   return (
     <div style={{background:"#fff",minHeight:"100vh",fontFamily:F.b}}>
-
-      <NSHeader nav={nav} curPage="home" />
 
       {/* MAIN */}
       <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 48px"}}>
@@ -893,28 +961,35 @@ function NewSitePage({nav}) {
         </div>
 
         {/* NEWS */}
-        <div style={{marginBottom:40}}>
-          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:16}}>
-            <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",borderLeft:"3px solid "+C.red,paddingLeft:12}}>Latest News</div>
-            <button onClick={function(){nav("news")}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,color:C.navy,fontWeight:600,padding:0}}>All News →</button>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:16}}>
-            {NEWS.slice(0,3).map(function(item,i){
-              return (
-                <a key={i} href={item.url} target="_blank" rel="noopener noreferrer" style={{textDecoration:"none",background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",display:"flex",flexDirection:"column"}}>
-                  <div style={{height:150,overflow:"hidden",flexShrink:0}}>
-                    <img src={item.img} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}} />
-                  </div>
-                  <div style={{padding:"14px 16px",display:"flex",flexDirection:"column",flex:1}}>
-                    <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",marginBottom:6}}>{item.date}</div>
-                    <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:600,color:"#1e293b",letterSpacing:1,lineHeight:1.25,flex:1}}>{item.title}</div>
-                    <div style={{fontFamily:F.b,fontSize:11,color:C.navy,fontWeight:700,marginTop:12,letterSpacing:1}}>READ MORE →</div>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        </div>
+        {(function(){
+          var articles = (adminNewsletters||[]).filter(function(n){return n.status==="sent"&&(n.publishTarget==="website"||n.publishTarget==="both");}).slice(0,3);
+          if (articles.length===0) return null;
+          return (
+            <div style={{marginBottom:40}}>
+              <div style={{marginBottom:16}}>
+                <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",borderLeft:"3px solid "+C.red,paddingLeft:12}}>Latest News</div>
+              </div>
+              <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:16}}>
+                {articles.map(function(n,i){
+                  return (
+                    <div key={n.id} onClick={function(){navArticle(n.id);}} style={{cursor:"pointer",textDecoration:"none",background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",display:"flex",flexDirection:"column",transition:"box-shadow .15s"}}
+                      onMouseEnter={function(e){e.currentTarget.style.boxShadow="0 4px 16px rgba(0,0,0,0.10)";}}
+                      onMouseLeave={function(e){e.currentTarget.style.boxShadow="none";}}>
+                      <div style={{height:150,overflow:"hidden",flexShrink:0,background:"#e2e8f0"}}>
+                        {n.imageDataUrl && <img src={n.imageDataUrl} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}} />}
+                      </div>
+                      <div style={{padding:"14px 16px",display:"flex",flexDirection:"column",flex:1}}>
+                        <div style={{fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",marginBottom:6}}>{n.date}</div>
+                        <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:600,color:"#1e293b",letterSpacing:1,lineHeight:1.25,flex:1}}>{n.title}</div>
+                        <div style={{fontFamily:F.b,fontSize:11,color:C.navy,fontWeight:700,marginTop:12,letterSpacing:1}}>READ MORE →</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })()}
 
         {/* SPONSORS */}
         <div>
@@ -936,7 +1011,53 @@ function NewSitePage({nav}) {
         </div>
       </main>
 
-      {NS_FOOTER(nav)}
+      {/* footer rendered by CWHSite */}
+    </div>
+  );
+}
+
+function NSArticlePage({nav, article}) {
+  if (!article) return (
+    <div style={{background:"#fff",minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}>
+      <div style={{fontFamily:F.b,fontSize:15,color:"#94a3b8"}}>Article not found.</div>
+    </div>
+  );
+  return (
+    <div style={{background:"#fff",minHeight:"100vh"}}>
+      <div style={{maxWidth:760,margin:"0 auto",padding:"32px 24px 72px"}}>
+        <button onClick={function(){nav("new-site");}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:13,fontWeight:700,color:C.navy,padding:0,marginBottom:28,display:"flex",alignItems:"center",gap:6,letterSpacing:0.3}}>← Back to News</button>
+        {article.imageDataUrl && <img src={article.imageDataUrl} alt="" style={{width:"100%",maxHeight:400,objectFit:"cover",borderRadius:10,display:"block",marginBottom:28}} />}
+        {article.date && <div style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:"#94a3b8",letterSpacing:1.5,textTransform:"uppercase",marginBottom:12}}>{article.date}</div>}
+        <div style={{fontFamily:NS_FH,fontSize:34,fontWeight:700,color:C.navy,letterSpacing:1,lineHeight:1.15,marginBottom:28}}>{article.headline||article.title}</div>
+        <div style={{borderTop:"2px solid "+C.red,marginBottom:28}} />
+        {article.body ? (
+          <div>
+            {article.body.split("\n\n").map(function(para,pi){
+              return <p key={pi} style={{fontFamily:F.b,fontSize:16,color:"#334155",lineHeight:1.8,marginTop:pi===0?0:20,marginBottom:0}}>{para}</p>;
+            })}
+          </div>
+        ) : (
+          <p style={{fontFamily:F.b,fontSize:15,color:"#94a3b8",fontStyle:"italic"}}>No content yet.</p>
+        )}
+      </div>
+
+      {/* Sponsor banner */}
+      <div style={{borderTop:"1px solid #e2e8f0",background:"#f8fafc",padding:"32px 24px"}}>
+        <div style={{maxWidth:760,margin:"0 auto"}}>
+          <div style={{fontFamily:NS_FH,fontSize:13,fontWeight:700,color:"#94a3b8",letterSpacing:2,textTransform:"uppercase",textAlign:"center",marginBottom:20}}>Thank you to our sponsors</div>
+          <div style={{display:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"center",gap:40}}>
+            {NS_SPONSORS.map(function(s,i){
+              return (
+                <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{display:"flex",alignItems:"center",justifyContent:"center",opacity:0.7,transition:"opacity .15s"}}
+                  onMouseEnter={function(e){e.currentTarget.style.opacity="1";}}
+                  onMouseLeave={function(e){e.currentTarget.style.opacity="0.7";}}>
+                  <img src={s.img} alt={s.name} style={{maxHeight:52,maxWidth:130,objectFit:"contain"}} />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -992,7 +1113,6 @@ var NS_CARD = {background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:10,p
 function NSAboutLayout({nav, curPage, eyebrow, title, subtitle, children}) {
   return (
     <div style={{background:"#fff",minHeight:"100vh",fontFamily:F.b}}>
-      <NSHeader nav={nav} curPage="ns-about" />
       <div style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 64px",display:"flex",gap:28,alignItems:"flex-start"}}>
 
         {/* SIDEBAR */}
@@ -1024,7 +1144,7 @@ function NSAboutLayout({nav, curPage, eyebrow, title, subtitle, children}) {
           {children}
         </div>
       </div>
-      {NS_FOOTER(nav)}
+      {/* footer rendered by CWHSite */}
     </div>
   );
 }
@@ -1352,7 +1472,6 @@ function NSJoinPage({nav}) {
 
   return (
     <div style={{background:"#f8fafc",minHeight:"100vh",fontFamily:F.b}}>
-      <NSHeader nav={nav} curPage="ns-join" />
 
       <div style={{maxWidth:680,margin:"0 auto",padding:"48px 24px 80px"}}>
 
@@ -1557,64 +1676,60 @@ function NSJoinPage({nav}) {
           </div>
         </div>
       )}
-      {NS_FOOTER(nav)}
+      {/* footer rendered by CWHSite */}
     </div>
   );
 }
 
-function NSCoachPortalContent({coachIsAlsoPlayer, coachPortalView, setCoachPortalView}) {
-  var TEAM = {
-    label:"CAHL C League", tag:"East",
-    nextGame:{dow:"Sunday",date:"Jun 7, 2026",time:"7:30 PM",opp:"Team A",loc:"Chiller North",home:true},
-    record:{w:8,l:3,t:1,gp:12},
-    games:[
-      {date:"Jun 21",time:"8:00 PM", loc:"Chiller Easton",opp:"Storm",   away:false,upcoming:true},
-      {date:"Jun 14",time:"6:00 PM", loc:"Chiller Dublin",opp:"Rangers", away:true, upcoming:true},
-      {date:"Jun 7", time:"7:30 PM", loc:"Chiller North", opp:"Team A",  away:false,upcoming:true},
-      {date:"May 22",opp:"Predators",    gf:4,ga:2,r:"W"},
-      {date:"May 15",opp:"Blue Jackets", gf:3,ga:3,r:"T"},
-      {date:"May 8", opp:"Rangers",      gf:2,ga:5,r:"L"},
-      {date:"May 1", opp:"Knights",      gf:4,ga:1,r:"W"},
-      {date:"Apr 24",opp:"Storm",        gf:3,ga:2,r:"W"},
-      {date:"Apr 17",opp:"Wolves",       gf:1,ga:3,r:"L"},
-      {date:"Apr 10",opp:"Eagles",       gf:5,ga:0,r:"W"},
-      {date:"Apr 3", opp:"Predators",    gf:2,ga:4,r:"L"},
-      {date:"Mar 27",opp:"Blue Jackets", gf:4,ga:3,r:"W"},
-      {date:"Mar 20",opp:"Rangers",      gf:3,ga:1,r:"W"},
-      {date:"Mar 13",opp:"Knights",      gf:2,ga:3,r:"L"},
-      {date:"Mar 6", opp:"Storm",        gf:4,ga:2,r:"W"},
-      {date:"Feb 27",opp:"Wolves",       gf:3,ga:1,r:"W"},
-    ],
+function NSCoachPortalContent({showAllTeams, adminTeams, adminMembers, currentMemberId}) {
+  /* Game schedule data keyed by team portal ID — admin doesn't manage schedules */
+  var GAME_DATA = {
+    "c":  {tag:"East",         nextGame:{dow:"Sunday",  date:"Jun 7, 2026", time:"7:30 PM", opp:"Team A", loc:"Chiller North",  home:true},  record:{w:8,l:3,t:1,gp:12},
+           games:[{date:"Jun 21",time:"8:00 PM",loc:"Chiller Easton",opp:"Storm",  away:false,upcoming:true},{date:"Jun 14",time:"6:00 PM",loc:"Chiller Dublin",opp:"Rangers",away:true,upcoming:true},{date:"Jun 7",time:"7:30 PM",loc:"Chiller North",opp:"Team A",away:false,upcoming:true},{date:"May 22",opp:"Predators",gf:4,ga:2,r:"W"},{date:"May 15",opp:"Blue Jackets",gf:3,ga:3,r:"T"},{date:"May 8",opp:"Rangers",gf:2,ga:5,r:"L"},{date:"May 1",opp:"Knights",gf:4,ga:1,r:"W"},{date:"Apr 24",opp:"Storm",gf:3,ga:2,r:"W"},{date:"Apr 17",opp:"Wolves",gf:1,ga:3,r:"L"},{date:"Apr 10",opp:"Eagles",gf:5,ga:0,r:"W"},{date:"Apr 3",opp:"Predators",gf:2,ga:4,r:"L"},{date:"Mar 27",opp:"Blue Jackets",gf:4,ga:3,r:"W"},{date:"Mar 20",opp:"Rangers",gf:3,ga:1,r:"W"},{date:"Mar 13",opp:"Knights",gf:2,ga:3,r:"L"},{date:"Mar 6",opp:"Storm",gf:4,ga:2,r:"W"},{date:"Feb 27",opp:"Wolves",gf:3,ga:1,r:"W"}]},
+    "d":  {tag:"West A",       nextGame:{dow:"Saturday",date:"Jun 6, 2026", time:"9:15 PM", opp:"Team B", loc:"Chiller Easton", home:false}, record:{w:5,l:5,t:2,gp:12},
+           games:[{date:"Jun 20",time:"8:30 PM",loc:"Chiller Dublin",opp:"Wolves", away:false,upcoming:true},{date:"Jun 13",time:"7:00 PM",loc:"Chiller Easton",opp:"Knights",away:true,upcoming:true},{date:"Jun 6",time:"9:15 PM",loc:"Chiller Easton",opp:"Team B",away:false,upcoming:true},{date:"May 21",opp:"Knights",gf:5,ga:1,r:"W"},{date:"May 14",opp:"Storm",gf:2,ga:4,r:"L"},{date:"May 7",opp:"Wolves",gf:3,ga:3,r:"T"},{date:"Apr 30",opp:"Thunder",gf:4,ga:2,r:"W"},{date:"Apr 23",opp:"Knights",gf:1,ga:3,r:"L"},{date:"Apr 16",opp:"Storm",gf:3,ga:3,r:"T"},{date:"Apr 9",opp:"Wolves",gf:2,ga:4,r:"L"},{date:"Apr 2",opp:"Thunder",gf:4,ga:1,r:"W"},{date:"Mar 26",opp:"Knights",gf:1,ga:2,r:"L"}]},
+    "gc": {tag:"Tournament",    nextGame:{dow:"Saturday",date:"Aug 15, 2026",time:"10:00 AM",opp:"Eagles",   loc:"Nationwide Ice", home:false}, record:{w:0,l:0,t:0,gp:0},
+           games:[{date:"Aug 17",time:"2:00 PM",loc:"Nationwide Ice",opp:"TBD (Final)",away:false,upcoming:true},{date:"Aug 16",time:"10:00 AM",loc:"Nationwide Ice",opp:"Storm",away:false,upcoming:true},{date:"Aug 15",time:"10:00 AM",loc:"Nationwide Ice",opp:"Eagles",away:false,upcoming:true}]},
   };
-  var ROSTER = [
-    {name:"Player 1",  jersey:4,  pos:"C",  gp:12, g:8, a:6,  pts:14, pim:4,  avail:"yes"},
-    {name:"Player 2",  jersey:7,  pos:"LW", gp:12, g:5, a:9,  pts:14, pim:2,  avail:"yes"},
-    {name:"Player 3",  jersey:11, pos:"RW", gp:10, g:6, a:4,  pts:10, pim:6,  avail:"maybe"},
-    {name:"Player 4",  jersey:14, pos:"LW", gp:12, g:3, a:7,  pts:10, pim:0,  avail:"yes"},
-    {name:"Player 5",  jersey:21, pos:"C",  gp:11, g:4, a:5,  pts:9,  pim:8,  avail:"no"},
-    {name:"Player 6",  jersey:9,  pos:"RW", gp:12, g:7, a:1,  pts:8,  pim:2,  avail:"yes"},
-    {name:"Player 7",  jersey:17, pos:"LW", gp:9,  g:2, a:6,  pts:8,  pim:0,  avail:"maybe"},
-    {name:"Player 8",  jersey:3,  pos:"C",  gp:12, g:1, a:5,  pts:6,  pim:14, avail:"none"},
-    {name:"Player 9",  jersey:22, pos:"RW", gp:8,  g:2, a:3,  pts:5,  pim:4,  avail:"yes"},
-    {name:"Player 10", jersey:6,  pos:"LD", gp:12, g:1, a:4,  pts:5,  pim:10, avail:"yes"},
-    {name:"Player 11", jersey:13, pos:"RD", gp:12, g:0, a:4,  pts:4,  pim:2,  avail:"yes"},
-    {name:"Player 12", jersey:18, pos:"LD", gp:7,  g:1, a:2,  pts:3,  pim:6,  avail:"maybe"},
-    {name:"Player 13", jersey:5,  pos:"RD", gp:10, g:0, a:3,  pts:3,  pim:0,  avail:"no"},
-    {name:"Player 14", jersey:30, pos:"G",  gp:10, g:0, a:1,  pts:1,  pim:0,  avail:"yes"},
-    {name:"Player 15", jersey:1,  pos:"G",  gp:2,  g:0, a:0,  pts:0,  pim:2,  avail:"none"},
-  ];
-  var INIT_LINES = {
-    offense:[
-      {lw:"Player 2", c:"Player 1", rw:"Player 6"},
-      {lw:"Player 4", c:"Player 8", rw:null},
-      {lw:null,       c:null,       rw:null},
-    ],
-    defense:[
-      {ld:"Player 10", rd:"Player 11"},
-      {ld:"Player 13", rd:null},
-    ],
-    goalie:"Player 14",
+
+  /* Derive team list from admin data */
+  var activeAdminTeams = (adminTeams||[]).filter(function(t){return t.status==="active"&&t.pid;});
+  var myAdminTeams = showAllTeams
+    ? activeAdminTeams
+    : activeAdminTeams.filter(function(t){return t.headCoach === currentMemberId;});
+  var COACH_TEAMS = myAdminTeams.map(function(t){
+    var gd = GAME_DATA[t.pid] || {tag:"",nextGame:{dow:"",date:"TBD",time:"",opp:"TBD",loc:"",home:true},record:{w:0,l:0,t:0,gp:0},games:[]};
+    return {id:t.pid, label:t.name, tag:gd.tag, nextGame:gd.nextGame, record:gd.record, games:gd.games, adminRoster:t.roster||[]};
+  });
+
+  /* Derive roster from admin member records */
+  var getRosterForTeam = function(adminRoster) {
+    if (!adminMembers || !adminRoster) return [];
+    return adminRoster.map(function(mid){
+      var m = adminMembers.find(function(x){return x.id===mid;});
+      if (!m || !m.pos) return null;
+      return {name:m.name, jersey:m.jersey||"—", pos:m.pos, gp:(m.stats||{}).gp||0, g:(m.stats||{}).g||0, a:(m.stats||{}).a||0, pts:(m.stats||{}).pts||0, pim:(m.stats||{}).pim||0, avail:m.avail||"yes"};
+    }).filter(Boolean);
   };
+
+  /* Auto-fill lines from roster positions */
+  var makeAutoLines = function(roster) {
+    var nl = {offense:[{lw:null,c:null,rw:null},{lw:null,c:null,rw:null},{lw:null,c:null,rw:null}],defense:[{ld:null,rd:null},{ld:null,rd:null}],goalie:null};
+    roster.forEach(function(p){
+      if      (p.pos==="C"  && !nl.offense[0].c)  nl.offense[0].c  = p.name;
+      else if (p.pos==="LW" && !nl.offense[0].lw) nl.offense[0].lw = p.name;
+      else if (p.pos==="RW" && !nl.offense[0].rw) nl.offense[0].rw = p.name;
+      else if (p.pos==="LD" && !nl.defense[0].ld) nl.defense[0].ld = p.name;
+      else if (p.pos==="RD" && !nl.defense[0].rd) nl.defense[0].rd = p.name;
+      else if (p.pos==="G"  && !nl.goalie)         nl.goalie = p.name;
+    });
+    return nl;
+  };
+
+  var sti = useState(0); var selectedTeamIdx = sti[0]; var setSelectedTeamIdx = sti[1];
+  var TEAM = COACH_TEAMS[selectedTeamIdx];
+  var ROSTER = TEAM ? getRosterForTeam(TEAM.adminRoster) : [];
+  var INIT_LINES = makeAutoLines(ROSTER);
   var ORD = ["1st","2nd","3rd","4th"];
 
   var ls = useState(INIT_LINES); var lines = ls[0]; var setLines = ls[1];
@@ -1623,6 +1738,12 @@ function NSCoachPortalContent({coachIsAlsoPlayer, coachPortalView, setCoachPorta
   var sc = useState("jersey");    var sortCol = sc[0]; var setSortCol = sc[1];
   var sd = useState("asc");      var sortDir = sd[0]; var setSortDir = sd[1];
   var pf = useState("");          var posFilter = pf[0]; var setPosFilter = pf[1];
+
+  useEffect(function() {
+    var t = COACH_TEAMS[selectedTeamIdx];
+    var r = t ? getRosterForTeam(t.adminRoster) : [];
+    setLines(makeAutoLines(r)); setSel(null); setSaved(false); setPosFilter("");
+  }, [selectedTeamIdx]);
 
   var handleSort = function(col) {
     if (sortCol === col) { setSortDir(sortDir === "asc" ? "desc" : "asc"); }
@@ -1725,10 +1846,34 @@ function NSCoachPortalContent({coachIsAlsoPlayer, coachPortalView, setCoachPorta
   };
 
   var inL  = inLineNames();
-  var cardH = function(t){ return <div style={{background:C.navy,padding:"12px 20px"}}><div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase"}}>{t}</div></div>; };
+  var cardH = function(t){ return <div style={{background:C.navy,padding:"12px 20px"}}><div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"#fff",letterSpacing:2,textTransform:"uppercase"}}>{t}</div></div>; };
+
+  if (COACH_TEAMS.length === 0) {
+    return (
+      <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 60px"}}>
+        <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"48px 32px",textAlign:"center"}}>
+          <div style={{fontFamily:NS_FH,fontSize:20,color:C.navy,letterSpacing:1,marginBottom:8}}>No Teams Assigned</div>
+          <div style={{fontFamily:F.b,fontSize:13,color:"#64748b"}}>You are not currently assigned as head coach of any active team. Contact an admin to be added.</div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 60px"}}>
+
+      {COACH_TEAMS.length > 1 && (
+        <div style={{display:"flex",gap:0,border:"1px solid #e2e8f0",borderRadius:8,overflow:"hidden",marginBottom:28,width:"fit-content"}}>
+          {COACH_TEAMS.map(function(t,i){
+            var active = selectedTeamIdx === i;
+            return (
+              <button key={t.id} onClick={function(){setSelectedTeamIdx(i);}} style={{padding:"8px 20px",border:"none",borderRight:i<COACH_TEAMS.length-1?"1px solid #e2e8f0":"none",cursor:"pointer",fontFamily:F.b,fontSize:13,fontWeight:700,background:active?C.navy:"#fff",color:active?"#fff":"#64748b",transition:"all .15s"}}>
+                {t.label}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       {/* Team header + Next Game + Record */}
       <div style={{marginBottom:32}}>
@@ -1960,16 +2105,828 @@ function NSCoachPortalContent({coachIsAlsoPlayer, coachPortalView, setCoachPorta
   );
 }
 
-function NSPlayerPortal({nav}) {
-  var dm = useState(false); var devMode = dm[0]; var setDevMode = dm[1];
-  var tr = useState("vet"); var tier = tr[0]; var setTier = tr[1];
-  var pr = useState("yes"); var programs = pr[0]; var setPrograms = pr[1];
-  var tc = useState(2); var teamCount = tc[0]; var setTeamCount = tc[1];
-  var ro = useState("player"); var role = ro[0]; var setRole = ro[1];
-  var cip = useState(true); var coachIsAlsoPlayer = cip[0]; var setCoachIsAlsoPlayer = cip[1];
-  var cpv = useState("coach"); var coachPortalView = cpv[0]; var setCoachPortalView = cpv[1];
+function NSAdminPortal({nav, adminTeams, setAdminTeams, adminTournaments, setAdminTournaments, adminVolunteers, setAdminVolunteers, adminGames, setAdminGames, newsletters, setNewsletters}) {
 
-  var DISPLAY_NAME = "Player 1";
+  var as = useState("members"); var activeSection = as[0]; var setActiveSection = as[1];
+  var ms = useState(ADMIN_MEMBERS); var members = ms[0]; var setMembers = ms[1];
+  var msc = useState(null); var memberSortCol = msc[0]; var setMemberSortCol = msc[1];
+  var msd = useState("asc"); var memberSortDir = msd[0]; var setMemberSortDir = msd[1];
+  var tst = useState("teams"); var teamsSubTab = tst[0]; var setTeamsSubTab = tst[1];
+  var suo = useState(false); var showSignupModal = suo[0]; var setShowSignupModal = suo[1];
+  var fe  = useState({});    var formErrors = fe[0];      var setFormErrors = fe[1];
+  var mi  = useState(null);  var managingItem = mi[0];    var setManagingItem = mi[1];
+  var ap  = useState("");    var addPlayerPick = ap[0];   var setAddPlayerPick = ap[1];
+  var EMPTY_FORM = {name:"",startDate:"",endDate:"",rosterSize:"",location:"",spotsAvailable:"",description:"",time:"",homeAway:"home"};
+  var openSignupModal = function() { setSignupForm(EMPTY_FORM); setFormErrors({}); setShowSignupModal(true); };
+  var getManagingObj = function() {
+    if (!managingItem) return null;
+    var arr = managingItem.type==="teams" ? adminTeams : managingItem.type==="tournaments" ? adminTournaments : managingItem.type==="games" ? adminGames : adminVolunteers;
+    return arr.find(function(x){return x.id===managingItem.id;}) || null;
+  };
+  var updateManagedItem = function(patch) {
+    var setter = managingItem.type==="teams" ? setAdminTeams : managingItem.type==="tournaments" ? setAdminTournaments : managingItem.type==="games" ? setAdminGames : setAdminVolunteers;
+    var countField = managingItem.type==="teams" ? "players" : managingItem.type==="tournaments" ? "participants" : managingItem.type==="games" ? "players" : "volunteers";
+    setter(function(prev){return prev.map(function(x){
+      if(x.id!==managingItem.id) return x;
+      var updated = Object.assign({},x,patch);
+      if(patch.roster !== undefined) updated[countField] = patch.roster.length;
+      return updated;
+    });});
+  };
+  var suf = useState({name:"",startDate:"",endDate:"",rosterSize:"",location:"",spotsAvailable:"",description:"",time:"",homeAway:"home"}); var signupForm = suf[0]; var setSignupForm = suf[1];
+  var ne  = useState(null); var editingNL = ne[0]; var setEditingNL = ne[1];
+  var pnl = useState(null); var previewingNL = pnl[0]; var setPreviewingNL = pnl[1];
+  var nf  = useState({title:"",headline:"",body:"",imageDataUrl:"",date:"",status:"draft",publishTarget:"website"}); var nlForm = nf[0]; var setNlForm = nf[1];
+  var nlsc = useState(null);   var nlSortCol = nlsc[0]; var setNlSortCol = nlsc[1];
+  var nlsd = useState("asc");  var nlSortDir = nlsd[0]; var setNlSortDir = nlsd[1];
+  var bds = useState(BOARD_MEMBERS.map(function(p){return Object.assign({},p);})); var boardStaff = bds[0]; var setBoardStaff = bds[1];
+  var ops = useState(OPS_STAFF.map(function(p){return Object.assign({},p);})); var opsStaff = ops[0]; var setOpsStaff = ops[1];
+  var chs = useState(COACHING.map(function(p){return Object.assign({},p);})); var coachStaff = chs[0]; var setCoachStaff = chs[1];
+  var se = useState(null); var editingStaff = se[0]; var setEditingStaff = se[1];
+  var sf = useState({name:"",role:"",branch:"",years:""}); var staffForm = sf[0]; var setStaffForm = sf[1];
+
+  var TIER_LABELS = {vet:"Veteran",disabled:"Disabled",volunteer:"Volunteer"};
+  var TIER_COLORS = {vet:{color:"#92400e",bg:"#fef3c7"},disabled:{color:"#16a34a",bg:"#dcfce7"},volunteer:{color:"#b91c1c",bg:"#fee2e2"}};
+  var ROLE_LABELS = {admin:"Admin",staff:"Staff",coach:"Coach",player:"Player"};
+  var ROLE_COLORS = {admin:{color:"#16a34a",bg:"#dcfce7"},staff:{color:"#64748b",bg:"#f1f5f9"},coach:{color:"#92400e",bg:"#fef3c7"},player:{color:"#64748b",bg:"#f1f5f9"}};
+
+  var chip = function(label, color, bg) {
+    return <span style={{display:"inline-block",fontFamily:F.b,fontSize:10,fontWeight:700,color:color,background:bg,padding:"2px 8px",borderRadius:20,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap"}}>{label}</span>;
+  };
+  var docChip = function(docs) {
+    if (!docs.submitted) return chip("Pending",  "#94a3b8", "#f1f5f9");
+    if (docs.approved)   return chip("Approved", "#16a34a", "#dcfce7");
+    return chip("Submitted", "#92400e", "#fef3c7");
+  };
+  var sectionHead = function(title, action) {
+    return (
+      <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:20}}>
+        <div style={{fontFamily:NS_FH,fontSize:20,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",borderLeft:"3px solid "+C.red,paddingLeft:12}}>{title}</div>
+        {action}
+      </div>
+    );
+  };
+  var actionBtn = function(label, onClick, variant) {
+    var isDanger = variant === "danger";
+    var isGhost = variant === "ghost";
+    return (
+      <button onClick={onClick} style={{padding:"5px 12px",border:isDanger?"1px solid #fca5a5":isGhost?"1px solid #e2e8f0":"none",borderRadius:6,fontFamily:F.b,fontSize:12,fontWeight:700,cursor:"pointer",background:isDanger?"#fff":isGhost?"#fff":C.navy,color:isDanger?"#dc2626":isGhost?"#64748b":"#fff",letterSpacing:.5}}>{label}</button>
+    );
+  };
+
+  var NAV_ITEMS = [
+    {key:"members",    label:"Members"},
+    {key:"teams",      label:"Programs"},
+    {key:"newsletters",label:"Newsletters"},
+    {key:"staff",      label:"Staff"},
+  ];
+
+  /* ── STAFF helpers ── */
+  var startEditStaff = function(group, idx) {
+    var arr = group==="board"?boardStaff:group==="ops"?opsStaff:coachStaff;
+    var p = arr[idx];
+    setEditingStaff({group,idx});
+    setStaffForm({name:p.name||"",role:p.role||"",branch:p.branch||"",years:p.years||""});
+  };
+  var saveStaff = function() {
+    var setter = editingStaff.group==="board"?setBoardStaff:editingStaff.group==="ops"?setOpsStaff:setCoachStaff;
+    var arr = (editingStaff.group==="board"?boardStaff:editingStaff.group==="ops"?opsStaff:coachStaff).slice();
+    if (editingStaff.idx === -1) { arr.push(Object.assign({},staffForm)); }
+    else { arr[editingStaff.idx] = Object.assign({},staffForm); }
+    setter(arr); setEditingStaff(null);
+  };
+  var removeStaff = function(group, idx) {
+    var setter = group==="board"?setBoardStaff:group==="ops"?setOpsStaff:setCoachStaff;
+    var arr = (group==="board"?boardStaff:group==="ops"?opsStaff:coachStaff).slice();
+    arr.splice(idx,1); setter(arr);
+  };
+  var staffCard = function(p, i, group) {
+    var isEditing = editingStaff && editingStaff.group===group && editingStaff.idx===i;
+    if (isEditing) {
+      return (
+        <div key={i} style={{background:"#fff",border:"2px solid "+C.navy,borderRadius:10,padding:"16px",display:"flex",flexDirection:"column",gap:8}}>
+          {[["Name","name"],["Role","role"],["Branch","branch"],["Years","years"]].map(function(pair){
+            return <input key={pair[1]} placeholder={pair[0]} value={staffForm[pair[1]]} onChange={function(e){setStaffForm(function(prev){var n=Object.assign({},prev);n[pair[1]]=e.target.value;return n;});}} style={{padding:"6px 10px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:12,color:"#1e293b",outline:"none"}} />;
+          })}
+          <div style={{display:"flex",gap:6,marginTop:4}}>
+            {actionBtn("Save",saveStaff)}
+            {actionBtn("Cancel",function(){setEditingStaff(null);},"ghost")}
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div key={i} style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"16px",display:"flex",flexDirection:"column",gap:4}}>
+        <div style={{fontFamily:NS_FH,fontSize:15,fontWeight:700,color:p.name==="Vacant"?"#94a3b8":C.navy,letterSpacing:1}}>{p.name||"Vacant"}</div>
+        <div style={{fontFamily:F.b,fontSize:12,color:C.red,fontWeight:600}}>{p.role}</div>
+        {p.branch && <div style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>{p.branch}</div>}
+        {p.years  && <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8"}}>{p.years}</div>}
+        <div style={{display:"flex",gap:6,marginTop:8}}>
+          {actionBtn("Edit",function(){startEditStaff(group,i);},"ghost")}
+          {actionBtn("Remove",function(){removeStaff(group,i);},"danger")}
+        </div>
+      </div>
+    );
+  };
+  var staffSection = function(title, arr, group) {
+    return (
+      <div style={{marginBottom:28}}>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
+          <div style={{fontFamily:F.b,fontSize:13,fontWeight:700,color:"#475569",letterSpacing:1,textTransform:"uppercase"}}>{title}</div>
+          {actionBtn("+ Add",function(){setEditingStaff({group,idx:-1});setStaffForm({name:"",role:"",branch:"",years:""});},"ghost")}
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:12}}>
+          {arr.map(function(p,i){return staffCard(p,i,group);})}
+          {editingStaff && editingStaff.group===group && editingStaff.idx===-1 && (
+            <div style={{background:"#fff",border:"2px solid "+C.navy,borderRadius:10,padding:"16px",display:"flex",flexDirection:"column",gap:8}}>
+              {[["Name","name"],["Role","role"],["Branch","branch"],["Years","years"]].map(function(pair){
+                return <input key={pair[1]} placeholder={pair[0]} value={staffForm[pair[1]]} onChange={function(e){setStaffForm(function(prev){var n=Object.assign({},prev);n[pair[1]]=e.target.value;return n;});}} style={{padding:"6px 10px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:12,color:"#1e293b",outline:"none"}} />;
+              })}
+              <div style={{display:"flex",gap:6,marginTop:4}}>
+                {actionBtn("Save",saveStaff)}
+                {actionBtn("Cancel",function(){setEditingStaff(null);},"ghost")}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  /* ── MEMBERS sort ── */
+  var memberSortToggle = function(col) {
+    if (memberSortCol === col) { setMemberSortDir(function(d){return d==="asc"?"desc":"asc";}); }
+    else { setMemberSortCol(col); setMemberSortDir("asc"); }
+  };
+  var sortedMembers = (function() {
+    if (!memberSortCol) return members;
+    return members.slice().sort(function(a,b) {
+      var av, bv;
+      if      (memberSortCol==="name")      { av=a.name;      bv=b.name; }
+      else if (memberSortCol==="email")     { av=a.email;     bv=b.email; }
+      else if (memberSortCol==="tier")      { av=a.tier;      bv=b.tier; }
+      else if (memberSortCol==="paperwork") {
+        var rank = function(d) { return d.approved?2:d.submitted?1:0; };
+        av=rank(a.docs); bv=rank(b.docs);
+        return memberSortDir==="asc" ? av-bv : bv-av;
+      }
+      else if (memberSortCol==="role")      { av=a.role;      bv=b.role; }
+      else if (memberSortCol==="joined")    { av=a.joined;    bv=b.joined; }
+      if (av < bv) return memberSortDir==="asc" ? -1 : 1;
+      if (av > bv) return memberSortDir==="asc" ?  1 : -1;
+      return 0;
+    });
+  })();
+
+  /* ── SIGN-UP modal ── */
+  var submitSignup = function() {
+    var isTm   = teamsSubTab==="teams";
+    var isTr   = teamsSubTab==="tournaments";
+    var isVol  = teamsSubTab==="volunteers";
+    var isGame = teamsSubTab==="games";
+    var e = {};
+    if (!signupForm.name.trim())        e.name = "Required";
+    if ((isTr||isVol||isGame) && !signupForm.location.trim()) e.location = "Required";
+    if (!signupForm.startDate)          e.startDate = "Required";
+    if (isGame && !signupForm.time.trim()) e.time = "Required";
+    if (isTm||isTr) {
+      if (!signupForm.endDate)          e.endDate = "Required";
+      else if (signupForm.startDate && signupForm.endDate <= signupForm.startDate) e.endDate = "End date must be after start date";
+    }
+    if ((isTm||isTr||isGame) && !signupForm.rosterSize) e.rosterSize = "Required";
+    if (isVol && !signupForm.spotsAvailable)             e.spotsAvailable = "Required";
+    if (!signupForm.description.trim()) e.description = "Required";
+    if (Object.keys(e).length > 0) { setFormErrors(e); return; }
+    var id = Date.now();
+    if (isTm) {
+      setAdminTeams(function(prev){return prev.concat([{id:id, name:signupForm.name, startDate:signupForm.startDate, endDate:signupForm.endDate, rosterSize:parseInt(signupForm.rosterSize,10)||0, players:0, status:"signup", tiers:["vet","disabled"], description:signupForm.description, headCoach:null, roster:[]}]);});
+    } else if (isTr) {
+      setAdminTournaments(function(prev){return prev.concat([{id:id, name:signupForm.name, startDate:signupForm.startDate, endDate:signupForm.endDate, location:signupForm.location, rosterSize:parseInt(signupForm.rosterSize,10)||0, participants:0, status:"signup", tiers:["vet","disabled"], description:signupForm.description, headCoach:null, roster:[]}]);});
+    } else if (isGame) {
+      setAdminGames(function(prev){return prev.concat([{id:id, name:signupForm.name, date:signupForm.startDate, time:signupForm.time, location:signupForm.location, home:signupForm.homeAway==="home", rosterSize:parseInt(signupForm.rosterSize,10)||0, players:0, status:"signup", tiers:["vet","disabled"], description:signupForm.description, headCoach:null, roster:[]}]);});
+    } else {
+      setAdminVolunteers(function(prev){return prev.concat([{id:id, name:signupForm.name, date:signupForm.startDate, location:signupForm.location, spotsAvailable:parseInt(signupForm.spotsAvailable,10)||0, volunteers:0, status:"signup", tiers:["vet","disabled","volunteer"], description:signupForm.description, roster:[]}]);});
+    }
+    setSignupForm(EMPTY_FORM); setFormErrors({}); setShowSignupModal(false);
+  };
+
+  /* ── NEWSLETTER helpers ── */
+  var NL_EMPTY = {title:"",headline:"",body:"",imageDataUrl:"",date:"",status:"draft",publishTarget:"website"};
+  var openNLEditor = function(nl) {
+    if (nl) { setNlForm({title:nl.title,headline:nl.headline||"",body:nl.body||"",imageDataUrl:nl.imageDataUrl||"",date:nl.date,status:nl.status,publishTarget:nl.publishTarget||"website"}); setEditingNL(nl.id); }
+    else     { setNlForm(NL_EMPTY); setEditingNL("new"); }
+  };
+  var saveNL = function() {
+    var entry = {title:nlForm.title,headline:nlForm.headline,body:nlForm.body,imageDataUrl:nlForm.imageDataUrl,date:nlForm.date,status:nlForm.status,publishTarget:nlForm.publishTarget};
+    if (editingNL === "new") {
+      setNewsletters(function(prev){return prev.concat([Object.assign({id:Date.now(),recipients:0},entry)]);});
+    } else {
+      setNewsletters(function(prev){return prev.map(function(n){return n.id===editingNL?Object.assign({},n,entry):n;});});
+    }
+    setEditingNL(null);
+  };
+  var nlSortToggle = function(col) {
+    if (nlSortCol===col) { setNlSortDir(function(d){return d==="asc"?"desc":"asc";}); }
+    else { setNlSortCol(col); setNlSortDir("asc"); }
+  };
+  var sortedNewsletters = (function(){
+    var arr = newsletters.slice();
+    if (!nlSortCol) return arr;
+    arr.sort(function(a,b){
+      var av, bv;
+      if      (nlSortCol==="title")      { av=a.title;       bv=b.title; }
+      else if (nlSortCol==="date")       { av=a.date;        bv=b.date; }
+      else if (nlSortCol==="status")     { av=a.status;      bv=b.status; }
+      else if (nlSortCol==="recipients") { return nlSortDir==="asc" ? a.recipients-b.recipients : b.recipients-a.recipients; }
+      if (av<bv) return nlSortDir==="asc"?-1:1;
+      if (av>bv) return nlSortDir==="asc"?1:-1;
+      return 0;
+    });
+    return arr;
+  })();
+
+  /* ── RENDER ── */
+  return (
+    <div style={{background:"#f1f5f9",minHeight:"100vh"}}>
+
+      <div style={{maxWidth:1200,margin:"0 auto",padding:"32px 24px 60px",display:"flex",gap:24,alignItems:"flex-start"}}>
+
+        {/* Sidebar nav */}
+        <div style={{width:180,flexShrink:0,background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden",position:"sticky",top:80}}>
+          <div style={{background:C.navy,padding:"14px 16px"}}>
+            <div style={{fontFamily:NS_FH,fontSize:13,fontWeight:700,color:"#fff",letterSpacing:2,textTransform:"uppercase"}}>Admin Portal</div>
+          </div>
+          {NAV_ITEMS.map(function(item){
+            var active = activeSection===item.key;
+            return (
+              <button key={item.key} onClick={function(){setActiveSection(item.key);}} style={{display:"block",width:"100%",textAlign:"left",padding:"11px 16px",background:active?"#f0f4ff":"none",border:"none",borderLeft:active?"3px solid "+C.red:"3px solid transparent",fontFamily:F.b,fontSize:13,fontWeight:active?700:500,color:active?C.navy:"#64748b",cursor:"pointer"}}>
+                {item.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Main content */}
+        <div style={{flex:1,minWidth:0}}>
+
+          {/* ── MEMBERS ── */}
+          {activeSection==="members" && (
+            <div>
+              {sectionHead("Members")}
+              <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 130px 160px 120px 80px",gap:0,background:"#f8fafc",borderBottom:"1px solid #e2e8f0",padding:"8px 16px"}}>
+                  {[["Name","name"],["Email","email"],["Tier","tier"],["Paperwork","paperwork"],["Role","role"],["Joined","joined"]].map(function(pair){
+                    var label=pair[0], col=pair[1];
+                    var active = memberSortCol===col;
+                    return (
+                      <button key={col} onClick={function(){memberSortToggle(col);}} style={{background:"none",border:"none",padding:0,textAlign:"left",cursor:"pointer",fontFamily:F.b,fontSize:10,fontWeight:700,color:active?"#1e293b":"#94a3b8",letterSpacing:1,textTransform:"uppercase",display:"inline-flex",alignItems:"center",gap:4,userSelect:"none"}}>
+                        {label}
+                        <span style={{display:"inline-flex",flexDirection:"column",gap:1}}>
+                          <span style={{fontSize:7,fontFamily:"sans-serif",color:active&&memberSortDir==="asc"?"#475569":"#d1d5db",lineHeight:1}}>▲</span>
+                          <span style={{fontSize:7,fontFamily:"sans-serif",color:active&&memberSortDir==="desc"?"#475569":"#d1d5db",lineHeight:1}}>▼</span>
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+                {sortedMembers.map(function(m,i){
+                  var ddStyle = {padding:"4px 8px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:12,color:"#1e293b",background:"#fff",cursor:"pointer",outline:"none"};
+                  return (
+                    <div key={m.id} style={{display:"grid",gridTemplateColumns:"1fr 1fr 130px 160px 120px 80px",gap:0,padding:"10px 16px",borderBottom:i<sortedMembers.length-1?"1px solid #f1f5f9":"none",alignItems:"center"}}>
+                      <div style={{fontFamily:F.b,fontSize:13,fontWeight:600,color:"#1e293b"}}>{m.name}</div>
+                      <div style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{m.email}</div>
+                      <div>
+                        <select value={m.tier} onChange={function(e){var val=e.target.value;setMembers(function(prev){return prev.map(function(x){return x.id===m.id?Object.assign({},x,{tier:val}):x;});});}} style={ddStyle}>
+                          <option value="vet">Veteran</option>
+                          <option value="disabled">Disabled</option>
+                          <option value="volunteer">Volunteer</option>
+                        </select>
+                      </div>
+                      <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                        {docChip(m.docs)}
+                        {m.docs.submitted && (
+                          <button style={{background:"none",border:"none",fontFamily:F.b,fontSize:11,color:C.navy,cursor:"pointer",padding:0,fontWeight:600,textDecoration:"underline"}}>View</button>
+                        )}
+                      </div>
+                      <div>
+                        <select value={m.role} onChange={function(e){var val=e.target.value;setMembers(function(prev){return prev.map(function(x){return x.id===m.id?Object.assign({},x,{role:val}):x;});});}} style={ddStyle}>
+                          <option value="player">Player</option>
+                          <option value="coach">Coach</option>
+                          <option value="staff">Staff</option>
+                          <option value="admin">Admin</option>
+                        </select>
+                      </div>
+                      <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8"}}>{m.joined}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* ── TEAMS ── */}
+          {activeSection==="teams" && (function() {
+            var fmt = function(ds) {
+              if (!ds) return "";
+              var d = new Date(ds+"T00:00:00");
+              return d.toLocaleString("default",{month:"short",day:"numeric",year:"numeric"});
+            };
+            var statusChip = function(s) {
+              if (s==="active")  return chip("Active",  "#16a34a","#dcfce7");
+              if (s==="signup")  return chip("Sign-up Open","#92400e","#fef3c7");
+              return chip("Closed","#64748b","#f1f5f9");
+            };
+            var SUB_TABS = [{key:"teams",label:"Teams"},{key:"tournaments",label:"Tournaments"},{key:"games",label:"Single game"},{key:"volunteers",label:"Volunteer opportunities"}];
+            var btnLabel = teamsSubTab==="teams" ? "+ New team" : teamsSubTab==="tournaments" ? "+ New tournament" : teamsSubTab==="games" ? "+ New game" : "+ New opportunity";
+            return (
+              <div>
+                {sectionHead("Programs")}
+
+                {/* Sub-tabs + create button on same row */}
+                <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:20}}>
+                  <div style={{display:"flex",gap:0,border:"1px solid #e2e8f0",borderRadius:8,overflow:"hidden",width:"fit-content"}}>
+                    {SUB_TABS.map(function(t){
+                      var active = teamsSubTab===t.key;
+                      return <button key={t.key} onClick={function(){setTeamsSubTab(t.key);}} style={{padding:"8px 18px",border:"none",borderRight:t.key!=="volunteers"?"1px solid #e2e8f0":"none",cursor:"pointer",fontFamily:F.b,fontSize:12,fontWeight:700,background:active?C.navy:"#fff",color:active?"#fff":"#64748b",transition:"all .15s"}}>{t.label}</button>;
+                    })}
+                  </div>
+                  {actionBtn(btnLabel,openSignupModal,"ghost")}
+                </div>
+
+                {/* Teams list */}
+                {teamsSubTab==="teams" && (
+                  <div style={{display:"flex",flexDirection:"column",gap:12}}>
+                    {adminTeams.map(function(t){
+                      return (
+                        <div key={t.id} style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"16px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16}}>
+                          <div>
+                            <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:C.navy,letterSpacing:1,marginBottom:4}}>{t.name}</div>
+                            <div style={{display:"flex",gap:10,alignItems:"center",flexWrap:"wrap"}}>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{fmt(t.startDate)} – {fmt(t.endDate)}</span>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8"}}>·</span>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{t.players}/{t.rosterSize} players</span>
+                            </div>
+                          </div>
+                          <div style={{display:"flex",gap:8,alignItems:"center"}}>
+                            {statusChip(t.status)}
+                            {actionBtn("Manage",function(){setManagingItem({type:"teams",id:t.id});},"ghost")}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Tournaments list */}
+                {teamsSubTab==="tournaments" && (
+                  <div style={{display:"flex",flexDirection:"column",gap:12}}>
+                    {adminTournaments.map(function(t){
+                      return (
+                        <div key={t.id} style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"16px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16}}>
+                          <div>
+                            <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:C.navy,letterSpacing:1,marginBottom:4}}>{t.name}</div>
+                            <div style={{display:"flex",gap:10,alignItems:"center",flexWrap:"wrap"}}>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{fmt(t.startDate)}{t.endDate&&t.endDate!==t.startDate?" – "+fmt(t.endDate):""}</span>
+                              {t.location && <><span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8"}}>·</span><span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{t.location}</span></>}
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8"}}>·</span>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{t.participants}/{t.rosterSize} registered</span>
+                            </div>
+                          </div>
+                          <div style={{display:"flex",gap:8,alignItems:"center"}}>
+                            {statusChip(t.status)}
+                            {actionBtn("Manage",function(){setManagingItem({type:"tournaments",id:t.id});},"ghost")}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Single game list */}
+                {teamsSubTab==="games" && (
+                  <div style={{display:"flex",flexDirection:"column",gap:12}}>
+                    {adminGames.map(function(g){
+                      return (
+                        <div key={g.id} style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"16px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16}}>
+                          <div>
+                            <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:C.navy,letterSpacing:1,marginBottom:4}}>{g.name}</div>
+                            <div style={{display:"flex",gap:10,alignItems:"center",flexWrap:"wrap"}}>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{fmt(g.date)}{g.time?" · "+g.time:""}</span>
+                              {g.location && <><span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8"}}>·</span><span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{g.location}</span></>}
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8"}}>·</span>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{g.home?"Home":"Away"}</span>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8"}}>·</span>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{g.players}/{g.rosterSize} players</span>
+                            </div>
+                          </div>
+                          <div style={{display:"flex",gap:8,alignItems:"center"}}>
+                            {statusChip(g.status)}
+                            {actionBtn("Manage",function(){setManagingItem({type:"games",id:g.id});},"ghost")}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Volunteers list */}
+                {teamsSubTab==="volunteers" && (
+                  <div style={{display:"flex",flexDirection:"column",gap:12}}>
+                    {adminVolunteers.map(function(v){
+                      return (
+                        <div key={v.id} style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"16px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16}}>
+                          <div>
+                            <div style={{fontFamily:NS_FH,fontSize:16,fontWeight:700,color:C.navy,letterSpacing:1,marginBottom:4}}>{v.name}</div>
+                            <div style={{display:"flex",gap:10,alignItems:"center",flexWrap:"wrap"}}>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{fmt(v.date)}</span>
+                              {v.location && <><span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8"}}>·</span><span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{v.location}</span></>}
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8"}}>·</span>
+                              <span style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{v.volunteers}/{v.spotsAvailable} volunteers</span>
+                            </div>
+                          </div>
+                          <div style={{display:"flex",gap:8,alignItems:"center"}}>
+                            {statusChip(v.status)}
+                            {actionBtn("Manage",function(){setManagingItem({type:"volunteers",id:v.id});},"ghost")}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+
+          {/* ── MANAGE MODAL ── */}
+          {(function(){
+            if (!managingItem) return null;
+            var obj = getManagingObj();
+            if (!obj) return null;
+            var fmt = function(ds) {
+              if (!ds) return "";
+              var d = new Date(ds+"T00:00:00");
+              return d.toLocaleString("default",{month:"short",day:"numeric",year:"numeric"});
+            };
+            var isVol = managingItem.type==="volunteers";
+            var isTeam = managingItem.type==="teams";
+            var isTr = managingItem.type==="tournaments";
+            var isGame = managingItem.type==="games";
+            var countLabel = isVol ? "volunteers" : isTr ? "registered" : "players";
+            var countField = isVol ? "volunteers" : isTr ? "participants" : "players";
+            var capacityField = isVol ? "spotsAvailable" : "rosterSize";
+            var coaches = members.filter(function(m){return m.role==="admin"||m.role==="coach";});
+            var headCoachMember = obj.headCoach ? members.find(function(m){return m.id===obj.headCoach;}) : null;
+            var rosterMembers = (obj.roster||[]).map(function(rid){return members.find(function(m){return m.id===rid;});}).filter(Boolean);
+            var nonRoster = members.filter(function(m){return !(obj.roster||[]).includes(m.id);});
+            return (
+              <div onClick={function(){setManagingItem(null); setAddPlayerPick("");}} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.45)",zIndex:200,display:"flex",alignItems:"flex-start",justifyContent:"center",paddingTop:48,overflowY:"auto"}}>
+                <div onClick={function(e){e.stopPropagation();}} style={{background:"#f8fafc",borderRadius:12,width:"100%",maxWidth:680,margin:"0 16px 48px",boxShadow:"0 8px 40px rgba(0,0,0,0.18)",overflow:"hidden"}}>
+
+                  {/* Header */}
+                  <div style={{background:C.navy,padding:"18px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16}}>
+                    <div>
+                      <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,color:"#fff",letterSpacing:1}}>{obj.name}</div>
+                      <div style={{fontFamily:F.b,fontSize:12,color:"rgba(255,255,255,0.7)",marginTop:2}}>
+                        {obj[countField]}/{obj[capacityField]} {countLabel}
+                        {(isTeam||isTr) && obj.startDate && <span style={{marginLeft:10}}>{fmt(obj.startDate)}{obj.endDate?" – "+fmt(obj.endDate):""}</span>}
+                        {isVol && obj.date && <span style={{marginLeft:10}}>{fmt(obj.date)}</span>}
+                        {isGame && obj.date && <span style={{marginLeft:10}}>{fmt(obj.date)}{obj.time?" · "+obj.time:""}{obj.home!==undefined?" · "+(obj.home?"Home":"Away"):""}</span>}
+                      </div>
+                    </div>
+                    <div style={{display:"flex",alignItems:"center",gap:12}}>
+                      <select value={obj.status} onChange={function(e){
+                        var v=e.target.value;
+                        var setter = managingItem.type==="teams" ? setAdminTeams : managingItem.type==="tournaments" ? setAdminTournaments : managingItem.type==="games" ? setAdminGames : setAdminVolunteers;
+                        setter(function(prev){return prev.map(function(x){return x.id===obj.id?Object.assign({},x,{status:v}):x;});});
+                      }} style={{padding:"6px 10px",border:"1px solid rgba(255,255,255,0.3)",borderRadius:6,fontFamily:F.b,fontSize:12,background:"rgba(255,255,255,0.12)",color:"#fff",cursor:"pointer",outline:"none"}}>
+                        <option value="signup" style={{color:"#1e293b"}}>Sign-up open</option>
+                        <option value="active" style={{color:"#1e293b"}}>Active</option>
+                        <option value="closed" style={{color:"#1e293b"}}>Closed</option>
+                      </select>
+                      <button onClick={function(){setManagingItem(null); setAddPlayerPick("");}} style={{background:"none",border:"none",cursor:"pointer",color:"rgba(255,255,255,0.7)",fontSize:20,lineHeight:1,padding:4,display:"flex",alignItems:"center"}}>✕</button>
+                    </div>
+                  </div>
+
+                  <div style={{padding:"24px"}}>
+
+                    {/* Head Coach (teams + tournaments only) */}
+                    {!isVol && (
+                      <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"18px 20px",marginBottom:16}}>
+                        <div style={{fontFamily:NS_FH,fontSize:13,fontWeight:700,color:C.navy,letterSpacing:0.8,marginBottom:12}}>HEAD COACH</div>
+                        <div style={{display:"flex",alignItems:"center",gap:12}}>
+                          <select value={obj.headCoach||""} onChange={function(e){
+                            var v=e.target.value;
+                            updateManagedItem({headCoach:v?parseInt(v,10):null});
+                          }} style={{flex:1,padding:"8px 12px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#1e293b",background:"#fff",outline:"none",cursor:"pointer"}}>
+                            <option value="">— Unassigned —</option>
+                            {coaches.map(function(c){return <option key={c.id} value={c.id}>{c.name} ({c.role})</option>;})}
+                          </select>
+                          {headCoachMember && (
+                            <div style={{display:"flex",alignItems:"center",gap:8}}>
+                              {chip(headCoachMember.tier,"#334155","#e2e8f0")}
+                              {chip(headCoachMember.role,"#334155","#e2e8f0")}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Roster */}
+                    <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+                      <div style={{padding:"14px 20px",borderBottom:"1px solid #e2e8f0",display:"flex",alignItems:"center",justifyContent:"space-between",gap:12}}>
+                        <div style={{fontFamily:NS_FH,fontSize:13,fontWeight:700,color:C.navy,letterSpacing:0.8}}>
+                          ROSTER <span style={{fontFamily:F.b,fontSize:12,fontWeight:400,color:"#64748b",marginLeft:4}}>{obj[countField]}/{obj[capacityField]}</span>
+                        </div>
+                        <div style={{display:"flex",gap:8,alignItems:"center"}}>
+                          <select value={addPlayerPick} onChange={function(e){setAddPlayerPick(e.target.value);}} style={{padding:"6px 10px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:12,color:"#1e293b",background:"#fff",outline:"none",cursor:"pointer"}}>
+                            <option value="">Select a member…</option>
+                            {nonRoster.map(function(m){return <option key={m.id} value={m.id}>{m.name} ({m.role})</option>;})}
+                          </select>
+                          <button onClick={function(){
+                            if(!addPlayerPick) return;
+                            var newId = parseInt(addPlayerPick,10);
+                            var newRoster = (obj.roster||[]).concat([newId]);
+                            updateManagedItem({roster:newRoster});
+                            setAddPlayerPick("");
+                          }} style={{padding:"6px 14px",background:C.navy,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:12,fontWeight:700,cursor:"pointer"}}>Add</button>
+                        </div>
+                      </div>
+                      {rosterMembers.length===0 ? (
+                        <div style={{padding:"24px 20px",fontFamily:F.b,fontSize:13,color:"#94a3b8",textAlign:"center"}}>No members on the roster yet.</div>
+                      ) : (
+                        <div>
+                          {rosterMembers.map(function(m){
+                            return (
+                              <div key={m.id} style={{padding:"12px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",borderBottom:"1px solid #f1f5f9"}}>
+                                <div style={{display:"flex",alignItems:"center",gap:10}}>
+                                  <div style={{width:32,height:32,borderRadius:"50%",background:"#e2e8f0",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:F.b,fontSize:12,fontWeight:700,color:"#475569"}}>{m.name.split(" ").map(function(n){return n[0];}).join("").slice(0,2)}</div>
+                                  <div>
+                                    <div style={{fontFamily:F.b,fontSize:13,fontWeight:700,color:"#1e293b"}}>{m.name}</div>
+                                    <div style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>{m.email}</div>
+                                  </div>
+                                </div>
+                                <div style={{display:"flex",alignItems:"center",gap:8}}>
+                                  {chip(m.tier,"#334155","#e2e8f0")}
+                                  {chip(m.role,"#334155","#e2e8f0")}
+                                  <button onClick={function(){
+                                    var newRoster = (obj.roster||[]).filter(function(rid){return rid!==m.id;});
+                                    updateManagedItem({roster:newRoster});
+                                  }} style={{background:"none",border:"1px solid #fca5a5",borderRadius:6,cursor:"pointer",padding:"4px 10px",fontFamily:F.b,fontSize:11,color:C.red,fontWeight:700}}>Remove</button>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* ── NEWSLETTERS ── */}
+          {activeSection==="newsletters" && (
+            <div>
+              {sectionHead("Newsletters", actionBtn("+ Create newsletter",function(){openNLEditor(null);},"ghost"))}
+
+              {/* Editor form */}
+              {editingNL && (
+                <div style={{background:"#fff",border:"2px solid "+C.navy,borderRadius:10,padding:"24px",marginBottom:20}}>
+                  <div style={{fontFamily:NS_FH,fontSize:15,fontWeight:700,color:C.navy,letterSpacing:1,marginBottom:18}}>{editingNL==="new"?"New Newsletter":"Edit Newsletter"}</div>
+                  <div style={{display:"flex",flexDirection:"column",gap:14}}>
+
+                    {/* Row 1: Title + Date */}
+                    <div style={{display:"grid",gridTemplateColumns:"1fr 180px",gap:12}}>
+                      <div style={{display:"flex",flexDirection:"column",gap:4}}>
+                        <label style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>Title</label>
+                        <input value={nlForm.title} onChange={function(e){setNlForm(function(p){return Object.assign({},p,{title:e.target.value});});}} placeholder="e.g. Spring 2026 Update" style={{padding:"8px 12px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#1e293b",outline:"none"}} />
+                      </div>
+                      <div style={{display:"flex",flexDirection:"column",gap:4}}>
+                        <label style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>Date</label>
+                        <input value={nlForm.date} onChange={function(e){setNlForm(function(p){return Object.assign({},p,{date:e.target.value});});}} placeholder="e.g. Jun 21, 2026" style={{padding:"8px 12px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#1e293b",outline:"none"}} />
+                      </div>
+                    </div>
+
+                    {/* Row 2: Headline */}
+                    <div style={{display:"flex",flexDirection:"column",gap:4}}>
+                      <label style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>Headline</label>
+                      <input value={nlForm.headline} onChange={function(e){setNlForm(function(p){return Object.assign({},p,{headline:e.target.value});});}} placeholder="e.g. Get Ready for Fall 2026" style={{padding:"8px 12px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#1e293b",outline:"none"}} />
+                    </div>
+
+                    {/* Row 3: Image upload */}
+                    <div style={{display:"flex",flexDirection:"column",gap:6}}>
+                      <label style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>Cover image (.jpg)</label>
+                      <div style={{display:"flex",alignItems:"center",gap:12}}>
+                        {nlForm.imageDataUrl && <img src={nlForm.imageDataUrl} alt="" style={{width:100,height:68,objectFit:"cover",borderRadius:6,border:"1px solid #e2e8f0",flexShrink:0}} />}
+                        <label style={{display:"inline-block",padding:"6px 14px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:12,fontWeight:700,cursor:"pointer",color:"#64748b",userSelect:"none"}}>
+                          {nlForm.imageDataUrl?"Change image":"Upload image"}
+                          <input type="file" accept=".jpg,.jpeg" style={{display:"none"}} onChange={function(e){var file=e.target.files[0];if(file){var r=new FileReader();r.onload=function(ev){var url=ev.target.result;setNlForm(function(p){return Object.assign({},p,{imageDataUrl:url});});};r.readAsDataURL(file);}e.target.value="";}} />
+                        </label>
+                        {nlForm.imageDataUrl && <button onClick={function(){setNlForm(function(p){return Object.assign({},p,{imageDataUrl:""});});}} style={{background:"none",border:"1px solid #fca5a5",borderRadius:6,cursor:"pointer",padding:"5px 12px",fontFamily:F.b,fontSize:11,color:C.red,fontWeight:700}}>Remove</button>}
+                      </div>
+                    </div>
+
+                    {/* Row 4: Body */}
+                    <div style={{display:"flex",flexDirection:"column",gap:4}}>
+                      <label style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>Body — press Enter twice to add a paragraph break</label>
+                      <textarea value={nlForm.body} onChange={function(e){setNlForm(function(p){return Object.assign({},p,{body:e.target.value});});}} rows={10} placeholder="Write the newsletter content here…" style={{padding:"8px 12px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#1e293b",outline:"none",resize:"vertical",lineHeight:1.65,boxSizing:"border-box",width:"100%"}} />
+                    </div>
+
+                    {/* Row 5: Status + Publish target */}
+                    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
+                      <div style={{display:"flex",flexDirection:"column",gap:4}}>
+                        <label style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>Status</label>
+                        <select value={nlForm.status} onChange={function(e){setNlForm(function(p){return Object.assign({},p,{status:e.target.value});});}} style={{padding:"8px 12px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#1e293b",outline:"none",background:"#fff",cursor:"pointer"}}>
+                          <option value="draft">Draft</option>
+                          <option value="sent">Published</option>
+                        </select>
+                      </div>
+                      <div style={{display:"flex",flexDirection:"column",gap:4}}>
+                        <label style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>Publish to</label>
+                        <select value={nlForm.publishTarget} onChange={function(e){setNlForm(function(p){return Object.assign({},p,{publishTarget:e.target.value});});}} style={{padding:"8px 12px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#1e293b",outline:"none",background:"#fff",cursor:"pointer"}}>
+                          <option value="website">Website only</option>
+                          <option value="both">Email + Website</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Row 6: Actions */}
+                    <div style={{display:"flex",gap:8,paddingTop:4}}>
+                      {actionBtn("Save",saveNL)}
+                      {actionBtn("Preview",function(){setPreviewingNL(Object.assign({},nlForm,{id:editingNL}));},"ghost")}
+                      {actionBtn("Cancel",function(){setEditingNL(null);},"ghost")}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Newsletters table */}
+              <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+                <div style={{display:"grid",gridTemplateColumns:"1fr 120px 100px 140px 75px 210px",background:"#f8fafc",borderBottom:"1px solid #e2e8f0",padding:"8px 16px",columnGap:16}}>
+                  {[["Title","title"],["Date","date"],["Status","status"],["Publish to",null],["Recipients","recipients"],["",null]].map(function(pair,i){
+                    var label=pair[0], col=pair[1];
+                    var active = col && nlSortCol===col;
+                    if (!col) return <div key={i} style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",textAlign:i===5?"right":"left"}}>{label}</div>;
+                    return (
+                      <button key={i} onClick={function(){nlSortToggle(col);}} style={{background:"none",border:"none",padding:0,textAlign:"left",cursor:"pointer",fontFamily:F.b,fontSize:10,fontWeight:700,color:active?"#1e293b":"#94a3b8",letterSpacing:1,textTransform:"uppercase",display:"inline-flex",alignItems:"center",gap:4,userSelect:"none"}}>
+                        {label}
+                        <span style={{display:"inline-flex",flexDirection:"column",gap:1}}>
+                          <span style={{fontSize:7,fontFamily:"sans-serif",color:active&&nlSortDir==="asc"?"#475569":"#d1d5db",lineHeight:1}}>▲</span>
+                          <span style={{fontSize:7,fontFamily:"sans-serif",color:active&&nlSortDir==="desc"?"#475569":"#d1d5db",lineHeight:1}}>▼</span>
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+                {sortedNewsletters.map(function(n,i){
+                  return (
+                    <div key={n.id} style={{display:"grid",gridTemplateColumns:"1fr 120px 100px 140px 75px 210px",padding:"10px 16px",columnGap:16,borderBottom:i<sortedNewsletters.length-1?"1px solid #f1f5f9":"none",alignItems:"center"}}>
+                      <div style={{fontFamily:F.b,fontSize:13,fontWeight:600,color:"#1e293b"}}>{n.title}</div>
+                      <div style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{n.date}</div>
+                      <div>{n.status==="sent"?chip("Published","#16a34a","#dcfce7"):chip("Draft","#92400e","#fef3c7")}</div>
+                      <div style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{n.publishTarget==="both"?"Email + Website":"Website only"}</div>
+                      <div style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{n.status==="sent"?n.recipients:"—"}</div>
+                      <div style={{display:"flex",gap:6,justifyContent:"flex-end",flexWrap:"nowrap",paddingLeft:12}}>
+                        {actionBtn("Preview",function(){setPreviewingNL(n);},"ghost")}
+                        {actionBtn("Edit",function(){openNLEditor(n);},"ghost")}
+                        {actionBtn("Remove",function(){setNewsletters(function(prev){return prev.filter(function(x){return x.id!==n.id;});});},"danger")}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* ── STAFF ── */}
+          {activeSection==="staff" && (
+            <div>
+              {sectionHead("Staff")}
+              <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"20px 24px"}}>
+                {staffSection("Board of Directors",boardStaff,"board")}
+                {staffSection("Operations Staff",opsStaff,"ops")}
+                {staffSection("Coaching Staff",coachStaff,"coaching")}
+              </div>
+            </div>
+          )}
+
+        </div>
+      </div>
+
+      {/* ── CREATE MODAL ── */}
+      {showSignupModal && (function() {
+        var isTm   = teamsSubTab==="teams";
+        var isTr   = teamsSubTab==="tournaments";
+        var isVol  = teamsSubTab==="volunteers";
+        var isGame = teamsSubTab==="games";
+        var modalTitle = isTm ? "New Team Sign-Up" : isTr ? "New Tournament" : isGame ? "New Single Game" : "New Volunteer Opportunity";
+        var submitLabel = isTm ? "Create sign-up" : isTr ? "Create tournament" : isGame ? "Create game" : "Create opportunity";
+        var inp = function(label,key,type) {
+          var hasErr = !!formErrors[key];
+          return (
+            <div style={{display:"flex",flexDirection:"column",gap:4}}>
+              <label style={{fontFamily:F.b,fontSize:11,color:hasErr?C.red:"#64748b"}}>{label}</label>
+              <input type={type||"text"} min={type==="number"?"1":undefined} value={signupForm[key]} onChange={function(e){var v=e.target.value;setSignupForm(function(p){var n=Object.assign({},p);n[key]=v;return n;});if(hasErr)setFormErrors(function(p){var n=Object.assign({},p);delete n[key];return n;});}} style={{padding:"8px 12px",border:"1px solid "+(hasErr?C.red:"#e2e8f0"),borderRadius:6,fontFamily:F.b,fontSize:13,color:"#1e293b",outline:"none",background:"#fff",boxSizing:"border-box"}} />
+              {hasErr && <div style={{fontFamily:F.b,fontSize:11,color:C.red}}>{formErrors[key]}</div>}
+            </div>
+          );
+        };
+        return (
+          <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.4)",zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:16}} onClick={function(e){if(e.target===e.currentTarget){setShowSignupModal(false);setFormErrors({});}}}>
+            <div style={{background:"#fff",borderRadius:12,width:"100%",maxWidth:520,padding:"28px 28px 24px",boxShadow:"0 8px 40px rgba(0,0,0,0.18)"}}>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:20}}>
+                <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",borderLeft:"3px solid "+C.red,paddingLeft:12}}>{modalTitle}</div>
+                <button onClick={function(){setShowSignupModal(false);setFormErrors({});}} style={{background:"none",border:"none",cursor:"pointer",color:"#94a3b8",fontSize:18,lineHeight:1,padding:4}}>✕</button>
+              </div>
+
+              <div style={{display:"flex",flexDirection:"column",gap:14}}>
+                {inp("Name","name")}
+
+                {(isTr||isVol||isGame) && inp("Location","location")}
+
+                {(isTm||isTr) && (
+                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                    {inp("Start date","startDate","date")}
+                    {inp("End date","endDate","date")}
+                  </div>
+                )}
+
+                {isVol && inp("Date","startDate","date")}
+
+                {isGame && (
+                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                    {inp("Date","startDate","date")}
+                    {inp("Time (e.g. 7:30 PM)","time")}
+                  </div>
+                )}
+
+                {isGame && (function(){
+                  var hasErr = !!formErrors.homeAway;
+                  return (
+                    <div style={{display:"flex",flexDirection:"column",gap:4}}>
+                      <label style={{fontFamily:F.b,fontSize:11,color:"#64748b"}}>Home or Away</label>
+                      <select value={signupForm.homeAway} onChange={function(e){var v=e.target.value;setSignupForm(function(p){var n=Object.assign({},p);n.homeAway=v;return n;});}} style={{padding:"8px 12px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:13,color:"#1e293b",outline:"none",background:"#fff",boxSizing:"border-box",cursor:"pointer"}}>
+                        <option value="home">Home</option>
+                        <option value="away">Away</option>
+                      </select>
+                    </div>
+                  );
+                })()}
+
+                {(isTm||isTr||isGame) && inp("Roster / team size","rosterSize","number")}
+                {isVol && inp("Spots available","spotsAvailable","number")}
+
+                {inp("Description (shown to players)","description")}
+              </div>
+
+              <div style={{display:"flex",justifyContent:"flex-end",gap:10,marginTop:24,paddingTop:16,borderTop:"1px solid #e2e8f0"}}>
+                {actionBtn("Cancel",function(){setShowSignupModal(false);setFormErrors({});},"ghost")}
+                {actionBtn(submitLabel,submitSignup)}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* ── NEWSLETTER PREVIEW MODAL ── */}
+      {previewingNL && (
+        <div onClick={function(){setPreviewingNL(null);}} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.55)",zIndex:200,display:"flex",alignItems:"flex-start",justifyContent:"center",paddingTop:40,overflowY:"auto"}}>
+          <div onClick={function(e){e.stopPropagation();}} style={{background:"#fff",borderRadius:12,width:"100%",maxWidth:680,margin:"0 16px 48px",boxShadow:"0 8px 40px rgba(0,0,0,0.22)",overflow:"hidden"}}>
+            <div style={{background:C.navy,padding:"18px 24px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+              <div style={{fontFamily:NS_FH,fontSize:14,fontWeight:700,color:"#fff",letterSpacing:2,textTransform:"uppercase"}}>Newsletter Preview</div>
+              <button onClick={function(){setPreviewingNL(null);}} style={{background:"none",border:"none",cursor:"pointer",color:"rgba(255,255,255,0.7)",fontSize:20,lineHeight:1,padding:4}}>✕</button>
+            </div>
+            {previewingNL.imageDataUrl && <img src={previewingNL.imageDataUrl} alt="" style={{width:"100%",maxHeight:280,objectFit:"cover",display:"block"}} />}
+            <div style={{padding:"32px 36px"}}>
+              {previewingNL.date && <div style={{fontFamily:F.b,fontSize:11,fontWeight:700,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",marginBottom:10}}>{previewingNL.date}</div>}
+              {previewingNL.headline && <div style={{fontFamily:NS_FH,fontSize:30,fontWeight:700,color:C.navy,letterSpacing:1,lineHeight:1.15,marginBottom:20}}>{previewingNL.headline}</div>}
+              {previewingNL.body ? (
+                <div>
+                  {previewingNL.body.split("\n\n").map(function(para,pi){
+                    return <p key={pi} style={{fontFamily:F.b,fontSize:14,color:"#334155",lineHeight:1.7,marginTop:pi===0?0:16,marginBottom:0}}>{para.split("\n").reduce(function(acc,line,li){return li===0?[line]:acc.concat([<br key={li}/>],line);},[])}</p>;
+                  })}
+                </div>
+              ) : (
+                <div style={{fontFamily:F.b,fontSize:13,color:"#94a3b8",fontStyle:"italic"}}>No body text yet.</div>
+              )}
+            </div>
+            <div style={{padding:"16px 36px 24px",borderTop:"1px solid #e2e8f0",display:"flex",justifyContent:"flex-end"}}>
+              {actionBtn("Close",function(){setPreviewingNL(null);},"ghost")}
+            </div>
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}
+
+function NSPlayerPortal({nav, nsRole, coachIsAlsoPlayer, tier, programs, teamCount, adminTeams, adminTournaments, adminVolunteers, adminGames, currentMemberId}) {
+  var role = nsRole;
+  var currentMember = ADMIN_MEMBERS.find(function(m){return m.id===currentMemberId;}) || null;
+  var DISPLAY_NAME = currentMember ? currentMember.name : "Player";
   var ALL_TEAMS = [
     {
       id:"c",
@@ -1977,7 +2934,7 @@ function NSPlayerPortal({nav}) {
       tag:"East",
       nextGame:{dow:"Sunday",date:"Jun 7, 2026",time:"7:30 PM",opp:"Team A",loc:"Chiller North",home:true},
       record:{w:8,l:3,t:1,gp:12},
-      myStats:{gp:12,g:8,a:6,pts:14,pim:4},
+      myStats:currentMember&&currentMember.stats ? currentMember.stats : {gp:12,g:5,a:9,pts:14,pim:2},
       games:[
         {date:"Jun 21",time:"8:00 PM", loc:"Chiller Easton",opp:"Storm",   away:false,upcoming:true},
         {date:"Jun 14",time:"6:00 PM", loc:"Chiller Dublin",opp:"Rangers", away:true, upcoming:true},
@@ -1998,17 +2955,17 @@ function NSPlayerPortal({nav}) {
       ],
       lines:{
         set:true,
-        setBy:"Coach Name",
+        setBy:"Matt Chamblin",
         offense:[
-          {lw:"Player 2",c:"Player 1",rw:"Player 3"},
-          {lw:"Player 4",c:"Player 5",rw:"Player 6"},
-          {lw:"Player 7",c:"Player 8",rw:"Player 9"},
+          {lw:"Brent McCreedy",  c:"Taylor DeCicco", rw:"Player A"},
+          {lw:"Marcus Webb",     c:"Jake Torres",    rw:"Chris Holt"},
+          {lw:"Mike Tran",       c:"James Ortiz",    rw:"Kevin Shaw"},
         ],
         defense:[
-          {ld:"Player 10",rd:"Player 11"},
-          {ld:"Player 12",rd:"Player 13"},
+          {ld:"Derek Neal",  rd:"Player D"},
+          {ld:"Travis Ford", rd:"Aaron Liu"},
         ],
-        goalie:"Player 14",
+        goalie:"Sam Roper",
       },
     },
     {
@@ -2017,7 +2974,7 @@ function NSPlayerPortal({nav}) {
       tag:"West A",
       nextGame:{dow:"Saturday",date:"Jun 6, 2026",time:"9:15 PM",opp:"Team B",loc:"Chiller Easton",home:false},
       record:{w:5,l:5,t:2,gp:12},
-      myStats:{gp:10,g:3,a:5,pts:8,pim:2},
+      myStats:currentMember&&currentMember.stats ? currentMember.stats : {gp:10,g:3,a:5,pts:8,pim:2},
       games:[
         {date:"Jun 20",time:"8:30 PM", loc:"Chiller Dublin",opp:"Wolves",  away:false,upcoming:true},
         {date:"Jun 13",time:"7:00 PM", loc:"Chiller Easton",opp:"Knights", away:true, upcoming:true},
@@ -2035,30 +2992,80 @@ function NSPlayerPortal({nav}) {
         {date:"Mar 12",opp:"Wolves",  gf:2,ga:3,r:"L"},
         {date:"Mar 5", opp:"Thunder", gf:5,ga:2,r:"W"},
       ],
-      lines:{set:false},
+      lines:{
+        set:true,
+        setBy:"Player C",
+        offense:[
+          {lw:"Dom Russo",   c:"Player B",    rw:"Brian Fox"},
+          {lw:"Ty Benson",   c:"Pete Ochoa",  rw:"Liam Grant"},
+          {lw:"Noah Bauer",  c:"Chad Monroe", rw:null},
+        ],
+        defense:[
+          {ld:"Matt Chamblin", rd:"Carlos Diaz"},
+          {ld:"Ethan Hill",    rd:"Scott Lenz"},
+        ],
+        goalie:"Ryan Cole",
+      },
     },
     {
       id:"gc",
-      label:"Guardians Cup Tournament",
+      label:"Guardians Cup 2026",
       tag:"Tournament",
-      nextGame:{dow:"Monday",date:"Jun 8, 2026",time:"11:00 AM",opp:"Team C",loc:"Nationwide Ice",home:true},
-      record:{w:1,l:0,t:0,gp:1},
-      myStats:{gp:1,g:2,a:0,pts:2,pim:0},
+      nextGame:{dow:"Saturday",date:"Aug 15, 2026",time:"10:00 AM",opp:"Eagles",loc:"Nationwide Ice",home:false},
+      record:{w:0,l:0,t:0,gp:0},
+      myStats:currentMember&&currentMember.stats ? currentMember.stats : {gp:0,g:0,a:0,pts:0,pim:0},
       games:[
-        {date:"Jun 8",time:"2:00 PM",  loc:"Nationwide Ice",opp:"Team E",away:false,upcoming:true},
-        {date:"Jun 8",time:"11:00 AM", loc:"Nationwide Ice",opp:"Team C",away:false,upcoming:true},
-        {date:"Jun 1",opp:"Team D",gf:4,ga:2,r:"W"},
+        {date:"Aug 17",time:"2:00 PM", loc:"Nationwide Ice",opp:"TBD (Final)",away:false,upcoming:true},
+        {date:"Aug 16",time:"10:00 AM",loc:"Nationwide Ice",opp:"Storm",      away:false,upcoming:true},
+        {date:"Aug 15",time:"10:00 AM",loc:"Nationwide Ice",opp:"Eagles",     away:false,upcoming:true},
       ],
       lines:{set:false},
     },
   ];
-  var TEAMS = ALL_TEAMS.slice(0, teamCount).sort(function(a,b){ return new Date(a.nextGame.date) - new Date(b.nextGame.date); });
-  var ALL_PROGRAMS = [
-    {label:"Guardians Cup Tournament",season:"Winter 2026",date:"Aug 15–17, 2026",registerBy:"Jul 15, 2026",desc:"Registration is open for the Guardians Cup Tournament. Sign up now to compete.",tiers:["disabled"]},
-    {label:"Winter C League",season:"Winter 2026",date:"Sep 6 – Dec 20, 2026",registerBy:"Aug 1, 2026",desc:"Winter season registration is now open for the C League.",tiers:["disabled","vet"]},
-    {label:"Winter D League",season:"Winter 2026",date:"Sep 6 – Dec 20, 2026",registerBy:"Aug 1, 2026",desc:"Winter season registration is now open for the D League.",tiers:["disabled","vet"]},
-    {label:"Car Wash",season:"Winter 2026",date:"Jun 21, 2026",registerBy:"Jun 10, 2026",closingSoon:true,desc:"Help raise funds for the program by volunteering at our upcoming car wash event.",tiers:["disabled","vet","volunteer"]},
-  ];
+  var TODAY = (function(){var d=new Date();d.setHours(0,0,0,0);return d;})();
+  var TEAMS = (function(){
+    var result = [];
+    (adminTeams||[]).filter(function(t){
+      return t.status==="active"&&t.pid&&(t.tiers||[]).indexOf(tier)>=0&&(t.roster||[]).indexOf(currentMemberId)>=0;
+    }).forEach(function(at){
+      var match = ALL_TEAMS.find(function(pt){return pt.id===at.pid;});
+      if (match && result.indexOf(match)<0) result.push(match);
+    });
+    (adminTournaments||[]).filter(function(t){
+      return t.status==="active"&&t.pid&&(t.tiers||[]).indexOf(tier)>=0&&(t.roster||[]).indexOf(currentMemberId)>=0;
+    }).forEach(function(at){
+      var match = ALL_TEAMS.find(function(pt){return pt.id===at.pid;});
+      if (match && result.indexOf(match)<0) result.push(match);
+    });
+    return result.sort(function(a,b){return new Date(a.nextGame.date)-new Date(b.nextGame.date);}).slice(0,teamCount);
+  })();
+  var MY_EVENTS = (adminVolunteers||[]).filter(function(v){
+    if ((v.roster||[]).indexOf(currentMemberId)<0) return false;
+    var evtDate = v.date ? new Date(v.date+"T00:00:00") : null;
+    return evtDate && evtDate >= TODAY;
+  }).map(function(v){return Object.assign({},v,{kind:"volunteer"});}).concat(
+    (adminGames||[]).filter(function(g){
+      if ((g.roster||[]).indexOf(currentMemberId)<0) return false;
+      var gDate = g.date ? new Date(g.date+"T00:00:00") : null;
+      return gDate && gDate >= TODAY;
+    }).map(function(g){return Object.assign({},g,{kind:"game"});})
+  ).sort(function(a,b){return new Date(a.date)-new Date(b.date);});
+  var fmtDateRange = function(start,end) {
+    var fmt = function(ds) { if(!ds)return""; var d=new Date(ds+"T00:00:00"); return d.toLocaleString("default",{month:"short",day:"numeric",year:"numeric"}); };
+    return end && end!==start ? fmt(start)+" – "+fmt(end) : fmt(start);
+  };
+  var signedUpEventIds = new Set((adminVolunteers||[]).filter(function(v){return (v.roster||[]).indexOf(currentMemberId)>=0;}).map(function(v){return v.id;}));
+  var ALL_PROGRAMS = (adminTeams||[]).filter(function(t){return t.status==="signup";}).map(function(t){
+    return {label:t.name,type:"team",date:fmtDateRange(t.startDate,t.endDate),desc:t.description||"",tiers:t.tiers||[]};
+  }).concat(
+    (adminTournaments||[]).filter(function(t){return t.status==="signup";}).map(function(t){
+      return {label:t.name,type:"tournament",date:fmtDateRange(t.startDate,t.endDate),location:t.location,desc:t.description||"",tiers:t.tiers||[]};
+    })
+  ).concat(
+    (adminVolunteers||[]).filter(function(v){return v.status==="signup" && !signedUpEventIds.has(v.id);}).map(function(v){
+      return {label:v.name,type:"volunteer",date:fmtDateRange(v.date,""),location:v.location,desc:v.description||"",tiers:v.tiers||[]};
+    })
+  );
   var AVAIL_PROGRAMS = programs === "no" ? [] : ALL_PROGRAMS.filter(function(p){ return p.tiers.indexOf(tier) >= 0; });
   var ORD = ["1st","2nd","3rd"];
   var nameCell = function(name) {
@@ -2066,17 +3073,6 @@ function NSPlayerPortal({nav}) {
     return <span style={{fontFamily:F.b,fontSize:13,color:me?C.red:"#334155",fontWeight:me?700:400}}>{name}</span>;
   };
   var thStyle = function(align) { return {fontFamily:F.b,fontSize:10,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase",textAlign:align||"left"}; };
-  var devSelect = function(label, value, setter, opts) {
-    return (
-      <label style={{display:"flex",alignItems:"center",gap:6}}>
-        <span style={{fontFamily:F.b,fontSize:11,color:"rgba(255,255,255,0.4)"}}>{label}</span>
-        <select value={value} onChange={function(e){setter(e.target.value);}} style={{background:"rgba(167,139,250,0.12)",border:"1px solid rgba(167,139,250,0.3)",borderRadius:4,fontFamily:F.b,fontSize:11,color:"#a78bfa",padding:"3px 8px",cursor:"pointer",outline:"none"}}>
-          {opts.map(function(o){ return <option key={o.value} value={o.value} style={{background:"#1e1b4b",color:"#a78bfa"}}>{o.label}</option>; })}
-        </select>
-      </label>
-    );
-  };
-
   var carouselRef = useRef(null);
   var cso = useState(false); var carouselOverflows = cso[0]; var setCarouselOverflows = cso[1];
   useEffect(function() {
@@ -2089,49 +3085,8 @@ function NSPlayerPortal({nav}) {
 
   return (
     <div style={{background:"#f1f5f9",minHeight:"100vh"}}>
-      <NSHeader nav={nav} curPage="ns-portal" isLoggedIn={true} />
 
-      {devMode && (
-        <div style={{background:"#1e1b4b",padding:"8px 24px",display:"flex",alignItems:"center",gap:20,position:"sticky",top:64,zIndex:90,flexWrap:"wrap"}}>
-          <span style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#a78bfa",background:"rgba(167,139,250,0.15)",padding:"2px 8px",borderRadius:4,letterSpacing:1,textTransform:"uppercase",flexShrink:0}}>Dev</span>
-          {devSelect("Role:", role, setRole, [
-            {value:"player",label:"Player"},
-            {value:"coach", label:"Coach"},
-          ])}
-          {role === "coach" && devSelect("Coach on team:", String(coachIsAlsoPlayer), function(v){setCoachIsAlsoPlayer(v==="true");}, [
-            {value:"true", label:"Yes"},
-            {value:"false",label:"No"},
-          ])}
-          {devSelect("Player Tier:", tier, setTier, [
-            {value:"vet",label:"Veteran"},
-            {value:"disabled",label:"Disabled"},
-            {value:"volunteer",label:"Volunteer"},
-          ])}
-          {devSelect("Programs:", programs, setPrograms, [
-            {value:"yes",label:"Available"},
-            {value:"no",label:"None"},
-          ])}
-          {devSelect("Teams:", String(teamCount), function(v){setTeamCount(Number(v));}, [
-            {value:"0",label:"0 Teams"},
-            {value:"1",label:"1 Team"},
-            {value:"2",label:"2 Teams"},
-            {value:"3",label:"3 Teams"},
-          ])}
-        </div>
-      )}
-
-      {role === "coach" && coachIsAlsoPlayer && (
-      <div style={{background:"#fff",borderBottom:"1px solid #e2e8f0",padding:"10px 24px",display:"flex",justifyContent:"flex-end",alignItems:"center",gap:10}}>
-        <span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>View as</span>
-        <div style={{display:"flex",border:"1px solid #e2e8f0",borderRadius:6,overflow:"hidden"}}>
-          <button onClick={function(){setCoachPortalView("coach");}} style={{padding:"6px 18px",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:12,fontWeight:700,background:coachPortalView==="coach"?C.navy:"transparent",color:coachPortalView==="coach"?"#fff":"#64748b",transition:"all .15s"}}>Coach</button>
-          <button onClick={function(){setCoachPortalView("player");}} style={{padding:"6px 18px",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:12,fontWeight:700,background:coachPortalView==="player"?C.navy:"transparent",color:coachPortalView==="player"?"#fff":"#64748b",transition:"all .15s"}}>Player</button>
-        </div>
-      </div>
-    )}
-    {role === "coach" && coachPortalView === "coach"
-      ? <NSCoachPortalContent coachIsAlsoPlayer={coachIsAlsoPlayer} coachPortalView={coachPortalView} setCoachPortalView={setCoachPortalView} />
-      : <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 60px"}}>
+      <main style={{maxWidth:1100,margin:"0 auto",padding:"32px 24px 60px"}}>
 
         {/* Open Sign-Ups — only shown when programs are available */}
         {AVAIL_PROGRAMS.length > 0 && (
@@ -2146,25 +3101,63 @@ function NSPlayerPortal({nav}) {
               )}
             </div>
             <div ref={carouselRef} style={{display:"flex",gap:16,overflowX:"hidden",scrollBehavior:"smooth"}}>
-              {AVAIL_PROGRAMS.map(function(prog,i){return (
-                <div key={i} style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"20px 24px",display:"flex",flexDirection:"column",gap:10,minWidth:280,maxWidth:280,flexShrink:0}}>
-                  <div style={{display:"flex",alignItems:"flex-start",justifyContent:"space-between",gap:12}}>
-                    <div>
-                      <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,color:"#1e293b",letterSpacing:1}}>{prog.label}</div>
-                      {prog.date && <div style={{fontFamily:F.b,fontSize:12,color:"#94a3b8",marginTop:2}}>{prog.date}</div>}
+              {AVAIL_PROGRAMS.map(function(prog,i){
+                var typeLabel = prog.type==="tournament" ? "Tournament" : prog.type==="volunteer" ? "Volunteer" : "Team";
+                var typeBg = prog.type==="tournament" ? {color:"#1d4ed8",bg:"#dbeafe"} : prog.type==="volunteer" ? {color:"#92400e",bg:"#fef3c7"} : {color:"#16a34a",bg:"#dcfce7"};
+                return (
+                  <div key={i} style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,padding:"20px 24px",display:"flex",flexDirection:"column",gap:10,minWidth:280,maxWidth:280,flexShrink:0}}>
+                    <div style={{display:"flex",alignItems:"flex-start",justifyContent:"space-between",gap:12}}>
+                      <div>
+                        <div style={{fontFamily:NS_FH,fontSize:18,fontWeight:700,color:"#1e293b",letterSpacing:1}}>{prog.label}</div>
+                        {prog.date && <div style={{fontFamily:F.b,fontSize:12,color:"#94a3b8",marginTop:2}}>{prog.date}</div>}
+                        {prog.location && <div style={{fontFamily:F.b,fontSize:12,color:"#94a3b8"}}>{prog.location}</div>}
+                      </div>
+                      <div style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:typeBg.color,background:typeBg.bg,padding:"3px 10px",borderRadius:20,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap",flexShrink:0}}>{typeLabel}</div>
                     </div>
-                    {prog.closingSoon
-                      ? <div style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#b45309",background:"#fef3c7",padding:"3px 10px",borderRadius:20,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap",flexShrink:0}}>Closing Soon</div>
-                      : <div style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#16a34a",background:"#dcfce7",padding:"3px 10px",borderRadius:20,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap",flexShrink:0}}>Open</div>
-                    }
+                    <div style={{fontFamily:F.b,fontSize:13,color:"#64748b"}}>{prog.desc}</div>
+                    <div style={{marginTop:"auto"}}>
+                      <button style={{width:"100%",padding:"9px 0",background:C.navy,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,fontWeight:700,letterSpacing:1,cursor:"pointer"}}>Register</button>
+                    </div>
                   </div>
-                  <div style={{fontFamily:F.b,fontSize:13,color:"#64748b"}}>{prog.desc}</div>
-                  <div style={{marginTop:"auto"}}>
-                    {prog.registerBy && <div style={{fontFamily:F.b,fontSize:11,color:"#94a3b8",marginBottom:6}}>Register by <span style={{color:"#475569",fontWeight:700}}>{prog.registerBy}</span></div>}
-                    <button style={{width:"100%",padding:"9px 0",background:C.navy,color:"#fff",border:"none",borderRadius:6,fontFamily:F.b,fontSize:13,fontWeight:700,letterSpacing:1,cursor:"pointer"}}>Register</button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* My Events */}
+        {MY_EVENTS.length > 0 && (
+          <div style={{marginBottom:40}}>
+            <div style={{fontFamily:NS_FH,fontSize:22,fontWeight:700,color:"#1e293b",letterSpacing:2,textTransform:"uppercase",borderLeft:"3px solid "+C.red,paddingLeft:12,lineHeight:1,marginBottom:16}}>My Events</div>
+            <div style={{display:"flex",flexDirection:"column",gap:12}}>
+              {MY_EVENTS.map(function(ev,i){
+                var evtDate = new Date(ev.date+"T00:00:00");
+                var isToday = evtDate.toDateString()===TODAY.toDateString();
+                var fmtEvt = function(ds){var d=new Date(ds+"T00:00:00");return d.toLocaleString("default",{weekday:"long",month:"long",day:"numeric",year:"numeric"});};
+                var isGame = ev.kind==="game";
+                return (
+                  <div key={i} style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
+                    <div style={{background:C.navy,padding:"12px 20px"}}>
+                      <div style={{fontFamily:NS_FH,fontSize:15,fontWeight:700,color:"#fff",letterSpacing:1}}>{ev.name}</div>
+                    </div>
+                    <div style={{padding:"14px 20px",display:"flex",alignItems:"center",gap:24,flexWrap:"wrap"}}>
+                      <div style={{flex:1,minWidth:200}}>
+                        <div style={{fontFamily:F.b,fontSize:13,fontWeight:600,color:"#1e293b",marginBottom:4}}>{fmtEvt(ev.date)}{isGame&&ev.time?" · "+ev.time:""}</div>
+                        {isGame && <div style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{ev.home?"Home":"Away"}</div>}
+                        {ev.location && <div style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{ev.location}</div>}
+                        {!isGame && ev.description && <div style={{fontFamily:F.b,fontSize:12,color:"#64748b",marginTop:6}}>{ev.description}</div>}
+                      </div>
+                      <div style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:6,flexShrink:0}}>
+                        {isGame
+                          ? <div style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{ev.players}/{ev.rosterSize} rostered</div>
+                          : <div style={{fontFamily:F.b,fontSize:12,color:"#64748b"}}>{ev.volunteers}/{ev.spotsAvailable} signed up</div>
+                        }
+                        <span style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#15803d",background:"#dcfce7",padding:"3px 10px",borderRadius:20,letterSpacing:1,textTransform:"uppercase"}}>{isGame?"Rostered":"Registered"}</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              );})}
+                );
+              })}
             </div>
           </div>
         )}
@@ -2185,7 +3178,7 @@ function NSPlayerPortal({nav}) {
               <div style={{marginBottom:16}}>
                 <div style={{background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,overflow:"hidden"}}>
                   <div style={{background:C.navy,padding:"12px 20px"}}>
-                    <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"rgba(255,255,255,0.55)",letterSpacing:2,textTransform:"uppercase"}}>Next Game</div>
+                    <div style={{fontFamily:NS_FH,fontSize:12,fontWeight:600,color:"#fff",letterSpacing:2,textTransform:"uppercase"}}>Next Game</div>
                   </div>
                   <div style={{padding:"14px 20px",display:"flex",alignItems:"center",gap:24}}>
                     <div style={{flex:1}}>
@@ -2314,8 +3307,8 @@ function NSPlayerPortal({nav}) {
         })}
 
 
-      </main>}
-    {NS_FOOTER(nav, devMode, setDevMode)}
+      </main>
+    {/* footer rendered by CWHSite */}
     </div>
   );
 }
@@ -2401,7 +3394,6 @@ function NSProfilePage({nav}) {
 
   return (
     <div style={{background:"#f1f5f9",minHeight:"100vh"}}>
-      <NSHeader nav={nav} curPage="ns-portal" isLoggedIn={true} />
       <div style={{maxWidth:720,margin:"0 auto",padding:"40px 24px 80px"}}>
 
         <div style={{marginBottom:28}}>
@@ -2508,7 +3500,7 @@ function NSProfilePage({nav}) {
         </div>
 
       </div>
-      {NS_FOOTER(nav)}
+      {/* footer rendered by CWHSite */}
     </div>
   );
 }
@@ -2520,6 +3512,44 @@ export default function CWHSite() {
   var aboutPages = ["about","news","leadership","sponsors","become-sponsor","contributor"];
   var aboutItems = [{l:"About Us",p:"about"},{l:"News",p:"news"},{l:"Leadership",p:"leadership"},{l:"Sponsors",p:"sponsors"},{l:"Sponsor",p:"become-sponsor"},{l:"Contribute",p:"contributor"}];
   var isAbout = aboutPages.indexOf(page) >= 0;
+
+  /* NS dev + auth + role state */
+  var dm  = useState(false);   var devMode = dm[0];  var setDevMode = dm[1];
+  var li  = useState(false);   var isLoggedIn = li[0]; var setIsLoggedIn = li[1];
+  var ro  = useState("player"); var nsRole = ro[0];  var setNsRole = ro[1];
+  var pv  = useState("player"); var portalView = pv[0]; var setPortalView = pv[1];
+  var cip = useState(true);    var coachIsAlsoPlayer = cip[0]; var setCoachIsAlsoPlayer = cip[1];
+  var tr  = useState("vet");   var tier = tr[0];    var setTier = tr[1];
+  var pr  = useState("yes");   var programs = pr[0]; var setPrograms = pr[1];
+  var tc  = useState(2);       var teamCount = tc[0]; var setTeamCount = tc[1];
+  var at2 = useState(ADMIN_TEAMS_INIT);       var adminTeams = at2[0];       var setAdminTeams = at2[1];
+  var atr = useState(ADMIN_TOURNAMENTS_INIT); var adminTournaments = atr[0]; var setAdminTournaments = atr[1];
+  var avl = useState(ADMIN_VOLUNTEERS_INIT);  var adminVolunteers = avl[0];  var setAdminVolunteers = avl[1];
+  var ag  = useState(ADMIN_GAMES_INIT);       var adminGames = ag[0];        var setAdminGames = ag[1];
+  var nls = useState(INIT_NEWSLETTERS);       var newsletters = nls[0];      var setNewsletters = nls[1];
+  var cai = useState(null); var currentArticleId = cai[0]; var setCurrentArticleId = cai[1];
+  var navArticle = function(id) { setCurrentArticleId(id); nav("ns-article"); };
+
+  var onSignIn  = function() { setIsLoggedIn(true);  nav("ns-portal"); };
+  var onSignOut = function() { setIsLoggedIn(false); setDevMode(false); setPortalView("player"); setNsRole("player"); setPage("new-site"); window.scrollTo({top:0}); };
+
+  /* roles the current user holds; drives "View as" dropdown */
+  var availableViews = (function() {
+    if (nsRole === "admin")  return [{v:"admin",l:"Admin"},{v:"coach",l:"Coach"},{v:"player",l:"Player"}];
+    if (nsRole === "coach" && coachIsAlsoPlayer) return [{v:"coach",l:"Coach"},{v:"player",l:"Player"}];
+    return [];
+  })();
+
+  var devSelect = function(label, value, setter, opts) {
+    return (
+      <label style={{display:"flex",alignItems:"center",gap:6}}>
+        <span style={{fontFamily:F.b,fontSize:11,color:"rgba(255,255,255,0.4)"}}>{label}</span>
+        <select value={value} onChange={function(e){setter(e.target.value);}} style={{background:"rgba(167,139,250,0.12)",border:"1px solid rgba(167,139,250,0.3)",borderRadius:4,fontFamily:F.b,fontSize:11,color:"#a78bfa",padding:"3px 8px",cursor:"pointer",outline:"none"}}>
+          {opts.map(function(o){return <option key={o.value} value={o.value} style={{background:"#1e1b4b",color:"#a78bfa"}}>{o.label}</option>;})}
+        </select>
+      </label>
+    );
+  };
 
   var content;
   switch (page) {
@@ -2542,17 +3572,27 @@ export default function CWHSite() {
     case "reg-guides": content = <ResourcePage page="reg-guides" />; break;
     case "players-corner": content = <ResourcePage page="players-corner" />; break;
     case "coaching": content = <ResourcePage page="coaching" />; break;
-    case "new-site": content = <NewSitePage nav={nav} />; break;
+    case "new-site": content = <NewSitePage nav={nav} adminNewsletters={newsletters} navArticle={navArticle} />; break;
+    case "ns-article":
+      var artNL = newsletters.find(function(n){return n.id===currentArticleId;}) || null;
+      content = <NSArticlePage nav={nav} article={artNL} />;
+      break;
     case "ns-about": content = <NSAboutPage nav={nav} />; break;
     case "ns-leadership": content = <NSLeadershipPage nav={nav} />; break;
     case "ns-sponsors": content = <NSSponsorsPage nav={nav} />; break;
     case "ns-join": content = <NSJoinPage nav={nav} />; break;
-    case "ns-portal": content = <NSPlayerPortal nav={nav} />; break;
+    case "ns-portal":
+      var currentMemberId = nsRole==="admin" ? 1 : nsRole==="coach" ? 7 : nsRole==="staff" ? 3 : tier==="disabled" ? 5 : tier==="volunteer" ? 30 : 4;
+      if (portalView === "admin")  content = <NSAdminPortal nav={nav} adminTeams={adminTeams} setAdminTeams={setAdminTeams} adminTournaments={adminTournaments} setAdminTournaments={setAdminTournaments} adminVolunteers={adminVolunteers} setAdminVolunteers={setAdminVolunteers} adminGames={adminGames} setAdminGames={setAdminGames} newsletters={newsletters} setNewsletters={setNewsletters} />;
+      else if (portalView === "coach") content = <NSCoachPortalContent showAllTeams={nsRole==="admin"} adminTeams={adminTeams} adminMembers={ADMIN_MEMBERS} currentMemberId={currentMemberId} />;
+      else content = <NSPlayerPortal nav={nav} nsRole={nsRole} coachIsAlsoPlayer={coachIsAlsoPlayer} tier={tier} programs={programs} teamCount={teamCount} adminTeams={adminTeams} adminTournaments={adminTournaments} adminVolunteers={adminVolunteers} adminGames={adminGames} currentMemberId={currentMemberId} />;
+      break;
+    case "ns-admin":  content = <NSAdminPortal nav={nav} adminTeams={adminTeams} setAdminTeams={setAdminTeams} adminTournaments={adminTournaments} setAdminTournaments={setAdminTournaments} adminVolunteers={adminVolunteers} setAdminVolunteers={setAdminVolunteers} adminGames={adminGames} setAdminGames={setAdminGames} newsletters={newsletters} setNewsletters={setNewsletters} />; break;
     case "ns-profile": content = <NSProfilePage nav={nav} />; break;
     default: content = <HomePage nav={nav} />;
   }
 
-  var isNewSite = page === "new-site" || page === "ns-about" || page === "ns-leadership" || page === "ns-sponsors" || page === "ns-join" || page === "ns-portal" || page === "ns-profile";
+  var isNewSite = page === "new-site" || page === "ns-about" || page === "ns-leadership" || page === "ns-sponsors" || page === "ns-join" || page === "ns-portal" || page === "ns-admin" || page === "ns-profile" || page === "ns-article";
 
   return (
     <div style={{background:C.w,minHeight:"100vh"}}>
@@ -2568,8 +3608,49 @@ export default function CWHSite() {
           </div>
         </div>
       )}
+      {isNewSite && (
+        <NSHeader nav={nav} curPage={page} isLoggedIn={isLoggedIn} onSignIn={onSignIn} onSignOut={onSignOut} />
+      )}
+      {isNewSite && devMode && (
+        <div style={{background:"#1e1b4b",padding:"8px 24px",display:"flex",alignItems:"center",gap:20,position:"sticky",top:64,zIndex:90,flexWrap:"wrap"}}>
+          <span style={{fontFamily:F.b,fontSize:10,fontWeight:700,color:"#a78bfa",background:"rgba(167,139,250,0.15)",padding:"2px 8px",borderRadius:4,letterSpacing:1,textTransform:"uppercase",flexShrink:0}}>Dev</span>
+          {devSelect("Role:", nsRole, function(v){setNsRole(v);setPortalView(v);}, [
+            {value:"player",label:"Player"},
+            {value:"coach", label:"Coach"},
+            {value:"admin", label:"Admin"},
+          ])}
+          {nsRole==="coach" && devSelect("Coach on team:", String(coachIsAlsoPlayer), function(v){setCoachIsAlsoPlayer(v==="true");}, [
+            {value:"true", label:"Yes"},
+            {value:"false",label:"No"},
+          ])}
+          {nsRole!=="admin" && devSelect("Player Tier:", tier, setTier, [
+            {value:"vet",      label:"Veteran"},
+            {value:"disabled", label:"Disabled"},
+            {value:"volunteer",label:"Volunteer"},
+          ])}
+          {nsRole!=="admin" && devSelect("Programs:", programs, setPrograms, [
+            {value:"yes",label:"Available"},
+            {value:"no", label:"None"},
+          ])}
+          {portalView==="player" && devSelect("Teams:", String(teamCount), function(v){setTeamCount(Number(v));}, [
+            {value:"0",label:"0 Teams"},
+            {value:"1",label:"1 Team"},
+            {value:"2",label:"2 Teams"},
+            {value:"3",label:"3 Teams"},
+          ])}
+        </div>
+      )}
+      {isNewSite && page==="ns-portal" && (isLoggedIn||devMode) && availableViews.length > 0 && (
+        <div style={{background:"#fff",borderBottom:"1px solid #e2e8f0",padding:"10px 24px",display:"flex",justifyContent:"flex-end",alignItems:"center",gap:10}}>
+          <span style={{fontFamily:F.b,fontSize:12,color:"#94a3b8",letterSpacing:1,textTransform:"uppercase"}}>View as</span>
+          <select value={portalView} onChange={function(e){setPortalView(e.target.value);}} style={{padding:"5px 10px",border:"1px solid #e2e8f0",borderRadius:6,fontFamily:F.b,fontSize:12,fontWeight:600,color:"#1e293b",background:"#fff",cursor:"pointer",outline:"none"}}>
+            {availableViews.map(function(item){return <option key={item.v} value={item.v}>{item.l}</option>;})}
+          </select>
+        </div>
+      )}
       {content}
       {!isNewSite && <Footer />}
+      {isNewSite && NS_FOOTER(nav, devMode, setDevMode)}
     </div>
   );
 }
