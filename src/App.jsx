@@ -1224,6 +1224,43 @@ function Footer() {
 }
 
 /* ═══ APP ═══ */
+var ADMIN_MEMBERS = [
+  /* admins / staff / coach */
+  {id:1, name:"Taylor DeCicco", email:"taylor@cwh.org",  tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"admin", joined:"Jan 2024", jersey:4,  pos:"C",  stats:{gp:12,g:5,a:9, pts:14,pim:2},  avail:"yes"},
+  {id:2, name:"Matt Chamblin",  email:"matt@cwh.org",    tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"admin", joined:"Jan 2024", jersey:17, pos:"LD", stats:{gp:10,g:1,a:4, pts:5, pim:10}, avail:"yes"},
+  {id:3, name:"William Teater", email:"will@cwh.org",    tier:"volunteer",docs:{submitted:true, reviewed:true, approved:true}, role:"staff", joined:"Mar 2024"},
+  {id:7, name:"Player C",       email:"pc@cwh.org",      tier:"volunteer",docs:{submitted:true, reviewed:false,approved:false},role:"coach", joined:"Jun 2024"},
+  /* vet players – C League + D League */
+  {id:4, name:"Brent McCreedy", email:"brent@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:false},role:"player",joined:"Feb 2024", jersey:21, pos:"LW", stats:{gp:11,g:4,a:5, pts:9, pim:8},  avail:"maybe"},
+  {id:8, name:"Player D",       email:"pd@cwh.org",      tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jul 2024", jersey:22, pos:"RD", stats:{gp:8, g:2,a:3, pts:5, pim:4},  avail:"yes"},
+  {id:9, name:"Marcus Webb",    email:"mwebb@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jan 2024", jersey:7,  pos:"LW", stats:{gp:12,g:5,a:9, pts:14,pim:2},  avail:"yes"},
+  {id:10,name:"Chris Holt",     email:"cholt@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Feb 2024", jersey:11, pos:"RW", stats:{gp:10,g:6,a:4, pts:10,pim:6},  avail:"yes"},
+  {id:11,name:"Jake Torres",    email:"jtorres@cwh.org", tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Feb 2024", jersey:14, pos:"C",  stats:{gp:12,g:3,a:7, pts:10,pim:0},  avail:"yes"},
+  {id:12,name:"Derek Neal",     email:"dneal@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Mar 2024", jersey:6,  pos:"LD", stats:{gp:12,g:1,a:4, pts:5, pim:10}, avail:"yes"},
+  {id:13,name:"Aaron Liu",      email:"aliu@cwh.org",    tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Mar 2024", jersey:13, pos:"RD", stats:{gp:12,g:0,a:4, pts:4, pim:2},  avail:"yes"},
+  {id:14,name:"Sam Roper",      email:"sroper@cwh.org",  tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Apr 2024", jersey:30, pos:"G",  stats:{gp:10,g:0,a:1, pts:1, pim:0},  avail:"yes"},
+  {id:15,name:"Travis Ford",    email:"tford@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Apr 2024", jersey:18, pos:"LD", stats:{gp:7, g:1,a:2, pts:3, pim:6},  avail:"maybe"},
+  {id:16,name:"Kevin Shaw",     email:"kshaw@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"May 2024", jersey:5,  pos:"RW", stats:{gp:9, g:2,a:6, pts:8, pim:0},  avail:"yes"},
+  {id:17,name:"Ryan Cole",      email:"rcole@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"May 2024", jersey:1,  pos:"G",  stats:{gp:2, g:0,a:0, pts:0, pim:2},  avail:"none"},
+  {id:18,name:"Pete Ochoa",     email:"pochoa@cwh.org",  tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jun 2024", jersey:19, pos:"C",  stats:{gp:11,g:4,a:5, pts:9, pim:8},  avail:"yes"},
+  {id:19,name:"Dom Russo",      email:"drussso@cwh.org", tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jun 2024", jersey:23, pos:"LW", stats:{gp:9, g:2,a:6, pts:8, pim:0},  avail:"yes"},
+  {id:20,name:"Ty Benson",      email:"tbenson@cwh.org", tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jul 2024", jersey:16, pos:"LW", stats:{gp:12,g:7,a:1, pts:8, pim:2},  avail:"yes"},
+  {id:27,name:"Brian Fox",      email:"bfox@cwh.org",    tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Aug 2024", jersey:24, pos:"RW", stats:{gp:12,g:3,a:7, pts:10,pim:0},  avail:"yes"},
+  {id:28,name:"Scott Lenz",     email:"slenz@cwh.org",   tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Aug 2024", jersey:2,  pos:"RD", stats:{gp:10,g:0,a:3, pts:3, pim:0},  avail:"yes"},
+  {id:29,name:"Chad Monroe",    email:"cmonroe@cwh.org", tier:"vet",      docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Sep 2024", jersey:28, pos:"C",  stats:{gp:8, g:1,a:4, pts:5, pim:14}, avail:"yes"},
+  {id:6, name:"Player B",       email:"pb@cwh.org",      tier:"vet",      docs:{submitted:false,reviewed:false,approved:false},role:"player",joined:"May 2024", jersey:3,  pos:"C",  stats:{gp:8, g:1,a:4, pts:5, pim:14}, avail:"none"},
+  /* volunteer-tier player */
+  {id:30,name:"Alex Morgan",    email:"amorgan@cwh.org", tier:"volunteer",docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Oct 2024"},
+  /* disabled players – C League */
+  {id:5, name:"Player A",       email:"pa@cwh.org",      tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Apr 2024", jersey:9,  pos:"RW", stats:{gp:12,g:7,a:1, pts:8, pim:2},  avail:"yes"},
+  {id:21,name:"James Ortiz",    email:"jortiz@cwh.org",  tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Feb 2024", jersey:8,  pos:"C",  stats:{gp:12,g:4,a:6, pts:10,pim:4},  avail:"yes"},
+  {id:22,name:"Mike Tran",      email:"mtran@cwh.org",   tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Mar 2024", jersey:15, pos:"LW", stats:{gp:11,g:3,a:5, pts:8, pim:2},  avail:"yes"},
+  {id:23,name:"Carlos Diaz",    email:"cdiaz@cwh.org",   tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Mar 2024", jersey:26, pos:"RD", stats:{gp:10,g:0,a:3, pts:3, pim:6},  avail:"yes"},
+  {id:24,name:"Ethan Hill",     email:"ehill@cwh.org",   tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Apr 2024", jersey:12, pos:"LD", stats:{gp:9, g:1,a:2, pts:3, pim:4},  avail:"maybe"},
+  {id:25,name:"Noah Bauer",     email:"nbauer@cwh.org",  tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"May 2024", jersey:33, pos:"LW", stats:{gp:8, g:2,a:3, pts:5, pim:0},  avail:"yes"},
+  {id:26,name:"Liam Grant",     email:"lgrant@cwh.org",  tier:"disabled", docs:{submitted:true, reviewed:true, approved:true}, role:"player",joined:"Jun 2024", jersey:10, pos:"RW", stats:{gp:7, g:2,a:2, pts:4, pim:2},  avail:"yes"},
+];
+
 var ADMIN_TEAMS_INIT = [
   {id:1,pid:"c",name:"CAHL C League – Warriors",         startDate:"2026-01-15",endDate:"2026-06-30",rosterSize:18,players:14,status:"active",tiers:["vet","disabled"],description:"Spring season for the CAHL C League competitive roster.", headCoach:2,    roster:[1,4,5,8,9,10,11,12,13,14,15,16,21,22]},
   {id:2,pid:"d",name:"CAHL D League – Warriors",         startDate:"2026-01-15",endDate:"2026-06-30",rosterSize:16,players:13,status:"active",tiers:["vet","disabled"],description:"Spring season for the CAHL D League competitive roster.", headCoach:7,    roster:[2,4,6,17,18,19,20,23,24,25,26,27,28,29]},
