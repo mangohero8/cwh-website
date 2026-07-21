@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-07-21T02:00:03.468645Z",
+  "updated": "2026-07-21T02:30:03.647092Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -20,6 +20,16 @@
       "name": "Marc Anderson",
       "pos": "",
       "gp": 1,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Donald Chafins",
+      "pos": "",
+      "gp": 2,
       "g": 0,
       "a": 1,
       "pts": 1,
@@ -60,16 +70,6 @@
       "name": "Corey Capelle",
       "pos": "",
       "gp": 0,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Donald Chafins",
-      "pos": "",
-      "gp": 2,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -135,7 +135,7 @@
       "g": 4,
       "a": 1,
       "pts": 5,
-      "pim": 0
+      "pim": 2
     },
     {
       "jersey": "97",
@@ -158,6 +158,16 @@
       "pim": 0
     },
     {
+      "jersey": "0",
+      "name": "Keith Kriesberg",
+      "pos": "Wing",
+      "gp": 4,
+      "g": 2,
+      "a": 0,
+      "pts": 2,
+      "pim": 0
+    },
+    {
       "jersey": "14",
       "name": "Lydia Stroul",
       "pos": "Wing",
@@ -165,16 +175,6 @@
       "g": 1,
       "a": 1,
       "pts": 2,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Keith Kriesberg",
-      "pos": "Wing",
-      "gp": 4,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
       "pim": 0
     },
     {
@@ -230,6 +230,16 @@
   ],
   "defense": [
     {
+      "jersey": "0",
+      "name": "Luke Marshall",
+      "pos": "Defense",
+      "gp": 8,
+      "g": 1,
+      "a": 2,
+      "pts": 3,
+      "pim": 4
+    },
+    {
       "jersey": "17",
       "name": "Taylor DeCicco",
       "pos": "Defense",
@@ -247,7 +257,7 @@
       "g": 0,
       "a": 1,
       "pts": 1,
-      "pim": 2
+      "pim": 4
     },
     {
       "jersey": "0",
@@ -258,16 +268,6 @@
       "a": 1,
       "pts": 1,
       "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Luke Marshall",
-      "pos": "Defense",
-      "gp": 8,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
-      "pim": 4
     }
   ],
   "goalies": [
@@ -290,8 +290,8 @@
       "w": 2,
       "l": 2,
       "otl": 0,
-      "ga": 17,
-      "gaa": "4.3"
+      "ga": 19,
+      "gaa": "4.8"
     },
     {
       "jersey": "12",

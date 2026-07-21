@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T02:00:03.892775Z",
+  "updated": "2026-07-21T02:30:04.051759Z",
   "playerOfTheWeek": {
     "name": "Douglas Hoyt",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -32,7 +32,7 @@
       "g": 4,
       "a": 1,
       "pts": 5,
-      "pim": 0
+      "pim": 2
     },
     {
       "name": "Jaymes Albright",
@@ -144,7 +144,7 @@
       "g": 4,
       "a": 1,
       "pts": 5,
-      "pim": 0
+      "pim": 2
     },
     {
       "name": "Allen Gambrel",
@@ -281,6 +281,17 @@
       "pim": 8
     },
     {
+      "name": "Luke Marshall",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "jersey": "0",
+      "pos": "Defense",
+      "gp": 8,
+      "g": 1,
+      "a": 2,
+      "pts": 3,
+      "pim": 4
+    },
+    {
       "name": "Will Sullivan",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "12",
@@ -334,17 +345,6 @@
       "a": 1,
       "pts": 2,
       "pim": 0
-    },
-    {
-      "name": "Robert Carpenter",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "27",
-      "pos": "Center",
-      "gp": 6,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
-      "pim": 2
     }
   ],
   "topPIM": [
@@ -442,8 +442,8 @@
       "gp": 4,
       "w": 2,
       "l": 2,
-      "gaa": "4.3",
-      "ga": 17
+      "gaa": "4.8",
+      "ga": 19
     },
     {
       "name": "Brandon Lorenz",
