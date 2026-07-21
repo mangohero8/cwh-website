@@ -1,15 +1,75 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-06-14T21:00:03.358430Z",
+  "updated": "2026-07-21T16:30:03.184687Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
     {
       "jersey": "0",
-      "name": "Garett Beltz",
+      "name": "James Benedetto",
+      "pos": "",
+      "gp": 1,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Marc Anderson",
+      "pos": "",
+      "gp": 1,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Donald Chafins",
       "pos": "",
       "gp": 2,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Joseph Jones",
+      "pos": "",
+      "gp": 1,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "23",
+      "name": "Charles Terch",
+      "pos": "",
+      "gp": 3,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Garett Beltz",
+      "pos": "",
+      "gp": 4,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Corey Capelle",
+      "pos": "",
+      "gp": 0,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -19,7 +79,17 @@
       "jersey": "1",
       "name": "Matt Chamblin",
       "pos": "",
-      "gp": 0,
+      "gp": 2,
+      "g": 0,
+      "a": 0,
+      "pts": 0,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Mallorie Hiebner",
+      "pos": "",
+      "gp": 1,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -36,16 +106,6 @@
       "pim": 2
     },
     {
-      "jersey": "0",
-      "name": "Brandon Lorenz",
-      "pos": "",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
       "jersey": "25",
       "name": "William Teater",
       "pos": "",
@@ -56,20 +116,10 @@
       "pim": 0
     },
     {
-      "jersey": "23",
-      "name": "Charles Terch",
-      "pos": "",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
       "jersey": "0",
       "name": "Leslie Walker",
       "pos": "",
-      "gp": 0,
+      "gp": 1,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -81,57 +131,67 @@
       "jersey": "13",
       "name": "Wyatt Beltz",
       "pos": "Center",
-      "gp": 4,
-      "g": 3,
-      "a": 0,
-      "pts": 3,
-      "pim": 0
+      "gp": 7,
+      "g": 4,
+      "a": 1,
+      "pts": 5,
+      "pim": 2
     },
     {
       "jersey": "97",
       "name": "Allen Gambrel",
       "pos": "Center",
-      "gp": 4,
-      "g": 1,
+      "gp": 8,
+      "g": 4,
       "a": 0,
-      "pts": 1,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Alex Vakkur",
-      "pos": "Wing",
-      "gp": 3,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
+      "pts": 4,
       "pim": 0
     },
     {
       "jersey": "92",
       "name": "James Brown",
       "pos": "Wing",
-      "gp": 0,
-      "g": 0,
+      "gp": 2,
+      "g": 3,
       "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "83",
-      "name": "Veronica Haertling",
-      "pos": "Wing",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
+      "pts": 3,
       "pim": 0
     },
     {
       "jersey": "0",
       "name": "Keith Kriesberg",
       "pos": "Wing",
-      "gp": 1,
+      "gp": 4,
+      "g": 2,
+      "a": 0,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "14",
+      "name": "Lydia Stroul",
+      "pos": "Wing",
+      "gp": 7,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Alex Vakkur",
+      "pos": "Wing",
+      "gp": 8,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "83",
+      "name": "Veronica Haertling",
+      "pos": "Wing",
+      "gp": 4,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -151,86 +211,87 @@
       "jersey": "0",
       "name": "Cai Lorenz",
       "pos": "Wing",
-      "gp": 3,
+      "gp": 4,
       "g": 0,
       "a": 0,
       "pts": 0,
       "pim": 2
-    },
-    {
-      "jersey": "42",
-      "name": "Lydia Stroul",
-      "pos": "Wing",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
     },
     {
       "jersey": "0",
       "name": "Ethan Yeazel",
       "pos": "Wing",
-      "gp": 2,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 2
-    }
-  ],
-  "defense": [
-    {
-      "jersey": "17",
-      "name": "Taylor DeCicco",
-      "pos": "Defense",
-      "gp": 4,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 0
-    },
-    {
-      "jersey": "4",
-      "name": "Nicholas Flores",
-      "pos": "Defense",
-      "gp": 4,
-      "g": 0,
-      "a": 1,
-      "pts": 1,
-      "pim": 2
-    },
-    {
-      "jersey": "0",
-      "name": "Aaron Foster",
-      "pos": "Defense",
-      "gp": 0,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Luke Marshall",
-      "pos": "Defense",
-      "gp": 3,
+      "gp": 7,
       "g": 0,
       "a": 0,
       "pts": 0,
       "pim": 4
     }
   ],
+  "defense": [
+    {
+      "jersey": "0",
+      "name": "Luke Marshall",
+      "pos": "Defense",
+      "gp": 8,
+      "g": 1,
+      "a": 2,
+      "pts": 3,
+      "pim": 4
+    },
+    {
+      "jersey": "17",
+      "name": "Taylor DeCicco",
+      "pos": "Defense",
+      "gp": 9,
+      "g": 2,
+      "a": 0,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "4",
+      "name": "Nicholas Flores",
+      "pos": "Defense",
+      "gp": 7,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 4
+    },
+    {
+      "jersey": "0",
+      "name": "Aaron Foster",
+      "pos": "Defense",
+      "gp": 5,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 0
+    }
+  ],
   "goalies": [
+    {
+      "jersey": "0",
+      "name": "Brandon Lorenz",
+      "pos": "Goalie",
+      "gp": 1,
+      "w": 0,
+      "l": 1,
+      "otl": 0,
+      "ga": 10,
+      "gaa": "10.0"
+    },
     {
       "jersey": "33",
       "name": "TJ Nocar",
       "pos": "Goalie",
-      "gp": 0,
-      "w": 0,
-      "l": 0,
+      "gp": 4,
+      "w": 2,
+      "l": 2,
       "otl": 0,
-      "ga": 0,
-      "gaa": "0.0"
+      "ga": 19,
+      "gaa": "4.8"
     },
     {
       "jersey": "12",
@@ -246,36 +307,36 @@
   ],
   "stickAndPuck": [
     {
-      "rink": "Dublin 1",
-      "date": "Monday, June 15",
-      "time": "12:30 PM"
-    },
-    {
       "rink": "Ice Works",
-      "date": "Monday, June 15",
-      "time": "6:00 PM"
+      "date": "Tuesday, July 21",
+      "time": "8:30 PM"
     },
     {
-      "rink": "Easton 2",
-      "date": "Tuesday, June 16",
+      "rink": "Dublin 1",
+      "date": "Saturday, July 25",
+      "time": "10:30 AM"
+    },
+    {
+      "rink": "Dublin 1",
+      "date": "Monday, July 27",
       "time": "11:10 AM"
     }
   ],
   "dropIn": [
     {
-      "rink": "Easton 1",
-      "date": "Friday, June 19",
-      "time": "6:15 PM"
+      "rink": "North 1",
+      "date": "Friday, July 24",
+      "time": "7:30 PM"
     },
     {
-      "rink": "Ice Works",
-      "date": "Saturday, June 20",
-      "time": "11:40 AM"
+      "rink": "North 1",
+      "date": "Saturday, July 25",
+      "time": "11:00 AM"
     },
     {
-      "rink": "Easton 2",
-      "date": "Sunday, June 21",
-      "time": "11:30 AM"
+      "rink": "North 2",
+      "date": "Sunday, July 26",
+      "time": "10:30 AM"
     }
   ]
 }

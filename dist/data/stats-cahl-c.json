@@ -1,10 +1,40 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-06-14T21:00:02.571856Z",
+  "updated": "2026-07-21T16:30:02.274508Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
+    {
+      "jersey": "0",
+      "name": "Annabelle Demmon",
+      "pos": "",
+      "gp": 7,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "21",
+      "name": "Gerald Fedorko",
+      "pos": "",
+      "gp": 3,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Chip Miller",
+      "pos": "",
+      "gp": 1,
+      "g": 1,
+      "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
     {
       "jersey": "0",
       "name": "james REDD",
@@ -12,6 +42,16 @@
       "gp": 1,
       "g": 1,
       "a": 0,
+      "pts": 1,
+      "pim": 0
+    },
+    {
+      "jersey": "0",
+      "name": "Alexander Burton",
+      "pos": "",
+      "gp": 8,
+      "g": 0,
+      "a": 1,
       "pts": 1,
       "pim": 0
     },
@@ -37,39 +77,9 @@
     },
     {
       "jersey": "0",
-      "name": "Alexander Burton",
-      "pos": "",
-      "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
       "name": "Dennis Cesarz",
       "pos": "",
       "gp": 0,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Annabelle Demmon",
-      "pos": "",
-      "gp": 4,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "21",
-      "name": "Gerald Fedorko",
-      "pos": "",
-      "gp": 1,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -88,152 +98,152 @@
   ],
   "forwards": [
     {
-      "jersey": "88",
-      "name": "Brandon Lorenz",
-      "pos": "Wing",
-      "gp": 3,
-      "g": 2,
-      "a": 0,
-      "pts": 2,
-      "pim": 4
-    },
-    {
       "jersey": "55",
       "name": "Jaymes Albright",
       "pos": "Wing",
-      "gp": 4,
-      "g": 1,
-      "a": 1,
-      "pts": 2,
-      "pim": 0
+      "gp": 7,
+      "g": 3,
+      "a": 2,
+      "pts": 5,
+      "pim": 2
     },
     {
       "jersey": "12",
       "name": "Will Sullivan",
       "pos": "Center",
-      "gp": 5,
-      "g": 1,
+      "gp": 9,
+      "g": 3,
       "a": 1,
-      "pts": 2,
-      "pim": 0
-    },
-    {
-      "jersey": "1",
-      "name": "Matt Chamblin",
-      "pos": "Wing",
-      "gp": 3,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
-      "pim": 0
+      "pts": 4,
+      "pim": 4
     },
     {
       "jersey": "10",
       "name": "John Hopkinson",
       "pos": "Center",
-      "gp": 3,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
+      "gp": 7,
+      "g": 2,
+      "a": 2,
+      "pts": 4,
       "pim": 0
     },
     {
-      "jersey": "27",
-      "name": "Robert Carpenter",
-      "pos": "Center",
-      "gp": 4,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "99",
-      "name": "John Crouse",
+      "jersey": "88",
+      "name": "Brandon Lorenz",
       "pos": "Wing",
-      "gp": 4,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
+      "gp": 7,
+      "g": 2,
+      "a": 2,
+      "pts": 4,
+      "pim": 8
     },
     {
-      "jersey": "68",
-      "name": "Brent McCreedy",
+      "jersey": "1",
+      "name": "Matt Chamblin",
       "pos": "Wing",
-      "gp": 2,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "18",
-      "name": "John Poffenberger",
-      "pos": "Wing",
-      "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "44",
-      "name": "Samuel Stanley",
-      "pos": "Wing",
-      "gp": 3,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    }
-  ],
-  "defense": [
-    {
-      "jersey": "6",
-      "name": "DOUGLAS HOYT",
-      "pos": "Defense",
-      "gp": 4,
+      "gp": 7,
       "g": 2,
       "a": 1,
       "pts": 3,
       "pim": 2
     },
     {
-      "jersey": "37",
-      "name": "Eric Rohr",
-      "pos": "Defense",
-      "gp": 1,
+      "jersey": "68",
+      "name": "Brent McCreedy",
+      "pos": "Wing",
+      "gp": 6,
+      "g": 2,
+      "a": 1,
+      "pts": 3,
+      "pim": 0
+    },
+    {
+      "jersey": "18",
+      "name": "John Poffenberger",
+      "pos": "Wing",
+      "gp": 7,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "44",
+      "name": "Samuel Stanley",
+      "pos": "Wing",
+      "gp": 7,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "27",
+      "name": "Robert Carpenter",
+      "pos": "Center",
+      "gp": 6,
+      "g": 0,
+      "a": 1,
+      "pts": 1,
+      "pim": 2
+    },
+    {
+      "jersey": "99",
+      "name": "John Crouse",
+      "pos": "Wing",
+      "gp": 6,
       "g": 0,
       "a": 1,
       "pts": 1,
       "pim": 0
+    }
+  ],
+  "defense": [
+    {
+      "jersey": "6",
+      "name": "Douglas Hoyt",
+      "pos": "Defense",
+      "gp": 7,
+      "g": 5,
+      "a": 3,
+      "pts": 8,
+      "pim": 4
+    },
+    {
+      "jersey": "33",
+      "name": "TJ Nocar",
+      "pos": "Defense",
+      "gp": 4,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 0
+    },
+    {
+      "jersey": "37",
+      "name": "Eric Rohr",
+      "pos": "Defense",
+      "gp": 2,
+      "g": 1,
+      "a": 1,
+      "pts": 2,
+      "pim": 10
     },
     {
       "jersey": "2",
       "name": "Steven Bowman",
       "pos": "Defense",
       "gp": 2,
-      "g": 0,
+      "g": 1,
       "a": 0,
-      "pts": 0,
-      "pim": 0
+      "pts": 1,
+      "pim": 4
     },
     {
       "jersey": "17",
       "name": "Taylor DeCicco",
       "pos": "Defense",
-      "gp": 0,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "33",
-      "name": "TJ Nocar",
-      "pos": "Defense",
-      "gp": 3,
+      "gp": 1,
       "g": 0,
       "a": 0,
       "pts": 0,
@@ -245,12 +255,12 @@
       "jersey": "50",
       "name": "Michael Bennett",
       "pos": "Goalie",
-      "gp": 2,
-      "w": 1,
-      "l": 1,
-      "otl": 0,
-      "ga": 3,
-      "gaa": "1.5"
+      "gp": 7,
+      "w": 2,
+      "l": 3,
+      "otl": 2,
+      "ga": 19,
+      "gaa": "2.7"
     },
     {
       "jersey": "0",
@@ -266,36 +276,36 @@
   ],
   "stickAndPuck": [
     {
-      "rink": "Dublin 1",
-      "date": "Monday, June 15",
-      "time": "12:30 PM"
-    },
-    {
       "rink": "Ice Works",
-      "date": "Monday, June 15",
-      "time": "6:00 PM"
+      "date": "Tuesday, July 21",
+      "time": "8:30 PM"
     },
     {
-      "rink": "Easton 2",
-      "date": "Tuesday, June 16",
+      "rink": "Dublin 1",
+      "date": "Saturday, July 25",
+      "time": "10:30 AM"
+    },
+    {
+      "rink": "Dublin 1",
+      "date": "Monday, July 27",
       "time": "11:10 AM"
     }
   ],
   "dropIn": [
     {
-      "rink": "Easton 1",
-      "date": "Friday, June 19",
-      "time": "6:15 PM"
+      "rink": "North 1",
+      "date": "Friday, July 24",
+      "time": "7:30 PM"
     },
     {
-      "rink": "Ice Works",
-      "date": "Saturday, June 20",
-      "time": "11:40 AM"
+      "rink": "North 1",
+      "date": "Saturday, July 25",
+      "time": "11:00 AM"
     },
     {
-      "rink": "Easton 2",
-      "date": "Sunday, June 21",
-      "time": "11:30 AM"
+      "rink": "North 2",
+      "date": "Sunday, July 26",
+      "time": "10:30 AM"
     }
   ]
 }

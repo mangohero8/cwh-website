@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from "react";
 var NS_FH = "'Oswald',sans-serif";
 
 
+
+
 var C = { navy:"#00294D", olive:"#525441", red:"#B7232C", w:"#fff", g1:"#F2F5F7", g2:"#e2e8f0", g4:"#94a3b8", g6:"#475569", g8:"#1e293b", bl:"#3b82f6", gr:"#22c55e" };
 var F = { h:"'Bebas Neue',sans-serif", b:"'Source Sans 3',sans-serif" };
 var FORMS = { reg:"https://wkf.ms/4fDnOqL", uni:"https://wkf.ms/43cPPyl", comp:"https://wkf.ms/4nMZ7KM", exp:"https://wkf.ms/4x2zl9E", don:"https://www.zeffy.com/donation-form/columbus-warrior-hockey", store:"https://teamlocker.squadlocker.com/#/lockers/2888135" };
@@ -19,6 +21,21 @@ var IMG = {
   taylor:"/images/taylor.webp", tj:"/images/tj.webp", matt:"/images/matt.webp",
   steven:"/images/steven.webp", brent:"/images/brent.webp",
 };
+
+var INIT_NEWSLETTERS = [
+  {id:1, title:"Columbus Warriors Debut at the Guardian's Cup in Rochester",
+   headline:"Columbus Warriors Debut at the Guardian's Cup in Rochester",
+   date:"March 12, 2026", status:"sent", publishTarget:"both", recipients:87, imageDataUrl:IMG.guardiansCup,
+   body:"The Columbus Warriors traveled to Rochester, New York this past weekend to compete in their first travel tournament, the Guardians Cup.\n\nThe Guardian's Cup is an annual hockey tournament that brings together active and retired first responders and veterans in a competitive environment with the goal of raising funds for the New York Law Enforcement Assistance Program (NYLEAP). NYLEAP is a nonprofit that provides mental health and wellness resources for first responders across New York State (www.nyleap.org).\n\nThe tournament brought together a strong group of warrior hockey programs including the Buffalo Warriors, Long Island Warriors, Saginaw Spirit Warriors, Capital Beltway Warriors, Toledo Warriors, Pittsburgh Warriors, and Flower City Warriors.\n\nColumbus finished 6th out of 10 teams, recording 7 goals for and 16 goals against. While the standings are part of the story, the weekend represented an important milestone as the Columbus Warriors continued building their program, traveling together, and representing the Columbus veteran hockey community on the road.\n\nFollowing elimination from tournament play, Columbus and Pittsburgh stayed on the ice for a pair of exhibition games. Each team earned one win and one loss, leaving both programs with a .500 record against each other. That split result may have quietly sparked the beginning of an interstate rivalry between Columbus and Pittsburgh.\n\nTo be continued.."},
+  {id:2, title:"Columbus Warriors Close Out Strong Fall Session in CAHL's C South League",
+   headline:"Columbus Warriors Close Out Strong Fall Session in CAHL's C South League",
+   date:"December 16, 2025", status:"sent", publishTarget:"both", recipients:82, imageDataUrl:IMG.newsCahl,
+   body:"The Columbus Warriors wrapped up their inaugural season in the Chiller Adult Hockey League (CAHL) C South C League with a performance that reflects both competitive excellence and the growing strength of our community-based hockey program.\n\nOver the course of the regular season, the Warriors posted an impressive 9–3–0 record, finishing third overall in the standings. The team demonstrated balance on both sides of the puck, recording 43 goals-for while allowing 33 goals-against, a reflection of disciplined play, depth across the lineup, and strong team chemistry.\n\nThe momentum carried into the postseason, where the Warriors continued to demonstrate resilience, teamwork, and discipline. After advancing through the playoff rounds, the Warriors earned a spot in the league championship game, ultimately finishing in second place overall, a remarkable achievement for a first-year program.\n\nBeyond team success, multiple Warriors stood out among the league's top performers:\n\nSteven Bowman finished 3rd in the league in total points (20), 3rd in goals (13), and 3rd in assists (7)\n\nJohn Hopkinson ranked 5th in league points (16) and 5th in goals (11)\n\nThese individual accomplishments reflect not only skill and effort, but the collective support and chemistry built throughout the season.\n\nThis inaugural CAHL session marked an important milestone for Columbus Warrior Hockey. Through our partnership with the OhioHealth Chiller Ice Rinks, the CAHL program was created to provide consistent, local opportunities for veterans and military-connected individuals to skate, compete, and connect year-round. The success of this first season reinforces the value of community-based hockey as an extension of our broader mission.\n\nAs we close the book on this historic first season, we do so with gratitude for our players, volunteers, league partners, and supporters who made it possible. The foundation has been laid and we look forward to building on this momentum in seasons/sessions to come."},
+  {id:3, title:"Grand Opening, Greater Commitment: Moo Moo Express Car Wash Elevates to Platinum Sponsor",
+   headline:"Grand Opening, Greater Commitment: Moo Moo Express Car Wash Elevates to Platinum Sponsor",
+   date:"November 24, 2025", status:"sent", publishTarget:"both", recipients:79, imageDataUrl:IMG.newsMooPlatinum,
+   body:"Columbus Warrior Hockey is honored to share that Moo Moo Express Car Wash has deepened their commitment to our mission, elevating their support from Gold to Platinum Level Sponsor through their Grand Opening Fundraiser at the new Lewis Center location.\n\nThis expanded partnership reflects Moo Moo Express Car Wash's unwavering dedication to strengthening the communities they serve. As a home-grown Columbus company built on service, generosity, and community stewardship, Moo Moo Express continues to set the bar for what impactful local support looks like. Their Moo Cares initiative has long provided critical contributions to nonprofits and youth programs across Central Ohio, and we are proud to stand among the organizations benefiting from their leadership and compassion.\n\nThe Grand Opening Fundraiser at their 8986 Owenfield Dr location in Lewis Center represents more than an event; it represents a bold statement of belief in the power of hockey to bring healing, camaraderie, and purpose to veterans in our community. By choosing Columbus Warrior Hockey as the beneficiary of their opening event, Moo Moo Express Car Wash is helping us expand access to ice-time, reduce financial barriers for players, and strengthen the programs that allow veterans to reconnect with purpose both on and off the ice.\n\nThis extraordinary demonstration of support ensures that more veterans can experience the resilience, teamwork, and community that hockey provides. It moves us closer to our long-term vision: a program where cost is never a barrier to participation, and every veteran has a place to grow, recover, and belong.\n\nWe extend our deepest gratitude to Moo Moo Express Car Wash for their continued generosity, trust, and shared commitment to supporting those who have served our nation. Their enhanced sponsorship strengthens our ability to carry out our mission and ensures that veterans across Central Ohio feel the impact of their community standing behind them.\n\nPlease join us in celebrating Moo Moo Express Car Wash as our new Platinum Level Sponsor!\n\nWe are proud to continue this journey together."},
+];
 
 var BOARD_MEMBERS = [
   { name:"Taylor DeCicco", role:"President", branch:"U.S. Marine Corps", years:"2010-2015", img:IMG.taylor },
@@ -1207,6 +1224,25 @@ function Footer() {
 }
 
 /* ═══ APP ═══ */
+var ADMIN_TEAMS_INIT = [
+  {id:1,pid:"c",name:"CAHL C League – Warriors",         startDate:"2026-01-15",endDate:"2026-06-30",rosterSize:18,players:14,status:"active",tiers:["vet","disabled"],description:"Spring season for the CAHL C League competitive roster.", headCoach:2,    roster:[1,4,5,8,9,10,11,12,13,14,15,16,21,22]},
+  {id:2,pid:"d",name:"CAHL D League – Warriors",         startDate:"2026-01-15",endDate:"2026-06-30",rosterSize:16,players:13,status:"active",tiers:["vet","disabled"],description:"Spring season for the CAHL D League competitive roster.", headCoach:7,    roster:[2,4,6,17,18,19,20,23,24,25,26,27,28,29]},
+  {id:3,        name:"CAHL C League – Warriors (Winter)",startDate:"2026-09-06",endDate:"2026-12-20",rosterSize:18,players:0, status:"signup",tiers:["vet","disabled"],  description:"Winter season registration is now open for the C League.",headCoach:null, roster:[]},
+];
+var ADMIN_TOURNAMENTS_INIT = [
+  {id:1,pid:"gc",name:"Guardians Cup 2026",startDate:"2026-08-15",endDate:"2026-08-17",location:"Nationwide Ice",rosterSize:20,participants:10,status:"active",tiers:["vet","disabled"],description:"The 2026 Guardians Cup is underway. Good luck to all participants!",                   headCoach:null,roster:[1,4,8,9,10,11,12,13,14,16]},
+  {id:2,         name:"Guardians Cup 2027",startDate:"2027-08-14",endDate:"2027-08-16",location:"Nationwide Ice",rosterSize:20,participants:0, status:"signup",tiers:["vet","disabled"],description:"Registration is open for the 2027 Guardians Cup. Register your spot by Jul 15, 2027.",headCoach:null,roster:[]},
+];
+var ADMIN_VOLUNTEERS_INIT = [
+  {id:1,name:"Ice Rink Clean-Up Day",  date:"2026-07-26",location:"Chiller North", spotsAvailable:20,volunteers:3,status:"signup",tiers:["vet","disabled","volunteer"],description:"Help prep the ice for the fall season. We'll be cleaning equipment, painting lines, and getting the facility ready. Lunch provided!", roster:[3,4,30]},
+  {id:2,name:"Car Wash Fundraiser",    date:"2026-06-21",location:"Chiller Easton",spotsAvailable:12,volunteers:2,status:"signup",tiers:["vet","disabled","volunteer"],description:"Help raise funds for the program at our upcoming car wash event.", roster:[3,30]},
+];
+var ADMIN_GAMES_INIT = [
+  {id:1,name:"Preseason Scrimmage vs Columbus Knights",date:"2026-08-01",time:"7:30 PM",location:"Chiller North",home:true,rosterSize:20,players:1,status:"signup",tiers:["vet","disabled"],description:"Open sign-up for a pre-season scrimmage before fall league kicks off. Great warm-up before the season!",headCoach:null,roster:[4]},
+];
+
+/* ═══ NEW SITE ═══ */
+
 var NS_SCORES = [
   { id:"c", label:"C League Warriors", standing:"C South Division", record:"8-4-1", color:C.bl,
     games:[
