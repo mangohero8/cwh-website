@@ -3981,6 +3981,63 @@ function NSProfilePage({nav}) {
 }
 
 /* ═══ APP ═══ */
+
+/* --- PLAYER PORTAL (REAL DATA) --- */
+function PlayerPortalPage({nav, user}) {
+  var sd = useState(null); var schedule = sd[0]; var setSchedule = sd[1];
+  var at = useState(null); var attendance = at[0]; var setAttendance = at[1];
+  var lb = useState(null); var board = lb[0]; var setBoard = lb[1];
+  var rc = useState(null); var rosterC = rc[0]; var setRosterC = rc[1];
+  var rd = useState(null); var rosterD = rd[0]; var setRosterD = rd[1];
+  useEffect(function() {
+    fetch("/data/schedule.json").then(function(r){return r.json()}).then(setSchedule);
+    fetch("/data/attendance.json").then(function(r){return r.json()}).then(setAttendance);
+    fetch("/data/leaderboard.json").then(function(r){return r.json()}).then(setBoard);
+    fetch("/data/roster-cahl-c.json").then(function(r){return r.json()}).then(setRosterC);
+    fetch("/data/roster-cahl-d.json").then(function(r){return r.json()}).then(setRosterD);
+  }, []);
+  var upcoming=[],recent=[],recordC={w:0,l:0},recordD={w:0,l:0};
+  if(schedule){var mo={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};schedule.games.forEach(function(g){if(!g.score||!g.score.trim()){upcoming.push(g)}else{recent.push(g);if(g.result){var isC=g.team&&g.team.indexOf("CSC")>=0;if(g.result.toUpperCase()==="W"){if(isC)recordC.w++;else recordD.w++}else if(g.result.toUpperCase()==="L"){if(isC)recordC.l++;else recordD.l++}}}});upcoming.sort(function(a,b){var pa=a.date.split(" ");var pb=b.date.split(" ");return new Date(2026,mo[pa[0]]||0,parseInt(pa[1])||1)-new Date(2026,mo[pb[0]]||0,parseInt(pb[1])||1)});recent.reverse()}
+  var nextRsvp=null;
+  if(attendance){for(var ai=0;ai<attendance.games.length;ai++){var ag=attendance.games[ai];if(ag.yes>0||ag.maybe>0){var dm2=ag.game.match(/^([A-Za-z]{3})\s+(\d{1,2})/);if(dm2){var mo2={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};var gd=new Date(new Date().getFullYear(),mo2[dm2[1]]||0,parseInt(dm2[2]));var td=new Date();td.setHours(0,0,0,0);if(gd>=td){nextRsvp=ag;break}}}}}
+  var cs={background:C.w,borderRadius:12,border:"1px solid "+C.g2,overflow:"hidden"};
+  return <PageWrap title="Player Portal" sub="Your dashboard for stats, schedule, and team info">
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(150px,1fr))",gap:16,marginBottom:28}}>
+      {[{label:"CAHL C Record",value:recordC.w+"-"+recordC.l,color:C.navy},{label:"CAHL D Record",value:recordD.w+"-"+recordD.l,color:C.olive},{label:"Next Game",value:upcoming.length>0?upcoming[0].date:"\u2014",color:C.red},{label:"Total Athletes",value:((rosterC?rosterC.players.length:0)+(rosterD?rosterD.players.length:0)),color:"#6366f1"}].map(function(s,i){return <div key={i} style={{background:s.color,borderRadius:10,padding:"16px 20px",textAlign:"center"}}><div style={{fontFamily:F.h,fontSize:28,color:C.w}}>{s.value}</div><div style={{fontFamily:F.b,fontSize:11,color:"rgba(255,255,255,0.7)",letterSpacing:1,textTransform:"uppercase",marginTop:4}}>{s.label}</div></div>})}
+    </div>
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:20,marginBottom:28}}>
+      <div style={cs}><div style={{background:C.navy,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Upcoming Games</span></div><div style={{padding:16}}>{upcoming.slice(0,5).map(function(g,i){var isH=g.homeAway==="Home";return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:i<4?"1px solid "+C.g1:"none"}}><div><div style={{fontFamily:F.b,fontSize:14,fontWeight:600,color:C.navy}}>{g.opponent}</div><div style={{fontFamily:F.b,fontSize:12,color:C.g4}}>{g.location}</div></div><div style={{textAlign:"right"}}><div style={{fontFamily:F.h,fontSize:16,color:C.navy}}>{g.date}</div><div style={{fontFamily:F.b,fontSize:12,color:C.g4}}>{g.time}</div><span style={{display:"inline-block",padding:"2px 8px",borderRadius:10,fontSize:10,fontFamily:F.b,fontWeight:700,marginTop:2,background:isH?"#dcfce7":"#fee2e2",color:isH?"#166534":"#991b1b"}}>{isH?"HOME":"AWAY"}</span></div></div>})}<div style={{textAlign:"center",marginTop:12}}><button onClick={function(){nav("schedule")}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:12,color:C.navy,fontWeight:600,textDecoration:"underline"}}>View Full Schedule</button></div></div></div>
+      <div style={cs}><div style={{background:C.olive,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Recent Results</span></div><div style={{padding:16}}>{recent.slice(0,5).map(function(g,i){var won=g.result&&g.result.toUpperCase()==="W";return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:i<4?"1px solid "+C.g1:"none"}}><div><div style={{fontFamily:F.b,fontSize:14,fontWeight:600,color:C.navy}}>{g.opponent}</div><div style={{fontFamily:F.b,fontSize:12,color:C.g4}}>{g.date}</div></div><div style={{display:"flex",alignItems:"center",gap:10}}><span style={{fontFamily:F.h,fontSize:20,color:C.navy}}>{g.score}</span><span style={{display:"inline-block",width:28,height:28,borderRadius:"50%",fontFamily:F.h,fontSize:14,color:C.w,background:won?"#16a34a":"#dc2626",textAlign:"center",lineHeight:"28px"}}>{g.result}</span></div></div>})}<div style={{textAlign:"center",marginTop:12}}><button onClick={function(){nav("recaps")}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:12,color:C.navy,fontWeight:600,textDecoration:"underline"}}>View Game Recaps</button></div></div></div>
+    </div>
+    {nextRsvp&&<div style={{...cs,marginBottom:28}}><div style={{background:C.red,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Next Game Lineup</span></div><div style={{padding:20,display:"flex",gap:16,flexWrap:"wrap",alignItems:"center"}}><div style={{fontFamily:F.b,fontSize:14,color:C.navy,fontWeight:600}}>{nextRsvp.game}</div><div style={{display:"flex",gap:8}}><span style={{background:"#dcfce7",color:"#166534",padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>YES {nextRsvp.yes}</span><span style={{background:"#fef3c7",color:"#92400e",padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>MAYBE {nextRsvp.maybe}</span><span style={{background:"#fee2e2",color:"#991b1b",padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>NO {nextRsvp.no}</span></div><button onClick={function(){nav("lineup")}} style={{background:C.navy,border:"none",borderRadius:6,padding:"8px 20px",fontFamily:F.b,fontSize:13,color:C.w,fontWeight:600,cursor:"pointer"}}>View Full Lineup</button></div></div>}
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:20,marginBottom:28}}>
+      <div style={cs}><div style={{background:C.navy,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Top Scorers</span></div><div style={{padding:16}}>{board&&board.topPoints?board.topPoints.slice(0,5).map(function(p,i){return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:i<4?"1px solid "+C.g1:"none"}}><div style={{display:"flex",alignItems:"center",gap:10}}><span style={{fontFamily:F.h,fontSize:16,color:C.g4,width:20}}>{i+1}</span><div><div style={{fontFamily:F.b,fontSize:13,fontWeight:600,color:C.navy}}>{p.name}</div><div style={{fontFamily:F.b,fontSize:11,color:C.g4}}>#{p.jersey}</div></div></div><div style={{fontFamily:F.h,fontSize:20,color:C.navy}}>{p.pts} <span style={{fontSize:12,color:C.g4}}>PTS</span></div></div>}):null}<div style={{textAlign:"center",marginTop:12}}><button onClick={function(){nav("leaderboard")}} style={{background:"none",border:"none",cursor:"pointer",fontFamily:F.b,fontSize:12,color:C.navy,fontWeight:600,textDecoration:"underline"}}>Full Leaderboard</button></div></div></div>
+      {board&&board.playerOfTheWeek?<div style={cs}><div style={{background:"#c8a84e",padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Player of the Week</span></div><div style={{padding:24,textAlign:"center"}}><div style={{width:80,height:80,borderRadius:"50%",background:C.navy,margin:"0 auto 12px",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:F.h,fontSize:32,color:"#c8a84e"}}>#{board.playerOfTheWeek.jersey||"?"}</span></div><div style={{fontFamily:F.h,fontSize:24,color:C.navy,letterSpacing:1}}>{board.playerOfTheWeek.name}</div><div style={{fontFamily:F.b,fontSize:12,color:C.g4,marginTop:4}}>{board.playerOfTheWeek.team}</div><div style={{display:"flex",justifyContent:"center",gap:20,marginTop:16}}><div><div style={{fontFamily:F.h,fontSize:24,color:"#c8a84e"}}>{board.playerOfTheWeek.g||0}</div><div style={{fontFamily:F.b,fontSize:10,color:C.g4}}>GOALS</div></div><div><div style={{fontFamily:F.h,fontSize:24,color:"#c8a84e"}}>{board.playerOfTheWeek.a||0}</div><div style={{fontFamily:F.b,fontSize:10,color:C.g4}}>ASSISTS</div></div><div><div style={{fontFamily:F.h,fontSize:24,color:"#c8a84e"}}>{board.playerOfTheWeek.pts||0}</div><div style={{fontFamily:F.b,fontSize:10,color:C.g4}}>POINTS</div></div></div></div></div>:null}
+    </div>
+    <div style={{display:"flex",gap:12,flexWrap:"wrap"}}><Btn href={FORMS.reg}>Register</Btn><button onClick={function(){nav("schedule")}} style={{padding:"12px 24px",fontFamily:F.h,fontSize:16,textTransform:"uppercase",letterSpacing:2,background:C.olive,color:C.w,border:"none",borderRadius:4,cursor:"pointer"}}>Schedule</button><button onClick={function(){nav("gallery")}} style={{padding:"12px 24px",fontFamily:F.h,fontSize:16,textTransform:"uppercase",letterSpacing:2,background:C.navy,color:C.w,border:"none",borderRadius:4,cursor:"pointer"}}>Photo Gallery</button></div>
+  </PageWrap>;
+}
+
+/* --- LOGIN PAGE (OKTA STAGING) --- */
+function LoginPage({nav, setUser}) {
+  var em = useState(""); var email = em[0]; var setEmail = em[1];
+  var pw = useState(""); var pass = pw[0]; var setPass = pw[1];
+  var err = useState(""); var error = err[0]; var setError = err[1];
+  function handleLogin() { nav("portal"); }
+  return <PageWrap title="Member Login" sub="Secure access for Columbus Warrior Hockey members">
+    <div style={{maxWidth:400,margin:"0 auto"}}>
+      <div style={{background:"#fff",borderRadius:12,padding:32,border:"1px solid #e2e8f0",boxShadow:"0 4px 12px rgba(0,0,0,0.08)"}}>
+        <div style={{textAlign:"center",marginBottom:24}}><img src={IMG.logo} alt="CWH" style={{height:80,marginBottom:12}} /><p style={{fontFamily:F.b,fontSize:14,color:"#64748b",margin:0}}>Sign in to access your player portal.</p></div>
+        {error && <div style={{background:"#fef3c7",border:"1px solid #f59e0b",borderRadius:8,padding:"12px 16px",marginBottom:16}}><p style={{fontFamily:F.b,fontSize:13,color:"#92400e",margin:0}}>{error}</p></div>}
+        <div style={{marginBottom:16}}><label style={{fontFamily:F.b,fontSize:13,color:"#475569",fontWeight:600,display:"block",marginBottom:4}}>Email</label><input type="email" value={email} onChange={function(e){setEmail(e.target.value)}} placeholder="your@email.com" style={{width:"100%",padding:"10px 14px",border:"1px solid #d1d5db",borderRadius:6,fontFamily:F.b,fontSize:14,outline:"none",boxSizing:"border-box"}} /></div>
+        <div style={{marginBottom:24}}><label style={{fontFamily:F.b,fontSize:13,color:"#475569",fontWeight:600,display:"block",marginBottom:4}}>Password</label><input type="password" value={pass} onChange={function(e){setPass(e.target.value)}} placeholder="Enter password" style={{width:"100%",padding:"10px 14px",border:"1px solid #d1d5db",borderRadius:6,fontFamily:F.b,fontSize:14,outline:"none",boxSizing:"border-box"}} /></div>
+        <button onClick={handleLogin} style={{width:"100%",padding:"12px 24px",background:C.navy,color:"#fff",fontFamily:F.h,fontSize:18,textTransform:"uppercase",letterSpacing:2,border:"none",borderRadius:6,cursor:"pointer",marginBottom:12}}>Sign In</button>
+        <p style={{fontFamily:F.b,fontSize:11,color:"#94a3b8",textAlign:"center",marginTop:16}}>Contact info@columbuswarriorhockey.org for help.</p>
+      </div>
+    </div>
+  </PageWrap>;
+}
+
 export default function CWHSite() {
   var pg = useState("home"); var page = pg[0]; var setPage = pg[1];
   var au = useState(null); var user = au[0]; var setUser = au[1];
