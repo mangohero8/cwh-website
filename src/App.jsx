@@ -77,7 +77,7 @@ var NAV_ITEMS = [
   { label:"Programs", ch:[{l:"Chiller Adult Hockey League",p:"cahl"},{l:"Disabled Hockey",p:"disabled-hockey"},{l:"Stick & Puck / Drop-In",p:"stick-puck"}]},
   { label:"Schedule", ch:[{l:"Game Schedule",p:"schedule"},{l:"Game Lineup",p:"lineup"},{l:"Game Recaps",p:"recaps"},{l:"Season Leaderboard",p:"leaderboard"}]},
   { label:"Teams", ch:[{l:"DV - Columbus Warriors",p:"team-dv"},{l:"CAHL C - Warriors",p:"team-c"},{l:"CAHL D - Warriors",p:"team-d"}]},
-  { label:"Resources", ch:[{l:"Ice Schedules",p:"ice-schedules"},{l:"Mental Health",p:"mental-health"},{l:"Registration Guides",p:"reg-guides"},{l:"Players Corner",p:"players-corner"},{l:"Coaching for CWH",p:"coaching"},{l:"Social Media Graphics",p:"social-graphics"}]},
+  { label:"Resources", ch:[{l:"Ice Schedules",p:"ice-schedules"},{l:"Mental Health",p:"mental-health"},{l:"Registration Guides",p:"reg-guides"},{l:"Players Corner",p:"players-corner"},{l:"Coaching for CWH",p:"coaching"},{l:"Social Media Graphics",p:"social-graphics"},{l:"Player Portal",p:"portal"}]},
   { label:"NEW SITE", p:"new-site" },
 ];
 
@@ -4053,6 +4053,7 @@ export default function CWHSite() {
     case "recaps": content = <RecapsPage />; break;
     case "gallery": content = <GalleryPage />; break;
     case "social-graphics": content = <SocialGraphicsPage />; break;
+    case "portal": content = <PlayerPortalPage nav={nav} user={user} />; break;
     case "login": content = <LoginPage nav={nav} setUser={setUser} />; break;
     case "new-site": content = <NewSitePage nav={nav} adminNewsletters={newsletters} navArticle={navArticle} />; break;
     case "ns-article":
