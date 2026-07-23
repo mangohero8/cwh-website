@@ -4019,6 +4019,97 @@ function PlayerPortalPage({nav, user}) {
 }
 
 /* --- LOGIN PAGE (OKTA STAGING) --- */
+
+/* --- COACH PORTAL (REAL DATA) --- */
+function CoachPortalPage({nav}) {
+  var sd = useState(null); var schedule = sd[0]; var setSchedule = sd[1];
+  var at = useState(null); var attendance = at[0]; var setAttendance = at[1];
+  var lb = useState(null); var board = lb[0]; var setBoard = lb[1];
+  var sc = useState(null); var statsC = sc[0]; var setStatsC = sc[1];
+  var scd = useState(null); var statsD = scd[0]; var setStatsD = scd[1];
+  var rc = useState(null); var rosterC = rc[0]; var setRosterC = rc[1];
+  var rd = useState(null); var rosterD = rd[0]; var setRosterD = rd[1];
+  var tab = useState("c"); var activeTab = tab[0]; var setTab = tab[1];
+  useEffect(function() {
+    fetch("/data/schedule.json").then(function(r){return r.json()}).then(setSchedule);
+    fetch("/data/attendance.json").then(function(r){return r.json()}).then(setAttendance);
+    fetch("/data/leaderboard.json").then(function(r){return r.json()}).then(setBoard);
+    fetch("/data/stats-cahl-c.json").then(function(r){return r.json()}).then(setStatsC);
+    fetch("/data/stats-cahl-d.json").then(function(r){return r.json()}).then(setStatsD);
+    fetch("/data/roster-cahl-c.json").then(function(r){return r.json()}).then(setRosterC);
+    fetch("/data/roster-cahl-d.json").then(function(r){return r.json()}).then(setRosterD);
+  }, []);
+  var stats = activeTab==="c" ? statsC : statsD;
+  var roster = activeTab==="c" ? rosterC : rosterD;
+  var upcoming=[];
+  if(schedule){schedule.games.forEach(function(g){if(!g.score||!g.score.trim()){var isTeam=activeTab==="c"?(g.team&&g.team.indexOf("CSC")>=0):(g.team&&g.team.indexOf("DWB")>=0);if(isTeam)upcoming.push(g)}});upcoming.sort(function(a,b){var mo={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};var pa=a.date.split(" ");var pb=b.date.split(" ");return new Date(2026,mo[pa[0]]||0,parseInt(pa[1])||1)-new Date(2026,mo[pb[0]]||0,parseInt(pb[1])||1)})}
+  var nextGame=null;
+  if(attendance){for(var i=0;i<attendance.games.length;i++){var ag=attendance.games[i];var isTeam=activeTab==="c"?ag.game.indexOf("CAHL C")>=0:ag.game.indexOf("CAHL D")>=0;if(isTeam&&(ag.yes>0||ag.maybe>0||ag.noResponse>0)){nextGame=ag;break}}}
+  var cs={background:C.w,borderRadius:12,border:"1px solid "+C.g2,overflow:"hidden"};
+  var tabBtn=function(id,label){return <button onClick={function(){setTab(id)}} style={{padding:"8px 24px",fontFamily:F.h,fontSize:16,textTransform:"uppercase",letterSpacing:2,background:activeTab===id?C.navy:"transparent",color:activeTab===id?C.w:C.navy,border:"1px solid "+C.navy,borderRadius:4,cursor:"pointer"}}>{label}</button>};
+  return <PageWrap title="Coach Portal" sub="Roster management, lineup, and team stats">
+    <div style={{display:"flex",gap:8,marginBottom:24}}>{tabBtn("c","CAHL C")}{tabBtn("d","CAHL D")}</div>
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(130px,1fr))",gap:12,marginBottom:24}}>
+      {[{label:"Roster Size",value:roster?roster.players.length:0,color:C.navy},{label:"Forwards",value:stats?(stats.forwards||[]).length:0,color:"#16a34a"},{label:"Defense",value:stats?(stats.defense||[]).length:0,color:"#2563eb"},{label:"Goalies",value:stats?(stats.goalies||[]).length:0,color:C.red},{label:"Upcoming Games",value:upcoming.length,color:C.olive}].map(function(s,i){return <div key={i} style={{background:s.color,borderRadius:8,padding:"12px 16px",textAlign:"center"}}><div style={{fontFamily:F.h,fontSize:24,color:C.w}}>{s.value}</div><div style={{fontFamily:F.b,fontSize:10,color:"rgba(255,255,255,0.7)",letterSpacing:1,textTransform:"uppercase",marginTop:2}}>{s.label}</div></div>})}
+    </div>
+    {nextGame&&<div style={{...cs,marginBottom:24}}><div style={{background:C.red,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Next Game RSVP — {nextGame.game}</span></div><div style={{padding:16}}><div style={{display:"flex",gap:8,marginBottom:12}}><span style={{background:"#dcfce7",color:"#166534",padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>YES {nextGame.yes}</span><span style={{background:"#fef3c7",color:"#92400e",padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>MAYBE {nextGame.maybe}</span><span style={{background:"#fee2e2",color:"#991b1b",padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>NO {nextGame.no}</span><span style={{background:C.g1,color:C.g4,padding:"4px 12px",borderRadius:12,fontFamily:F.b,fontSize:12,fontWeight:700}}>PENDING {nextGame.noResponse}</span></div><div style={{display:"flex",gap:8}}><button onClick={function(){nav("lineup")}} style={{background:C.navy,border:"none",borderRadius:6,padding:"8px 16px",fontFamily:F.b,fontSize:12,color:C.w,fontWeight:600,cursor:"pointer"}}>View Lineup</button><a href="https://columbuswarriorhockey.monday.com/boards/18415594839" target="_blank" rel="noopener noreferrer" style={{background:C.olive,border:"none",borderRadius:6,padding:"8px 16px",fontFamily:F.b,fontSize:12,color:C.w,fontWeight:600,cursor:"pointer",textDecoration:"none"}}>Edit in Monday.com</a></div></div></div>}
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:20,marginBottom:24}}>
+      <div style={cs}><div style={{background:C.navy,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Roster</span></div><div style={{padding:0}}><table style={{width:"100%",borderCollapse:"collapse",fontFamily:F.b,fontSize:13}}><thead><tr style={{background:C.g1}}><th style={{padding:"8px 12px",textAlign:"left",fontWeight:600,color:C.navy}}>Player</th><th style={{padding:"8px 12px",textAlign:"center",fontWeight:600,color:C.navy}}>#</th><th style={{padding:"8px 12px",textAlign:"center",fontWeight:600,color:C.navy}}>Pos</th><th style={{padding:"8px 12px",textAlign:"center",fontWeight:600,color:C.navy}}>GP</th><th style={{padding:"8px 12px",textAlign:"center",fontWeight:600,color:C.navy}}>G</th><th style={{padding:"8px 12px",textAlign:"center",fontWeight:600,color:C.navy}}>A</th><th style={{padding:"8px 12px",textAlign:"center",fontWeight:600,color:C.navy}}>PTS</th></tr></thead><tbody>{stats?["forwards","defense","goalies","unassigned"].map(function(sec){return(stats[sec]||[]).map(function(p,i){return <tr key={sec+i} style={{borderBottom:"1px solid "+C.g1}}><td style={{padding:"6px 12px",fontWeight:600,color:C.navy}}>{p.name}</td><td style={{padding:"6px 12px",textAlign:"center",color:C.g4}}>{p.jersey||""}</td><td style={{padding:"6px 12px",textAlign:"center",color:C.g4}}>{p.pos||""}</td><td style={{padding:"6px 12px",textAlign:"center"}}>{p.gp||0}</td><td style={{padding:"6px 12px",textAlign:"center"}}>{p.g||0}</td><td style={{padding:"6px 12px",textAlign:"center"}}>{p.a||0}</td><td style={{padding:"6px 12px",textAlign:"center",fontWeight:600}}>{p.pts||0}</td></tr>})}):null}</tbody></table></div></div>
+      <div style={cs}><div style={{background:C.olive,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Upcoming Schedule</span></div><div style={{padding:16}}>{upcoming.slice(0,6).map(function(g,i){var isH=g.homeAway==="Home";return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:i<5?"1px solid "+C.g1:"none"}}><div><div style={{fontFamily:F.b,fontSize:14,fontWeight:600,color:C.navy}}>{g.opponent}</div><div style={{fontFamily:F.b,fontSize:12,color:C.g4}}>{g.location}</div></div><div style={{textAlign:"right"}}><div style={{fontFamily:F.h,fontSize:16,color:C.navy}}>{g.date}</div><div style={{fontFamily:F.b,fontSize:12,color:C.g4}}>{g.time}</div><span style={{display:"inline-block",padding:"2px 8px",borderRadius:10,fontSize:10,fontFamily:F.b,fontWeight:700,marginTop:2,background:isH?"#dcfce7":"#fee2e2",color:isH?"#166534":"#991b1b"}}>{isH?"HOME":"AWAY"}</span></div></div>})}{upcoming.length===0&&<p style={{fontFamily:F.b,fontSize:13,color:C.g4,textAlign:"center",padding:20}}>No upcoming games</p>}</div></div>
+    </div>
+    <div style={{display:"flex",gap:8,flexWrap:"wrap"}}><button onClick={function(){nav("lineup")}} style={{padding:"10px 20px",fontFamily:F.h,fontSize:14,textTransform:"uppercase",letterSpacing:2,background:C.navy,color:C.w,border:"none",borderRadius:4,cursor:"pointer"}}>Lineup</button><button onClick={function(){nav("leaderboard")}} style={{padding:"10px 20px",fontFamily:F.h,fontSize:14,textTransform:"uppercase",letterSpacing:2,background:C.olive,color:C.w,border:"none",borderRadius:4,cursor:"pointer"}}>Leaderboard</button><button onClick={function(){nav("social-graphics")}} style={{padding:"10px 20px",fontFamily:F.h,fontSize:14,textTransform:"uppercase",letterSpacing:2,background:"#6366f1",color:C.w,border:"none",borderRadius:4,cursor:"pointer"}}>Social Graphics</button></div>
+  </PageWrap>;
+}
+
+/* --- ADMIN PORTAL (REAL DATA) --- */
+function AdminPortalPage({nav}) {
+  var sd = useState(null); var schedule = sd[0]; var setSchedule = sd[1];
+  var at = useState(null); var attendance = at[0]; var setAttendance = at[1];
+  var lb = useState(null); var board = lb[0]; var setBoard = lb[1];
+  var ld = useState(null); var leadership = ld[0]; var setLeadership = ld[1];
+  var ns = useState(null); var news = ns[0]; var setNews = ns[1];
+  var ev = useState(null); var events = ev[0]; var setEvents = ev[1];
+  var rc = useState(null); var rosterC = rc[0]; var setRosterC = rc[1];
+  var rd = useState(null); var rosterD = rd[0]; var setRosterD = rd[1];
+  useEffect(function() {
+    fetch("/data/schedule.json").then(function(r){return r.json()}).then(setSchedule);
+    fetch("/data/attendance.json").then(function(r){return r.json()}).then(setAttendance);
+    fetch("/data/leaderboard.json").then(function(r){return r.json()}).then(setBoard);
+    fetch("/data/leadership.json").then(function(r){return r.json()}).then(setLeadership);
+    fetch("/data/news.json").then(function(r){return r.json()}).then(setNews);
+    fetch("/data/events.json").then(function(r){return r.json()}).then(setEvents);
+    fetch("/data/roster-cahl-c.json").then(function(r){return r.json()}).then(setRosterC);
+    fetch("/data/roster-cahl-d.json").then(function(r){return r.json()}).then(setRosterD);
+  }, []);
+  var totalPlayers=(rosterC?rosterC.players.length:0)+(rosterD?rosterD.players.length:0);
+  var totalGames=schedule?schedule.games.length:0;
+  var played=0;var wins=0;var losses=0;
+  if(schedule){schedule.games.forEach(function(g){if(g.score&&g.score.trim()){played++;if(g.result&&g.result.toUpperCase()==="W")wins++;else if(g.result&&g.result.toUpperCase()==="L")losses++}})}
+  var remaining=totalGames-played;
+  var boardMembers=0;var vacancies=0;
+  if(leadership){leadership.sections.forEach(function(s){s.members.forEach(function(m){if(m.name==="Vacant")vacancies++;else boardMembers++})})}
+  var newsCount=news?news.articles?news.articles.length:0:0;
+  var eventCount=events?events.events?events.events.length:0:0;
+  var gamesWithRsvp=0;
+  if(attendance){attendance.games.forEach(function(g){if(g.yes>0||g.maybe>0)gamesWithRsvp++})}
+  var cs={background:C.w,borderRadius:12,border:"1px solid "+C.g2,overflow:"hidden"};
+  var link=function(label,url,color){return <a href={url} target="_blank" rel="noopener noreferrer" style={{display:"block",padding:"12px 16px",borderBottom:"1px solid "+C.g1,fontFamily:F.b,fontSize:13,color:C.navy,textDecoration:"none",fontWeight:600,borderLeft:"3px solid "+(color||C.navy)}}>{label}<span style={{float:"right",color:C.g4,fontWeight:400}}>&#8599;</span></a>};
+  return <PageWrap title="Admin Portal" sub="Organization overview and management tools">
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(120px,1fr))",gap:12,marginBottom:28}}>
+      {[{label:"Total Athletes",value:totalPlayers,color:C.navy},{label:"Games Played",value:played,color:C.olive},{label:"Wins",value:wins,color:"#16a34a"},{label:"Losses",value:losses,color:C.red},{label:"Remaining",value:remaining,color:"#6366f1"},{label:"Board Members",value:boardMembers,color:"#c8a84e"},{label:"Vacancies",value:vacancies,color:C.g4},{label:"RSVPs Active",value:gamesWithRsvp,color:"#0891b2"}].map(function(s,i){return <div key={i} style={{background:s.color,borderRadius:8,padding:"12px 14px",textAlign:"center"}}><div style={{fontFamily:F.h,fontSize:24,color:C.w}}>{s.value}</div><div style={{fontFamily:F.b,fontSize:9,color:"rgba(255,255,255,0.7)",letterSpacing:1,textTransform:"uppercase",marginTop:2}}>{s.label}</div></div>})}
+    </div>
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:20,marginBottom:24}}>
+      <div style={cs}><div style={{background:C.navy,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Monday.com Boards</span></div><div style={{padding:0}}>{link("Game Attendance","https://columbuswarriorhockey.monday.com/boards/18415594839",C.red)}{link("News","https://columbuswarriorhockey.monday.com/boards/18415137335","#16a34a")}{link("Events","https://columbuswarriorhockey.monday.com/boards/18415137408","#2563eb")}{link("Leadership","https://columbuswarriorhockey.monday.com/boards/18415598506","#c8a84e")}{link("Player Onboarding","https://columbuswarriorhockey.monday.com/boards/18414643412",C.olive)}</div></div>
+      <div style={cs}><div style={{background:C.olive,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Quick Actions</span></div><div style={{padding:16,display:"flex",flexDirection:"column",gap:8}}><button onClick={function(){nav("lineup")}} style={{padding:"10px 16px",fontFamily:F.b,fontSize:13,fontWeight:600,background:C.navy,color:C.w,border:"none",borderRadius:6,cursor:"pointer",textAlign:"left"}}>View Game Lineups</button><button onClick={function(){nav("social-graphics")}} style={{padding:"10px 16px",fontFamily:F.b,fontSize:13,fontWeight:600,background:"#6366f1",color:C.w,border:"none",borderRadius:6,cursor:"pointer",textAlign:"left"}}>Social Media Graphics</button><button onClick={function(){nav("leaderboard")}} style={{padding:"10px 16px",fontFamily:F.b,fontSize:13,fontWeight:600,background:C.olive,color:C.w,border:"none",borderRadius:6,cursor:"pointer",textAlign:"left"}}>Season Leaderboard</button><button onClick={function(){nav("coach-portal")}} style={{padding:"10px 16px",fontFamily:F.b,fontSize:13,fontWeight:600,background:C.red,color:C.w,border:"none",borderRadius:6,cursor:"pointer",textAlign:"left"}}>Coach Portal</button><button onClick={function(){nav("portal")}} style={{padding:"10px 16px",fontFamily:F.b,fontSize:13,fontWeight:600,background:"#0891b2",color:C.w,border:"none",borderRadius:6,cursor:"pointer",textAlign:"left"}}>Player Portal</button></div></div>
+    </div>
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:20,marginBottom:24}}>
+      <div style={cs}><div style={{background:"#c8a84e",padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Leadership</span></div><div style={{padding:16}}>{leadership&&leadership.sections?leadership.sections.map(function(sec,si){return <div key={si} style={{marginBottom:si<leadership.sections.length-1?16:0}}><div style={{fontFamily:F.h,fontSize:14,color:C.navy,textTransform:"uppercase",letterSpacing:2,marginBottom:8,borderBottom:"1px solid "+C.g1,paddingBottom:4}}>{sec.section}</div>{sec.members.map(function(m,mi){var vacant=m.name==="Vacant";return <div key={mi} style={{display:"flex",justifyContent:"space-between",padding:"4px 0",fontFamily:F.b,fontSize:13}}><span style={{color:vacant?C.g4:C.navy,fontWeight:vacant?400:600}}>{vacant?"Vacant":m.name}</span><span style={{color:C.g4,fontSize:12}}>{m.title}</span></div>})}</div>}):null}<div style={{marginTop:12}}><a href="https://columbuswarriorhockey.monday.com/boards/18415598506" target="_blank" rel="noopener noreferrer" style={{fontFamily:F.b,fontSize:12,color:C.navy,fontWeight:600}}>Edit in Monday.com &#8599;</a></div></div></div>
+      <div style={cs}><div style={{background:C.red,padding:"12px 20px"}}><span style={{fontFamily:F.h,fontSize:18,color:C.w,textTransform:"uppercase",letterSpacing:2}}>Season Overview</span></div><div style={{padding:16}}><div style={{display:"flex",gap:20,marginBottom:16}}><div style={{flex:1,textAlign:"center",padding:12,background:C.g1,borderRadius:8}}><div style={{fontFamily:F.h,fontSize:28,color:C.navy}}>{wins}-{losses}</div><div style={{fontFamily:F.b,fontSize:11,color:C.g4,textTransform:"uppercase"}}>Overall Record</div></div><div style={{flex:1,textAlign:"center",padding:12,background:C.g1,borderRadius:8}}><div style={{fontFamily:F.h,fontSize:28,color:C.navy}}>{totalGames}</div><div style={{fontFamily:F.b,fontSize:11,color:C.g4,textTransform:"uppercase"}}>Total Games</div></div></div><div style={{display:"flex",gap:20}}><div style={{flex:1,textAlign:"center",padding:12,background:C.g1,borderRadius:8}}><div style={{fontFamily:F.h,fontSize:28,color:C.navy}}>{newsCount}</div><div style={{fontFamily:F.b,fontSize:11,color:C.g4,textTransform:"uppercase"}}>News Articles</div></div><div style={{flex:1,textAlign:"center",padding:12,background:C.g1,borderRadius:8}}><div style={{fontFamily:F.h,fontSize:28,color:C.navy}}>{eventCount}</div><div style={{fontFamily:F.b,fontSize:11,color:C.g4,textTransform:"uppercase"}}>Events</div></div></div></div></div>
+    </div>
+    <div style={{display:"flex",gap:8,flexWrap:"wrap"}}><Btn href="https://columbuswarriorhockey.monday.com" v="navy">Monday.com</Btn><Btn href="https://dash.cloudflare.com" v="olive">Cloudflare</Btn><Btn href="https://github.com/mangohero8/cwh-website" v="red">GitHub</Btn></div>
+  </PageWrap>;
+}
+
 function LoginPage({nav, setUser}) {
   var em = useState(""); var email = em[0]; var setEmail = em[1];
   var pw = useState(""); var pass = pw[0]; var setPass = pw[1];
@@ -4110,6 +4201,8 @@ export default function CWHSite() {
     case "recaps": content = <RecapsPage />; break;
     case "gallery": content = <GalleryPage />; break;
     case "social-graphics": content = <SocialGraphicsPage />; break;
+    case "coach-portal": content = <CoachPortalPage nav={nav} />; break;
+    case "admin-portal": content = <AdminPortalPage nav={nav} />; break;
     case "portal": content = <PlayerPortalPage nav={nav} user={user} />; break;
     case "login": content = <LoginPage nav={nav} setUser={setUser} />; break;
     case "new-site": content = <NewSitePage nav={nav} adminNewsletters={newsletters} navArticle={navArticle} />; break;
