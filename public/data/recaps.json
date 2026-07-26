@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-26T22:00:03.466596Z",
+  "updated": "2026-07-26T22:30:03.456410Z",
   "recaps": [
     {
       "date": "May 17",
@@ -130,6 +130,19 @@
       "theirScore": 2,
       "headline": "Warriors Dominate Lucky Pucks",
       "summary": "A commanding 5-2 victory over Lucky Pucks."
+    },
+    {
+      "date": "Jul 26",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "opponent": "Healthy Scratches",
+      "location": "Chiller North - Rink 1",
+      "homeAway": "Away",
+      "score": "1 - 1",
+      "result": "~",
+      "ourScore": 1,
+      "theirScore": 1,
+      "headline": "Warriors Come Up Short Against Healthy Scratches",
+      "summary": "A 1-1 loss to Healthy Scratches."
     },
     {
       "date": "May 11",
