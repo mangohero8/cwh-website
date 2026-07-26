@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-07-26T23:00:02.007595Z",
+  "updated": "2026-07-26T23:30:01.938453Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -118,6 +118,16 @@
       "pim": 2
     },
     {
+      "jersey": "10",
+      "name": "John Hopkinson",
+      "pos": "Center",
+      "gp": 8,
+      "g": 2,
+      "a": 3,
+      "pts": 5,
+      "pim": 0
+    },
+    {
       "jersey": "12",
       "name": "Will Sullivan",
       "pos": "Center",
@@ -126,16 +136,6 @@
       "a": 1,
       "pts": 4,
       "pim": 4
-    },
-    {
-      "jersey": "10",
-      "name": "John Hopkinson",
-      "pos": "Center",
-      "gp": 8,
-      "g": 2,
-      "a": 2,
-      "pts": 4,
-      "pim": 0
     },
     {
       "jersey": "88",
@@ -224,9 +224,9 @@
       "name": "TJ Nocar",
       "pos": "Defense",
       "gp": 5,
-      "g": 1,
+      "g": 2,
       "a": 1,
-      "pts": 2,
+      "pts": 3,
       "pim": 0
     },
     {

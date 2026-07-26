@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-26T23:00:03.332267Z",
+  "updated": "2026-07-26T23:30:03.122539Z",
   "playerOfTheWeek": {
     "name": "Douglas Hoyt",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -46,6 +46,17 @@
       "pim": 2
     },
     {
+      "name": "John Hopkinson",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "10",
+      "pos": "Center",
+      "gp": 8,
+      "g": 2,
+      "a": 3,
+      "pts": 5,
+      "pim": 0
+    },
+    {
       "name": "Allen Gambrel",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "97",
@@ -66,17 +77,6 @@
       "a": 1,
       "pts": 4,
       "pim": 4
-    },
-    {
-      "name": "John Hopkinson",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "10",
-      "pos": "Center",
-      "gp": 8,
-      "g": 2,
-      "a": 2,
-      "pts": 4,
-      "pim": 0
     },
     {
       "name": "Brandon Lorenz",
@@ -197,8 +197,8 @@
       "pos": "Center",
       "gp": 8,
       "g": 2,
-      "a": 2,
-      "pts": 4,
+      "a": 3,
+      "pts": 5,
       "pim": 0
     },
     {
@@ -237,6 +237,17 @@
   ],
   "topAssists": [
     {
+      "name": "John Hopkinson",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "10",
+      "pos": "Center",
+      "gp": 8,
+      "g": 2,
+      "a": 3,
+      "pts": 5,
+      "pim": 0
+    },
+    {
       "name": "Douglas Hoyt",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "6",
@@ -257,17 +268,6 @@
       "a": 2,
       "pts": 6,
       "pim": 2
-    },
-    {
-      "name": "John Hopkinson",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "10",
-      "pos": "Center",
-      "gp": 8,
-      "g": 2,
-      "a": 2,
-      "pts": 4,
-      "pim": 0
     },
     {
       "name": "Brandon Lorenz",
