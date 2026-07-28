@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-28T01:00:03.829962Z",
+  "updated": "2026-07-28T01:30:03.615768Z",
   "playerOfTheWeek": {
     "name": "Douglas Hoyt",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -94,7 +94,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "92",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 3,
       "a": 0,
       "pts": 3,
@@ -184,7 +184,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "92",
       "pos": "Wing",
-      "gp": 2,
+      "gp": 3,
       "g": 3,
       "a": 0,
       "pts": 3,
@@ -285,7 +285,7 @@
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "0",
       "pos": "Defense",
-      "gp": 8,
+      "gp": 9,
       "g": 1,
       "a": 2,
       "pts": 3,
