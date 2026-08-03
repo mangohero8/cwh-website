@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-08-03T03:00:02.655148Z",
+  "updated": "2026-08-03T03:30:02.684794Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -267,10 +267,10 @@
       "pos": "Goalie",
       "gp": 8,
       "w": 2,
-      "l": 3,
+      "l": 4,
       "otl": 2,
-      "ga": 21,
-      "gaa": "2.6"
+      "ga": 22,
+      "gaa": "2.8"
     },
     {
       "jersey": "0",

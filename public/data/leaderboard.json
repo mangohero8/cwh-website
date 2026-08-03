@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-03T03:00:04.041333Z",
+  "updated": "2026-08-03T03:30:04.143243Z",
   "playerOfTheWeek": {
     "name": "Douglas Hoyt",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -416,16 +416,6 @@
       "ga": 3
     },
     {
-      "name": "Michael Bennett",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "50",
-      "gp": 8,
-      "w": 2,
-      "l": 3,
-      "gaa": "2.6",
-      "ga": 21
-    },
-    {
       "name": "Will Sullivan",
       "team": "CAHL D - Columbus Warriors DWB",
       "jersey": "12",
@@ -434,6 +424,16 @@
       "l": 1,
       "gaa": "2.7",
       "ga": 8
+    },
+    {
+      "name": "Michael Bennett",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "50",
+      "gp": 8,
+      "w": 2,
+      "l": 4,
+      "gaa": "2.8",
+      "ga": 22
     },
     {
       "name": "TJ Nocar",
