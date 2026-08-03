@@ -1,7 +1,7 @@
 {
   "team": "CAHL C - Columbus Warriors CSC",
   "season": "Summer 2026",
-  "updated": "2026-08-03T02:30:02.240038Z",
+  "updated": "2026-08-03T03:00:02.655148Z",
   "source": "chillerstats.com",
   "teamId": "B1ECD637-9E6B-6275-659DF391B958D92F",
   "unassigned": [
@@ -11,8 +11,8 @@
       "pos": "",
       "gp": 4,
       "g": 1,
-      "a": 2,
-      "pts": 3,
+      "a": 3,
+      "pts": 4,
       "pim": 0
     },
     {
@@ -145,7 +145,7 @@
       "g": 2,
       "a": 2,
       "pts": 4,
-      "pim": 8
+      "pim": 22
     },
     {
       "jersey": "1",
@@ -155,7 +155,7 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 2
+      "pim": 4
     },
     {
       "jersey": "68",
@@ -168,18 +168,18 @@
       "pim": 0
     },
     {
-      "jersey": "18",
-      "name": "John Poffenberger",
+      "jersey": "44",
+      "name": "Samuel Stanley",
       "pos": "Wing",
       "gp": 8,
-      "g": 1,
+      "g": 2,
       "a": 1,
-      "pts": 2,
+      "pts": 3,
       "pim": 0
     },
     {
-      "jersey": "44",
-      "name": "Samuel Stanley",
+      "jersey": "18",
+      "name": "John Poffenberger",
       "pos": "Wing",
       "gp": 8,
       "g": 1,
@@ -227,7 +227,7 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 0
+      "pim": 2
     },
     {
       "jersey": "37",
@@ -269,8 +269,8 @@
       "w": 2,
       "l": 3,
       "otl": 2,
-      "ga": 20,
-      "gaa": "2.5"
+      "ga": 21,
+      "gaa": "2.6"
     },
     {
       "jersey": "0",

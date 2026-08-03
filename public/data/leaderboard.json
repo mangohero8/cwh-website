@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-03T02:30:03.543011Z",
+  "updated": "2026-08-03T03:00:04.041333Z",
   "playerOfTheWeek": {
     "name": "Douglas Hoyt",
     "team": "CAHL C - Columbus Warriors CSC",
@@ -98,7 +98,7 @@
       "g": 2,
       "a": 2,
       "pts": 4,
-      "pim": 8
+      "pim": 22
     },
     {
       "name": "Luke Marshall",
@@ -112,15 +112,15 @@
       "pim": 4
     },
     {
-      "name": "Matt Chamblin",
+      "name": "Gerald Fedorko",
       "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "1",
-      "pos": "Wing",
-      "gp": 9,
-      "g": 2,
-      "a": 1,
-      "pts": 3,
-      "pim": 2
+      "jersey": "21",
+      "pos": "",
+      "gp": 4,
+      "g": 1,
+      "a": 3,
+      "pts": 4,
+      "pim": 0
     }
   ],
   "topGoals": [
@@ -210,7 +210,7 @@
       "g": 2,
       "a": 2,
       "pts": 4,
-      "pim": 8
+      "pim": 22
     },
     {
       "name": "Matt Chamblin",
@@ -221,7 +221,7 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 2
+      "pim": 4
     },
     {
       "name": "Brent McCreedy",
@@ -259,6 +259,17 @@
       "pim": 4
     },
     {
+      "name": "Gerald Fedorko",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "21",
+      "pos": "",
+      "gp": 4,
+      "g": 1,
+      "a": 3,
+      "pts": 4,
+      "pim": 0
+    },
+    {
       "name": "Jaymes Albright",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "55",
@@ -289,18 +300,7 @@
       "g": 2,
       "a": 2,
       "pts": 4,
-      "pim": 8
-    },
-    {
-      "name": "Gerald Fedorko",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "21",
-      "pos": "",
-      "gp": 4,
-      "g": 1,
-      "a": 2,
-      "pts": 3,
-      "pim": 0
+      "pim": 22
     },
     {
       "name": "Luke Marshall",
@@ -322,7 +322,7 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 2
+      "pim": 4
     },
     {
       "name": "Brent McCreedy",
@@ -336,18 +336,29 @@
       "pim": 0
     },
     {
-      "name": "John Poffenberger",
+      "name": "Samuel Stanley",
       "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "18",
+      "jersey": "44",
       "pos": "Wing",
       "gp": 8,
-      "g": 1,
+      "g": 2,
       "a": 1,
-      "pts": 2,
+      "pts": 3,
       "pim": 0
     }
   ],
   "topPIM": [
+    {
+      "name": "Brandon Lorenz",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "88",
+      "pos": "Wing",
+      "gp": 9,
+      "g": 2,
+      "a": 2,
+      "pts": 4,
+      "pim": 22
+    },
     {
       "name": "Eric Rohr",
       "team": "CAHL C - Columbus Warriors CSC",
@@ -358,17 +369,6 @@
       "a": 1,
       "pts": 2,
       "pim": 10
-    },
-    {
-      "name": "Brandon Lorenz",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "88",
-      "pos": "Wing",
-      "gp": 9,
-      "g": 2,
-      "a": 2,
-      "pts": 4,
-      "pim": 8
     },
     {
       "name": "Will Sullivan",
@@ -382,6 +382,17 @@
       "pim": 4
     },
     {
+      "name": "Matt Chamblin",
+      "team": "CAHL C - Columbus Warriors CSC",
+      "jersey": "1",
+      "pos": "Wing",
+      "gp": 9,
+      "g": 2,
+      "a": 1,
+      "pts": 3,
+      "pim": 4
+    },
+    {
       "name": "Douglas Hoyt",
       "team": "CAHL C - Columbus Warriors CSC",
       "jersey": "6",
@@ -390,17 +401,6 @@
       "g": 5,
       "a": 3,
       "pts": 8,
-      "pim": 4
-    },
-    {
-      "name": "Steven Bowman",
-      "team": "CAHL C - Columbus Warriors CSC",
-      "jersey": "2",
-      "pos": "Defense",
-      "gp": 2,
-      "g": 1,
-      "a": 0,
-      "pts": 1,
       "pim": 4
     }
   ],
@@ -422,8 +422,8 @@
       "gp": 8,
       "w": 2,
       "l": 3,
-      "gaa": "2.5",
-      "ga": 20
+      "gaa": "2.6",
+      "ga": 21
     },
     {
       "name": "Will Sullivan",
