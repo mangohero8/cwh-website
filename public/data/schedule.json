@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-04T00:30:03.896995Z",
+  "updated": "2026-08-04T01:00:03.641819Z",
   "games": [
     {
       "team": "CAHL C - Columbus Warriors CSC",
@@ -238,8 +238,8 @@
       "opponent": "Red Knights",
       "location": "OhioHealth Ice Haus - Main Ice",
       "homeAway": "Home",
-      "score": "",
-      "result": ""
+      "score": "0 - 1",
+      "result": "~"
     }
   ]
 }

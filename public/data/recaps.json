@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-04T00:30:03.898914Z",
+  "updated": "2026-08-04T01:00:03.643678Z",
   "recaps": [
     {
       "date": "May 17",
@@ -299,6 +299,19 @@
       "theirScore": 6,
       "headline": "Warriors Fall to Wannabees",
       "summary": "A tough 6-3 loss against Wannabees."
+    },
+    {
+      "date": "Aug 3",
+      "team": "CAHL D - Columbus Warriors DWB",
+      "opponent": "Red Knights",
+      "location": "OhioHealth Ice Haus - Main Ice",
+      "homeAway": "Home",
+      "score": "0 - 1",
+      "result": "~",
+      "ourScore": 0,
+      "theirScore": 1,
+      "headline": "Warriors Drop Close One to Red Knights",
+      "summary": "A narrow 1-0 defeat against Red Knights."
     }
   ]
 }
