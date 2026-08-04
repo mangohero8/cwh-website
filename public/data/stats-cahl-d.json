@@ -1,7 +1,7 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-08-04T01:30:02.882149Z",
+  "updated": "2026-08-04T02:00:02.999939Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
@@ -297,11 +297,11 @@
       "name": "TJ Nocar",
       "pos": "Goalie",
       "gp": 6,
-      "w": 3,
-      "l": 3,
+      "w": 2,
+      "l": 4,
       "otl": 0,
-      "ga": 26,
-      "gaa": "4.3"
+      "ga": 28,
+      "gaa": "4.7"
     },
     {
       "jersey": "12",
