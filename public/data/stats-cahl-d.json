@@ -1,10 +1,20 @@
 {
   "team": "CAHL D - Columbus Warriors DWB",
   "season": "Summer 2026",
-  "updated": "2026-08-04T01:00:03.210678Z",
+  "updated": "2026-08-04T01:30:02.882149Z",
   "source": "chillerstats.com",
   "teamId": "B1F33283-0A80-D7BD-258CF29CE5E30FAA",
   "unassigned": [
+    {
+      "jersey": "0",
+      "name": "Quentin Handley",
+      "pos": "",
+      "gp": 1,
+      "g": 2,
+      "a": 0,
+      "pts": 2,
+      "pim": 0
+    },
     {
       "jersey": "0",
       "name": "James Benedetto",
@@ -87,16 +97,6 @@
     },
     {
       "jersey": "0",
-      "name": "Quentin Handley",
-      "pos": "",
-      "gp": 1,
-      "g": 0,
-      "a": 0,
-      "pts": 0,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
       "name": "Joseph Hohman",
       "pos": "",
       "gp": 0,
@@ -168,6 +168,16 @@
       "pim": 0
     },
     {
+      "jersey": "0",
+      "name": "Keith Kriesberg",
+      "pos": "Wing",
+      "gp": 5,
+      "g": 2,
+      "a": 1,
+      "pts": 3,
+      "pim": 0
+    },
+    {
       "jersey": "14",
       "name": "Lydia Stroul",
       "pos": "Wing",
@@ -175,16 +185,6 @@
       "g": 2,
       "a": 1,
       "pts": 3,
-      "pim": 0
-    },
-    {
-      "jersey": "0",
-      "name": "Keith Kriesberg",
-      "pos": "Wing",
-      "gp": 5,
-      "g": 2,
-      "a": 0,
-      "pts": 2,
       "pim": 0
     },
     {
@@ -297,8 +297,8 @@
       "name": "TJ Nocar",
       "pos": "Goalie",
       "gp": 6,
-      "w": 2,
-      "l": 4,
+      "w": 3,
+      "l": 3,
       "otl": 0,
       "ga": 26,
       "gaa": "4.3"
@@ -317,11 +317,6 @@
   ],
   "stickAndPuck": [
     {
-      "rink": "Ice Works",
-      "date": "Monday, August 3",
-      "time": "8:20 PM"
-    },
-    {
       "rink": "Dublin 1",
       "date": "Tuesday, August 4",
       "time": "12:20 PM"
@@ -330,6 +325,11 @@
       "rink": "Dublin 1",
       "date": "Wednesday, August 5",
       "time": "12:20 PM"
+    },
+    {
+      "rink": "North 3",
+      "date": "Thursday, August 6",
+      "time": "11:30 AM"
     }
   ],
   "dropIn": [
